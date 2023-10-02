@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id         String      @id @default(uuid())
+  userId     String      @unique
+  name       String
+  imageUrl   String      @db.Text
+  email      String      @db.Text
+  token      String      @default(uuid())
+  assistants Assistant[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  expires DateTime @default(dbgenerated("ADDDATE(now(), 3)"))
+}
+
+model Assistant {
+  id        String  @id @default(uuid())
+  name      String
+  settings  String  @db.Text
+  use_count Int     @default(0)
+  comment   String  @db.Text
+  token     String  @default(uuid())
+  imageUrl  String  @db.Text
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+}
