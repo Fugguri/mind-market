@@ -1,5 +1,3 @@
-import { Assistant } from '.prisma/client';
-import { error } from 'console';
 import { currentProfile } from "@/lib/current-profile";
 import { v4 as uuidv4 } from 'uuid';
 import { db } from "@/lib/db";

@@ -3,16 +3,17 @@
 import axios from "axios"
 import * as z from "zod"
 import { useForm } from "react-hook-form"
+import { useRouter } from "next/navigation"
+import { zodResolver } from "@hookform/resolvers/zod"
+
 import { Form, 
     FormControl, 
     FormField,
     FormItem,
     FormLabel,
     FormMessage } from "../ui/form"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { zodResolver } from "@hookform/resolvers/zod"
+
+    
 import { Dialog,
     DialogTitle,
     DialogContent,
@@ -20,8 +21,10 @@ import { Dialog,
     DialogHeader,
     DialogDescription, } from "@/components/ui/dialog"
 
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 import { FileUpload } from "@/components/file-upload"
-import { useRouter } from "next/navigation"
 import { useModal } from "@/hooks/use-modal-store"
 
 
@@ -43,11 +46,12 @@ const formSchema = z.object({
 
 
 export const CreateAssistantModal = () => {
+    
     const { isOpen, onClose, type} = useModal()
-
+    
     const router = useRouter();
-
-    const isModalOpen = isOpen && type==="createServer"
+    
+    const isModalOpen = isOpen && type === "createServer";
 
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -57,30 +61,33 @@ export const CreateAssistantModal = () => {
             comment: "",
             imageUrl: ""
         }
-
+        
     })
-
+    
     const isLoading = form.formState.isSubmitting;
-
+    
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             await axios.post("/api/assistants",values)
             form.reset();
             router.refresh();
+            
         } catch(error) {
             
             console.log(error)
-
+            
         }
     }
-
+    
     const handleClose = () => {
         form.reset();
         onClose();
     }
+    
 
+    
     return (
-        <Dialog open={isModalOpen} onOpenChange={handleClose}>
+        <Dialog open={false} onOpenChange={handleClose}>
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
@@ -110,7 +117,6 @@ export const CreateAssistantModal = () => {
                                         </FormControl>
                                     </FormItem>)
                                 }}/>
-
                             </div>
                             <FormField
                             control={form.control}

@@ -21,7 +21,7 @@ export const NavigationItem = ({
     const router = useRouter()
 
     const onClick = () => {
-        router.push(`/servers/${id}`)
+        router.push(`/assistants/${id}`)
     }
 
     return (
@@ -45,6 +45,7 @@ export const NavigationItem = ({
                     >
                         <Image
                         fill
+                        sizes="48x48"
                         src={imageUrl}
                         alt="Assistant"/>
                     </div>

@@ -1,4 +1,4 @@
-"user client"
+"use client"
 
 import { CreateAssistantModal } from "@/components/modals/create-assistant-modal"
 import { useEffect, useState } from "react"
@@ -10,14 +10,14 @@ export const ModalProvider = () => {
     useEffect(() => {
         setIsMounted(true);
     }, [])
-
+    
     if(!isMounted) {
         return null;
     }
 
     return(
-        <>
+        <div>
         <CreateAssistantModal/>
-        </>
+        </div>
     )
 }

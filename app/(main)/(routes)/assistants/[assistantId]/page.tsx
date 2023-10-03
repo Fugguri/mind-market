@@ -1,6 +1,6 @@
 const AssistantIdPage = () => {
     return ( 
-        <div>Assistant id page</div>
+        <div> assistant setup and descriprion </div>
      );
 }
  

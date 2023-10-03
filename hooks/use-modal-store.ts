@@ -1,4 +1,4 @@
-import create from 'zustand'
+import { create } from 'zustand'
 
 export type ModalType = "createServer"
 
@@ -13,5 +13,5 @@ export const useModal = create<ModalStore>((set) => ({
     type: null,
     isOpen: false,
     onOpen: (type) => set({isOpen: true, type}),
-    onClose: () => set({isOpen: false, type: null})
+    onClose: () => set({type: null, isOpen: false })
 }))

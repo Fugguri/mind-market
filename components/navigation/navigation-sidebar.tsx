@@ -8,9 +8,13 @@ import { NavigationItem } from "./navigation-item";
 import { currentProfile } from "@/lib/current-profile";
 import { ModeToggle } from "../mode-toggle";
 import { UserButton } from "@clerk/nextjs";
+import { NavigationChat } from "./navigation-chat";
+import { NavigationCrm } from "./navigation-crm";
+import { NavigationAssistant } from "./navigation-assistant";
 
 const NavigationSidebar = async () => {
     const user = await currentProfile();
+    
     if(!user) {
         return redirect("/");
     }
@@ -24,6 +28,10 @@ const NavigationSidebar = async () => {
         <div className="space-y-4 flex flex-col items-center 
         h-full text-primary w-full dark:bg-[#1e1f22]
         py-3">
+            
+            <NavigationChat/>
+            <NavigationCrm/>
+            <NavigationAssistant/>
             <NavigationAction/>
             <Separator className="h-[2px] bg-zinc-300 dark:bg-zinc-700
             rounded-md w-10 mx-auto "/>
