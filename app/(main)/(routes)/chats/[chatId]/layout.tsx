@@ -1,7 +1,8 @@
 const ChatIdLayuot = ({
     children,
     params,
-}: { children: React.ReactNode }
+}: { children: React.ReactNode,
+    params: string}
 ) => {
     return ( <div>
         {children}
