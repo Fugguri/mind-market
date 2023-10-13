@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
-
+import axios from "axios";
 
 export async function POST(req:Request) {
     try {
@@ -11,13 +11,14 @@ export async function POST(req:Request) {
         if (!profile) {
             return new NextResponse("Unauthorize", { status: 401 })
         }
-        const  assistant = await db.assistant.create({
-            data: {
-                token: token,
-                profileId:profile.id,
+        // const  assistant = await db.assistant.create({ 
+        //   data: {
+
+        //         token: token,
+        //         profileId:profile.id,
                 
-            }
-        })
+        //     }
+        // })
         try {
             await axios.post(`https://b820-93-92-200-170.ngrok-free.app/integrations/tgbot/${profile.token}}`, {
                 headers: { 'Content-Type': 'application/json'}, data: {
