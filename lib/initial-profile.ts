@@ -1,4 +1,3 @@
-import { Awaited } from './../node_modules/@clerk/nextjs/dist/types/ssr/types.d';
 import { db } from "@/lib/db";
 import { currentUser, redirectToSignIn } from "@clerk/nextjs";
 
@@ -19,7 +18,7 @@ export const initialProfile = async () => {
     }
 
     const newProfile = await db.profile.create({
-        data:{
+        data: {
             userId: user.id,
             name : `${user.firstName} ${user.lastName}`,
             imageUrl: user.imageUrl,
