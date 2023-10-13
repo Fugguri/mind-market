@@ -20,8 +20,6 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <div>
-      fdfdf
     <ClerkProvider                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  >
       <html lang="ru" suppressHydrationWarning>
         <body className={cn(
@@ -41,6 +39,6 @@ export default function RootLayout({
         </body>
       </html>
     </ClerkProvider>
-    </div>
+
   )
 }
