@@ -21,7 +21,7 @@ const ServicesPage = async () => {
         },
 
         include:{
-            thatsAppBot:{
+            whatsAppBot:{
                 where: {
                     profileId:user.id
                 }
