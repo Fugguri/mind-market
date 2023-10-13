@@ -18,10 +18,14 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        primary: "bg-green-500 text-white hover:bg-green-600/90"
+        primary: "bg-green-500 text-white hover:bg-green-600/90",
+        chat: "bg-[#313338] underline text-white hover:bg-neutral-900",
+        edit: "bg-[#006363] hover:opacity-75 h-5 w-50 rounded-full underline text-white hover:bg-green-600/90",
+
         
       },
       size: {
+        edit:"h-7 rounded-full px-10",
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",

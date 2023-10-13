@@ -2,15 +2,19 @@
 
 import { BarChartHorizontalBigIcon, MessageSquareIcon, Plus } from "lucide-react"
 import { ActionTooltip } from "@/components/action-tooltip"
-import { useModal } from "@/hooks/use-modal-store"
-import { useRouter } from "next/router"
-import { profileEnd } from "console"
+import { useRouter } from "next/navigation"
 import { currentProfile } from "@/lib/current-profile"
-import { redirect } from "next/navigation"
+
 
 
 
 export const NavigationCrm = () => {
+
+    const router = useRouter()
+    const onClick = () => {
+        router.push(`/crm`)
+    }
+
 
     return (
     <div>
@@ -19,6 +23,7 @@ export const NavigationCrm = () => {
         align="center"
         label="CRM">
             <button 
+            onClick={onClick}
             className="group flex items-center">
                 <div className="flex mx-3 h-[48px] w-[48px] 
                 rounded-24px group-hover:rounded-[16px] transition-all
@@ -27,7 +32,7 @@ export const NavigationCrm = () => {
                 group-hover:bg-emerald-500">
                     <BarChartHorizontalBigIcon 
                     className="group-hover:text-white transition 
-                    text-emerald-500"
+                    text-emerald-500 rounden-full"
                     size={25}
                     />
                 </div>

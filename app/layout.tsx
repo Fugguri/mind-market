@@ -32,7 +32,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
           >
-          {/* <ModalProvider/> */}
+          <ModalProvider/>
           {children}
 
           </ThemeProvider>

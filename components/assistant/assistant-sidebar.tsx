@@ -3,35 +3,36 @@ import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import AssistantHeader from "./assistant-header";
 
-interface AssistantSidebarProps {
-    assistantId:string
-}
 
-
-const AssistantSidebar = async ({
-    assistantId
-}: AssistantSidebarProps) => {
+const AssistantSidebar = async () => {
     const profile = await currentProfile()
 
     if(!profile) {
         return redirect('/')
     }
  
-    const assistant = await db.assistant.findUnique({
+    const assistants = await db.assistant.findMany({
         where : {
-            id: assistantId
+            profileId: profile.id
         }
     })
-    if (!assistant) {
+    if (!assistants) {
         return redirect("/")
     }
     return ( 
     <div className="flex flex-col h-full text-primary w-fill dark:bg-[#2B2D31] db-[#F2F3F5]">
+        <p className="m-3 font-bold dark:text-neutral-500">Ассистенты</p>
+
+        {assistants.map((assistant) => (
+        <div key={assistant.id} className="mb-4">
         <AssistantHeader
+        key={assistant.id }
         assistant={assistant} 
         />
+        </div>))}
     </div> 
-    );
+    )
+    
 }
  
 export default AssistantSidebar;

@@ -3,18 +3,19 @@
 import { Bot, MessageSquareIcon, Plus } from "lucide-react"
 import { ActionTooltip } from "@/components/action-tooltip"
 import { useModal } from "@/hooks/use-modal-store"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
+
 import { currentProfile } from "@/lib/current-profile"
 import { redirect } from "next/navigation"
 
 
 
-export const NavigationAssistant = () => {
-
+export const NavigationAssistants = () => {
+    const router = useRouter()
     const onClick = () => {
-        redirect('/chats')
-    }
 
+        router.push(`/assistants`)
+    }
 
     return (
     <div>
@@ -23,7 +24,7 @@ export const NavigationAssistant = () => {
         align="center"
         label="Ассистенты">
             <button 
-            // onClick={onClick()}
+            onClick={onClick}
             className="group flex items-center">
                  
                 <div className="flex mx-3 h-[48px] w-[48px] 

@@ -5,20 +5,18 @@ import { db } from "@/lib/db";
 import { currentProfile } from "@/lib/current-profile";
 import AssistantSidebar from "@/components/assistant/assistant-sidebar";
 
-const AssistantIdLayuot = async ({
+const AssistantPageLayuot = async ({
     children,
-    params
+
 }: { children: React.ReactNode,
-    params : {assistantId: string }
 }) => {
     const profile = await currentProfile();
 
     if (!profile) {
         return redirectToSignIn
     };
-    const assistant = await db.assistant.findUnique({
+    const assistant = await db.assistant.findMany({
         where: {
-            id: params.assistantId,
             profileId: profile.id
         }
     })
@@ -26,9 +24,10 @@ const AssistantIdLayuot = async ({
         return redirect("/")
     }
     return (  
-    <div className="h-full">
+        
+        <div className="h-full">
         <div className="hidden md:flex h-full w-60 z-20 flex-col fixed inset-y-0">
-            <AssistantSidebar assistantId={params.assistantId} />
+            <AssistantSidebar/>
         </div>
         <main className="h-full md:pl-60">
             {children}
@@ -37,4 +36,4 @@ const AssistantIdLayuot = async ({
   )  ;
 }
  
-export default AssistantIdLayuot;
+export default AssistantPageLayuot;

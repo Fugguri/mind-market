@@ -67,28 +67,31 @@ export const CreateAssistantModal = () => {
     const isLoading = form.formState.isSubmitting;
     
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
+
+        console.log(values)
+        
         try {
-            await axios.post("/api/assistants",values)
+            await axios.post("/api/assistants", values)
             form.reset();
             router.refresh();
+            onClose();
             
         } catch(error) {
-            
             console.log(error)
-            
         }
     }
     
     const handleClose = () => {
-        form.reset();
         onClose();
+        form.reset()  ;
     }
     
 
     
     return (
-        <Dialog open={false} onOpenChange={handleClose}>
-            <DialogContent className="bg-white text-black p-0 overflow-hidden">
+        <Dialog open={isModalOpen} onOpenChange={handleClose}>
+            
+            <DialogContent className="bg-white text-black p-0 overflow-hidden"> 
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
                         Настройте своего ассистента
@@ -113,7 +116,7 @@ export const CreateAssistantModal = () => {
                                             endpoint="assistantImage"
                                             value={field.value}
                                             onChange={field.onChange}
-                                            />
+                                            /> 
                                         </FormControl>
                                     </FormItem>)
                                 }}/>
@@ -194,7 +197,7 @@ export const CreateAssistantModal = () => {
                     </form>
                 </Form>
                 
-            </DialogContent>
+            </DialogContent> 
         </Dialog>
     )
 }

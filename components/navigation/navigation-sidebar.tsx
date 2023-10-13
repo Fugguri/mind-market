@@ -10,7 +10,9 @@ import { ModeToggle } from "../mode-toggle";
 import { UserButton } from "@clerk/nextjs";
 import { NavigationChat } from "./navigation-chat";
 import { NavigationCrm } from "./navigation-crm";
-import { NavigationAssistant } from "./navigation-assistant";
+import { NavigationAssistants } from "./navigation-assistant";
+import { NavigationIntegrations } from "./navigation-integrations";
+import NavigationSettings from "./navigations-settings";
 
 const NavigationSidebar = async () => {
     const user = await currentProfile();
@@ -31,22 +33,25 @@ const NavigationSidebar = async () => {
             
             <NavigationChat/>
             <NavigationCrm/>
-            <NavigationAssistant/>
+            <NavigationAssistants/>
+            <NavigationIntegrations/>
             <NavigationAction/>
-            <Separator className="h-[2px] bg-zinc-300 dark:bg-zinc-700
-            rounded-md w-10 mx-auto "/>
+            {/* <Separator className="h-[2px] bg-zinc-300 dark:bg-zinc-700
+            rounded-md w-10 mx-auto "/>  */}
             <ScrollArea className="flex-1 w-full">
-                {assistants.map((assistant) => (
+                {/* {assistants.map((assistant) => (
                     <div key={assistant.id} className="mb-4">
                         <NavigationItem
+                        
                         id={assistant.id}
                         name={assistant.name}
                         imageUrl={assistant.imageUrl}
                         />
                     </div>
-                ))}
+                ))} */}
             </ScrollArea>
             <div className="pb-3 mt-auto flex items-center flex-col gap-y-4">
+                <NavigationSettings/>
                 <ModeToggle/>
                 <UserButton
                 afterSignOutUrl="/"
@@ -57,6 +62,7 @@ const NavigationSidebar = async () => {
                 }}
                 />
             </div>
+
         </div>
      );
 }

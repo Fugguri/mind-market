@@ -1,19 +1,18 @@
 "use client"
 
-import { MessageSquareIcon, Plus } from "lucide-react"
+import { MessageSquareIcon } from "lucide-react"
 import { ActionTooltip } from "@/components/action-tooltip"
-import { useModal } from "@/hooks/use-modal-store"
-import { useRouter } from "next/router"
-import { currentProfile } from "@/lib/current-profile"
-import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 
 
 export const NavigationChat = () => {
-
+    const router = useRouter();
+    
     const onClick = () => {
-        redirect('/chats')
+        router.push(`/chats/inbox`)
     }
+
 
 
     return (
@@ -23,7 +22,7 @@ export const NavigationChat = () => {
         align="center"
         label="Чаты">
             <button 
-            // onClick={onClick()}
+            onClick={() => router.push('/chats')}
             className="group flex items-center">
                  
                 <div className="flex mx-3 h-[48px] w-[48px] 
