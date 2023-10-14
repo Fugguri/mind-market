@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider  publishableKey='pk_test_dG9waWNhbC1hbGJhY29yZS03My5jbGVyay5hY2NvdW50cy5kZXYk'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                >
+    <ClerkProvider  frontendApi='https://topical-albacore-73.clerk.accounts.dev'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                >
       <html lang="ru" suppressHydrationWarning>
         <body className={cn(
           font.className,                                                                                                         
