@@ -5,7 +5,7 @@ import { db } from "./db";
 export const currentProfile = async () => {
     const { userId } = auth()
     if(!userId) {
-        return null;
+        return ;
     }
 
     const profile = await db.profile.findUnique({
