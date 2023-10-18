@@ -29,7 +29,7 @@ const AssistantIdStatisticPage =  async ({ params }: AssistantIdStatisticPagePro
 
     const assistant = await db.assistant.findUnique({
         where:{
-            profileId : profile?.id,
+            // profileId : profile?.id,
             id : params.assistantId
         }
     })
