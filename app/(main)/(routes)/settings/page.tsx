@@ -12,7 +12,7 @@ const AssistantsPage = async () => {
 
 
     return ( 
-        redirect(`settings/assistants`)
+        redirect(`https://web-mindmarket.ru/settings/assistants`)
      );
 }
  
