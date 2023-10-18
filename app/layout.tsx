@@ -25,21 +25,19 @@ export default async function RootLayout({
   console.log(session)
   return (
 <html lang="ru" suppressHydrationWarning>
-<body className={cn(
-          font.className,                                                                                                         
-          "bg-white dark:bg-[#313338]"
-          )}>
-            <SessionProvider>
-            <ThemeProvider
+<body className={cn(font.className,"bg-white dark:bg-[#313338]")}>
+  <SessionProvider>
+    <ThemeProvider
           attribute='class'
           defaultTheme='dark'
           enableSystem
           disableTransitionOnChange
           >
-            <ModalProvider/>
-          {children}</ThemeProvider>
-          </SessionProvider>
-          </body>
-          </html>
-          )
+    <ModalProvider/>
+          {children}
+    </ThemeProvider>
+  </SessionProvider>
+</body>
+</html>
+)
 }

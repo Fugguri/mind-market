@@ -16,7 +16,9 @@ model Profile {
   userId           String            @unique
   name             String
   imageUrl         String            @db.Text
-  email            String            @db.Text
+  login            String?
+  password         String?
+  email            String?           @db.Text
   token            String            @default(uuid())
   assistants       Assistant[]
   telegramBots     TelegramBot[]
