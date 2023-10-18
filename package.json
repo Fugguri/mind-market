@@ -28,6 +28,7 @@
     "encoding": "^0.1.13",
     "lucide-react": "^0.279.0",
     "next": "^13.5.5-canary.5",
+    "next-auth": "^4.23.2",
     "next-themes": "^0.2.1",
     "react": "latest",
     "react-dom": "latest",

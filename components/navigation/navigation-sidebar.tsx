@@ -1,31 +1,26 @@
-import { redirect } from "next/navigation";
-
-import { Separator } from "@/components/ui/separator";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { db } from "@/lib/db";
-import { NavigationAction } from "./navigation-action";
-import { NavigationItem } from "./navigation-item";
-import { currentProfile } from "@/lib/current-profile";
+import { redirect } from "next/navigation";
 import { ModeToggle } from "../mode-toggle";
-import { UserButton } from "@clerk/nextjs";
+import { Separator } from "@/components/ui/separator";
+import { currentProfile } from "@/lib/current-profile";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+import { NavigationItem } from "./navigation-item";
+import { NavigationAction } from "./navigation-action";
 import { NavigationChat } from "./navigation-chat";
 import { NavigationCrm } from "./navigation-crm";
 import { NavigationAssistants } from "./navigation-assistant";
 import { NavigationIntegrations } from "./navigation-integrations";
 import NavigationSettings from "./navigations-settings";
 
-const NavigationSidebar = async () => {
-    const user = await currentProfile();
-    
-    if(!user) {
-        return redirect("/");
-    }
+import { getServerSession} from "next-auth";
+import Profile from "./navigation-profile";
 
-    const assistants = await db.assistant.findMany({
-        where: { 
-            profileId: user.id 
-        }
-    })
+
+
+const NavigationSidebar = async () => {
+    const session = await getServerSession();
+    if (session) {
     return ( 
         <div className="space-y-4 flex flex-col items-center 
         h-full text-primary w-full dark:bg-[#1e1f22]
@@ -53,18 +48,14 @@ const NavigationSidebar = async () => {
             <div className="pb-3 mt-auto flex items-center flex-col gap-y-4">
                 <NavigationSettings/>
                 <ModeToggle/>
-                <UserButton
-                afterSignOutUrl="/"
-                appearance={{
-                    elements:{
-                        avatarBox: "h-[48px] w-[48px]"
-                    }
-                }}
-                />
+                <Profile/>
+                
             </div>
 
         </div>
-     );
+     );}
+
+    return redirect('api/auth/singin')
 }
  
 export default NavigationSidebar;

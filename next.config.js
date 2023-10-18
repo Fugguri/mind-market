@@ -6,6 +6,7 @@ const nextConfig = {
             "uploadthing.com",
             "utfs.io",
             "localhost:8000",
+            'avatars.githubusercontent.com',
         ]
     }
 }

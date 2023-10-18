@@ -11,11 +11,11 @@ interface ChatIdPageProps {
 
 const ChatIdPage = async ({params}: ChatIdPageProps ) => {
     
-    const profile = currentProfile()
+    // const profile = currentProfile()
 
-    if(!profile){
-        redirectToSignIn()
-    }
+    // if(!profile){
+    //     redirectToSignIn()
+    // }
 
     
     return ( 

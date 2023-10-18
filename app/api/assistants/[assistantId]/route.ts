@@ -20,7 +20,7 @@ export async function POST(req:Request) {
         //     }
         // })
         try {
-            await axios.post(`https://b820-93-92-200-170.ngrok-free.app/integrations/tgbot/${profile.token}}`, {
+            await axios.post(`https://web-mindmarket/api_v2/integrations/tgbot/${profile.token}}`, {
                 headers: { 'Content-Type': 'application/json'}, data: {
                   "token":token
                 }

@@ -3,11 +3,11 @@ import { redirectToSignIn } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 const ChatPage = async () => {
-    const profile = await currentProfile()
+    // const profile = await currentProfile()
 
-    if(!profile) {
-        redirectToSignIn()
-    }
+    // if(!profile) {
+    //     redirectToSignIn()
+    // }
 
     return ( redirect("chats/inbox") );
 }
