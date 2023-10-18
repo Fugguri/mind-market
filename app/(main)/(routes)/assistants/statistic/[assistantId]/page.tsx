@@ -23,13 +23,13 @@ const AssistantIdStatisticPage =  async ({ params }: AssistantIdStatisticPagePro
     const profile = await currentProfile()
 
     if (!profile){
-        redirectToSignIn()
+        redirect('api/auth/signin')
     }
 
 
     const assistant = await db.assistant.findUnique({
         where:{
-            profileId:profile?.id,
+            profileId : profile?.id,
             id : params.assistantId
         }
     })
