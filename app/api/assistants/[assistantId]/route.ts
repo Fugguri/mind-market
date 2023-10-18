@@ -77,7 +77,7 @@ export async function PATCH(
     const server = await db.assistant.update({
       where: {
         id: params.assistantId,
-        profileId: profile.id,
+        // profileId: profile.id,
       },
       data: {
         name,
