@@ -58,7 +58,7 @@ export const AddTgBotModal = () => {
         console.log(values)
         const token = values.token
         try {
-            await axios.post(`https://web-mindmarket/api_v2/integrations/tgbot/${data.token}`, {token: values.token}); 
+            await axios.post(`https://web-mindmarket.ru/api_v2/integrations/tgbot/${data.token}`, {token: values.token}); 
             form.reset();
             router.refresh();
             onClose();

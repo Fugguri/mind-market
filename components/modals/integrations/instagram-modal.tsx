@@ -58,7 +58,7 @@ export const AddInstModal = () => {
         console.log(values)
 
         try {
-            await axios.post("https://web-mindmarket/api_v2/integrations", values)
+            await axios.post("https://web-mindmarket.ru/api_v2/integrations", values)
             form.reset();
             router.refresh();
             onClose();

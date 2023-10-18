@@ -72,7 +72,7 @@ export const AddWaBotModal = () => {
                 ApiTokenInstance:values.ApiTokenInstance,
                 phone:values.phone
             })
-            await axios.post(`https://web-mindmarket/api_v2/integrations/wabot/${data.token}`, 
+            await axios.post(`https://web-mindmarket.ru/api_v2/integrations/wabot/${data.token}`, 
             values); 
             form.reset();
             router.refresh();
