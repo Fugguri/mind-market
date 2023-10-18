@@ -66,7 +66,7 @@ export const AddTgUserBotModal = () => {
         console.log(values)
 
         try {
-            await axios.post("http://localhost:3000/integrations", values)
+            await axios.post("https://web-mindmarket/api_v2/integrations", values)
             form.reset();
             router.refresh();
             onClose();
