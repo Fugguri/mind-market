@@ -51,7 +51,7 @@ export async function DELETE(
     const server = await db.assistant.delete({
       where: {
         id: params.assistantId,
-        profileId: profile.id,
+        // profileId: profile.id,
       }
     });
 
