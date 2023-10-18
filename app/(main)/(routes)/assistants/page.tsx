@@ -16,6 +16,10 @@ const AssistantsPage = async () => {
         }}
     )
 
+    if (!assistant) {
+        
+    }
+
     return ( 
         redirect(`assistants/statistic/${assistant?.id}`)
 

@@ -5,14 +5,14 @@ import { redirect } from "next/navigation";
 
 const AssistantsPage = async () => {
     const profile = await currentProfile()
-
+    
     if(!profile) {
         redirectToSignIn()
     }
 
 
     return ( 
-        redirect(`https://web-mindmarket.ru/settings/assistants`)
+        redirect(`settings/assistants`)
      );
 }
  

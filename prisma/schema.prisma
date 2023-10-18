@@ -24,6 +24,7 @@ model Profile {
   telegramBots     TelegramBot[]
   telegramUserBots TelegramUserBot[]
   whatsAppBot      WhatsAppBot[]
+  JivoBot          JivoBot[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -44,9 +45,11 @@ model Assistant {
   profile          Profile           @relation(fields: [profileId], references: [id], onDelete: Cascade)
   telegramBots     TelegramBot[]
   telegramUserBots TelegramUserBot[]
-  thatsAppBot      WhatsAppBot[]
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  whatsAppBot      WhatsAppBot[]
+  jivoBot          JivoBot[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([profileId])
 }
@@ -107,6 +110,27 @@ model WhatsAppBot {
   phone            String @db.Text
   IdInstance       String @db.Text
   ApiTokenInstance String @db.Text
+
+  profileId   String
+  profile     Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  assistantId String
+  assistant   Assistant @relation(fields: [assistantId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+  @@index([assistantId])
+}
+
+model JivoBot {
+  id       String @id @default(uuid())
+  name     String @db.Text
+  settings String @db.Text
+  imageUrl String @db.Text
+
+  useCount    Int    @default(0)
+  provider_id String @db.Text
 
   profileId   String
   profile     Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
