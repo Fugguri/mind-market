@@ -10,14 +10,11 @@ export const currentProfile = async () => {
     if(!session) {
         return null
     }
-
     const profile = await db.profile.findFirst({
         where:{
             email: session?.user?.email?.toString(),
             name: session?.user?.name?.toString(),
         }
     })
-    
-    console.log(profile)
     return profile
 }
