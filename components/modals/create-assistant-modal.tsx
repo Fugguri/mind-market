@@ -69,9 +69,7 @@ export const CreateAssistantModal = () => {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         
         try {
-            console.log(values)
             await axios.post("/api", values)
-            
             form.reset();
             router.refresh();
             onClose();

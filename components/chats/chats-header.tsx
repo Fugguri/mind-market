@@ -15,7 +15,7 @@ const ChatsHeader = () => {
     return ( 
     <div className="grid grid-cols-6 w-full ">
         <div className="col-span-1 font-bold text-neutral-300">
-            Чаты
+            <p className="m-3 font-bold dark:text-neutral-500">Чаты</p>
         </div>
         <div className="col-end-6">
         <ActionTooltip
