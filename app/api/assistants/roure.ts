@@ -9,7 +9,7 @@ export async function POST(req:Request) {
       const profile = await currentProfile();
       if (!profile) {return new NextResponse("Unauthorize", { status: 401 })}
       try {
-            await db.assistant.create({
+            const newAssistant =  await db.assistant.create({
                 data:{
                     profileId:profile.id,
                     name: name,
@@ -18,6 +18,7 @@ export async function POST(req:Request) {
                     imageUrl: imageUrl
                 }
             })
+            console.log(newAssistant)
         } catch(error) {
           console.log("[ASSISTANTS_POST]",error)
           return new NextResponse("Enternal error",{status: 500});
