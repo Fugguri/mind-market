@@ -1,28 +1,35 @@
-import { NextResponse } from "next/server";
-
 import { currentProfile } from "@/lib/current-profile";
+import { v4 as uuidv4 } from 'uuid';
 import { db } from "@/lib/db";
-import axios from "axios";
+import { NextResponse } from 'next/server';
 
 export async function POST(req:Request) {
-      const { name,settings,comment,imageUrl } = await req.json();
-      const profile = await currentProfile();
-      if (!profile) {return new NextResponse("Unauthorize", { status: 401 })}
-      try {
-            const newAssistant =  await db.assistant.create({
-                data:{
-                    profileId:profile.id,
-                    name: name,
-                    settings: settings,
-                    comment:comment,
-                    imageUrl: imageUrl
-                }
-            })
-            console.log(newAssistant)
-        } catch(error) {
-          console.log("[ASSISTANTS_POST]",error)
-          return new NextResponse("Enternal error",{status: 500});
-        }
-        // return NextResponse.json(integration)
+    try {
+        const {name, imageUrl, settings,comment} = await req.json();
+        
+        const profile = await currentProfile();
 
+        if (!profile) {
+            return new NextResponse("Unauthorize", { status: 401 })
+        }
+        
+        const assistant = await db.assistant.create({
+            data: {
+                profileId: profile.id,
+                name,
+                imageUrl,
+                settings,
+                comment,
+                token: uuidv4(),
+
+            }
+        
+        })
+        
+        return NextResponse.json(assistant)
+
+    }catch(error) {
+        console.log("[SERVERS_POST]",error)
+        return new NextResponse("Enternal error",{status: 500});
+    }
 }
