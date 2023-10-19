@@ -12,7 +12,7 @@ export async function POST(req:Request) {
         if (!profile) {
             return new NextResponse("Unauthorize", { status: 401 })
         }
-        
+        console.log("assistant post")
         const assistant = await db.assistant.create({
             data: {
                 profileId: profile.id,
