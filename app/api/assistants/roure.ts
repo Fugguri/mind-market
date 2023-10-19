@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req:Request) {
     try {
-        const {name, imageUrl, settings,comment} = await req.json();
+        const {name, settings,comment,imageUrl} = await req.json();
         
         const profile = await currentProfile();
 
