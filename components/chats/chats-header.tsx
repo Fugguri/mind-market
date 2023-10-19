@@ -25,7 +25,7 @@ const ChatsHeader = () => {
             <button 
             onClick={onClick}
             className="group flex items-left">
-                <div className="col-span-end flex mx-3 h-[48px] w-[230px]
+                <div className="col-span-end flex mx-3 h-[25px] w-[180px]
                 rounded-full group-hover:rounded-[16px] transition-all
                 overflow-hidden items-center justify-center bg-background
                 dark:bg-neutral-700

@@ -11,16 +11,18 @@ const ChatLayout = async ({
 
     
     return ( 
-        <div className="h-full">
-            <div className="hidden mt-5 md:flex w-full h-[72px] z-30 flex-col ml-l-5  fixed inset-y-0">
+            <main className="h-full">
+            <div className="h-full">
+            <div className="hidden mt-5 md:flex w-full  flex-col ml-l-5   inset-y-0">
                 <ChatsHeader/>
                 <ChatTypeMenu params={params}/>
+            </div>
+            <div >
+                { children }
             </div>            
-            <main className="h-full pt-[150px]">
-            { children }
-            </main>
         </div>
-     );
+            </main>
+        );
 }
  
 export default ChatLayout;

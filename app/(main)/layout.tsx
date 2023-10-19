@@ -8,7 +8,7 @@ const MainLayout = async ({
 }) => {
     return ( 
         <div className="h-full">
-            <div className="md:hidden sm:h-[20px] fixed inset-y-0 ">
+            <div className="md:hidden sm:h-[20px] fixed bg inset-y-0 ">
                 <NavBar/>
             </div>
             <div className=" hidden md:flex h-full w-[72px] z-30 flex-col fixed inset-y-0">

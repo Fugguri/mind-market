@@ -1,4 +1,4 @@
-import { Menu, MenuSquare } from "lucide-react";
+import { Menu,  } from "lucide-react";
 
 
 import {
@@ -15,7 +15,7 @@ const MobileSidebar = () => {
     return (  
         <Sheet>
         <SheetTrigger className="sm:hidden pr-4 hover:opacity-75 transition">
-            <MenuSquare className="bg-transoarent" />
+            <Menu className="bg-transparent" />
         </SheetTrigger>
         <SheetContent side="left" className="w-[72px] sm:w-[72px]">
           <NavigationSidebar />

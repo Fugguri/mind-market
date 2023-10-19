@@ -32,7 +32,7 @@ const ChatMenuItem = ({title, chatType,path}: ChatMenuItemProps) => {
     return ( 
     <div >
         <button onClick={onClick}
-            className="bg-transparent h-[50px]">
+            className="bg-transparent h-[90px]">
 
             {/* <Button className={cn("flex items-center gap-x-2 hover:bg-transparent",
                         isActive&& "text-green-500",
