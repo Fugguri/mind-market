@@ -67,11 +67,10 @@ export const CreateAssistantModal = () => {
     const isLoading = form.formState.isSubmitting;
     
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-
-        console.log(values)
         
         try {
             await axios.post("/api/assistants", values)
+            
             form.reset();
             router.refresh();
             onClose();
