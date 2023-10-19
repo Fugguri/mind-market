@@ -70,7 +70,7 @@ export const CreateAssistantModal = () => {
         
         try {
             console.log(values)
-            await axios.post("/api/assistants", values)
+            await axios.post("/api", values)
             
             form.reset();
             router.refresh();
