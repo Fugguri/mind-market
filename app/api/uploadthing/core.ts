@@ -1,10 +1,12 @@
+import { currentProfile } from "@/lib/current-profile";
 import { auth } from "@clerk/nextjs"; 
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 
-const handleAuth = () => {
-    const { userId } = auth();
-    if(!userId) throw new Error("Unautorize")
-    return {userId: userId}
+const handleAuth = async () => {
+    const profile = await currentProfile();
+    console.log("prof",profile)
+    if(!profile) throw new Error("Unautorize")
+    return {userId: profile.id}
 
 }
 

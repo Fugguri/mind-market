@@ -1,11 +1,11 @@
-import { AuthOptions } from "next-auth";
+import { AuthOptions, User } from "next-auth";
 
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from "next-auth/providers/credentials";
-
-import { randomBytes, randomUUID } from "crypto";
 import { db } from "@/lib/db";
+import { randomUUID } from "crypto";
+
 
 
 export const authConfig: AuthOptions = {
@@ -20,73 +20,47 @@ export const authConfig: AuthOptions = {
       // e.g. domain, username, password, 2FA token, etc.
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
-        username: { label: "Имя пользователя или email ", type: "text"||"email", placeholder: "Имя пользователя или email"},
-        password: { label: "Пароль", type: "password" ,placeholder: "password"},
+        username: { label: "Имя пользователя или email ", type: "text"||"email", placeholder: "Имя пользователя или email", required:true},
+        password: { label: "Пароль", type: "password" ,placeholder: "password", required:true},
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
 
-
+      if (!credentials?.username || !credentials.password) return null
+      
       const profile = await db.profile.findFirst({
           where: {
             login: credentials?.username?.toString(),
             password: credentials?.password?.toString()
           }
         })
-        if (!profile) {
-          const newProfile = await db.profile.create({
-            data:{
-              userId: randomUUID(),
-              name:"Username",
-              imageUrl:"",
-              password:credentials?.password,
-              login: credentials?.username
-
-            }
-          })
-
-          const user = { 
-            id: newProfile?.id||"",
-            imageUrl: "",
-            name: credentials?.username, 
-            email: "email",
-            
-          }
       
-          if (user) {
-              // Any object returned will be saved in `user` property of the JWT
-              return user
-            } else {
-              // If you return null then an error will be displayed advising the user to check their details.
-              return null
-      
-              // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
-            }
-          }
-        
+      if(profile && credentials?.password === profile.password) {
+          const { password, ...profileWithoutPass } = profile
 
-
-        // Add logic here to look up the user from the credentials supplied
-        const user = { 
-        id: profile?.id||"",
-        imageUrl: "",
-        name: credentials?.username, 
-        email: "email",
-        
-      }
-  
-        if (user) {
-          // Any object returned will be saved in `user` property of the JWT
-          return user
-        } else {
-          // If you return null then an error will be displayed advising the user to check their details.
-          return null
-  
-          // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+          return profileWithoutPass as User
         }
-      },
+      if(profile && credentials?.password !== profile.password) {
+          return null
+        }
+      if(!profile) {
+        const newProfile = await db.profile.create({
+          data: {
+            userId: randomUUID(),
+            imageUrl: "",
+            name:"Full name",
+            login: credentials.username,
+            password: credentials.password
+          }
+            
+          
+        })
+        const { password, ...profileWithoutPass } = newProfile
 
-    })
-      ,
+        return profileWithoutPass as User
+      }
+      return null
+    }
+  }),
       GoogleProvider ({
       clientId: process.env.GITHUB_ID ?? '',
       clientSecret: process.env.GITHUB_SECRET??'',

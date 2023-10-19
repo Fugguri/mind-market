@@ -6,7 +6,7 @@ import { authConfig } from '@/config/auth';
 
 export const currentProfile = async () => {
     const session = await getServerSession(authConfig)
-    
+    console.log(session)
     if(!session) {
         return null
     }
@@ -17,7 +17,7 @@ export const currentProfile = async () => {
             name: session?.user?.name?.toString(),
         }
     })
-
+    console.log(profile)
     return profile  
 
 }

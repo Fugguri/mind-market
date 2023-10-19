@@ -5,36 +5,19 @@ import { db } from "@/lib/db";
 import axios from "axios";
 
 export async function POST(req:Request) {
-    try {
-        const { token } = await req.json();
-        const profile = await currentProfile();
-        if (!profile) {
-            return new NextResponse("Unauthorize", { status: 401 })
-        }
-        // const  assistant = await db.assistant.create({ 
-        //   data: {
-
-        //         token: token,
-        //         profileId:profile.id,
-                
-        //     }
-        // })
-        try {
-            await axios.post(`https://web-mindmarket/api_v2/integrations/tgbot/${profile.token}}`, {
-                headers: { 'Content-Type': 'application/json'}, data: {
-                  "token":token
-                }
-              }); 
-            
+      const { token } = await req.json();
+      const profile = await currentProfile();
+      if (!profile) {return new NextResponse("Unauthorize", { status: 401 })}
+      try {
+        await axios.post(`https://web-mindmarket/api_v2/integrations/tgbot/${profile.token}}`, {
+          "token":token
+          })
         } catch(error) {
-            console.log(error)
+          console.log("[ASSISTANTS_POST]",error)
+          return new NextResponse("Enternal error",{status: 500});
         }
         // return NextResponse.json(integration)
 
-    }catch(error) {
-        console.log("[ASSISTANTS_POST]",error)
-        return new NextResponse("Enternal error",{status: 500});
-    }
 }
 
 export async function DELETE(
