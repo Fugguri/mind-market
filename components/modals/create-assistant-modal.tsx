@@ -3,7 +3,7 @@
 import axios from "axios"
 import * as z from "zod"
 import { useForm } from "react-hook-form"
-import { redirect, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import { Form, 
@@ -73,8 +73,8 @@ export const CreateAssistantModal = () => {
             await axios.post("/api", values)
             
             form.reset();
+            router.refresh();
             onClose();
-            redirect("/assistants");
             
         } catch(error) {
             console.log(error)
