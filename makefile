@@ -5,3 +5,8 @@ update:
 
 push:
 	git push
+
+
+build:
+	npm run build 
+	npm run start 

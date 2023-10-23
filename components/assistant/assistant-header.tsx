@@ -19,8 +19,7 @@ const AssistantHeader = ({assistant}:AssistantHeaderProps) => {
 
     const router = useRouter()
 
-    return ( 
-    <div>
+    return (<div>
         <DropdownMenu>
             <DropdownMenuTrigger asChild className="focus:outline-none">
                 <button className="w-full text-md font-semibold px-3 flex 
@@ -53,7 +52,9 @@ const AssistantHeader = ({assistant}:AssistantHeaderProps) => {
                                 
                             )} */}
                 {isAdmin && (
-                        <DropdownMenuItem onClick={() => onOpen("editAssistant", { assistant: assistant })} className="text-zinc-600 dark:text-zinc-400 py-2 px-3 text-sm cursor-pointer">
+                        <DropdownMenuItem 
+                        onClick={() => onOpen("editAssistant", { assistant: assistant })} 
+                        className="text-zinc-600 dark:text-zinc-400 py-2 px-3 text-sm cursor-pointer">
                             Редактировать ассистента
                             <Settings2 className=" w-5 h-5 ml-auto"/>
                         </DropdownMenuItem>
