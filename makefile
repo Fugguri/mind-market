@@ -14,4 +14,5 @@ build:
 upgrade:
 	git pull
 	npm run build 
+	clear
 	npm run start 
