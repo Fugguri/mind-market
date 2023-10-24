@@ -94,13 +94,7 @@ const ServicesPage = async () => {
                 content='Мы уже работаем над этим...'
                 /> */}
 
-				<a
-					href='https://www.instagram.com/oauth/authorize
-						?client_id=993271218405281
-						&redirect_uri=​web-mindmarket.ru/api/callback/facebook
-						&scope=user_profile,user_media
-						&response_type=code'
-				>
+				<a href='https://www.instagram.com/oauth/authorize?client_id=993271218405281&redirect_uri=​web-mindmarket.ru/api/callback/facebook&scope=user_profile,user_media&response_type=code'>
 					<Image src='instagram-icon.png' alt='Login with Instagram' />
 				</a>
 			</div>
