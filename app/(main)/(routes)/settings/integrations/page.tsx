@@ -4,6 +4,7 @@ import IntegrationsHeader from '@/components/integrations/integrations-header'
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 import { profile } from 'console'
+import Image from 'next/image'
 import { redirect } from 'next/navigation'
 
 const ServicesPage = async () => {
@@ -100,7 +101,7 @@ const ServicesPage = async () => {
 						&scope=user_profile,user_media
 						&response_type=code'
 				>
-					<img src='instagram-icon.png' alt='Login with Instagram' />
+					<Image src='instagram-icon.png' alt='Login with Instagram' />
 				</a>
 			</div>
 		</div>
