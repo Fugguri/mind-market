@@ -10,3 +10,8 @@ push:
 build:
 	npm run build 
 	npm run start 
+
+upgrade:
+	git pull
+	npm run build 
+	npm run start 
