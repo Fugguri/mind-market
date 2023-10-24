@@ -92,6 +92,16 @@ const ServicesPage = async () => {
                 description=''
                 content='Мы уже работаем над этим...'
                 /> */}
+
+				<a
+					href='https://www.instagram.com/oauth/authorize
+						?client_id=YOUR_APP_ID
+						&redirect_uri=YOUR_REDIRECT_URI
+						&scope=user_profile,user_media
+						&response_type=code'
+				>
+					<img src='instagram-icon.png' alt='Login with Instagram' />
+				</a>
 			</div>
 		</div>
 	)
