@@ -77,45 +77,47 @@ export const AddInstModal = () => {
 	}
 
 	return (
-		<Dialog open={isModalOpen} onOpenChange={handleClose}>
-			<DialogContent className='bg-white text-black p-0 overflow-hidden'>
-				<DialogHeader className='pt-8 px-6'>
-					<DialogTitle className='text-2xl text-center font-bold'>
-						<p>Подключение инстаграм аккаунта</p>
-					</DialogTitle>
-					<DialogDescription className='text-center text-zinc-500'>
-						Тут будет информация о том как работает подключение инстаграма
-					</DialogDescription>
-				</DialogHeader>
-				<DialogFooter className='bg-gray-100 px-6 py-4'>
-					<FacebookLoginButton
-						appId={}
-						autoLoad={false}
-						fields='name,email,picture'
-						callback={responseFacebook}
-					/>
-					<div
-						className='fb-login-button'
-						data-width=''
-						data-size=''
-						data-button-type=''
-						data-layout=''
-						data-auto-logout-link='false'
-						data-use-continue-as='false'
-					></div>
-					<Button variant='primary' disabled={isLoading}>
-						<a href='https://www.facebook.com/oauth/authorize?client_id=993271218405281&redirect_uri=​web-mindmarket.ru/api/callback/facebook&scope=user_profile,user_media&response_type=code'>
-							<Image
-								className='opacity-75`'
-								src='/instagram-icon.png'
-								width={25}
-								height={25}
-								alt='Login with Instagram'
-							/>
-						</a>
-					</Button>
-				</DialogFooter>
-			</DialogContent>
-		</Dialog>
+		<>
+			<Dialog open={isModalOpen} onOpenChange={handleClose}>
+				<DialogContent className='bg-white text-black p-0 overflow-hidden'>
+					<DialogHeader className='pt-8 px-6'>
+						<DialogTitle className='text-2xl text-center font-bold'>
+							<p>Подключение инстаграм аккаунта</p>
+						</DialogTitle>
+						<DialogDescription className='text-center text-zinc-500'>
+							Тут будет информация о том как работает подключение инстаграма
+						</DialogDescription>
+					</DialogHeader>
+					<DialogFooter className='bg-gray-100 px-6 py-4'>
+						<FacebookLoginButton
+							appId={}
+							autoLoad={false}
+							fields='name,email,picture'
+							callback={responseFacebook}
+						/>
+						<div
+							className='fb-login-button'
+							data-width=''
+							data-size=''
+							data-button-type=''
+							data-layout=''
+							data-auto-logout-link='false'
+							data-use-continue-as='false'
+						></div>
+						<Button variant='primary' disabled={isLoading}>
+							<a href='https://www.facebook.com/oauth/authorize?client_id=993271218405281&redirect_uri=​web-mindmarket.ru/api/callback/facebook&scope=user_profile,user_media&response_type=code'>
+								<Image
+									className='opacity-75`'
+									src='/instagram-icon.png'
+									width={25}
+									height={25}
+									alt='Login with Instagram'
+								/>
+							</a>
+						</Button>
+					</DialogFooter>
+				</DialogContent>
+			</Dialog>
+		</>
 	)
 }
