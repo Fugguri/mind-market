@@ -77,7 +77,7 @@ export const AddInstModal = () => {
 	}
 
 	return (
-		<>
+		<div>
 			<Dialog open={isModalOpen} onOpenChange={handleClose}>
 				<DialogContent className='bg-white text-black p-0 overflow-hidden'>
 					<DialogHeader className='pt-8 px-6'>
@@ -118,6 +118,6 @@ export const AddInstModal = () => {
 					</DialogFooter>
 				</DialogContent>
 			</Dialog>
-		</>
+		</div>
 	)
 }
