@@ -4,6 +4,7 @@ const IntegrationsLayuot = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<div>
 			<PageTitleItem title='Интеграции' />
+
 			{children}
 		</div>
 	)

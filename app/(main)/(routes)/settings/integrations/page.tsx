@@ -90,7 +90,7 @@ const ServicesPage = async () => {
 					token={user.token}
 					modal='addInst'
 					title='Instagram Бот'
-					description=''
+					description=' Тут будет описание инстаграм бота '
 					content='Мы уже работаем над этим...'
 					description_link={null}
 					description_link_title={null}

@@ -28,10 +28,11 @@ const IntegrationItem = (props: IntegrationItemProps) => {
 	const { onOpen } = useModal()
 
 	const token = props.token
+
 	return (
 		<Card className='mb-5 bg-slate-700/50 '>
 			<CardHeader>
-				<CardTitle className='bg-neutral-700'>{props.title}</CardTitle>
+				<CardTitle>{props.title}</CardTitle>
 				<CardDescription>
 					{' '}
 					{props.description}

@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import axios from 'axios'
 import * as z from 'zod'
@@ -23,11 +23,13 @@ import {
 	DialogHeader,
 	DialogDescription,
 } from '@/components/ui/dialog'
+import { FacebookLoginButton } from 'react-facebook-login'
 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 
 import { useModal } from '@/hooks/use-modal-store'
+import { Facebook } from 'lucide-react'
 
 const formSchema = z.object({
 	token: z.string().min(1, {
@@ -48,6 +50,11 @@ export const AddInstModal = () => {
 			token: '',
 		},
 	})
+
+	const responseFacebook = (response: Response) => {
+		console.log(response)
+		// Обработайте ответ от Facebook Login
+	}
 
 	const isLoading = form.formState.isSubmitting
 
@@ -81,6 +88,21 @@ export const AddInstModal = () => {
 					</DialogDescription>
 				</DialogHeader>
 				<DialogFooter className='bg-gray-100 px-6 py-4'>
+					<FacebookLoginButton
+						appId={}
+						autoLoad={false}
+						fields='name,email,picture'
+						callback={responseFacebook}
+					/>
+					<div
+						className='fb-login-button'
+						data-width=''
+						data-size=''
+						data-button-type=''
+						data-layout=''
+						data-auto-logout-link='false'
+						data-use-continue-as='false'
+					></div>
 					<Button variant='primary' disabled={isLoading}>
 						<a href='https://www.facebook.com/oauth/authorize?client_id=993271218405281&redirect_uri=​web-mindmarket.ru/api/callback/facebook&scope=user_profile,user_media&response_type=code'>
 							<Image
