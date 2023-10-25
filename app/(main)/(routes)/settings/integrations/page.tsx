@@ -86,13 +86,18 @@ const ServicesPage = async () => {
 					content_link='https://green-api.com/'
 					content_link_title='GreenApi'
 				/>
-				{/* <IntegrationItem 
-                token={user.token}
-                modal='addInst'
-                title="Instagram Бот"
-                description=''
-                content='Мы уже работаем над этим...'
-                /> */}
+				<IntegrationItem
+					token={user.token}
+					modal='addInst'
+					title='Instagram Бот'
+					description=''
+					content='Мы уже работаем над этим...'
+					description_link={null}
+					description_link_title={null}
+					content_link={null}
+					content_link_title={null}
+					button='Добавить'
+				/>
 			</div>
 		</div>
 	)
