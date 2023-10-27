@@ -52,6 +52,12 @@ const Login: React.FC = () => {
 		try {
 			const windowWithFB = window as WindowWithFB
 
+			// Проверяем, инициализирован ли Facebook SDK
+			if (!windowWithFB.FB) {
+				console.error('Facebook SDK еще не инициализирован.')
+				return
+			}
+
 			// Проверяем статус входа перед вызовом FB.login
 			windowWithFB.FB?.getLoginStatus(response => {
 				if (response.status === 'connected') {
