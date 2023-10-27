@@ -9,7 +9,8 @@ interface WindowWithFB extends Window {
 			xfbml: boolean
 			version: string
 		}) => void
-		login: () => Promise<any>
+		login: (callback?: (response: any) => void, options?: any) => void
+		getLoginStatus: (callback: (response: any) => void) => void
 	}
 	fbAsyncInit?: () => void
 }
@@ -24,7 +25,7 @@ const Login: React.FC = () => {
 					const windowWithFB = window as WindowWithFB
 					windowWithFB.fbAsyncInit = function () {
 						windowWithFB.FB?.init({
-							appId: process.env.FACEBOOK_APP_ID || 'YOUR_DEFAULT_APP_ID',
+							appId: process.env.FACEBOOK_APP_ID || 'ВАШ_ID_ПРИЛОЖЕНИЯ',
 							autoLogAppEvents: true,
 							xfbml: true,
 							version: 'v11.0',
@@ -59,14 +60,22 @@ const Login: React.FC = () => {
 
 		try {
 			const windowWithFB = window as WindowWithFB
-			const response = await windowWithFB.FB?.login()
 
-			if (response?.authResponse) {
-				console.log('Успешный вход через Facebook!', response)
-				// Здесь можно отправить запрос на сервер для обработки токена доступа
-			} else {
-				console.log('Вход отменен.')
-			}
+			windowWithFB.FB?.getLoginStatus(response => {
+				if (response.status === 'connected') {
+					console.log('Пользователь уже вошел через Facebook!', response)
+					// Здесь можно отправить запрос на сервер для обработки токена доступа
+				} else {
+					windowWithFB.FB?.login(loginResponse => {
+						if (loginResponse.authResponse) {
+							console.log('Успешный вход через Facebook!', loginResponse)
+							// Здесь можно отправить запрос на сервер для обработки токена доступа
+						} else {
+							console.log('Вход отменен.')
+						}
+					})
+				}
+			})
 		} catch (error) {
 			console.error('Ошибка входа через Facebook:', error)
 		}
