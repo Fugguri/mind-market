@@ -52,11 +52,13 @@ const Login: React.FC = () => {
 		try {
 			const windowWithFB = window as WindowWithFB
 
+			// Проверяем статус входа перед вызовом FB.login
 			windowWithFB.FB?.getLoginStatus(response => {
 				if (response.status === 'connected') {
 					console.log('Пользователь уже вошел через Facebook!', response)
 					// Здесь можно отправить запрос на сервер для обработки токена доступа
 				} else {
+					// Вызываем FB.login только после успешной инициализации Facebook SDK
 					windowWithFB.FB?.login(loginResponse => {
 						if (loginResponse.authResponse) {
 							console.log('Успешный вход через Facebook!', loginResponse)
