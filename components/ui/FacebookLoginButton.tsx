@@ -12,12 +12,16 @@ interface WindowWithFB extends Window {
 		login: (callback?: (response: any) => void, options?: any) => void
 		getLoginStatus: (callback: (response: any) => void) => void
 	}
-	fbAsyncInit?: () => void
 }
 
 const initFacebookSDK = (appId: string) => {
 	return new Promise<void>(resolve => {
-		window.fbAsyncInit = function () {
+		const script = document.createElement('script')
+		script.src = 'https://connect.facebook.net/en_US/sdk.js'
+		script.async = true
+		script.defer = true
+		script.crossOrigin = 'anonymous'
+		script.onload = () => {
 			window.FB.init({
 				appId: appId,
 				autoLogAppEvents: true,
@@ -26,15 +30,7 @@ const initFacebookSDK = (appId: string) => {
 			})
 			resolve()
 		}
-		;(function (d, s, id) {
-			var js: HTMLScriptElement,
-				fjs = d.getElementsByTagName(s)[0]
-			if (d.getElementById(id)) return
-			js = d.createElement(s) as HTMLScriptElement
-			js.id = id
-			js.src = 'https://connect.facebook.net/en_US/sdk.js'
-			fjs.parentNode?.insertBefore(js, fjs)
-		})(document, 'script', 'facebook-jssdk')
+		document.head.appendChild(script)
 	})
 }
 
