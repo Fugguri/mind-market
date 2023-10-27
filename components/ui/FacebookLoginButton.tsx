@@ -10,36 +10,44 @@ interface WindowWithFB extends Window {
 			version: string
 		}) => void
 		login: () => Promise<any>
-		// Другие методы и свойства, которые вы планируете использовать
 	}
-	fbAsyncInit?: () => void
 }
 
 const Login: React.FC = () => {
 	const [isSDKInitialized, setSDKInitialized] = useState(false)
 
 	useEffect(() => {
-		const windowWithFB = window as WindowWithFB
+		const initFacebookSDK = async () => {
+			try {
+				await new Promise<void>((resolve, reject) => {
+					const windowWithFB = window as WindowWithFB
+					windowWithFB.fbAsyncInit = function () {
+						windowWithFB.FB?.init({
+							appId: process.env.FACEBOOK_APP_ID,
+							autoLogAppEvents: true,
+							xfbml: true,
+							version: 'v11.0',
+						})
+						resolve()
+					}
+					;(function (d, s, id) {
+						var js: HTMLScriptElement,
+							fjs = d.getElementsByTagName(s)[0]
+						if (d.getElementById(id)) return
+						js = d.createElement(s) as HTMLScriptElement
+						js.id = id
+						js.src = 'https://connect.facebook.net/en_US/sdk.js'
+						fjs.parentNode?.insertBefore(js, fjs)
+					})(document, 'script', 'facebook-jssdk')
+				})
 
-		windowWithFB.fbAsyncInit = function () {
-			windowWithFB.FB?.init({
-				appId: process.env.FACEBOOK_APP_ID,
-				autoLogAppEvents: true,
-				xfbml: true,
-				version: 'v11.0',
-			})
-
-			setSDKInitialized(true)
+				setSDKInitialized(true)
+			} catch (error) {
+				console.error('Ошибка инициализации Facebook SDK:', error)
+			}
 		}
-		;(function (d, s, id) {
-			var js: HTMLScriptElement,
-				fjs = d.getElementsByTagName(s)[0]
-			if (d.getElementById(id)) return
-			js = d.createElement(s) as HTMLScriptElement // Приводим к HTMLScriptElement
-			js.id = id
-			js.src = 'https://connect.facebook.net/en_US/sdk.js'
-			fjs.parentNode?.insertBefore(js, fjs)
-		})(document, 'script', 'facebook-jssdk')
+
+		initFacebookSDK()
 	}, [])
 
 	const loginWithFacebook = async () => {
@@ -53,8 +61,8 @@ const Login: React.FC = () => {
 			const response = await windowWithFB.FB?.login()
 
 			if (response?.authResponse) {
-				// Здесь можно отправить запрос на сервер для обработки токена доступа
 				console.log('Успешный вход через Facebook!', response)
+				// Здесь можно отправить запрос на сервер для обработки токена доступа
 			} else {
 				console.log('Вход отменен.')
 			}
