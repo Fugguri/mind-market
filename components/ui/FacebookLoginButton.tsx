@@ -1,16 +1,16 @@
-// pages/login.tsx
 import { useEffect, useState } from 'react'
 
 interface WindowWithFB extends Window {
 	FB?: {
 		init: (params: {
-			appId: string | undefined
+			appId: string
 			autoLogAppEvents: boolean
 			xfbml: boolean
 			version: string
 		}) => void
 		login: () => Promise<any>
 	}
+	fbAsyncInit?: () => void
 }
 
 const Login: React.FC = () => {
