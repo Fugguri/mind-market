@@ -22,12 +22,6 @@ const initFacebookSDK = (appId: string) => {
 		script.defer = true
 		script.crossOrigin = 'anonymous'
 		script.onload = () => {
-			window.FB.init({
-				appId: appId,
-				autoLogAppEvents: true,
-				xfbml: true,
-				version: 'v11.0',
-			})
 			resolve()
 		}
 		document.head.appendChild(script)
@@ -43,6 +37,7 @@ const Login: React.FC = () => {
 				await initFacebookSDK(
 					process.env.FACEBOOK_APP_ID || 'YOUR_DEFAULT_APP_ID'
 				)
+				// Вместо проверки наличия FB в window, просто устанавливаем флаг инициализации
 				setSDKInitialized(true)
 			} catch (error) {
 				console.error('Ошибка инициализации Facebook SDK:', error)
@@ -57,7 +52,7 @@ const Login: React.FC = () => {
 	const loginWithFacebook = async () => {
 		try {
 			// Проверяем, инициализирован ли Facebook SDK
-			if (!isSDKInitialized || !('FB' in window)) {
+			if (!isSDKInitialized) {
 				console.error('Facebook SDK еще не инициализирован.')
 				return
 			}
