@@ -1,3 +1,4 @@
+// pages/login.tsx
 import { useEffect, useState } from 'react'
 
 interface WindowWithFB extends Window {
@@ -23,7 +24,7 @@ const Login: React.FC = () => {
 					const windowWithFB = window as WindowWithFB
 					windowWithFB.fbAsyncInit = function () {
 						windowWithFB.FB?.init({
-							appId: process.env.FACEBOOK_APP_ID,
+							appId: process.env.FACEBOOK_APP_ID || 'YOUR_DEFAULT_APP_ID',
 							autoLogAppEvents: true,
 							xfbml: true,
 							version: 'v11.0',
