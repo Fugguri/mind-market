@@ -1,5 +1,5 @@
 // pages/login.tsx
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 interface WindowWithFB extends Window {
 	FB?: {
@@ -16,6 +16,8 @@ interface WindowWithFB extends Window {
 }
 
 const Login: React.FC = () => {
+	const [isSDKInitialized, setSDKInitialized] = useState(false)
+
 	useEffect(() => {
 		const windowWithFB = window as WindowWithFB
 
@@ -26,6 +28,8 @@ const Login: React.FC = () => {
 				xfbml: true,
 				version: 'v11.0',
 			})
+
+			setSDKInitialized(true)
 		}
 		;(function (d, s, id) {
 			var js: HTMLScriptElement,
@@ -39,6 +43,11 @@ const Login: React.FC = () => {
 	}, [])
 
 	const loginWithFacebook = async () => {
+		if (!isSDKInitialized) {
+			console.error('Facebook SDK еще не инициализирован.')
+			return
+		}
+
 		try {
 			const windowWithFB = window as WindowWithFB
 			const response = await windowWithFB.FB?.login()
