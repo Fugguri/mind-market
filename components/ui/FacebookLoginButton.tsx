@@ -19,28 +19,34 @@ const Login: React.FC = () => {
 	const [isSDKInitialized, setSDKInitialized] = useState(false)
 
 	useEffect(() => {
-		const initFacebookSDK = () => {
-			const windowWithFB = window as WindowWithFB
+		const initFacebookSDK = async () => {
+			try {
+				await new Promise<void>((resolve, reject) => {
+					const windowWithFB = window as WindowWithFB
 
-			windowWithFB.fbAsyncInit = function () {
-				windowWithFB.FB?.init({
-					appId: '993271218405281',
-					autoLogAppEvents: true,
-					xfbml: true,
-					version: 'v11.0',
+					windowWithFB.fbAsyncInit = function () {
+						windowWithFB.FB?.init({
+							appId: process.env.FACEBOOK_APP_ID || 'YOUR_DEFAULT_APP_ID',
+							autoLogAppEvents: true,
+							xfbml: true,
+							version: 'v11.0',
+						})
+						setSDKInitialized(true)
+						resolve()
+					}
+					;(function (d, s, id) {
+						var js: HTMLScriptElement,
+							fjs = d.getElementsByTagName(s)[0]
+						if (d.getElementById(id)) return
+						js = d.createElement(s) as HTMLScriptElement
+						js.id = id
+						js.src = 'https://connect.facebook.net/en_US/sdk.js'
+						fjs.parentNode?.insertBefore(js, fjs)
+					})(document, 'script', 'facebook-jssdk')
 				})
-
-				setSDKInitialized(true)
+			} catch (error) {
+				console.error('Ошибка инициализации Facebook SDK:', error)
 			}
-			;(function (d, s, id) {
-				var js: HTMLScriptElement,
-					fjs = d.getElementsByTagName(s)[0]
-				if (d.getElementById(id)) return
-				js = d.createElement(s) as HTMLScriptElement
-				js.id = id
-				js.src = 'https://connect.facebook.net/en_US/sdk.js'
-				fjs.parentNode?.insertBefore(js, fjs)
-			})(document, 'script', 'facebook-jssdk')
 		}
 
 		if (!isSDKInitialized) {
@@ -52,7 +58,7 @@ const Login: React.FC = () => {
 		try {
 			const windowWithFB = window as WindowWithFB
 
-			// Ждем, пока Facebook SDK полностью инициализируется
+			// Проверяем, инициализирован ли Facebook SDK
 			if (!isSDKInitialized) {
 				console.error('Facebook SDK еще не инициализирован.')
 				return
