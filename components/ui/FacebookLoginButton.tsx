@@ -22,6 +22,12 @@ const initFacebookSDK = (appId: string) => {
 		script.defer = true
 		script.crossOrigin = 'anonymous'
 		script.onload = () => {
+			window.FB.init({
+				appId: appId,
+				autoLogAppEvents: true,
+				xfbml: true,
+				version: 'v11.0',
+			})
 			resolve()
 		}
 		document.head.appendChild(script)
