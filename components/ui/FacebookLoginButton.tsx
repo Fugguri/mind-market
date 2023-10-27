@@ -22,12 +22,6 @@ const initFacebookSDK = (appId: string) => {
 		script.defer = true
 		script.crossOrigin = 'anonymous'
 		script.onload = () => {
-			window.FB.init({
-				appId: appId,
-				autoLogAppEvents: true,
-				xfbml: true,
-				version: 'v11.0',
-			})
 			resolve()
 		}
 		document.head.appendChild(script)
@@ -56,13 +50,13 @@ const Login: React.FC = () => {
 
 	const loginWithFacebook = async () => {
 		try {
-			const windowWithFB = window as WindowWithFB
-
 			// Проверяем, инициализирован ли Facebook SDK
-			if (!isSDKInitialized) {
+			if (!isSDKInitialized || !('FB' in window)) {
 				console.error('Facebook SDK еще не инициализирован.')
 				return
 			}
+
+			const windowWithFB = window as WindowWithFB
 
 			// Проверяем статус входа перед вызовом FB.login
 			windowWithFB.FB?.getLoginStatus(response => {
