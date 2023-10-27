@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 interface WindowWithFB extends Window {
 	FB?: {
 		init: (params: {
-			appId: string
+			appId: string | undefined
 			autoLogAppEvents: boolean
 			xfbml: boolean
 			version: string
@@ -23,7 +23,7 @@ const Login: React.FC = () => {
 
 		windowWithFB.fbAsyncInit = function () {
 			windowWithFB.FB?.init({
-				appId: 'ВАШ_APP_ID',
+				appId: process.env.FACEBOOK_APP_ID,
 				autoLogAppEvents: true,
 				xfbml: true,
 				version: 'v11.0',
