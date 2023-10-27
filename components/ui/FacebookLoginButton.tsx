@@ -12,45 +12,48 @@ interface WindowWithFB extends Window {
 		login: (callback?: (response: any) => void, options?: any) => void
 		getLoginStatus: (callback: (response: any) => void) => void
 	}
-	fbAsyncInit?: () => void
+}
+
+const initFacebookSDK = (appId: string) => {
+	return new Promise<void>(resolve => {
+		window.fbAsyncInit = function () {
+			window.FB.init({
+				appId: appId,
+				autoLogAppEvents: true,
+				xfbml: true,
+				version: 'v11.0',
+			})
+			resolve()
+		}
+		;(function (d, s, id) {
+			var js: HTMLScriptElement,
+				fjs = d.getElementsByTagName(s)[0]
+			if (d.getElementById(id)) return
+			js = d.createElement(s) as HTMLScriptElement
+			js.id = id
+			js.src = 'https://connect.facebook.net/en_US/sdk.js'
+			fjs.parentNode?.insertBefore(js, fjs)
+		})(document, 'script', 'facebook-jssdk')
+	})
 }
 
 const Login: React.FC = () => {
 	const [isSDKInitialized, setSDKInitialized] = useState(false)
 
 	useEffect(() => {
-		const initFacebookSDK = async () => {
+		const initializeSDK = async () => {
 			try {
-				await new Promise<void>((resolve, reject) => {
-					const windowWithFB = window as WindowWithFB
-
-					windowWithFB.fbAsyncInit = function () {
-						windowWithFB.FB?.init({
-							appId: process.env.FACEBOOK_APP_ID || 'YOUR_DEFAULT_APP_ID',
-							autoLogAppEvents: true,
-							xfbml: true,
-							version: 'v11.0',
-						})
-						setSDKInitialized(true)
-						resolve()
-					}
-					;(function (d, s, id) {
-						var js: HTMLScriptElement,
-							fjs = d.getElementsByTagName(s)[0]
-						if (d.getElementById(id)) return
-						js = d.createElement(s) as HTMLScriptElement
-						js.id = id
-						js.src = 'https://connect.facebook.net/en_US/sdk.js'
-						fjs.parentNode?.insertBefore(js, fjs)
-					})(document, 'script', 'facebook-jssdk')
-				})
+				await initFacebookSDK(
+					process.env.FACEBOOK_APP_ID || 'YOUR_DEFAULT_APP_ID'
+				)
+				setSDKInitialized(true)
 			} catch (error) {
 				console.error('Ошибка инициализации Facebook SDK:', error)
 			}
 		}
 
 		if (!isSDKInitialized) {
-			initFacebookSDK()
+			initializeSDK()
 		}
 	}, [isSDKInitialized])
 
