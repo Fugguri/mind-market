@@ -52,8 +52,8 @@ const Login: React.FC = () => {
 		try {
 			const windowWithFB = window as WindowWithFB
 
-			// Проверяем, инициализирован ли Facebook SDK
-			if (!windowWithFB.FB) {
+			// Ждем, пока Facebook SDK полностью инициализируется
+			if (!isSDKInitialized) {
 				console.error('Facebook SDK еще не инициализирован.')
 				return
 			}
