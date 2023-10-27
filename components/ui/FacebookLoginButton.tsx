@@ -25,7 +25,7 @@ const Login: React.FC = () => {
 					const windowWithFB = window as WindowWithFB
 					windowWithFB.fbAsyncInit = function () {
 						windowWithFB.FB?.init({
-							appId: process.env.FACEBOOK_APP_ID || 'ВАШ_ID_ПРИЛОЖЕНИЯ',
+							appId: process.env.FACEBOOK_APP_ID || 'YOUR_DEFAULT_APP_ID',
 							autoLogAppEvents: true,
 							xfbml: true,
 							version: 'v11.0',
