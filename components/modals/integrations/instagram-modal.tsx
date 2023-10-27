@@ -6,14 +6,6 @@ import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Image from 'next/image'
-import {
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from '@/components/ui/form'
 
 import {
 	Dialog,
@@ -30,6 +22,7 @@ import { Button } from '@/components/ui/button'
 
 import { useModal } from '@/hooks/use-modal-store'
 import { Facebook } from 'lucide-react'
+import Login from '@/components/ui/FacebookLoginButton'
 
 const formSchema = z.object({
 	token: z.string().min(1, {
@@ -103,17 +96,20 @@ export const AddInstModal = () => {
 						data-auto-logout-link='false'
 						data-use-continue-as='false'
 					></div>
-					<Button variant='primary' disabled={isLoading}>
-						<a href='https://www.facebook.com/oauth/authorize?client_id=993271218405281&redirect_uri=​web-mindmarket.ru/api/callback/facebook&scope=user_profile,user_media&response_type=code'>
-							<Image
+					<Login />
+					{/* <Button variant='primary' disabled={isLoading}>
+						<Image
 								className='opacity-75`'
 								src='/instagram-icon.png'
 								width={25}
 								height={25}
 								alt='Login with Instagram'
 							/>
+						</Login>
+
+						<a href='https://www.facebook.com/oauth/authorize?client_id=993271218405281&redirect_uri=​web-mindmarket.ru/api/callback/facebook&scope=user_profile,user_media&response_type=code'>
 						</a>
-					</Button>
+					</Button> */}
 				</DialogFooter>
 			</DialogContent>
 		</Dialog>
