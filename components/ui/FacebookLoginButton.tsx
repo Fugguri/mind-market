@@ -12,6 +12,7 @@ interface WindowWithFB extends Window {
 		login: (callback?: (response: any) => void, options?: any) => void
 		getLoginStatus: (callback: (response: any) => void) => void
 	}
+	fbAsyncInit?: () => void
 }
 
 const initFacebookSDK = (appId: string) => {
