@@ -30,6 +30,7 @@ const initFacebookSDK = (appId: string) => {
 				xfbml: true,
 				version: 'v11.0',
 			})
+			resolve()
 		}
 		document.head.appendChild(script)
 	})
@@ -42,16 +43,14 @@ const Login: React.FC = () => {
 		console.log('mount')
 		const initializeSDK = async () => {
 			try {
-				await initFacebookSDK(
-					process.env.FACEBOOK_APP_ID || 'YOUR_DEFAULT_APP_ID'
-				)
+				await initFacebookSDK('993271218405281')
 				// Вместо проверки наличия FB в window, просто устанавливаем флаг инициализации
 				setSDKInitialized(true)
 			} catch (error) {
 				console.error('Ошибка инициализации Facebook SDK:', error)
 			}
 		}
-
+		console.log(isSDKInitialized)
 		if (!isSDKInitialized) {
 			initializeSDK()
 		}
