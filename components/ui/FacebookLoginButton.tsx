@@ -43,7 +43,7 @@ const Login: React.FC = () => {
 		console.log('mount')
 		const initializeSDK = async () => {
 			try {
-				await initFacebookSDK('993271218405281')
+				await initFacebookSDK('635643002097519')
 				// Вместо проверки наличия FB в window, просто устанавливаем флаг инициализации
 				setSDKInitialized(true)
 			} catch (error) {
