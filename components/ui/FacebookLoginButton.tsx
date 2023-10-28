@@ -39,9 +39,10 @@ const Login: React.FC = () => {
 	const [isSDKInitialized, setSDKInitialized] = useState(false)
 
 	useEffect(() => {
+		console.log('mount')
 		const initializeSDK = async () => {
 			try {
-				const fb = await initFacebookSDK(
+				await initFacebookSDK(
 					process.env.FACEBOOK_APP_ID || 'YOUR_DEFAULT_APP_ID'
 				)
 				// Вместо проверки наличия FB в window, просто устанавливаем флаг инициализации
@@ -50,7 +51,7 @@ const Login: React.FC = () => {
 				console.error('Ошибка инициализации Facebook SDK:', error)
 			}
 		}
-		console.log(initializeSDK)
+
 		if (!isSDKInitialized) {
 			initializeSDK()
 		}
