@@ -90,7 +90,7 @@ const Login: React.FC = () => {
 
 	return (
 		<div>
-			<button onClick={loginWithFacebook}> </button>
+			<button onClick={loginWithFacebook}>Войти через Facebook</button>
 		</div>
 	)
 }
