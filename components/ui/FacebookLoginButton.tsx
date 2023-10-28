@@ -41,9 +41,10 @@ const Login: React.FC = () => {
 	useEffect(() => {
 		const initializeSDK = async () => {
 			try {
-				await initFacebookSDK(
+				const fb = await initFacebookSDK(
 					process.env.FACEBOOK_APP_ID || 'YOUR_DEFAULT_APP_ID'
 				)
+				console.log(fb)
 				// Вместо проверки наличия FB в window, просто устанавливаем флаг инициализации
 				setSDKInitialized(true)
 			} catch (error) {
