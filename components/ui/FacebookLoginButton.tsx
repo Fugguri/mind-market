@@ -15,6 +15,8 @@ interface WindowWithFB extends Window {
 }
 
 const initFacebookSDK = (appId: string) => {
+	const windowWithFB = window as WindowWithFB
+
 	return new Promise<void>(resolve => {
 		const script = document.createElement('script')
 		script.src = 'https://connect.facebook.net/en_US/sdk.js'
@@ -22,7 +24,12 @@ const initFacebookSDK = (appId: string) => {
 		script.defer = true
 		script.crossOrigin = 'anonymous'
 		script.onload = () => {
-			resolve()
+			windowWithFB.FB?.init({
+				appId: appId,
+				autoLogAppEvents: true,
+				xfbml: true,
+				version: 'v11.0',
+			})
 		}
 		document.head.appendChild(script)
 	})

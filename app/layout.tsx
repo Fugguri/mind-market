@@ -26,13 +26,6 @@ export default async function RootLayout({
 	return (
 		<html lang='ru' suppressHydrationWarning>
 			<body className={cn(font.className, 'bg-white dark:bg-[#313338]')}>
-				<script
-					async
-					defer
-					crossOrigin='anonymous'
-					src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=ВАШ_APP_ID&autoLogAppEvents=1'
-					nonce='ВАШ_NONCE'
-				></script>
 				<SessionProvider>
 					<ThemeProvider
 						attribute='class'
