@@ -87,7 +87,7 @@ export const AddInstModal = () => {
 						fields='name,email,picture'
 						callback={responseFacebook}
 					/> */}
-					<div
+					{/* <div
 						className='fb-login-button'
 						data-width=''
 						data-size=''
@@ -95,7 +95,7 @@ export const AddInstModal = () => {
 						data-layout=''
 						data-auto-logout-link='false'
 						data-use-continue-as='false'
-					></div>
+					></div> */}
 					<Login />
 					{/* <Button variant='primary' disabled={isLoading}>
 						<Image
