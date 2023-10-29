@@ -1,6 +1,7 @@
 // pages/login.tsx
 import { useEffect, useState } from 'react'
 import { Button } from './button'
+import axios from 'axios'
 
 interface WindowWithFB extends Window {
 	FB?: {
@@ -71,6 +72,9 @@ const Login: React.FC = () => {
 					console.log()
 					console.log('Пользователь уже вошел через Facebook!', response)
 					window.alert('Вы уже вошли')
+					const userData = axios.get(
+						`https://graph.facebook.com/USER-ID?metadata=1&access_token=${response.access_token}`
+					)
 					// Здесь можно отправить запрос на сервер для обработки токена доступа
 				} else {
 					// Вызываем FB.login только после успешной инициализации Facebook SDK
