@@ -77,7 +77,7 @@ const Login: React.FC = () => {
 				if (response.status === 'connected') {
 					console.log('Пользователь уже вошел через Facebook!', response)
 					windowWithFB.FB?.api(
-						'/me',
+						`https://graph.facebook.com/USER-ID?metadata=1&access_token=${response.authResponse.access_token}`,
 						'GET',
 						{ fields: 'email' },
 						(response: any) => {
