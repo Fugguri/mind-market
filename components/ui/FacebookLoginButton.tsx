@@ -69,11 +69,12 @@ const Login: React.FC = () => {
 			// Проверяем статус входа перед вызовом FB.login
 			windowWithFB.FB?.getLoginStatus(response => {
 				if (response.status === 'connected') {
-					console.log()
 					console.log('Пользователь уже вошел через Facebook!', response)
-					console.log(response)
+					console.log(response.get())
 					const userData = axios.get(
-						`https://graph.facebook.com/USER-ID?metadata=1&access_token=${response.access_token}`
+						`https://graph.facebook.com/USER-ID?metadata=1&access_token=${response.headers.get(
+							'access_token'
+						)}`
 					)
 					console.log(userData)
 					// Здесь можно отправить запрос на сервер для обработки токена доступа
