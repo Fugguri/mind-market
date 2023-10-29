@@ -13,11 +13,7 @@ interface WindowWithFB extends Window {
 		}) => void
 		login: (callback?: (response: any) => void, options?: any) => void
 		getLoginStatus: (callback: (response: any) => void) => void
-		api: (
-			path: string,
-			method: string,
-			callback: (response: any) => void
-		) => void
+		api: (path: string, callback: (response: any) => void) => void
 	}
 }
 
@@ -76,17 +72,10 @@ const Login: React.FC = () => {
 				if (response.status === 'connected') {
 					console.log('Пользователь уже вошел через Facebook!', response)
 					windowWithFB.FB?.api(
-						`https://graph.facebook.com/USER-ID?metadata=1&access_token=${response.authResponse.access_token}`,
-						'GET',
-						(response: any) => {
-							if (response.error) {
-								console.error('Ошибка при запросе к API:', response.error)
-								// Дополнительные действия по обработке ошибки, если необходимо
-							} else {
+						`/${response.authResponse.userId}/accounts`,
+						function (response) {
+							if (response && !response.error) {
 								console.log(response)
-								const user_email = response.email // Получение email пользователя
-								// Здесь можно продолжить обработку полученных данных
-								console.log(user_email)
 							}
 						}
 					)
