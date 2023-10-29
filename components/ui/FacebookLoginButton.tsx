@@ -41,7 +41,6 @@ const Login: React.FC = () => {
 	const [isSDKInitialized, setSDKInitialized] = useState(false)
 
 	useEffect(() => {
-		console.log('mount')
 		const initializeSDK = async () => {
 			try {
 				await initFacebookSDK('308882368546729')
@@ -50,7 +49,7 @@ const Login: React.FC = () => {
 				console.error('Ошибка инициализации Facebook SDK:', error)
 			}
 		}
-		console.log(isSDKInitialized)
+
 		if (!isSDKInitialized) {
 			initializeSDK()
 		}
@@ -69,7 +68,9 @@ const Login: React.FC = () => {
 			// Проверяем статус входа перед вызовом FB.login
 			windowWithFB.FB?.getLoginStatus(response => {
 				if (response.status === 'connected') {
+					console.log()
 					console.log('Пользователь уже вошел через Facebook!', response)
+					window.alert('Вы уже вошли')
 					// Здесь можно отправить запрос на сервер для обработки токена доступа
 				} else {
 					// Вызываем FB.login только после успешной инициализации Facebook SDK
@@ -84,7 +85,7 @@ const Login: React.FC = () => {
 				}
 			})
 		} catch (error) {
-			console.error('Ошибка входа через Facebook:', error)
+			window.alert('Ошибка входа через Facebook:' + error)
 		}
 	}
 
