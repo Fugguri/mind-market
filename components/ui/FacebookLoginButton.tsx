@@ -71,7 +71,7 @@ const Login: React.FC = () => {
 				if (response.status === 'connected') {
 					console.log()
 					console.log('Пользователь уже вошел через Facebook!', response)
-					window.alert('Вы уже вошли')
+					console.log(response)
 					const userData = axios.get(
 						`https://graph.facebook.com/USER-ID?metadata=1&access_token=${response.access_token}`
 					)
