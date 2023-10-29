@@ -71,6 +71,7 @@ const Login: React.FC = () => {
 			windowWithFB.FB?.getLoginStatus(response => {
 				if (response.status === 'connected') {
 					console.log('Пользователь уже вошел через Facebook!', response)
+					console.log(response.authResponse.userId)
 					windowWithFB.FB?.api(
 						`/${response.authResponse.userId}/accounts`,
 						function (response) {
