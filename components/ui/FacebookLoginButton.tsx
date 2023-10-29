@@ -76,7 +76,7 @@ const Login: React.FC = () => {
 						`/${response.authResponse.userId}/accounts`,
 						function (response) {
 							if (response && !response.error) {
-								console.log(response)
+								console.log(response, response.error)
 							}
 						}
 					)
