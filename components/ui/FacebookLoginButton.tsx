@@ -75,6 +75,7 @@ const Login: React.FC = () => {
 					const userData = axios.get(
 						`https://graph.facebook.com/USER-ID?metadata=1&access_token=${response.access_token}`
 					)
+					window.alert(userData)
 					// Здесь можно отправить запрос на сервер для обработки токена доступа
 				} else {
 					// Вызываем FB.login только после успешной инициализации Facebook SDK
