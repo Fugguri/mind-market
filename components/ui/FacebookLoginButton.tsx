@@ -1,5 +1,6 @@
 // pages/login.tsx
 import { useEffect, useState } from 'react'
+import { Button } from './button'
 
 interface WindowWithFB extends Window {
 	FB?: {
@@ -44,7 +45,6 @@ const Login: React.FC = () => {
 		const initializeSDK = async () => {
 			try {
 				await initFacebookSDK('308882368546729')
-				// Вместо проверки наличия FB в window, просто устанавливаем флаг инициализации
 				setSDKInitialized(true)
 			} catch (error) {
 				console.error('Ошибка инициализации Facebook SDK:', error)
@@ -90,7 +90,9 @@ const Login: React.FC = () => {
 
 	return (
 		<div>
-			<button onClick={loginWithFacebook}>Войти через Facebook</button>
+			<Button variant='primary' onClick={loginWithFacebook}>
+				Войти через Facebook
+			</Button>
 		</div>
 	)
 }
