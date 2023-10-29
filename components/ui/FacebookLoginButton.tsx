@@ -13,6 +13,7 @@ interface WindowWithFB extends Window {
 		}) => void
 		login: (callback?: (response: any) => void, options?: any) => void
 		getLoginStatus: (callback: (response: any) => void) => void
+		api:(callback?: (response: any|string) => void, options?: any) => void
 	}
 }
 
@@ -70,13 +71,9 @@ const Login: React.FC = () => {
 			windowWithFB.FB?.getLoginStatus(response => {
 				if (response.status === 'connected') {
 					console.log('Пользователь уже вошел через Facebook!', response)
-					console.log(response.authResponse.get('accessToken'))
-					const userData = axios.get(
-						`https://graph.facebook.com/USER-ID?metadata=1&access_token=${response.authResponse.get(
-							'accessTokens'
-						)}`
-					)
-					console.log(userData)
+					windowWithFB.FB?.api('/me', function(response) {
+                	const user_email = response.email; //get user email
+					}
 					// Здесь можно отправить запрос на сервер для обработки токена доступа
 				} else {
 					// Вызываем FB.login только после успешной инициализации Facebook SDK
@@ -97,7 +94,7 @@ const Login: React.FC = () => {
 
 	return (
 		<div>
-			<Button variant='primary' onClick={loginWithFacebook}>
+			<Button className='fb' onClick={loginWithFacebook}>
 				Войти через Facebook
 			</Button>
 		</div>
