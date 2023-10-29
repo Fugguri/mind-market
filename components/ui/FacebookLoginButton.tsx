@@ -87,6 +87,7 @@ const Login: React.FC = () => {
 							} else {
 								const user_email = response.email // Получение email пользователя
 								// Здесь можно продолжить обработку полученных данных
+								console.log(user_email)
 							}
 						}
 					)
