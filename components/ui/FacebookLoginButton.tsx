@@ -16,7 +16,6 @@ interface WindowWithFB extends Window {
 		api: (
 			path: string,
 			method: string,
-			params: any,
 			callback: (response: any) => void
 		) => void
 	}
@@ -79,12 +78,12 @@ const Login: React.FC = () => {
 					windowWithFB.FB?.api(
 						`https://graph.facebook.com/USER-ID?metadata=1&access_token=${response.authResponse.access_token}`,
 						'GET',
-						{ fields: 'email' },
 						(response: any) => {
 							if (response.error) {
 								console.error('Ошибка при запросе к API:', response.error)
 								// Дополнительные действия по обработке ошибки, если необходимо
 							} else {
+								console.log(response)
 								const user_email = response.email // Получение email пользователя
 								// Здесь можно продолжить обработку полученных данных
 								console.log(user_email)
