@@ -75,7 +75,7 @@ const Login: React.FC = () => {
 					console.log(response.authResponse)
 					// Здесь можно отправить запрос на сервер для обработки токена доступа
 					windowWithFB.FB?.api(
-						`/${response.authResponse.userID}/accounts`,
+						`/${response.authResponse.userID}`,
 						function (response) {
 							if (response && !response.error) {
 								console.log(response, response.error)
