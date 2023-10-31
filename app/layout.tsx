@@ -25,7 +25,7 @@ export default async function RootLayout({
 	console.log(session)
 	return (
 		<html lang='ru' suppressHydrationWarning>
-			<body className={cn(font.className, 'bg-white dark:bg-[#313338]')}>
+			<body className={cn(font.className, 'bg-[#DCDCDC] dark:bg-[#313338]')}>
 				<SessionProvider>
 					<ThemeProvider
 						attribute='class'
