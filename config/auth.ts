@@ -79,7 +79,7 @@ export const authConfig: AuthOptions = {
 	theme: {
 		colorScheme: 'auto', // "auto" | "dark" | "light"
 		brandColor: '', // Hex color code
-		logo: '/logo.svg', // Absolute URL to Image
+		logo: '/logo.png', // Absolute URL to Image
 		buttonText: 'Web-Mindmarket', // Hex color code
 	},
 
