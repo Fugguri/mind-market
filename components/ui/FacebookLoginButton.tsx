@@ -58,7 +58,10 @@ const Login: React.FC = () => {
 								console.log('Вход отменен.')
 							}
 						},
-						{ scope: 'public_profile,email,instagram_basic,pages_show_list' }
+						{
+							scope:
+								'public_profile,email,instagram_basic,pages_show_list,instagram_manage_messages,pages_manage_metadata',
+						}
 					)
 				}
 			})
