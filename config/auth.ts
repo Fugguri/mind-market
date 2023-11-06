@@ -1,3 +1,4 @@
+import { signIn } from 'next-auth/react'
 import { AuthOptions, User } from 'next-auth'
 
 import GithubProvider from 'next-auth/providers/github'
@@ -5,22 +6,26 @@ import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { db } from '@/lib/db'
 import { randomUUID } from 'crypto'
-
+import { hash, compare } from 'bcrypt'
 export const authConfig: AuthOptions = {
 	// Configure one or more authentication providers
+
+	session: {
+		strategy: 'jwt',
+	},
 	providers: [
 		CredentialsProvider({
 			// The name to display on the sign in form (e.g. "Sign in with...")
-			name: 'login or email',
+			name: 'email',
 			// `credentials` is used to generate a form on the sign in page.
 			// You can specify which fields should be submitted, by adding keys to the `credentials` object.
 			// e.g. domain, username, password, 2FA token, etc.
 			// You can pass any HTML attribute to the <input> tag through the object.
 			credentials: {
-				username: {
-					label: 'Имя пользователя или email ',
-					type: 'text' || 'email',
-					placeholder: 'Имя пользователя или email',
+				email: {
+					label: ' email ',
+					type: 'email',
+					placeholder: 'hello@example.com',
 					required: true,
 				},
 				password: {
@@ -31,36 +36,41 @@ export const authConfig: AuthOptions = {
 				},
 			},
 			async authorize(credentials) {
-				if (!credentials?.username || !credentials.password) return null
+				if (!credentials?.email || !credentials.password) return null
 
-				const profile = await db.profile.findFirst({
+				const user = await db.user.findUnique({
 					where: {
-						login: credentials?.username?.toString(),
-						password: credentials?.password?.toString(),
+						email: credentials?.email?.toString(),
 					},
 				})
 
-				if (profile && credentials?.password === profile.password) {
-					const { password, ...profileWithoutPass } = profile
-
-					return profileWithoutPass as User
-				}
-				if (profile && credentials?.password !== profile.password) {
-					return null
-				}
-				if (!profile) {
-					const newProfile = await db.profile.create({
+				if (!user) {
+					const hashedPassword = await hash(credentials.password, 12)
+					const newProfile = await db.user.create({
 						data: {
 							userId: randomUUID(),
 							imageUrl: '',
-							name: 'Full name',
-							login: credentials.username,
-							password: credentials.password,
+							name: 'default name',
+							email: credentials.email,
+							password: hashedPassword,
 						},
 					})
 					const { password, ...profileWithoutPass } = newProfile
 
 					return profileWithoutPass as User
+				}
+
+				const isPasswordValid = await compare(
+					credentials?.password,
+					user.password
+				)
+				if (isPasswordValid) {
+					const { password, ...profileWithoutPass } = user
+
+					return profileWithoutPass as User
+				}
+				if (!isPasswordValid) {
+					return null
 				}
 				return null
 			},
@@ -73,22 +83,12 @@ export const authConfig: AuthOptions = {
 			clientId: process.env.GITHUB_ID!,
 			clientSecret: process.env.GITHUB_SECRET!,
 		}),
-		// ...add more providers herec
+		// ...add more providers here
 	],
-
 	theme: {
 		colorScheme: 'auto', // "auto" | "dark" | "light"
-		brandColor: '', // Hex color code
+		brandColor: '#7CFC00', // Hex color code
 		logo: '/logo.png', // Absolute URL to Image
-		buttonText: 'Web-Mindmarket', // Hex color code
+		buttonText: '#7CFC00', // Hex color code
 	},
-
-	// callbacks: {
-	//   session({session, user} ) {
-	//     if (session.user) {
-	//       session.user.i = user.id;
-	//     }
-	//     return session;
-	//   },
-	// },
 }

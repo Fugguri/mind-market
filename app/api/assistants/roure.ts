@@ -1,35 +1,33 @@
-import { currentProfile } from "@/lib/current-profile";
-import { v4 as uuidv4 } from 'uuid';
-import { db } from "@/lib/db";
-import { NextResponse } from 'next/server';
+import { currentProfile } from '@/lib/current-profile'
+import { v4 as uuidv4 } from 'uuid'
+import { db } from '@/lib/db'
+import { NextResponse } from 'next/server'
 
-export async function POST(req:Request) {
-    try {
-        const {name, settings,comment,imageUrl} = await req.json();
-        
-        const profile = await currentProfile();
+export async function POST(req: Request) {
+	try {
+		const { name, settings, comment, imageUrl } = await req.json()
 
-        if (!profile) {
-            return new NextResponse("Unauthorize", { status: 401 })
-        }
-        console.log("assistant post")
-        const assistant = await db.assistant.create({
-            data: {
-                profileId: profile.id,
-                name,
-                imageUrl,
-                settings,
-                comment,
-                token: uuidv4(),
+		const profile = await currentProfile()
 
-            }
-        
-        })
-        
-        return NextResponse.json(assistant)
+		if (!profile) {
+			return new NextResponse('Unauthorize', { status: 401 })
+		}
+		console.log('assistant post')
+		const assistant = await db.assistant.create({
+			data: {
+				userId: profile.id,
+				profileId: profile.id,
+				name,
+				imageUrl,
+				settings,
+				comment,
+				token: uuidv4(),
+			},
+		})
 
-    }catch(error) {
-        console.log("[SERVERS_POST]",error)
-        return new NextResponse("Enternal error",{status: 500});
-    }
+		return NextResponse.json(assistant)
+	} catch (error) {
+		console.log('[SERVERS_POST]', error)
+		return new NextResponse('Enternal error', { status: 500 })
+	}
 }

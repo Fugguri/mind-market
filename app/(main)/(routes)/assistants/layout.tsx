@@ -17,9 +17,10 @@ const AssistantPageLayuot = async ({
 	}
 	const assistant = await db.assistant.findMany({
 		where: {
-			profileId: profile.id,
+			userId: profile.id,
 		},
 	})
+	console.log(assistant)
 	if (!assistant) {
 		return redirect('/')
 	}
