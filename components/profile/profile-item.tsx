@@ -1,5 +1,5 @@
 'use client'
-import { Profile } from '@prisma/client'
+import { User } from '@prisma/client'
 import Image from 'next/image'
 import { Button } from '../ui/button'
 import { Edit } from 'lucide-react'
