@@ -1,24 +1,22 @@
-import { currentProfile } from "@/lib/current-profile";
-import { db } from "@/lib/db";
-import { redirectToSignIn } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+import { currentProfile } from '@/lib/current-profile'
+import { db } from '@/lib/db'
+import { redirectToSignIn } from '@clerk/nextjs'
+import { redirect } from 'next/navigation'
 
 const StatisticPage = async () => {
-    const profile = await currentProfile()
+	const profile = await currentProfile()
 
-    if(!profile){
-        redirectToSignIn()
-    }
+	if (!profile) {
+		redirectToSignIn()
+	}
 
-    const assistant = await db.assistant.findFirst(
-        {where:{
-            profileId:profile?.id
-        }}
-    )
+	const assistant = await db.assistant.findFirst({
+		where: {
+			userId: profile?.id,
+		},
+	})
 
-    return ( 
-        redirect(`assistant/statistic/${assistant?.id}`)
-     );
+	return redirect(`assistant/statistic/${assistant?.id}`)
 }
- 
-export default StatisticPage;
+
+export default StatisticPage

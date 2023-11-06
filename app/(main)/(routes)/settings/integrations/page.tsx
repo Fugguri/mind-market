@@ -14,7 +14,7 @@ const ServicesPage = async () => {
 		return redirect('/')
 	}
 
-	const integrations = db.profile.findMany({
+	const integrations = db.user.findMany({
 		where: {
 			id: user.id,
 		},

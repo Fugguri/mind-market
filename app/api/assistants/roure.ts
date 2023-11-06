@@ -16,7 +16,6 @@ export async function POST(req: Request) {
 		const assistant = await db.assistant.create({
 			data: {
 				userId: profile.id,
-				profileId: profile.id,
 				name,
 				imageUrl,
 				settings,
