@@ -6,7 +6,7 @@ import { Edit } from 'lucide-react'
 import { useModal } from '@/hooks/use-modal-store'
 
 interface ProfileItemPageProps {
-	profile: Profile
+	profile: User
 }
 
 const ProfileItemPage = ({ profile }: ProfileItemPageProps) => {
