@@ -18,7 +18,6 @@ const AssistantsPage = async () => {
 
 	if (!assistant) {
 	}
-	console.log(assistant)
 	return redirect(`assistants/statistic/${assistant?.id}`)
 }
 

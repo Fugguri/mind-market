@@ -30,61 +30,61 @@ import { Button } from '@/components/ui/button'
 import { FileUpload } from '@/components/file-upload'
 import { useModal } from '@/hooks/use-modal-store'
 import { useEffect } from 'react'
+import { useSession } from 'next-auth/react'
 
 const formSchema = z.object({
-	name: z.string().min(1, {
+	imageUrl: z.string().min(1, {
 		message: 'Введите имя ассистента',
 	}),
-	settings: z.string().min(1, {
+	name: z.string().min(1, {
 		message: 'Введите промт для настройки ассистента',
 	}),
-	comment: z.string().min(1, {
+	email: z.string().min(1, {
 		message: 'Комментарий к этому ассистенку.',
 	}),
-	imageUrl: z.string().min(1, {
+	password: z.string().min(1, {
 		message: 'Изображение',
 	}),
 })
 
-export const EditAssistantModal = () => {
+export const EditProfileModal = () => {
 	const { isOpen, onClose, type, data } = useModal()
 
 	const router = useRouter()
 
-	const isModalOpen = isOpen && type === 'editAssistant'
+	const isModalOpen = isOpen && type === 'editProfile'
 
-	const { assistant } = data
-
+	const { profile } = data
+	console.log(profile)
 	const form = useForm({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			name: '',
-			settings: '',
-			comment: '',
 			imageUrl: '',
+			name: '',
+			email: '',
+			password: '',
 		},
 	})
 	useEffect(() => {
-		if (assistant) {
-			form.setValue('name', assistant.name)
-			form.setValue('settings', assistant.settings)
-			form.setValue('comment', assistant.comment)
-			form.setValue('imageUrl', assistant.imageUrl)
+		if (profile) {
+			form.setValue('imageUrl', profile.imageUrl)
+			form.setValue('name', profile.name ? profile.name : '')
+			form.setValue('email', profile.email ? profile.email : '')
+			form.setValue('password', profile.password)
 		}
-	}, [assistant, form])
+	}, [profile, form])
 
 	const isLoading = form.formState.isSubmitting
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
-		try {
-			await axios.patch(`/api/assistants/${assistant?.id}`, values)
-
-			form.reset()
-			router.refresh()
-			onClose()
-		} catch (error) {
-			console.log(error)
-		}
+		// try {
+		// 	await axios.patch(`/api/assistants/${profile?.id}`, values)
+		// 	form.reset()
+		// 	router.refresh()
+		// 	onClose()
+		// } catch (error) {
+		// 	console.log(error)
+		// }
 	}
 
 	const handleClose = () => {
@@ -97,11 +97,10 @@ export const EditAssistantModal = () => {
 			<DialogContent className='bg-white text-black p-0 overflow-hidden'>
 				<DialogHeader className='pt-8 px-6'>
 					<DialogTitle className='text-2xl text-center font-bold'>
-						Настройте своего ассистента
+						Редактирование профиля
 					</DialogTitle>
 					<DialogDescription className='tetx-center text-zinc-500'>
-						Дайте своему ассистенту имя и настройте его описание. Вы всегда
-						сможете его изменить!
+						Отредактируйте профиль
 					</DialogDescription>
 				</DialogHeader>
 				<Form {...form}>
@@ -153,14 +152,14 @@ export const EditAssistantModal = () => {
 							/>
 							<FormField
 								control={form.control}
-								name='settings'
+								name='email'
 								render={({ field }) => (
 									<FormItem>
 										<FormLabel
 											className='uppercase text-xs font-bold text-zinc-500
                                     dark:text-secondary/70'
 										>
-											Промт для настройки ассистента
+											Имя ассистента
 										</FormLabel>
 										<FormControl>
 											<Input
@@ -168,7 +167,7 @@ export const EditAssistantModal = () => {
 												className='bg-zinc-300/50 border-0 
                                         focus-visible:ring-0 text-black
                                         focus-visible:ring-offset-0'
-												placeholder='Добавьте промт'
+												placeholder='Дайте имя вашему ассистенку'
 												{...field}
 											/>
 										</FormControl>
@@ -178,14 +177,14 @@ export const EditAssistantModal = () => {
 							/>
 							<FormField
 								control={form.control}
-								name='comment'
+								name='password'
 								render={({ field }) => (
 									<FormItem>
 										<FormLabel
 											className='uppercase text-xs font-bold text-zinc-500
                                     dark:text-secondary/70'
 										>
-											Комментарий к ассистенту
+											Имя ассистента
 										</FormLabel>
 										<FormControl>
 											<Input
@@ -193,7 +192,7 @@ export const EditAssistantModal = () => {
 												className='bg-zinc-300/50 border-0 
                                         focus-visible:ring-0 text-black
                                         focus-visible:ring-offset-0'
-												placeholder='Добавьте комментарий'
+												placeholder='Дайте имя вашему ассистенку'
 												{...field}
 											/>
 										</FormControl>
@@ -203,6 +202,8 @@ export const EditAssistantModal = () => {
 							/>
 						</div>
 						<DialogFooter className='bg-gray-100 px-6 py-4'>
+							{/* <p>Дата регистрации:{profile.createdAt}</p>
+							<p>Отредактировано:{profile.updatedAt}</p> */}
 							<Button variant='primary' disabled={isLoading}>
 								Обновить
 							</Button>
