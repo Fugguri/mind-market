@@ -30,11 +30,24 @@ import { Button } from '@/components/ui/button'
 import { useModal } from '@/hooks/use-modal-store'
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select'
 
 const formSchema = z.object({
 	token: z.string().min(1, {
 		message: 'Введите токен',
 	}),
+	assistant: z.array(
+		z.object({
+			name: z.string(),
+			id: z.string(),
+		})
+	),
 })
 
 export const AddTgBotModal = () => {
@@ -47,6 +60,12 @@ export const AddTgBotModal = () => {
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			token: '',
+			assistant: [
+				{
+					name: 'fdsf',
+					id: 'fdsf',
+				},
+			],
 		},
 	})
 
@@ -109,6 +128,29 @@ export const AddTgBotModal = () => {
 											/>
 										</FormControl>
 										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name='assistant'
+								render={({ field }) => (
+									<FormItem className='bg-transparent'>
+										<FormLabel>Ассистент</FormLabel>
+										<FormControl>
+											<Select>
+												<SelectTrigger className='w-[180px]'>
+													<SelectValue placeholder='ассистент' />
+												</SelectTrigger>
+												<SelectContent>
+													<SelectItem value='dark'></SelectItem>
+
+													<SelectItem value='light'></SelectItem>
+
+													<SelectItem value='system'>System</SelectItem>
+												</SelectContent>
+											</Select>
+										</FormControl>
 									</FormItem>
 								)}
 							/>

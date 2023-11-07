@@ -25,6 +25,12 @@ export default async function RootLayout({
 	console.log(session)
 	return (
 		<html lang='ru' suppressHydrationWarning>
+			<head>
+				<meta
+					name='facebook-domain-verification'
+					content='ritc22cbm7fyzpk62vx0mnfvvmw6xk'
+				/>
+			</head>
 			<body className={cn(font.className, 'bg-[#DCDCDC] dark:bg-[#313338]')}>
 				<SessionProvider>
 					<ThemeProvider
