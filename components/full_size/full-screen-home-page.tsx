@@ -1,736 +1,740 @@
+'use client'
+import { redirect } from 'next/navigation'
+import { Button } from '../ui/button'
+
 const FullScreenHomePage = () => {
+	const signIn = () => {}
 	return (
-		<main>
-			<div className='w-[1920px] h-[10724px] relative bg-slate-200'>
-				<div className='opacity-60 w-[2971px] h-[2720px] left-[-528px] top-[-533px] absolute'>
-					<div className='w-[907px] h-[907px] left-0 top-[403px] absolute bg-indigo-600 rounded-full blur-[500px]' />
-					<div className='w-[907px] h-[907px] left-[1667px] top-[1813px] absolute bg-sky-500 rounded-full blur-[500px]' />
-					<div className='w-[1310px] h-[1310px] left-[1661px] top-0 absolute bg-indigo-600 rounded-full blur-[500px]' />
-				</div>
-				<div className='opacity-60 w-[2971px] left-[-546px] top-[-886px] absolute'>
-					<div className='w-[907px] h-[907px] left-0 top-[403px] absolute bg-indigo-600 rounded-full blur-[500px]' />
-					<div className='w-[1310px] h-[1310px] left-[1661px] top-0 absolute bg-indigo-600 rounded-full blur-[500px]' />
-				</div>
-				<div className='opacity-60 w-[2971px] h-[2438px] left-[-504px] top-[2352px] absolute'>
-					<div className='w-[907px] h-[907px] left-0 top-[403px] absolute bg-indigo-600 rounded-full blur-[500px]' />
-					<div className='w-[907px] h-[907px] left-[1208px] top-[1531px] absolute bg-sky-500 rounded-full blur-[500px]' />
-					<div className='w-[1310px] h-[1310px] left-[1661px] top-0 absolute bg-indigo-600 rounded-full blur-[500px]' />
-				</div>
-				<div className='opacity-60 w-[2971px] h-[2438px] left-[-509px] top-[5260px] absolute'>
-					<div className='w-[907px] h-[907px] left-0 top-[403px] absolute bg-indigo-600 rounded-full blur-[500px]' />
-					<div className='w-[907px] h-[907px] left-[1208px] top-[1531px] absolute bg-sky-500 rounded-full blur-[500px]' />
-					<div className='w-[1310px] h-[1310px] left-[1661px] top-0 absolute bg-indigo-600 rounded-full blur-[500px]' />
-				</div>
-				<div className='w-[359px] h-[893px] left-[1437px] top-[449px] absolute flex-col justify-center items-center inline-flex'>
-					<img
-						className='w-[359px] h-[893px]'
-						src='https://via.placeholder.com/359x893'
-					/>
-				</div>
-				<div className='origin-top-left rotate-[-15.64deg] w-[875.52px] h-[726.74px] left-[168px] top-[459.98px] absolute'>
-					<div className='w-[706.56px] h-[726.74px] left-0 top-0 absolute origin-top-left rotate-[-15.64deg] bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 rounded-[38.21px]' />
-					<div className='w-[706.56px] h-[726.74px] left-[162.71px] top-[-45.54px] absolute origin-top-left rotate-[-15.64deg] bg-gradient-to-b from-slate-900 via-sky-950 to-sky-900 rounded-[38.21px] border-4 border-white' />
-				</div>
-				<div className='w-[611.16px] h-[99px] left-[422px] top-[467.18px] absolute origin-top-left rotate-[-15deg]'>
-					<span className="text-lime-400 text-8xl font-normal font-['Audiowide'] leading-[96px]">
-						AI
-					</span>
-					<span className="text-green-600 text-8xl font-normal font-['Audiowide'] leading-[96px]">
-						{' '}
-					</span>
-					<span className="text-white text-[70px] font-normal font-['Audiowide'] leading-[70px]">
-						Syndicate
-					</span>
-				</div>
-				<div className="w-[621.98px] left-[452px] top-[620.44px] absolute origin-top-left rotate-[-16deg] text-white text-[46px] font-normal font-['Lexend'] leading-[69px]">
-					Внедряем искусственный интеллект в отделы продаж и клиентского сервиса
-				</div>
-				<div className='w-[306.64px] h-[306.64px] left-[235px] top-[1119.47px] absolute origin-top-left rotate-[-46.78deg] justify-center items-center inline-flex'>
-					<img
-						className='w-[306.64px] h-[306.64px]'
-						src='https://via.placeholder.com/307x307'
-					/>
-				</div>
-				<div className='w-[49px] h-[49px] left-[887px] top-[285px] absolute bg-gradient-to-tl from-fuchsia-600 to-indigo-600 rounded-full' />
-				<div className='w-[49px] h-[49px] left-[958px] top-[270px] absolute bg-gradient-to-br from-purple-800 to-indigo-600 rounded-full' />
-				<div className='w-[1596px] px-[34px] py-5 left-[183px] top-[72px] absolute bg-slate-600 bg-opacity-50 rounded-[100px] border border-neutral-800 justify-between items-center inline-flex'>
-					<div className='w-[158px] pl-[49px] py-2.5 justify-end items-center flex'>
-						<div className='w-40'>
-							<span className="text-lime-400 text-xl font-normal font-['Audiowide'] leading-tight">
-								AI
-							</span>
-							<span className="text-white text-xl font-normal font-['Audiowide'] leading-tight">
-								Syndicate
-							</span>
-						</div>
+		<div className='bg-[#e0e5f4] flex flex-row justify-center w-full'>
+			<div className='bg-[#e0e5f4] overflow-hidden w-[1920px] h-[10724px] relative'>
+				<div className='absolute w-[2989px] h-[3192px] top-[-886px] left-[-546px]'>
+					<div className='absolute w-[2971px] h-[2720px] top-[353px] left-[18px] opacity-60'>
+						<div className='absolute w-[907px] h-[907px] top-[403px] left-0 rounded-[453.5px] blur-[500px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(83,72,215)_0%,rgba(83,72,215,0)_100%)]' />
+						<div className='absolute w-[907px] h-[907px] top-[1813px] left-[1667px] rounded-[453.5px] blur-[500px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(0,132,255)_0%,rgba(0,132,255,0)_100%)]' />
+						<div className='absolute w-[1310px] h-[1310px] top-0 left-[1661px] rounded-[655px] blur-[500px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(83,72,215)_0%,rgba(83,72,215,0)_100%)]' />
 					</div>
-					<div className='justify-start items-center gap-[26px] flex'>
-						<div className='px-6 py-3 bg-neutral-800 rounded-[82px] justify-start items-center gap-2.5 flex'>
-							<div className="text-white text-[25px] font-normal font-['Lexend'] leading-[37.50px]">
-								О нас
-							</div>
-						</div>
-						<div className="text-white text-[25px] font-normal font-['Lexend'] leading-[37.50px]">
-							Преимущества
-						</div>
-						<div className="text-white text-[25px] font-normal font-['Lexend'] leading-[37.50px]">
-							Стоимость
-						</div>
-						<div className="text-white text-[25px] font-normal font-['Lexend'] leading-[37.50px]">
-							Контакты
-						</div>
+					<div className='h-[1310px] top-0 left-0 absolute w-[2971px] opacity-60'>
+						<div className='absolute w-[907px] h-[907px] top-[403px] left-0 rounded-[453.5px] blur-[500px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(83,72,215)_0%,rgba(83,72,215,0)_100%)]' />
+						<div className='absolute w-[1310px] h-[1310px] top-0 left-[1661px] rounded-[655px] blur-[500px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(83,72,215)_0%,rgba(83,72,215,0)_100%)]' />
 					</div>
-					<div className='justify-start items-center gap-[30px] flex'>
-						<div className="text-white text-[25px] font-normal font-['Lexend'] leading-[37.50px]">
-							Регистрация
-						</div>
-						<div className='px-[30px] py-3.5 bg-lime-400 rounded-[82px] justify-start items-center gap-2.5 flex'>
-							<div className="text-zinc-900 text-[25px] font-normal font-['Lexend'] leading-[37.50px]">
-								Вход
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className='w-[514.08px] h-[610.46px] left-[168px] top-[1696px] absolute'>
-					<div className='w-[514.08px] h-[610.46px] left-0 top-0 absolute bg-black bg-opacity-5 rounded-3xl' />
-					<div className="w-[414.08px] left-[42px] top-[274px] absolute text-center text-black text-opacity-50 text-2xl font-normal font-['Hind'] leading-9">
-						Найти хорошего менеджера по продажам сложно. Вырастить своего
-						лучшего сотрудника задача долгая. Благодаря развитию
-						интернет-торговли спрос на менеджеров вырос
-					</div>
-					<div className="left-[12px] top-[212px] absolute text-black text-5xl font-bold font-['Lexend'] leading-[48px]">
-						Лучший продажник
-					</div>
-					<div className='w-32 h-32 left-[193px] top-[61px] absolute justify-center items-center inline-flex'>
+					<div className='absolute w-[359px] h-[893px] top-[1335px] left-[1983px]'>
 						<img
-							className='w-32 h-32'
-							src='https://via.placeholder.com/128x128'
+							className='absolute w-[359px] h-[893px] top-0 left-0 object-cover'
+							alt='Image'
+							src='image-6.png'
 						/>
 					</div>
-				</div>
-				<div className='w-[514.08px] h-[610.46px] left-[703.96px] top-[1696px] absolute'>
-					<div className='w-[514.08px] h-[610.46px] left-0 top-0 absolute bg-black bg-opacity-5 rounded-3xl' />
-					<div className='w-[514.08px] h-[580.21px] p-[50px] left-0 top-[8px] absolute bg-white bg-opacity-0 backdrop-blur-[15px] flex-col justify-center items-center gap-4 inline-flex'>
-						<div className='w-[141px] h-[141px] justify-center items-center inline-flex'>
-							<img
-								className='w-[141px] h-[141px]'
-								src='https://via.placeholder.com/141x141'
-							/>
-						</div>
-						<div className="text-black text-5xl font-bold font-['Lexend'] leading-[48px]">
-							Робот — не человек
-						</div>
-						<div className="self-stretch text-center text-black text-opacity-50 text-[25px] font-normal font-['Hind'] leading-[37.50px]">
-							Роботы и чат-боты снизили нагрузку на менеджеров при первичном
-							касании, но только ухудшили пользовательский опыт. Клиент хочет
-							решать проблему здесь и сейчас с индивидуальным подходом
+					<div className='absolute w-[876px] h-[727px] top-[1215px] left-[796px] rotate-[-15.64deg]'>
+						<div className='relative w-[878px] h-[731px] top-[-2px]'>
+							<div className='w-[707px] h-[727px] top-[2px] left-0 [background:linear-gradient(180deg,rgb(23.6,41.78,69.06)_0%,rgb(5,21,47)_15.62%,rgb(7,18,45)_75.86%,rgb(2.91,30.28,77.56)_83.38%,rgb(4,9,24)_91.68%,rgb(4,9,24)_100%)] absolute rounded-[38.21px]' />
+							<div className='w-[711px] h-[731px] top-0 left-[167px] border-4 border-solid border-transparent [border-image:linear-gradient(to_bottom,rgba(255,255,255,0.4),rgba(255,255,255,0))_1] [background:linear-gradient(180deg,rgb(19.8,19,59)_0%,rgb(21,48,76)_83.17%,rgb(11,55,97)_100%)] absolute rounded-[38.21px]' />
 						</div>
 					</div>
-				</div>
-				<div className='w-[514.08px] h-[610.46px] left-[1239.92px] top-[1696px] absolute'>
-					<div className='w-[514.08px] h-[610.46px] left-0 top-0 absolute bg-black bg-opacity-5 rounded-3xl' />
-					<div className='w-32 h-32 left-[193.08px] top-[61px] absolute justify-center items-center inline-flex'>
+					<p className="absolute w-[611px] h-[99px] top-[1271px] left-[970px] rotate-[-15.00deg] [font-family:'Audiowide-Regular',Helvetica] font-normal text-transparent text-[96px] tracking-[-2.88px] leading-[96px] whitespace-nowrap">
+						<span className='text-[#caff33]'>AI</span>
+						<span className='text-[#0bd31f]'>&nbsp;</span>
+						<span className='text-white text-[70px] tracking-[-2.10px] leading-[70px]'>
+							Syndicate
+						</span>
+					</p>
+					<p className="absolute w-[622px] top-[1416px] left-[1014px] rotate-[-16.00deg] [font-family:'Lexend-Regular',Helvetica] font-normal text-white text-[46px] tracking-[-0.92px] leading-[69px]">
+						Внедряем искусственный интеллект в отделы продаж и клиентского
+						сервиса
+					</p>
+					<div className='absolute w-[307px] h-[307px] top-[1845px] left-[844px] overflow-hidden rotate-[-46.78deg]'>
 						<img
-							className='w-32 h-32'
-							src='https://via.placeholder.com/128x128'
+							className='absolute w-[433px] h-[433px] top-[-63px] left-[-63px] rotate-[46.78deg] object-cover'
+							alt='Image'
+							src='image-7.png'
 						/>
 					</div>
-					<div className="w-[414.08px] left-[52.08px] top-[274px] absolute text-center text-black text-opacity-50 text-2xl font-normal font-['Hind'] leading-9">
-						Чат-боты не всегда понимают сложные запросы, клиенты часто требуют
-						вмешательства и обработки со стороны живого сотрудника. Такая
-						ситуация в итоге приводит к расходу дополнительных временных и
-						денежных ресурсов, а не их экономии
-					</div>
-					<div className="left-[68.08px] top-[212px] absolute text-black text-5xl font-bold font-['Lexend'] leading-[48px]">
-						Время и деньги
-					</div>
-				</div>
-				<div className='h-[135px] left-[137px] top-[1459px] absolute flex-col justify-start items-center gap-[15px] inline-flex'>
-					<div className="w-[1493px] text-center text-black text-6xl font-bold font-['Lexend'] leading-[60px]">
-						Проблемы, с которыми сталкивается каждый
-					</div>
-					<div className="w-[1715px] opacity-70 text-center text-black text-5xl font-normal font-['Hind'] leading-[60px]">
-						Живой менеджер дорогой. Роботы раздражают пользователей
-					</div>
-				</div>
-				<div className='left-[188px] top-[2494.50px] absolute flex-col justify-start items-center gap-[25px] inline-flex'>
-					<div className="w-[1538px] text-center text-black text-[80px] font-bold font-['Lexend'] leading-[80px]">
-						Искусственный интеллект в отделах продаж и клиентского сервиса
-					</div>
-					<div className="w-[1126px] text-center text-black text-opacity-70 text-5xl font-semibold font-['Hind'] leading-[60px]">
-						не требует сна, не жалуется и не ошибается, как это делают живые
-						люди
-					</div>
-				</div>
-				<div className='w-[376px] h-[376px] left-[1479px] top-[2740px] absolute justify-center items-center inline-flex'>
-					<img
-						className='w-[376px] h-[376px]'
-						src='https://via.placeholder.com/376x376'
-					/>
-				</div>
-				<div className="w-[1082px] left-[119px] top-[3374px] absolute text-black text-[120px] font-bold font-['Lexend'] leading-[120px]">
-					Рост конверсии и рост продаж
-				</div>
-				<div className='w-[1714px] left-[119px] top-[3669px] absolute'>
-					<span className="text-black text-[42px] font-semibold font-['Lexend'] leading-[67.20px]">
-						AI MindMarket
-					</span>
-					<span className="text-black text-[42px] font-normal font-['Lexend'] leading-[67.20px]">
-						{' '}
-						интегрируется во все системы по воронке продаж и обрабатывает заявки
-						лучше живого продавца
-					</span>
-				</div>
-				<div className='left-[119px] top-[3886px] absolute flex-col justify-start items-start gap-[75px] inline-flex'>
-					<div className='justify-start items-start gap-6 inline-flex'>
-						<div className='w-[564px] px-[50px] flex-col justify-center items-center gap-[25px] inline-flex'>
-							<div className='w-32 h-32 justify-center items-center inline-flex'>
-								<img
-									className='w-32 h-32'
-									src='https://via.placeholder.com/128x128'
-								/>
-							</div>
-							<div className="text-black text-5xl font-bold font-['Lexend'] leading-[48px]">
-								Мессенджеры
-							</div>
-							<div className="self-stretch opacity-70 text-center text-black text-3xl font-normal font-['Hind'] leading-[45px]">
-								Интеграция во все основные мессенджеры:  Whatsapp, Telegram,
-								Viber
-							</div>
+					<div className='absolute w-[49px] h-[49px] top-[1171px] left-[1433px] rounded-[24.5px] [background:linear-gradient(180deg,rgb(219.3,0,255)_0%,rgb(83,72,215)_100%)]' />
+					<div className='absolute w-[49px] h-[49px] top-[1156px] left-[1504px] rounded-[24.5px] [background:linear-gradient(180deg,rgb(103.78,6.14,163.62)_0%,rgb(83,72,215)_100%)]' />
+					<div className='flex w-[1596px] items-center justify-between px-[34px] py-[20px] absolute top-[958px] left-[729px] bg-[#39639280] rounded-[100px] border border-solid border-grey-15'>
+						<div className='relative w-[158px] h-[40px]'>
+							<p className="w-[160px] left-[49px] absolute h-[20px] top-[9px] [font-family:'Audiowide-Regular',Helvetica] font-normal text-transparent text-[20px] tracking-[-0.60px] leading-[20px]">
+								<span className='text-[#caff33]'>AI </span>
+								<span className='text-white'>Syndicate</span>
+							</p>
 						</div>
-						<div className='w-[564px] px-[50px] flex-col justify-center items-center gap-[25px] inline-flex'>
-							<img
-								className='w-32 h-32'
-								src='https://via.placeholder.com/128x128'
-							/>
-							<div className="text-black text-5xl font-bold font-['Lexend'] leading-[48px]">
-								Социальные сети
+						<div className='inline-flex items-center gap-[30px] relative flex-[0_0_auto]'>
+							<div className="relative w-fit [font-family:'Lexend-Regular',Helvetica] font-normal text-absolutewhite text-[25px] tracking-[0] leading-[37.5px] whitespace-nowrap">
+								Регистрация
 							</div>
-							<div className="self-stretch opacity-70 text-center text-black text-3xl font-normal font-['Hind'] leading-[45px]">
-								Интеграция во все основные социальные сети и площадки: 
-								Instagram, VK, Avito
-							</div>
+							<button className='inline-flex items-center gap-[10px] px-[30px] py-[14px] relative flex-[0_0_auto] bg-green-60 rounded-[82px] all-[unset] box-border'>
+								<div className="relative w-fit mt-[-1.00px] [font-family:'Lexend-Regular',Helvetica] font-normal text-grey-11 text-[25px] tracking-[0] leading-[37.5px] whitespace-nowrap">
+									Вход
+								</div>
+							</button>
 						</div>
-						<div className='w-[564px] px-[50px] flex-col justify-center items-center gap-[25px] inline-flex'>
-							<div className='w-32 h-32 justify-center items-center inline-flex'>
-								<img
-									className='w-32 h-32'
-									src='https://via.placeholder.com/128x128'
-								/>
-							</div>
-							<div className="text-black text-5xl font-bold font-['Lexend'] leading-[48px]">
-								CRM
-							</div>
-							<div className="self-stretch opacity-70 text-center text-black text-3xl font-normal font-['Hind'] leading-[45px]">
-								Интеграция во все основные системы:  AMO, Bitrix, Jivo
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className='w-[564px] left-[1270px] top-[4623px] absolute flex-col justify-start items-start gap-[120px] inline-flex'>
-					<div className='self-stretch grow shrink basis-0 pl-[50px] py-[50px] flex-col justify-center items-start gap-4 flex'>
-						<div className='w-14 justify-start items-start gap-4 inline-flex'>
-							<div className="text-black text-[40px] font-black font-['Font Awesome 6 Free'] uppercase leading-[60px] tracking-[6px]">
-								circle-arrow-up
-							</div>
-							<div className="w-[445px] text-black text-[40px] font-bold font-['Lexend'] uppercase leading-[60px] tracking-[6px]">
-								РОСТ NPS
-								<br />
-								до 30%
-							</div>
-						</div>
-					</div>
-					<div className='w-[564px] h-[187px] p-[50px] flex-col justify-center items-start gap-4 flex'>
-						<div className='w-[616px] justify-start items-start gap-4 inline-flex'>
-							<div className="text-black text-[40px] font-black font-['Font Awesome 6 Free'] uppercase leading-[60px] tracking-[6px]">
-								circle-arrow-up
-							</div>
-							<div className="grow shrink basis-0 text-black text-[40px] font-bold font-['Lexend'] uppercase leading-[60px] tracking-[6px]">
-								повышение конверсии
-								<br />
-								до 50%
-							</div>
-						</div>
-					</div>
-					<div className='self-stretch grow shrink basis-0 p-[50px] flex-col justify-center items-start gap-4 flex'>
-						<div className='w-[564px] justify-start items-start gap-4 inline-flex'>
-							<div className="text-black text-[40px] font-black font-['Font Awesome 6 Free'] uppercase leading-[60px] tracking-[6px]">
-								circle-arrow-up
-							</div>
-							<div className="grow shrink basis-0 text-black text-[40px] font-bold font-['Lexend'] uppercase leading-[60px] tracking-[6px]">
-								РОст выручки
-								<br />
-								до 30%
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className='w-[565px] h-48 left-[89px] top-[4743.50px] absolute' />
-				<div className="w-[565px] left-[119px] top-[4623px] absolute text-black text-8xl font-bold font-['Lexend'] leading-[96px]">
-					Пример работы
-				</div>
-				<div className="w-[565px] left-[124px] top-[4923px] absolute text-black text-4xl font-normal font-['Lexend'] leading-[57.60px]">
-					ИИ менеджер отвечает на вопросы клиента по выбору автомобиля для себя
-				</div>
-				<div className='w-[598px] h-[1191px] left-[653px] top-[4505px] absolute'>
-					<img
-						className='w-[484.91px] h-[1050px] left-[57px] top-[71px] absolute'
-						src='https://via.placeholder.com/485x1050'
-					/>
-					<img
-						className='w-[598px] h-[1191px] left-0 top-0 absolute'
-						src='https://via.placeholder.com/598x1191'
-					/>
-				</div>
-				<img
-					className='w-[499px] h-[785px] left-[703px] top-[4703px] absolute'
-					src='https://via.placeholder.com/499x785'
-				/>
-				<div className='w-[180px] h-[180px] left-[1155.20px] top-[4700px] absolute origin-top-left rotate-[14.87deg] justify-center items-center inline-flex'>
-					<img
-						className='w-[180px] h-[180px]'
-						src='https://via.placeholder.com/180x180'
-					/>
-				</div>
-				<div className='w-[180px] h-[180px] left-[577px] top-[5219.59px] absolute origin-top-left rotate-[-15deg] justify-center items-center inline-flex'>
-					<img
-						className='w-[180px] h-[180px]'
-						src='https://via.placeholder.com/180x180'
-					/>
-				</div>
-				<div className="w-[509px] left-[130px] top-[5211px] absolute opacity-70 text-black text-[25px] font-normal font-['Hind'] leading-loose">
-					Согласно исследованию, проведенному Harvard Business Review, компании,
-					использующие нейросети в продажах, смогли увеличить количество лидов
-					более чем на 50%, сократить время звонков на 60-70% и добиться
-					снижения затрат на 40-60%.
-				</div>
-				<div className='h-[451px] px-[162px] pt-[100px] pb-[50px] left-[-3px] top-[10273px] absolute bg-gradient-to-b from-indigo-600 via-indigo-600 to-indigo-600 flex-col justify-start items-center gap-[50px] inline-flex'>
-					<div className='self-stretch h-[117px] flex-col justify-start items-center gap-[50px] flex'>
-						<div className='h-10 pl-[46.92px] py-2.5 justify-end items-center inline-flex'>
-							<div className='w-[136px]'>
-								<span className="text-lime-400 text-xl font-normal font-['Audiowide'] leading-tight">
-									AI{' '}
-								</span>
-								<span className="text-white text-xl font-normal font-['Audiowide'] leading-tight">
-									Syndicate
-								</span>
-							</div>
-						</div>
-						<div className='justify-start items-center gap-[26px] inline-flex'>
-							<div className="text-black text-lg font-normal font-['Lexend'] leading-[27px]">
-								О нас
-							</div>
-							<div className="text-black text-lg font-normal font-['Lexend'] leading-[27px]">
+						<div className='inline-flex items-center gap-[26px] absolute top-[22px] left-[484px]'>
+							<button className='inline-flex items-center gap-[10px] px-[24px] py-[12px] relative flex-[0_0_auto] bg-grey-15 rounded-[82px] all-[unset] box-border'>
+								<div className="relative w-fit mt-[-1.00px] [font-family:'Lexend-Regular',Helvetica] font-normal text-absolutewhite text-[25px] tracking-[0] leading-[37.5px] whitespace-nowrap">
+									О нас
+								</div>
+							</button>
+							<div className="relative w-fit [font-family:'Lexend-Regular',Helvetica] font-normal text-absolutewhite text-[25px] tracking-[0] leading-[37.5px] whitespace-nowrap">
 								Преимущества
 							</div>
-							<div className="text-black text-lg font-normal font-['Lexend'] leading-[27px]">
+							<div className="relative w-fit [font-family:'Lexend-Regular',Helvetica] font-normal text-absolutewhite text-[25px] tracking-[0] leading-[37.5px] whitespace-nowrap">
 								Стоимость
 							</div>
-							<div className="text-black text-lg font-normal font-['Lexend'] leading-[27px]">
+							<div className="relative w-fit [font-family:'Lexend-Regular',Helvetica] font-normal text-absolutewhite text-[25px] tracking-[0] leading-[37.5px] whitespace-nowrap">
 								Контакты
 							</div>
 						</div>
 					</div>
-					<div className='self-stretch h-[0px] border border-neutral-800'></div>
-					<div className='self-stretch pl-4 pr-[30px] py-4 bg-zinc-900 rounded-[100px] border border-neutral-800 justify-between items-center inline-flex'>
-						<div className='justify-start items-start gap-3.5 flex'>
-							<div className='w-[52px] h-[52px] relative' />
-							<div className='w-[52px] h-[52px] relative' />
-							<div className='w-[52px] h-[52px] relative' />
-							<div className='w-[52px] h-[52px] relative' />
-							<div className='w-[52px] h-[52px] relative' />
-						</div>
-						<div className="text-zinc-400 text-lg font-light font-['Lexend'] leading-[27px]">
-							AI Syndicate All Rights Reserved
-						</div>
-						<div className='justify-start items-center gap-3 flex'>
-							<div className="text-zinc-400 text-lg font-light font-['Lexend'] leading-[27px]">
-								Privacy Policy
-							</div>
-							<div className='w-[27px] self-stretch origin-top-left rotate-90 border border-zinc-400'></div>
-							<div className="text-zinc-400 text-lg font-light font-['Lexend'] leading-[27px]">
-								Terms of Service
+					<div className='absolute w-[518px] h-[610px] top-[2582px] left-[714px]'>
+						<div className='relative w-[514px] h-[610px] bg-[#0000000d] rounded-[24px]'>
+							<p className='absolute w-[414px] top-[274px] left-[42px] font-body font-[number:var(--body-font-weight)] text-[#00000080] text-[length:var(--body-font-size)] text-center tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)] [font-style:var(--body-font-style)]'>
+								Найти хорошего менеджера по продажам сложно. Вырастить своего
+								лучшего сотрудника задача долгая. Благодаря развитию
+								интернет-торговли спрос на менеджеров вырос
+							</p>
+							<div className="absolute top-[212px] left-[12px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[48px] tracking-[-1.44px] leading-[48px] whitespace-nowrap">
+								Лучший продажник
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className='w-[1921px] h-[1060px] left-0 top-[9213px] absolute bg-slate-200'>
-					<div className="w-[1631px] left-[120px] top-[57px] absolute text-black text-[70px] font-bold font-['Lexend'] leading-[70px]">
-						Предлагаем провести созвон и разработать демо-версию на данных
-						вашего бизнеса
+					<div className='absolute w-[514px] h-[610px] top-[2582px] left-[1250px] bg-[#0000000d] rounded-[24px]'>
+						<div className='flex w-[514px] h-[580px] justify-center gap-[16px] p-[50px] relative top-[8px] bg-[#ffffff05] backdrop-blur-[15px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(15px)_brightness(100%)] flex-col items-center'>
+							<div className="relative w-fit ml-[-33.46px] mr-[-33.46px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[48px] tracking-[-1.44px] leading-[48px] whitespace-nowrap">
+								Робот — не человек
+							</div>
+							<p className="relative self-stretch mb-[-2.40px] [font-family:'Hind-Regular',Helvetica] font-normal text-[#00000080] text-[25px] text-center tracking-[-0.50px] leading-[37.5px]">
+								Роботы и чат-боты снизили нагрузку на менеджеров при первичном
+								касании, но только ухудшили пользовательский опыт. Клиент хочет
+								решать проблему здесь и сейчас с индивидуальным подходом
+							</p>
+						</div>
+					</div>
+					<div className='absolute w-[518px] h-[610px] top-[2582px] left-[1786px]'>
+						<div className='relative w-[514px] h-[610px] bg-[#0000000d] rounded-[24px]'>
+							<p className='absolute w-[414px] top-[274px] left-[52px] font-body font-[number:var(--body-font-weight)] text-[#00000080] text-[length:var(--body-font-size)] text-center tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)] [font-style:var(--body-font-style)]'>
+								Чат-боты не всегда понимают сложные запросы, клиенты часто
+								требуют вмешательства и обработки со стороны живого сотрудника.
+								Такая ситуация в итоге приводит к расходу дополнительных
+								временных и денежных ресурсов, а не их экономии
+							</p>
+							<div className="absolute top-[212px] left-[68px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[48px] tracking-[-1.44px] leading-[48px] whitespace-nowrap">
+								Время и деньги
+							</div>
+						</div>
+					</div>
+					<div className='flex flex-col w-[1640px] items-center gap-[15px] absolute top-[2345px] left-[683px]'>
+						<p className="relative w-[1493px] mt-[-1.00px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[60px] text-center tracking-[-1.80px] leading-[60px]">
+							Проблемы, с которыми сталкивается каждый
+						</p>
+						<p className='relative w-[1715px] ml-[-37.50px] mr-[-37.50px] opacity-[0.66] font-subheading font-[number:var(--subheading-font-weight)] text-black text-[length:var(--subheading-font-size)] text-center tracking-[var(--subheading-letter-spacing)] leading-[var(--subheading-line-height)] [font-style:var(--subheading-font-style)]'>
+							Живой менеджер дорогой. Роботы раздражают пользователей
+						</p>
 					</div>
 					<img
-						className='w-[385.73px] h-[385.73px] left-[65px] top-[365.83px] absolute origin-top-left rotate-[-15deg]'
-						src='https://via.placeholder.com/386x386'
+						className='absolute w-[51px] h-[62px] top-[980px] left-[750px]'
+						alt='Group'
+						src='group-47.png'
 					/>
-					<div className='w-[371.10px] h-[371.10px] left-[-60px] top-[628.08px] absolute origin-top-left rotate-[-13.10deg] justify-center items-center inline-flex'>
+					<button className='absolute w-[349px] h-[104px] top-[1706px] left-[1176px] bg-[#caff33] rounded-[32px] overflow-hidden rotate-[-15.00deg] all-[unset] box-border'>
+						<div className="absolute w-[285px] h-[10px] top-[46px] left-[32px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[40px] text-center tracking-[0] leading-[10px]">
+							Подключить
+						</div>
+					</button>
+				</div>
+				<div className='absolute w-[2976px] h-[6431px] top-[2352px] left-[-509px]'>
+					<div className='absolute w-[2976px] h-[6431px] top-0 left-0'>
+						<div className='h-[2438px] top-0 left-[5px] absolute w-[2971px] opacity-60'>
+							<div className='absolute w-[907px] h-[907px] top-[403px] left-0 rounded-[453.5px] blur-[500px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(83,72,215)_0%,rgba(83,72,215,0)_100%)]' />
+							<div className='absolute w-[907px] h-[907px] top-[1531px] left-[1208px] rounded-[453.5px] blur-[500px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(0,132,255)_0%,rgba(0,132,255,0)_100%)]' />
+							<div className='absolute w-[1310px] h-[1310px] top-0 left-[1661px] rounded-[655px] blur-[500px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(83,72,215)_0%,rgba(83,72,215,0)_100%)]' />
+						</div>
+						<div className='h-[2438px] top-[2908px] left-0 absolute w-[2971px] opacity-60'>
+							<div className='absolute w-[907px] h-[907px] top-[403px] left-0 rounded-[453.5px] blur-[500px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(83,72,215)_0%,rgba(83,72,215,0)_100%)]' />
+							<div className='absolute w-[907px] h-[907px] top-[1531px] left-[1208px] rounded-[453.5px] blur-[500px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(0,132,255)_0%,rgba(0,132,255,0)_100%)]' />
+							<div className='absolute w-[1310px] h-[1310px] top-0 left-[1661px] rounded-[655px] blur-[500px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(83,72,215)_0%,rgba(83,72,215,0)_100%)]' />
+						</div>
+						<div className='inline-flex gap-[25px] absolute top-[142px] left-[697px] flex-col items-center'>
+							<p className="relative w-[1538px] mt-[-1.00px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[80px] text-center tracking-[-2.40px] leading-[80px]">
+								Искусственный интеллект в отделах продаж и клиентского сервиса
+							</p>
+							<p className="relative w-[1126px] [font-family:'Hind-SemiBold',Helvetica] font-semibold text-[#000000a8] text-[48px] text-center tracking-[-1.44px] leading-[60px]">
+								не требует сна, не жалуется и не ошибается,&nbsp;&nbsp;как это
+								делают живые люди
+							</p>
+						</div>
+
+						<p className="absolute w-[1082px] top-[1021px] left-[628px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[120px] tracking-[-3.60px] leading-[120px]">
+							Рост конверсии и рост продаж
+						</p>
+						<p className="absolute w-[1714px] top-[1316px] left-[628px] [font-family:'Lexend-SemiBold',Helvetica] font-normal text-black text-[42px] tracking-[0] leading-[67.2px]">
+							<span className='font-semibold'>AI MindMarket</span>
+							<span className="[font-family:'Lexend-Regular',Helvetica]">
+								{' '}
+								интегрируется во все системы по воронке продаж и обрабатывает
+								заявки лучше живого продавца
+							</span>
+						</p>
+						<div className='inline-flex flex-col items-start gap-[75px] absolute top-[1534px] left-[628px]'>
+							<div className='inline-flex items-start gap-[24px] relative flex-[0_0_auto]'>
+								<div className='flex flex-col w-[564px] items-center justify-center gap-[25px] px-[50px] py-0 relative'>
+									<div className="relative w-fit [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[48px] tracking-[-1.44px] leading-[48px] whitespace-nowrap">
+										Мессенджеры
+									</div>
+									<p className="relative self-stretch opacity-[0.66] [font-family:'Hind-Regular',Helvetica] font-normal text-black text-[30px] text-center tracking-[-0.60px] leading-[45px]">
+										Интеграция во все основные мессенджеры:
+										<br />
+										Whatsapp, Telegram, Viber
+									</p>
+								</div>
+								<div className='flex flex-col w-[564px] items-center justify-center gap-[25px] px-[50px] py-0 relative'>
+									<img
+										className='relative w-[128px] h-[128px] object-cover'
+										alt='Image'
+										src='image-5.png'
+									/>
+									<div className="relative w-fit [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[48px] tracking-[-1.44px] leading-[48px] whitespace-nowrap">
+										Социальные сети
+									</div>
+									<p className="relative self-stretch opacity-[0.66] [font-family:'Hind-Regular',Helvetica] font-normal text-black text-[30px] text-center tracking-[-0.60px] leading-[45px]">
+										Интеграция во все основные социальные сети и площадки:
+										<br />
+										Instagram, VK, Avito
+									</p>
+								</div>
+								<div className='flex flex-col w-[564px] items-center justify-center gap-[25px] px-[50px] py-0 relative'>
+									<div className="relative w-fit [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[48px] tracking-[-1.44px] leading-[48px] whitespace-nowrap">
+										CRM
+									</div>
+									<p className="relative self-stretch opacity-[0.66] [font-family:'Hind-Regular',Helvetica] font-normal text-black text-[30px] text-center tracking-[-0.60px] leading-[45px]">
+										Интеграция во все основные системы:
+										<br />
+										AMO, Bitrix, Jivo
+									</p>
+								</div>
+							</div>
+						</div>
+						<div className='absolute w-[564px] h-[960px] top-[2271px] left-[1779px]'>
+							<div className='inline-flex flex-col h-[960px] items-start gap-[120px] relative'>
+								<div className='relative w-[564px] h-[186.25px]'>
+									<div className='flex flex-col w-[564px] h-[186px] items-start justify-center gap-[16px] pl-[50px] pr-0 py-[50px] relative'>
+										<div className='flex w-[56px] items-start gap-[16px] relative flex-[0_0_auto] mt-[-16.88px] mb-[-16.88px]'>
+											<div className="relative w-fit mt-[-1.00px] [font-family:'Font_Awesome_6_Free-Solid',Helvetica] font-normal text-black text-[40px] tracking-[6.00px] leading-[60px] whitespace-nowrap">
+												CIRCLE-ARROW-UP
+											</div>
+											<div className="relative w-[445px] mt-[-1.00px] mr-[-445.00px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[40px] tracking-[6.00px] leading-[60px]">
+												РОСТ NPS
+												<br />
+												ДО 30%
+											</div>
+										</div>
+									</div>
+								</div>
+								<div className='flex w-[564px] h-[187px] justify-center gap-[16px] p-[50px] relative flex-col items-start'>
+									<div className='w-[616px] mt-[-46.50px] mb-[-46.50px] mr-[-152.00px] flex items-start gap-[16px] relative flex-[0_0_auto]'>
+										<div className="relative w-fit mt-[-1.00px] [font-family:'Font_Awesome_6_Free-Solid',Helvetica] font-normal text-black text-[40px] tracking-[6.00px] leading-[60px] whitespace-nowrap">
+											CIRCLE-ARROW-UP
+										</div>
+										<div className="relative flex-1 mt-[-1.00px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[40px] tracking-[6.00px] leading-[60px]">
+											ПОВЫШЕНИЕ КОНВЕРСИИ
+											<br />
+											ДО 50%
+										</div>
+									</div>
+								</div>
+								<div className='relative w-[564px] h-[186.25px]'>
+									<div className='flex w-[564px] h-[186px] justify-center gap-[16px] p-[50px] relative flex-col items-start'>
+										<div className='w-[564px] mt-[-16.88px] mb-[-16.88px] mr-[-100.00px] flex items-start gap-[16px] relative flex-[0_0_auto]'>
+											<div className="relative w-fit mt-[-1.00px] [font-family:'Font_Awesome_6_Free-Solid',Helvetica] font-normal text-black text-[40px] tracking-[6.00px] leading-[60px] whitespace-nowrap">
+												CIRCLE-ARROW-UP
+											</div>
+											<div className="relative flex-1 mt-[-1.00px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[40px] tracking-[6.00px] leading-[60px]">
+												РОСТ ВЫРУЧКИ
+												<br />
+												ДО 30%
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className="absolute w-[565px] top-[2270px] left-[628px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[96px] tracking-[-2.88px] leading-[96px]">
+							Пример работы
+						</div>
+						<p className="absolute w-[565px] top-[2570px] left-[633px] [font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[36px] tracking-[0] leading-[57.6px]">
+							ИИ менеджер отвечает на вопросы клиента по выбору автомобиля для
+							себя
+						</p>
+
 						<img
-							className='w-[371.10px] h-[371.10px]'
-							src='https://via.placeholder.com/371x371'
+							className='absolute w-[499px] h-[785px] top-[2351px] left-[1212px] object-cover'
+							alt='Img'
+							src='IMG-0875-2.png'
 						/>
-					</div>
-					<div className='w-[303px] h-[89px] px-8 left-[907px] top-[901px] absolute bg-slate-200 rounded-[32px] shadow justify-center items-center inline-flex'>
-						<div className="w-[239px] text-center text-slate-500 text-[40px] font-bold font-['Lexend'] leading-[15px]">
-							Отправить
+						<div className='absolute w-[180px] h-[180px] top-[2368px] left-[1638px] overflow-hidden rotate-[14.87deg]'>
+							<img
+								className='absolute w-[220px] h-[220px] top-[-20px] left-[-20px] rotate-[-14.87deg] object-cover'
+								alt='Element fire still'
+								src='1f525-fire-v13-still-1.png'
+							/>
+						</div>
+						<div className='absolute w-[180px] h-[180px] top-[2841px] left-[1106px] overflow-hidden rotate-[-15.00deg]'>
+							<img
+								className='absolute w-[220px] h-[220px] top-[-20px] left-[-20px] rotate-[15.00deg] object-cover'
+								alt='Image'
+								src='image-12.png'
+							/>
+						</div>
+						<p className="w-[509px] top-[2858px] left-[639px] opacity-[0.66] [font-family:'Hind-Regular',Helvetica] font-normal text-[25px] tracking-[-0.75px] leading-[31.2px] absolute text-black">
+							Согласно исследованию, проведенному Harvard Business Review,
+							компании, использующие нейросети в продажах, смогли увеличить
+							количество лидов более чем на 50%, сократить время звонков на
+							60-70% и добиться снижения затрат на 40-60%.
+						</p>
+						<div className='absolute w-[972px] h-[1080px] top-[3878px] left-[543px] rotate-180 [background:linear-gradient(180deg,rgb(0,132.08,255)_0%,rgb(83,72,215)_100%)]' />
+						<div className='inline-flex gap-[25px] absolute top-[4096px] left-[633px] flex-col items-start'>
+							<div className="relative w-[538px] mt-[-1.00px] [font-family:'Lexend-Bold',Helvetica] font-bold text-white text-[70px] tracking-[-2.10px] leading-[70px]">
+								Преимущества ИИ менеджера
+							</div>
+							<p className='relative w-[489px] opacity-[0.66] font-subheading font-[number:var(--subheading-font-weight)] text-white text-[length:var(--subheading-font-size)] tracking-[var(--subheading-letter-spacing)] leading-[var(--subheading-line-height)] [font-style:var(--subheading-font-style)]'>
+								Он не спит, не кушает. Всегда все помнит о вашем продукте
+								<br />
+								<br />И главное - никогда не уведет вашего клиента :)
+							</p>
+						</div>
+						<div className='flex flex-col w-[1152px] items-start gap-[25px] absolute top-[3968px] left-[1221px]'>
+							<div className='relative w-[1152px] h-[270px]'>
+								<div className='relative h-[270px]'>
+									<div className='absolute w-[270px] h-[1152px] top-[-441px] left-[441px] bg-[#f6fbe9] rounded-[24px] rotate-[90.00deg] mix-blend-luminosity' />
+									<div className='inline-flex items-center gap-[24px] absolute top-[50px] left-[72px]'>
+										<div className='flex flex-col w-[297px] items-start justify-center gap-[10px] relative'>
+											<p className="relative w-[297px] mt-[-1.00px] [font-family:'Lexend-Medium',Helvetica] font-normal text-black text-[35px] tracking-[-1.05px] leading-[35px]">
+												<span className='font-medium'>
+													Улучшение качества сервиса до{' '}
+												</span>
+												<span className="[font-family:'Lexend-Bold',Helvetica] font-bold">
+													30%
+												</span>
+											</p>
+										</div>
+										<img
+											className='relative w-px h-[171px] object-cover'
+											alt='Line'
+											src='line-15.svg'
+										/>
+										<p className="relative w-[655px] [font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[21px] tracking-[-0.42px] leading-[26.2px]">
+											<span className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[21px] tracking-[-0.42px] leading-[26.2px]">
+												Наш менеджер{' '}
+											</span>
+											<span className="[font-family:'Lexend-SemiBold',Helvetica] font-semibold">
+												всегда вежлив
+											</span>
+											<span className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[21px] tracking-[-0.42px] leading-[26.2px]">
+												{' '}
+												и готов беспрерывно отвечать на вопросы клиента. Он не
+												умеет материться и не хамит даже случайно. Система на
+												основе ИИ,{' '}
+											</span>
+											<span className="[font-family:'Lexend-SemiBold',Helvetica] font-semibold">
+												не умеет обманывать клиентов
+											</span>
+											<span className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[21px] tracking-[-0.42px] leading-[26.2px]">
+												. Как{' '}
+											</span>
+											<span className="[font-family:'Lexend-SemiBold',Helvetica] font-semibold">
+												настоящий человек
+											</span>
+											<span className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[21px] tracking-[-0.42px] leading-[26.2px]">
+												, может ответить на все вопросы по продукту в живом
+												формате и{' '}
+											</span>
+											<span className="[font-family:'Lexend-SemiBold',Helvetica] font-semibold">
+												дожать до продажи
+											</span>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div className='relative w-[1152px] h-[270px]'>
+								<div className='relative h-[270px]'>
+									<div className='absolute w-[270px] h-[1152px] top-[-441px] left-[441px] bg-[#f6fbe9] rounded-[24px] rotate-[90.00deg] mix-blend-luminosity' />
+									<div className='inline-flex items-center gap-[24px] absolute top-[50px] left-[72px]'>
+										<div className='flex flex-col w-[297px] items-start justify-center gap-[10px] relative'>
+											<p className="relative w-[297px] mt-[-1.00px] [font-family:'Lexend-Medium',Helvetica] font-normal text-black text-[35px] tracking-[-1.05px] leading-[35px]">
+												<span className='font-medium'>
+													Повышение продуктивности
+													<br />
+													до{' '}
+												</span>
+												<span className="[font-family:'Lexend-Bold',Helvetica] font-bold">
+													40%
+												</span>
+											</p>
+										</div>
+										<img
+											className='relative w-px h-[171px] object-cover'
+											alt='Line'
+											src='image.svg'
+										/>
+										<p className="relative w-[674px] [font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[21px] tracking-[-0.42px] leading-[26.2px]">
+											<span className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[21px] tracking-[-0.42px] leading-[26.2px]">
+												Система может обрабатывать{' '}
+											</span>
+											<span className="[font-family:'Lexend-SemiBold',Helvetica] font-semibold">
+												до 10.000 диалогов{' '}
+											</span>
+											<span className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[21px] tracking-[-0.42px] leading-[26.2px]">
+												одновременно. Не нужно нанимать дополнительных
+												сотрудников - робот справляется с тысячами запросов{' '}
+											</span>
+											<span className="[font-family:'Lexend-SemiBold',Helvetica] font-semibold">
+												в минуту 24/7, 365 дней в году
+											</span>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div className='relative w-[1152px] h-[270px]'>
+								<div className='relative h-[270px]'>
+									<div className='absolute w-[270px] h-[1152px] top-[-441px] left-[441px] bg-[#f6fbe9] rounded-[24px] rotate-[90.00deg] mix-blend-luminosity' />
+									<div className='inline-flex items-center gap-[24px] absolute top-[50px] left-[72px]'>
+										<div className='flex flex-col w-[297px] items-start justify-center gap-[10px] relative'>
+											<p className="relative w-[297px] mt-[-1.00px] [font-family:'Lexend-Medium',Helvetica] font-normal text-black text-[35px] tracking-[-1.05px] leading-[35px]">
+												<span className='font-medium'>
+													Время обработки клиентов быстрее
+												</span>
+												<span className="[font-family:'Lexend-Bold',Helvetica] font-bold">
+													&nbsp;
+												</span>
+												<span className='font-medium'>до </span>
+												<span className="[font-family:'Lexend-Bold',Helvetica] font-bold">
+													60%
+												</span>
+											</p>
+										</div>
+										<img
+											className='relative w-px h-[171px] object-cover'
+											alt='Line'
+											src='line-15-2.svg'
+										/>
+										<p className="relative w-[668px] [font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[21px] tracking-[-0.42px] leading-[26.2px]">
+											<span className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[21px] tracking-[-0.42px] leading-[26.2px]">
+												Менеджер повышает конверсию отдела продаж за счет
+												скорости обработки заявок меньше чем за{' '}
+											</span>
+											<span className="[font-family:'Lexend-SemiBold',Helvetica] font-semibold">
+												1 минуту
+											</span>
+											<span className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black text-[21px] tracking-[-0.42px] leading-[26.2px]">
+												, таким образом уменьшаем вероятность ухода клиентов в
+												молчание или к конкурентам
+											</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className='absolute w-[257px] h-[257px] top-[3855px] left-[543px] rotate-180'>
+							<img
+								className='absolute w-[257px] h-[257px] top-0 left-0 -rotate-180 object-cover'
+								alt='Image'
+								src='image-13.png'
+							/>
+						</div>
+						<div className='absolute w-[495px] h-[1150px] top-[5276px] left-[574px] bg-[#f6fbe9] rounded-[40px]' />
+						<div className='absolute w-[495px] h-[1150px] top-[5281px] left-[1174px] bg-[#f6fbe9] rounded-[40px]' />
+						<div className='absolute w-[326px] h-[73px] top-[5324px] left-[655px] bg-[#4c4dda] rounded-[40px]' />
+						<div className='absolute w-[325px] h-[110px] top-[5303px] left-[1255px] bg-[#4c4dda] rounded-[40px]' />
+						<div className='absolute w-[413px] h-[136px] top-[6260px] left-[618px] rounded-[40px] [background:linear-gradient(180deg,rgb(76,77,218)_0%,rgba(222.06,86.05,200.3,0.9)_100%)]' />
+						<div className='absolute w-[412px] h-[136px] top-[6265px] left-[1218px] rounded-[40px] [background:linear-gradient(180deg,rgb(76,77,218)_0%,rgba(222.06,86.05,200.3,0.9)_100%)]' />
+						<div className='absolute w-[495px] h-[1153px] top-[5273px] left-[1853px] rounded-[40px] [background:linear-gradient(180deg,rgb(76,77,218)_0%,rgba(222.06,86.05,200.3,0.9)_100%)]' />
+						<img
+							className='absolute w-[413px] h-[131px] top-[5554px] left-[618px]'
+							alt='Rectangle'
+							src='rectangle-28419.svg'
+						/>
+						<img
+							className='absolute w-[414px] h-[156px] top-[5560px] left-[1218px]'
+							alt='Rectangle'
+							src='rectangle-28424.svg'
+						/>
+						<img
+							className='absolute w-[414px] h-[133px] top-[5742px] left-[1218px]'
+							alt='Rectangle'
+							src='rectangle-28425.svg'
+						/>
+						<img
+							className='absolute w-[413px] h-[133px] top-[5736px] left-[618px]'
+							alt='Rectangle'
+							src='rectangle-28420.svg'
+						/>
+						<div className="absolute w-[186px] top-[5340px] left-[729px] [font-family:'Hind-Bold',Helvetica] font-bold text-white text-[38px] tracking-[-1.14px] leading-[38px] whitespace-nowrap">
+							1-й месяц
+						</div>
+						<div className='absolute w-[325px] h-[73px] top-[5321px] left-[1936px] bg-[#f6fbe9] rounded-[40px]' />
+						<div className="absolute w-[191px] top-[5338px] left-[2010px] [font-family:'Hind-Bold',Helvetica] font-bold text-[#4c4dda] text-[38px] tracking-[-1.14px] leading-[38px] whitespace-nowrap">
+							Ежегодно
+						</div>
+						<div className="absolute w-[190px] top-[5320px] left-[1326px] [font-family:'Hind-Bold',Helvetica] font-bold text-white text-[38px] tracking-[-1.14px] leading-[38px]">
+							2-й месяц
+							<br />и далее
+						</div>
+						<p className="absolute top-[6297px] left-[721px] [font-family:'Hind-Bold',Helvetica] font-normal text-white text-[60px] text-center tracking-[-1.80px] leading-[60px] whitespace-nowrap">
+							<span className='font-bold'>₽75 000</span>
+						</p>
+						<p className="absolute w-[331px] top-[6294px] left-[1262px] [font-family:'Hind-Bold',Helvetica] font-normal text-white text-[60px] text-center tracking-[-1.80px] leading-[60px] whitespace-nowrap">
+							<span className='font-bold'>₽60 000</span>
+							<span className='font-bold text-[70px] tracking-[-2.10px] leading-[70px]'>
+								&nbsp;
+							</span>
+							<span className='font-bold text-[30px] tracking-[-0.90px] leading-[30px]'>
+								/ мес.
+							</span>
+						</p>
+						<div className='absolute w-[413px] h-[136px] top-[6264px] left-[1898px] bg-[#f6fbe9] rounded-[40px]' />
+						<p className="absolute w-[315px] top-[6276px] left-[1949px] [font-family:'Hind-Bold',Helvetica] font-normal text-[#4c4dda] text-[44px] tracking-[-1.32px] leading-[44px]">
+							<span className='font-bold'>&nbsp;</span>
+							<span className='font-bold text-[38px] tracking-[-1.14px] leading-[38px]'>
+								₽735 000
+								<br />
+							</span>
+							<span className='font-bold text-[60px] tracking-[-1.80px] leading-[60px]'>
+								₽685 000{' '}
+							</span>
+							<span className='font-bold text-[30px] tracking-[-0.90px] leading-[30px]'>
+								/ год
+							</span>
+						</p>
+						<div className="absolute w-[328px] top-[5446px] left-[658px] [background:linear-gradient(180deg,rgb(76,77,218)_0%,rgb(224,103,204)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'Hind-Bold',Helvetica] font-bold text-transparent text-[38px] text-center tracking-[-1.14px] leading-[38px]">
+							Внедрение
+							<br />
+							________________
+						</div>
+						<div className="absolute w-[328px] top-[5460px] left-[1941px] [font-family:'Hind-Bold',Helvetica] font-bold text-[#f6fbe9] text-[38px] text-center tracking-[-1.14px] leading-[38px]">
+							Внедрение
+							<br />
+							________________
+						</div>
+						<div className="absolute w-[327px] top-[6090px] left-[666px] [background:linear-gradient(180deg,rgb(76,77,218)_0%,rgb(224,103,204)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'Hind-Bold',Helvetica] font-bold text-transparent text-[38px] text-center tracking-[-1.14px] leading-[38px]">
+							<br />
+							Сопровождение
+							<br />
+							________________
+						</div>
+						<div className="absolute w-[335px] top-[5949px] left-[1254px] [background:linear-gradient(180deg,rgb(76,77,218)_0%,rgb(224,103,204)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'Hind-Bold',Helvetica] font-bold text-transparent text-[44px] text-center tracking-[-1.32px] leading-[44px]">
+							2 000
+							<br />
+							диалогов включительно
+						</div>
+						<div className="absolute w-[327px] top-[5411px] left-[1258px] [background:linear-gradient(180deg,rgb(76,77,218)_0%,rgb(224,103,204)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'Hind-Bold',Helvetica] font-bold text-transparent text-[38px] text-center tracking-[-1.14px] leading-[38px]">
+							<br />
+							Сопровождение
+							<br />
+							________________
+						</div>
+						<div className="absolute w-[63px] top-[6016px] left-[798px] [background:linear-gradient(180deg,rgb(76,77,218)_0%,rgb(224,103,204)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'Hind-Bold',Helvetica] font-bold text-transparent text-[100px] text-center tracking-[-3.00px] leading-[100px] whitespace-nowrap">
+							+
+						</div>
+						<div className="absolute w-[328px] top-[5622px] left-[1935px] [font-family:'Hind-Bold',Helvetica] font-bold text-[#f6fbe9] text-[38px] text-center tracking-[-1.14px] leading-[38px]">
+							<br />
+							Сопровождение
+							<br />
+							________________
+						</div>
+						<div className="absolute w-[64px] top-[5547px] left-[2067px] [font-family:'Hind-Bold',Helvetica] font-bold text-[#f6fbe9] text-[100px] text-center tracking-[-3.00px] leading-[100px] whitespace-nowrap">
+							+
+						</div>
+						<div className="absolute w-[434px] top-[5796px] left-[1882px] [font-family:'Hind-Bold',Helvetica] font-bold text-[#f6fbe9] text-[38px] text-center tracking-[-1.14px] leading-[38px]">
+							<br />
+							500
+							<br />
+							Бесплатных диалогов
+						</div>
+						<div className="absolute w-[64px] top-[5748px] left-[2067px] [font-family:'Hind-Bold',Helvetica] font-bold text-[#f6fbe9] text-[100px] text-center tracking-[-3.00px] leading-[100px] whitespace-nowrap">
+							+
+						</div>
+						<p className="absolute w-[478px] top-[6021px] left-[1867px] [font-family:'Hind-Bold',Helvetica] font-bold text-[#f6fbe9] text-[38px] text-center tracking-[-1.14px] leading-[38px]">
+							<br />
+							Эксклюзивные условия на новые продукты
+						</p>
+						<div className="absolute w-[59px] top-[5949px] left-[2076px] [font-family:'Hind-Bold',Helvetica] font-bold text-[#f6fbe9] text-[100px] text-center tracking-[-3.00px] leading-[100px] whitespace-nowrap">
+							+
+						</div>
+						<p className="w-[347px] top-[5579px] left-[655px] [font-family:'Hind-Bold',Helvetica] font-bold text-[27px] text-center tracking-[-0.81px] leading-[27px] absolute text-black">
+							Подключение аккаунтов: Telegram, Instagram, WhatsApp, Avito
+						</p>
+						<p className="absolute w-[345px] top-[5582px] left-[1255px] [font-family:'Hind-Bold',Helvetica] font-bold text-black text-[27px] text-center tracking-[-0.81px] leading-[27px]">
+							Сопровождение и постоянная проработка системы, исходя из
+							обновляющихся данных
+						</p>
+						<div className="absolute w-[345px] top-[5781px] left-[1255px] [font-family:'Hind-Bold',Helvetica] font-bold text-black text-[27px] text-center tracking-[-0.81px] leading-[27px]">
+							Постоянное техническое обслуживание
+						</div>
+						<p className="w-[328px] top-[5759px] left-[661px] [font-family:'Hind-Bold',Helvetica] font-bold text-[27px] text-center tracking-[-0.81px] leading-[27px] absolute text-black">
+							Возможно подключение к CRM: Bitrix, Jivo, AMO
+						</p>
+						<p className="absolute w-[337px] top-[5911px] left-[661px] [font-family:'Hind-Regular',Helvetica] font-normal text-[#00000080] text-[20px] tracking-[-0.40px] leading-[30px]">
+							На дополнительной договорной основе возможно подключение иных
+							площадок
+						</p>
+						<p className="absolute w-[375px] top-[6107px] left-[1255px] [font-family:'Hind-Regular',Helvetica] font-normal text-[#00000080] text-[24px] tracking-[-0.48px] leading-[36px]">
+							На дополнительной договорной основе возможно подключение более 2
+							000 диалогов
+						</p>
+						<div className='absolute w-[119px] h-[119px] top-[5308px] left-[2201px] overflow-hidden rotate-[20.45deg]'>
+							<img
+								className='absolute w-[154px] h-[154px] top-[-17px] left-[-17px] rotate-[-20.45deg] object-cover'
+								alt='Element fire still'
+								src='1f525-fire-v13-still-1-2.png'
+							/>
+						</div>
+						<div className="absolute top-[5134px] left-[572px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[70px] tracking-[-2.10px] leading-[70px] whitespace-nowrap">
+							Ежемесячный тариф
+						</div>
+						<div className="absolute top-[5137px] left-[1853px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[70px] tracking-[-2.10px] leading-[70px] whitespace-nowrap">
+							Годовой тариф
+						</div>
+						<div className='absolute w-[115px] h-[115px] top-[5329px] left-[1515px] overflow-hidden rotate-[24.25deg]'>
+							<img
+								className='absolute w-[152px] h-[152px] top-[-19px] left-[-19px] rotate-[-24.25deg] object-cover'
+								alt='Image'
+								src='image-1.png'
+							/>
+						</div>
+						<img
+							className='absolute w-[163px] h-[5px] top-[6301px] left-[1952px]'
+							alt='Line'
+							src='line-16.svg'
+						/>
+						<div className='absolute w-[155px] h-[127px] top-[5293px] left-[896px] overflow-hidden rotate-[15.63deg]'>
+							<img
+								className='absolute w-[184px] h-[164px] top-[-19px] left-[-14px] rotate-[-15.63deg] object-cover'
+								alt='Element highvoltage'
+								src='26a1-highvoltage-2.png'
+							/>
+						</div>
+						<div className='absolute w-[462px] h-[137px] top-[616px] left-[1238px] bg-[#e0e5f4] rounded-[32px] overflow-hidden shadow-[-10px_-10px_20px_#ffffff,10px_10px_20px_#aaaacc80,5px_5px_10px_#aaaacc40,-5px_-5px_10px_#ffffff80]'>
+							<div className="absolute w-[398px] h-[10px] top-[63px] left-[32px] [font-family:'Lexend-Bold',Helvetica] font-bold text-[#7878aa] text-[40px] text-center tracking-[0] leading-[10px]">
+								Подключить
+							</div>
+						</div>
+						<div className='absolute w-[462px] h-[137px] top-[3512px] left-[1238px] bg-[#e0e5f4] rounded-[32px] overflow-hidden shadow-[-10px_-10px_20px_#ffffff,10px_10px_20px_#aaaacc80,5px_5px_10px_#aaaacc40,-5px_-5px_10px_#ffffff80]'>
+							<div className="absolute w-[398px] h-[10px] top-[63px] left-[32px] [font-family:'Lexend-Bold',Helvetica] font-bold text-[#7878aa] text-[40px] text-center tracking-[0] leading-[10px]">
+								Подключить
+							</div>
 						</div>
 					</div>
-					<div className='h-[107px] pl-8 pr-16 pt-[34px] pb-[33px] left-[586px] top-[276px] absolute bg-slate-100 rounded-[40px] shadow-inner justify-start items-center inline-flex'>
-						<div className="w-[825px] opacity-60 text-slate-500 text-[40px] font-normal font-['Lexend'] leading-10">
+					<img
+						className='absolute w-[80px] h-[66px] top-[5802px] left-[1086px]'
+						alt='Arrow'
+						src='arrow-8.svg'
+					/>
+				</div>
+				<div className='absolute w-[1920px] h-[451px] top-[10273px] left-[-3px]'>
+					<div className='flex flex-col w-[1920px] items-center gap-[50px] pt-[100px] pb-[50px] px-[162px] absolute top-0 left-0 [background:linear-gradient(180deg,rgba(83,72,215,0)_0%,rgba(83,72,215,0)_30.73%,rgba(83,72,215,0.24)_90.1%)]'>
+						<div className='flex flex-col items-center gap-[50px] relative self-stretch w-full flex-[0_0_auto]'>
+							<div className='relative w-[155.83px] h-[40px]'>
+								<p className="w-[136px] left-[47px] absolute h-[20px] top-[9px] [font-family:'Audiowide-Regular',Helvetica] font-normal text-transparent text-[20px] tracking-[-0.60px] leading-[20px]">
+									<span className='text-[#caff33]'>AI </span>
+									<span className='text-white'>Syndicate</span>
+								</p>
+							</div>
+							<div className='inline-flex items-center gap-[26px] relative flex-[0_0_auto]'>
+								<div className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black relative w-fit mt-[-1.00px] text-[18px] tracking-[0] leading-[27px] whitespace-nowrap">
+									О нас
+								</div>
+								<div className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black relative w-fit mt-[-1.00px] text-[18px] tracking-[0] leading-[27px] whitespace-nowrap">
+									Преимущества
+								</div>
+								<div className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black relative w-fit mt-[-1.00px] text-[18px] tracking-[0] leading-[27px] whitespace-nowrap">
+									Стоимость
+								</div>
+								<div className="[font-family:'Lexend-Regular',Helvetica] font-normal text-black relative w-fit mt-[-1.00px] text-[18px] tracking-[0] leading-[27px] whitespace-nowrap">
+									Контакты
+								</div>
+							</div>
+						</div>
+						<img
+							className='relative self-stretch w-full h-px object-cover'
+							alt='Line'
+							src='line.svg'
+						/>
+						<div className='flex items-center justify-between pl-[16px] pr-[30px] py-[16px] relative self-stretch w-full flex-[0_0_auto] bg-grey-10 rounded-[100px] border border-solid border-grey-15'>
+							<div className='inline-flex items-start gap-[14px] relative flex-[0_0_auto]'></div>
+							<p className="relative w-fit [font-family:'Lexend-Light',Helvetica] font-light text-grey-shades70 text-[18px] tracking-[0] leading-[27px] whitespace-nowrap">
+								AI Syndicate All Rights Reserved
+							</p>
+							<div className='inline-flex items-center gap-[12px] relative flex-[0_0_auto]'>
+								<div className="[font-family:'Lexend-Light',Helvetica] font-light text-grey-shades70 relative w-fit mt-[-1.00px] text-[18px] tracking-[0] leading-[27px] whitespace-nowrap">
+									Privacy Policy
+								</div>
+								<img
+									className='relative self-stretch w-px object-cover'
+									alt='Line'
+									src='line-2.svg'
+								/>
+								<div className="[font-family:'Lexend-Light',Helvetica] font-light text-grey-shades70 relative w-fit mt-[-1.00px] text-[18px] tracking-[0] leading-[27px] whitespace-nowrap">
+									Terms of Service
+								</div>
+							</div>
+						</div>
+					</div>
+					<img
+						className='absolute w-[51px] h-[62px] top-[89px] left-[868px]'
+						alt='Group'
+						src='group-48.png'
+					/>
+				</div>
+				<div className='absolute w-[1921px] h-[1060px] top-[9213px] left-0 bg-[#e0e5f4] overflow-hidden'>
+					<p className="absolute w-[1631px] top-[56px] left-[120px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[70px] tracking-[-2.10px] leading-[70px]">
+						Предлагаем провести созвон и разработать демо-версию на данных
+						вашего бизнеса
+					</p>
+					<div className='absolute w-[597px] h-[724px] top-[266px] left-[-60px]'>
+						<img
+							className='absolute w-[472px] h-[472px] top-0 left-[125px] object-cover'
+							alt='Image'
+							src='image-28.png'
+						/>
+						<div className='absolute w-[371px] h-[371px] top-[315px] left-[37px] overflow-hidden rotate-[-13.10deg]'>
+							<img
+								className='absolute w-[386px] h-[446px] top-[-30px] left-[22px] rotate-[13.10deg] object-cover'
+								alt='Palmuphand'
+								src='palmuphand-1024px-01-06-yellow.png'
+							/>
+						</div>
+					</div>
+					<button className='absolute w-[303px] h-[89px] top-[901px] left-[907px] bg-[#e0e5f4] rounded-[32px] overflow-hidden shadow-[-10px_-10px_20px_#ffffff,10px_10px_20px_#aaaacc80,5px_5px_10px_#aaaacc40,-5px_-5px_10px_#ffffff80] all-[unset] box-border'>
+						<div className="absolute w-[239px] h-[15px] top-[37px] left-[32px] [font-family:'Lexend-Bold',Helvetica] font-bold text-[#7878aa] text-[40px] text-center tracking-[0] leading-[15px]">
+							Отправить
+						</div>
+					</button>
+					<div className='absolute w-[921px] h-[107px] top-[276px] left-[586px] bg-[#f5f5fa] rounded-[40px] overflow-hidden shadow-inner-shadow-2'>
+						<div className="absolute w-[825px] h-[40px] top-[33px] left-[32px] opacity-60 [font-family:'Lexend-Regular',Helvetica] font-normal text-[#7878aa] text-[40px] tracking-[0] leading-[40px]">
 							Имя
 						</div>
 					</div>
-					<div className='h-[107px] pl-8 pr-16 pt-[34px] pb-[33px] left-[586px] top-[415px] absolute bg-slate-100 rounded-[40px] shadow-inner justify-start items-center inline-flex'>
-						<div className='w-[825px] opacity-60'>
-							<span className="text-slate-500 text-[40px] font-normal font-['Lexend'] leading-10">
-								Фамилия
-							</span>
-							<span className="text-slate-500 text-[15px] font-normal font-['Lexend'] leading-10">
-								{' '}
-							</span>
+					<div className='top-[415px] absolute w-[921px] h-[107px] left-[586px] bg-[#f5f5fa] rounded-[40px] overflow-hidden shadow-inner-shadow-2'>
+						<div className="absolute w-[825px] h-[40px] top-[33px] left-[32px] opacity-60 [font-family:'Lexend-Regular',Helvetica] font-normal text-[#7878aa] text-[15px] tracking-[0] leading-[40px]">
+							Фамилия
 						</div>
 					</div>
-					<div className='h-[107px] pl-8 pr-16 pt-[34px] pb-[33px] left-[586px] top-[554px] absolute bg-slate-100 rounded-[40px] shadow-inner justify-start items-center inline-flex'>
-						<div className='w-[825px] opacity-60'>
-							<span className="text-slate-500 text-[40px] font-normal font-['Lexend'] leading-10">
-								Почта
-							</span>
-							<span className="text-slate-500 text-[15px] font-normal font-['Lexend'] leading-10">
-								{' '}
-							</span>
+					<div className='top-[554px] absolute w-[921px] h-[107px] left-[586px] bg-[#f5f5fa] rounded-[40px] overflow-hidden shadow-inner-shadow-2'>
+						<div className="absolute w-[825px] h-[40px] top-[33px] left-[32px] opacity-60 [font-family:'Lexend-Regular',Helvetica] font-normal text-[#7878aa] text-[15px] tracking-[0] leading-[40px]">
+							Почта
 						</div>
 					</div>
-					<div className='h-[107px] pl-8 pr-16 pt-[34px] pb-[33px] left-[586px] top-[693px] absolute bg-slate-100 rounded-[40px] shadow-inner justify-start items-center inline-flex'>
-						<div className="w-[825px] opacity-60 text-slate-500 text-[40px] font-normal font-['Lexend'] leading-10">
+					<div className='top-[693px] absolute w-[921px] h-[107px] left-[586px] bg-[#f5f5fa] rounded-[40px] overflow-hidden shadow-inner-shadow-2'>
+						<p className="absolute w-[825px] h-[40px] top-[33px] left-[32px] opacity-60 [font-family:'Lexend-Regular',Helvetica] font-normal text-[#7878aa] text-[40px] tracking-[0] leading-[40px]">
 							+7 (999) 999 99 99
-						</div>
+						</p>
 					</div>
 				</div>
-				<div className='w-[49.03px] h-[60px] left-[866px] top-[10363px] absolute'>
-					<div className='w-[48.75px] h-[59.64px] left-[0.28px] top-[0.36px] absolute'></div>
-				</div>
-				<div className='w-[972px] h-[1080px] left-[1006px] top-[6230px] absolute origin-top-left rotate-180 bg-gradient-to-br from-sky-500 to-indigo-600' />
-				<div className='left-[124px] top-[6448px] absolute flex-col justify-start items-start gap-[25px] inline-flex'>
-					<div className="w-[538px] text-white text-[70px] font-bold font-['Lexend'] leading-[70px]">
-						Преимущества ИИ менеджера
-					</div>
-					<div className="w-[489px] opacity-70 text-white text-5xl font-normal font-['Hind'] leading-[60px]">
-						Он не спит, не кушает. Всегда все помнит о вашем продукте
-						<br />
-						<br />И главное - никогда не уведет вашего клиента :)
-					</div>
-				</div>
-				<div className='h-[860px] left-[712px] top-[6320px] absolute flex-col justify-start items-start gap-[25px] inline-flex'>
-					<div className='w-[1152px] h-[270px] relative'>
-						<div className='w-[270px] h-[1152px] left-[1152px] top-0 absolute origin-top-left rotate-90 mix-blend-luminosity bg-lime-50 rounded-3xl' />
-						<div className='w-[1000px] h-[171px] left-[72px] top-[50.01px] absolute justify-start items-center gap-6 inline-flex'>
-							<div className='w-[297px] flex-col justify-center items-start gap-2.5 inline-flex'>
-								<div className='w-[297px]'>
-									<span className="text-black text-[35px] font-medium font-['Lexend'] leading-[35px]">
-										Улучшение качества сервиса до{' '}
-									</span>
-									<span className="text-black text-[35px] font-bold font-['Lexend'] leading-[35px]">
-										30%
-									</span>
-								</div>
-							</div>
-							<div className='w-[171px] h-[0px] origin-top-left rotate-90 opacity-70 border border-black'></div>
-							<div className='w-[655px]'>
-								<span className="text-black text-[21px] font-normal font-['Lexend'] leading-relaxed">
-									Наш менеджер{' '}
-								</span>
-								<span className="text-black text-[21px] font-semibold font-['Lexend'] leading-relaxed">
-									всегда вежлив
-								</span>
-								<span className="text-black text-[21px] font-normal font-['Lexend'] leading-relaxed">
-									{' '}
-									и готов беспрерывно отвечать на вопросы клиента. Он не умеет
-									материться и не хамит даже случайно. Система на основе ИИ,{' '}
-								</span>
-								<span className="text-black text-[21px] font-semibold font-['Lexend'] leading-relaxed">
-									не умеет обманывать клиентов
-								</span>
-								<span className="text-black text-[21px] font-normal font-['Lexend'] leading-relaxed">
-									. Как{' '}
-								</span>
-								<span className="text-black text-[21px] font-semibold font-['Lexend'] leading-relaxed">
-									настоящий человек
-								</span>
-								<span className="text-black text-[21px] font-normal font-['Lexend'] leading-relaxed">
-									, может ответить на все вопросы по продукту в живом формате и{' '}
-								</span>
-								<span className="text-black text-[21px] font-semibold font-['Lexend'] leading-relaxed">
-									дожать до продажи
-								</span>
-							</div>
-						</div>
-					</div>
-					<div className='w-[1152px] h-[270px] relative'>
-						<div className='w-[270px] h-[1152px] left-[1152px] top-0 absolute origin-top-left rotate-90 mix-blend-luminosity bg-lime-50 rounded-3xl' />
-						<div className='w-[1019px] h-[171px] left-[72px] top-[50px] absolute justify-start items-center gap-6 inline-flex'>
-							<div className='w-[297px] flex-col justify-center items-start gap-2.5 inline-flex'>
-								<div className='w-[297px]'>
-									<span className="text-black text-[35px] font-medium font-['Lexend'] leading-[35px]">
-										Повышение продуктивности
-										<br />
-										до{' '}
-									</span>
-									<span className="text-black text-[35px] font-bold font-['Lexend'] leading-[35px]">
-										40%
-									</span>
-								</div>
-							</div>
-							<div className='w-[171px] h-[0px] origin-top-left rotate-90 opacity-70 border border-black'></div>
-							<div className='w-[674px]'>
-								<span className="text-black text-[21px] font-normal font-['Lexend'] leading-relaxed">
-									Система может обрабатывать{' '}
-								</span>
-								<span className="text-black text-[21px] font-semibold font-['Lexend'] leading-relaxed">
-									до 10.000 диалогов{' '}
-								</span>
-								<span className="text-black text-[21px] font-normal font-['Lexend'] leading-relaxed">
-									одновременно. Не нужно нанимать дополнительных сотрудников -
-									робот справляется с тысячами запросов{' '}
-								</span>
-								<span className="text-black text-[21px] font-semibold font-['Lexend'] leading-relaxed">
-									в минуту 24/7, 365 дней в году
-								</span>
-							</div>
-						</div>
-					</div>
-					<div className='w-[1152px] h-[270px] relative'>
-						<div className='w-[270px] h-[1152px] left-[1152px] top-0 absolute origin-top-left rotate-90 mix-blend-luminosity bg-lime-50 rounded-3xl' />
-						<div className='w-[1013px] h-[171px] left-[72px] top-[50px] absolute justify-start items-center gap-6 inline-flex'>
-							<div className='w-[297px] flex-col justify-center items-start gap-2.5 inline-flex'>
-								<div className='w-[297px]'>
-									<span className="text-black text-[35px] font-medium font-['Lexend'] leading-[35px]">
-										Время обработки клиентов быстрее
-									</span>
-									<span className="text-black text-[35px] font-bold font-['Lexend'] leading-[35px]">
-										{' '}
-									</span>
-									<span className="text-black text-[35px] font-medium font-['Lexend'] leading-[35px]">
-										до{' '}
-									</span>
-									<span className="text-black text-[35px] font-bold font-['Lexend'] capitalize leading-[35px]">
-										60%
-									</span>
-								</div>
-							</div>
-							<div className='w-[171px] h-[0px] origin-top-left rotate-90 opacity-70 border border-black'></div>
-							<div className='w-[668px]'>
-								<span className="text-black text-[21px] font-normal font-['Lexend'] leading-relaxed">
-									Менеджер повышает конверсию отдела продаж за счет скорости
-									обработки заявок меньше чем за{' '}
-								</span>
-								<span className="text-black text-[21px] font-semibold font-['Lexend'] leading-relaxed">
-									1 минуту
-								</span>
-								<span className="text-black text-[21px] font-normal font-['Lexend'] leading-relaxed">
-									, таким образом уменьшаем вероятность ухода клиентов в
-									молчание или к конкурентам
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className='w-[257px] h-[257px] left-[291px] top-[6207px] absolute origin-top-left rotate-180 justify-center items-center inline-flex'>
-					<img
-						className='w-[257px] h-[257px]'
-						src='https://via.placeholder.com/257x257'
-					/>
-				</div>
-				<div className='w-[49.03px] h-[60px] left-[205px] top-[95px] absolute'>
-					<div className='w-[48.75px] h-[59.64px] left-[0.28px] top-[0.36px] absolute'></div>
-				</div>
-				<div className='w-[495px] h-[1150px] left-[65px] top-[7628px] absolute bg-lime-50 rounded-[40px]' />
-				<div className='w-[495px] h-[1150px] left-[665px] top-[7633px] absolute bg-lime-50 rounded-[40px]' />
-				<div className='w-[326px] h-[73px] left-[146px] top-[7676px] absolute bg-indigo-600 rounded-[40px]' />
-				<div className='w-[325px] h-[110px] left-[746px] top-[7655px] absolute bg-indigo-600 rounded-[40px]' />
-				<div className='w-[413px] h-[136px] left-[109px] top-[8612px] absolute bg-gradient-to-br from-indigo-600 to-pink-400 rounded-[40px]' />
-				<div className='w-[412px] h-[136px] left-[709px] top-[8617px] absolute bg-gradient-to-br from-indigo-600 to-pink-400 rounded-[40px]' />
-				<div className='w-[495px] h-[1153px] left-[1344px] top-[7625px] absolute bg-gradient-to-br from-indigo-600 to-pink-400 rounded-[40px]' />
-				<div className="w-[186px] h-10 left-[220px] top-[7693px] absolute text-white text-[38px] font-bold font-['Hind'] leading-[38px]">
-					1-й месяц
-				</div>
-				<div className='w-[325px] h-[73px] left-[1427px] top-[7673px] absolute bg-lime-50 rounded-[40px]' />
-				<div className="w-[191px] h-[39px] left-[1501px] top-[7691px] absolute text-indigo-600 text-[38px] font-bold font-['Hind'] leading-[38px]">
-					Ежегодно
-				</div>
-				<div className="w-[190px] h-[78px] left-[817px] top-[7673px] absolute text-white text-[38px] font-bold font-['Hind'] leading-[38px]">
-					2-й месяц
-					<br />и далее
-				</div>
-				<div className='left-[212px] top-[8650px] absolute text-center'>
-					<span className="text-white text-6xl font-bold font-['Hind'] leading-[60px]">
-						₽
-					</span>
-					<span className="text-white text-6xl font-bold font-['Hind'] leading-[60px]">
-						75 000
-					</span>
-				</div>
-				<div className='w-[331px] h-[63px] left-[753px] top-[8647px] absolute text-center'>
-					<span className="text-white text-6xl font-bold font-['Hind'] leading-[60px]">
-						₽
-					</span>
-					<span className="text-white text-6xl font-bold font-['Hind'] leading-[60px]">
-						60 000
-					</span>
-					<span className="text-white text-[70px] font-bold font-['Hind'] leading-[70px]">
-						{' '}
-					</span>
-					<span className="text-white text-3xl font-bold font-['Hind'] leading-[30px]">
-						/ мес.
-					</span>
-				</div>
-				<div className='w-[413px] h-[136px] left-[1389px] top-[8616px] absolute bg-lime-50 rounded-[40px]' />
-				<div className='w-[315px] h-[109px] left-[1440px] top-[8629px] absolute'>
-					<span className="text-indigo-600 text-[44px] font-bold font-['Hind'] leading-[44px]">
-						{' '}
-					</span>
-					<span className="text-indigo-600 text-[38px] font-bold font-['Hind'] leading-[38px]">
-						₽735 000
-						<br />
-					</span>
-					<span className="text-indigo-600 text-6xl font-bold font-['Hind'] leading-[60px]">
-						₽
-					</span>
-					<span className="text-indigo-600 text-6xl font-bold font-['Hind'] leading-[60px]">
-						685 000{' '}
-					</span>
-					<span className="text-indigo-600 text-3xl font-bold font-['Hind'] leading-[30px]">
-						/ год
-					</span>
-				</div>
-				<div className="w-[328px] h-[79px] left-[149px] top-[7799px] absolute text-center text-indigo-600 text-[38px] font-bold font-['Hind'] leading-[38px]">
-					Внедрение
-					<br />
-					________________
-				</div>
-				<div className="w-[328px] h-[79px] left-[1432px] top-[7813px] absolute text-center text-lime-50 text-[38px] font-bold font-['Hind'] leading-[38px]">
-					Внедрение
-					<br />
-					________________
-				</div>
-				<div className="w-[327px] h-[119px] left-[157px] top-[8443px] absolute text-center text-indigo-600 text-[38px] font-bold font-['Hind'] leading-[38px]">
-					<br />
-					Сопровождение
-					<br />
-					________________
-				</div>
-				<div className='w-[335px] h-16 left-[745px] top-[8302px] absolute text-center'>
-					<span className="text-indigo-600 text-[44px] font-bold font-['Hind'] leading-[44px]">
-						2 000
-						<br />
-					</span>
-					<span className="text-indigo-600 text-3xl font-bold font-['Hind'] leading-[30px]">
-						диалогов включительно
-					</span>
-				</div>
-				<div className="w-[327px] h-[119px] left-[749px] top-[7764px] absolute text-center text-indigo-600 text-[38px] font-bold font-['Hind'] leading-[38px]">
-					<br />
-					Сопровождение
-					<br />
-					________________
-				</div>
-				<div className="w-[63px] h-[108px] left-[289px] top-[8369px] absolute text-center text-indigo-600 text-[100px] font-bold font-['Hind'] leading-[100px]">
-					+
-				</div>
-				<div className="w-[327.69px] h-[118.51px] left-[1426.04px] top-[7974.52px] absolute text-center text-lime-50 text-[38px] font-bold font-['Hind'] leading-[38px]">
-					<br />
-					Сопровождение
-					<br />
-					________________
-				</div>
-				<div className="w-[63.74px] h-[107.73px] left-[1558.02px] top-[7900px] absolute text-center text-lime-50 text-[100px] font-bold font-['Hind'] leading-[100px]">
-					+
-				</div>
-				<div className='w-[433.63px] h-[118.51px] left-[1373px] top-[8149px] absolute text-center'>
-					<span className="text-lime-50 text-[50px] font-bold font-['Hind'] leading-[50px]">
-						<br />
-						500
-						<br />
-					</span>
-					<span className="text-lime-50 text-[38px] font-bold font-['Hind'] leading-[38px]">
-						Бесплатных диалогов
-					</span>
-				</div>
-				<div className="w-[63.74px] h-[107.73px] left-[1558.02px] top-[8101px] absolute text-center text-lime-50 text-[100px] font-bold font-['Hind'] leading-[100px]">
-					+
-				</div>
-				<div className="w-[477.92px] h-[118.51px] left-[1358px] top-[8374px] absolute text-center text-lime-50 text-[38px] font-bold font-['Hind'] leading-[38px]">
-					<br />
-					Эксклюзивные условия на новые продукты{' '}
-				</div>
-				<div className="w-[58.71px] h-[107.73px] left-[1567.19px] top-[8301.73px] absolute text-center text-lime-50 text-[100px] font-bold font-['Hind'] leading-[100px]">
-					+
-				</div>
-				<div className="w-[347px] h-[81px] left-[146px] top-[7932px] absolute text-center text-black text-[27px] font-bold font-['Hind'] leading-[27px]">
-					Подключение аккаунтов: Telegram, Instagram, WhatsApp, Avito
-				</div>
-				<div className="w-[345px] h-[108px] left-[746px] top-[7935px] absolute text-center text-black text-[27px] font-bold font-['Hind'] leading-[27px]">
-					Сопровождение и постоянная проработка системы, исходя из обновляющихся
-					данных
-				</div>
-				<div className="w-[345px] h-[53px] left-[746px] top-[8134px] absolute text-center text-black text-[27px] font-bold font-['Hind'] leading-[27px]">
-					Постоянное техническое обслуживание
-				</div>
-				<div className="w-[328px] h-[86px] left-[152px] top-[8112px] absolute text-center text-black text-[27px] font-bold font-['Hind'] leading-[27px]">
-					Возможно подключение к CRM: Bitrix, Jivo, AMO{' '}
-				</div>
-				<div className="w-[337px] h-[97px] left-[152px] top-[8264px] absolute text-black text-opacity-50 text-xl font-normal font-['Hind'] leading-[30px]">
-					На дополнительной договорной основе возможно подключение иных площадок
-				</div>
-				<div className="w-[375px] h-24 left-[746px] top-[8460px] absolute text-black text-opacity-50 text-2xl font-normal font-['Hind'] leading-9">
-					На дополнительной договорной основе возможно подключение более 2 000
-					диалогов
-				</div>
-				<div className='w-[119.41px] h-[119.41px] left-[1716.45px] top-[7642.81px] absolute origin-top-left rotate-[20.45deg] justify-center items-center inline-flex'>
-					<img
-						className='w-[119.41px] h-[119.41px]'
-						src='https://via.placeholder.com/119x119'
-					/>
-				</div>
-				<div className="left-[63px] top-[7487px] absolute text-black text-[70px] font-bold font-['Lexend'] leading-[70px]">
-					Ежемесячный тариф
-				</div>
-				<div className="left-[1344px] top-[7490px] absolute text-black text-[70px] font-bold font-['Lexend'] leading-[70px]">
-					Годовой тариф
-				</div>
-				<div className='w-[115.02px] h-[115.02px] left-[1034.65px] top-[7662.41px] absolute origin-top-left rotate-[24.25deg] justify-center items-center inline-flex'>
-					<img
-						className='w-[115.02px] h-[115.02px]'
-						src='https://via.placeholder.com/115x115'
-					/>
-				</div>
-				<div className='w-[163px] h-[0px] left-[1606px] top-[8653px] absolute origin-top-left rotate-180 border-4 border-indigo-600'></div>
-				<div className='w-[155.32px] h-[126.59px] left-[407.04px] top-[7626.65px] absolute origin-top-left rotate-[15.63deg] justify-center items-center inline-flex'>
-					<img
-						className='w-[155.32px] h-[126.59px]'
-						src='https://via.placeholder.com/155x127'
-					/>
-				</div>
-				<div className='w-[349.30px] h-[103.58px] pl-8 pr-[32.30px] left-[623px] top-[867.40px] absolute origin-top-left rotate-[-15deg] bg-lime-400 rounded-[32px] justify-center items-center inline-flex'>
-					<div className="w-[285px] text-center text-black text-[40px] font-bold font-['Lexend'] leading-[10px]">
-						Подключить
-					</div>
-				</div>
-				<div className='w-[462px] h-[137px] px-8 left-[729px] top-[2968px] absolute bg-slate-200 rounded-[32px] shadow justify-center items-center inline-flex'>
-					<div className="w-[398px] text-center text-slate-500 text-[40px] font-bold font-['Lexend'] leading-[10px]">
-						Подключить
-					</div>
-				</div>
-				<div className='w-[462px] h-[137px] px-8 left-[729px] top-[5864px] absolute bg-slate-200 rounded-[32px] shadow justify-center items-center inline-flex'>
-					<div className="w-[398px] text-center text-slate-500 text-[40px] font-bold font-['Lexend'] leading-[10px]">
-						Подключить
-					</div>
-				</div>
-				<div className='w-[462px] h-[137px] px-8 left-[725px] top-[8979px] absolute bg-slate-200 rounded-[32px] shadow justify-center items-center inline-flex'>
-					<div className="w-[398px] text-center text-slate-500 text-[40px] font-bold font-['Lexend'] leading-[10px]">
+				<div className='absolute w-[462px] h-[137px] top-[8979px] left-[725px] bg-[#e0e5f4] rounded-[32px] overflow-hidden shadow-[-10px_-10px_20px_#ffffff,10px_10px_20px_#aaaacc80,5px_5px_10px_#aaaacc40,-5px_-5px_10px_#ffffff80]'>
+					<div className="absolute w-[398px] h-[10px] top-[63px] left-[32px] [font-family:'Lexend-Bold',Helvetica] font-bold text-[#7878aa] text-[40px] text-center tracking-[0] leading-[10px]">
 						Подключить
 					</div>
 				</div>
 			</div>
-		</main>
+		</div>
 	)
 }
 
