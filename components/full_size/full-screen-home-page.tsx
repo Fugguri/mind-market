@@ -21,7 +21,7 @@ const FullScreenHomePage = () => {
 						<img
 							className='absolute w-[359px] h-[893px] top-0 left-0 object-cover'
 							alt='Image'
-							src='image-6.png'
+							src='Office worker.png'
 						/>
 					</div>
 					<div className='absolute w-[876px] h-[727px] top-[1215px] left-[796px] rotate-[-15.64deg]'>
@@ -58,14 +58,14 @@ const FullScreenHomePage = () => {
 							</p>
 						</div>
 						<div className='inline-flex items-center gap-[30px] relative flex-[0_0_auto]'>
-							<div className="relative w-fit [font-family:'Lexend-Regular',Helvetica] font-normal text-absolutewhite text-[25px] tracking-[0] leading-[37.5px] whitespace-nowrap">
-								Регистрация
-							</div>
-							<button className='inline-flex items-center gap-[10px] px-[30px] py-[14px] relative flex-[0_0_auto] bg-green-60 rounded-[82px] all-[unset] box-border'>
+							<Button
+								variant='primary'
+								className='inline-flex items-center gap-[10px] px-[30px] py-[14px] relative flex-[0_0_auto] bg-green-60 rounded-[82px] all-[unset] box-border'
+							>
 								<div className="relative w-fit mt-[-1.00px] [font-family:'Lexend-Regular',Helvetica] font-normal text-grey-11 text-[25px] tracking-[0] leading-[37.5px] whitespace-nowrap">
 									Вход
 								</div>
-							</button>
+							</Button>
 						</div>
 						<div className='inline-flex items-center gap-[26px] absolute top-[22px] left-[484px]'>
 							<button className='inline-flex items-center gap-[10px] px-[24px] py-[12px] relative flex-[0_0_auto] bg-grey-15 rounded-[82px] all-[unset] box-border'>
