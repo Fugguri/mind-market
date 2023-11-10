@@ -85,13 +85,12 @@ const FullScreenHomePage = () => {
 						</div>
 					</div>
 					<div className='absolute w-[518px] h-[610px] top-[2582px] left-[714px]'>
-						<div className='relative w-[514px] h-[610px] bg-[#0000000d] rounded-[24px]'>
-							<div className='SportsMedal w-32 h-32 justify-center items-center inline-flex'>
-								<img
-									className='F3c5Sportsmedal0102 w-32 h-32'
-									src='1f3c5-sportsmedal-01-02-2.png'
-								/>
-							</div>
+						<div className='relative w-[514px] h-[610px] bg-[#0000000d] rounded-[24px] justify-center items-center inline-flex'>
+							<img
+								className=' absolute top-[100px] w-32 h-32'
+								src='1f3c5-sportsmedal-01-02-2.png'
+							/>
+
 							<div className="absolute top-[212px] left-[12px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[48px] tracking-[-1.44px] leading-[48px] whitespace-nowrap">
 								Лучший продажник
 							</div>
@@ -116,7 +115,7 @@ const FullScreenHomePage = () => {
 					</div>
 					<div className='absolute w-[518px] h-[610px] top-[2582px] left-[1786px]'>
 						<div className='relative w-[514px] h-[610px] bg-[#0000000d] rounded-[24px]'>
-							<p className='absolute w-[414px] top-[274px] left-[52px] font-body font-[number:var(--body-font-weight)] text-[#00000080] text-[length:var(--body-font-size)] text-center tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)] [font-style:var(--body-font-style)]'>
+							<p className='absolute w-[414px] top-[274px] left-[42px] font-body font-[number:var(--body-font-weight)] text-[#00000080] text-[length:var(--body-font-size)] text-center tracking-[var(--body-letter-spacing)] leading-[var(--body-line-height)] [font-style:var(--body-font-style)]'>
 								Чат-боты не всегда понимают сложные запросы, клиенты часто
 								требуют вмешательства и обработки со стороны живого сотрудника.
 								Такая ситуация в итоге приводит к расходу дополнительных
