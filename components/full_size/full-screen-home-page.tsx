@@ -139,11 +139,11 @@ const FullScreenHomePage = () => {
 						alt='Group'
 						src='group-47.png'
 					/>
-					<button className='absolute w-[349px] h-[104px] top-[1706px] left-[1176px] bg-[#caff33] rounded-[32px] overflow-hidden rotate-[-15.00deg] all-[unset] box-border'>
+					<Button className='absolute w-[349px] h-[104px] top-[1706px] left-[1176px] bg-[#caff33] rounded-[32px] overflow-hidden rotate-[-15.00deg] all-[unset] box-border'>
 						<div className="absolute w-[285px] h-[10px] top-[46px] left-[32px] [font-family:'Lexend-Bold',Helvetica] font-bold text-black text-[40px] text-center tracking-[0] leading-[10px]">
 							Подключить
 						</div>
-					</button>
+					</Button>
 				</div>
 				<div className='absolute w-[2976px] h-[6431px] top-[2352px] left-[-509px]'>
 					<div className='absolute w-[2976px] h-[6431px] top-0 left-0'>
@@ -616,16 +616,16 @@ const FullScreenHomePage = () => {
 								src='26a1-highvoltage-2.png'
 							/>
 						</div>
-						<div className='absolute w-[462px] h-[137px] top-[616px] left-[1238px] bg-[#e0e5f4] rounded-[32px] overflow-hidden shadow-[-10px_-10px_20px_#ffffff,10px_10px_20px_#aaaacc80,5px_5px_10px_#aaaacc40,-5px_-5px_10px_#ffffff80]'>
+						<Button className='absolute w-[462px] h-[137px] top-[616px] left-[1238px] bg-[#e0e5f4] rounded-[32px] overflow-hidden shadow-[-10px_-10px_20px_#ffffff,10px_10px_20px_#aaaacc80,5px_5px_10px_#aaaacc40,-5px_-5px_10px_#ffffff80]'>
 							<div className="absolute w-[398px] h-[10px] top-[63px] left-[32px] [font-family:'Lexend-Bold',Helvetica] font-bold text-[#7878aa] text-[40px] text-center tracking-[0] leading-[10px]">
 								Подключить
 							</div>
-						</div>
-						<div className='absolute w-[462px] h-[137px] top-[3512px] left-[1238px] bg-[#e0e5f4] rounded-[32px] overflow-hidden shadow-[-10px_-10px_20px_#ffffff,10px_10px_20px_#aaaacc80,5px_5px_10px_#aaaacc40,-5px_-5px_10px_#ffffff80]'>
+						</Button>
+						<Button className='absolute w-[462px] h-[137px] top-[3512px] left-[1238px] bg-[#e0e5f4] rounded-[32px] overflow-hidden shadow-[-10px_-10px_20px_#ffffff,10px_10px_20px_#aaaacc80,5px_5px_10px_#aaaacc40,-5px_-5px_10px_#ffffff80]'>
 							<div className="absolute w-[398px] h-[10px] top-[63px] left-[32px] [font-family:'Lexend-Bold',Helvetica] font-bold text-[#7878aa] text-[40px] text-center tracking-[0] leading-[10px]">
 								Подключить
 							</div>
-						</div>
+						</Button>
 					</div>
 					<img
 						className='absolute w-[80px] h-[66px] top-[5802px] left-[1086px]'
@@ -733,11 +733,11 @@ const FullScreenHomePage = () => {
 						</p>
 					</div>
 				</div>
-				<div className='absolute w-[462px] h-[137px] top-[8979px] left-[725px] bg-[#e0e5f4] rounded-[32px] overflow-hidden shadow-[-10px_-10px_20px_#ffffff,10px_10px_20px_#aaaacc80,5px_5px_10px_#aaaacc40,-5px_-5px_10px_#ffffff80]'>
+				<Button className='absolute w-[462px] h-[137px] top-[8979px] left-[725px] bg-[#e0e5f4] rounded-[32px] overflow-hidden shadow-[-10px_-10px_20px_#ffffff,10px_10px_20px_#aaaacc80,5px_5px_10px_#aaaacc40,-5px_-5px_10px_#ffffff80]'>
 					<div className="absolute w-[398px] h-[10px] top-[63px] left-[32px] [font-family:'Lexend-Bold',Helvetica] font-bold text-[#7878aa] text-[40px] text-center tracking-[0] leading-[10px]">
 						Подключить
 					</div>
-				</div>
+				</Button>
 			</div>
 		</div>
 	)
