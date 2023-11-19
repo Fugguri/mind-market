@@ -6,11 +6,11 @@ import FullScreenHomePage from '@/components/full_size/full-screen-home-page'
 
 const SetupPage = async () => {
 	const profile = await initialProfile()
-	// return redirect(`chats/inbox`)
-	return (
-		<FullScreenHomePage />
-		// <MobileHomePage />
-	)
+	return redirect(`chats/inbox`)
+	// return (
+	// 	<FullScreenHomePage />
+	// 	// <MobileHomePage />
+	// )
 }
 
 export default SetupPage
