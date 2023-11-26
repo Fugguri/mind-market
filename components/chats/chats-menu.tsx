@@ -40,12 +40,7 @@ const ChatTypeMenu = ({params }: ChatTypeProps) => {
             />))
         }
         </div>
-            <Separator orientation="horizontal"/>
-        <div className="grid grid-cols-3 m-5 h-3 align-top "> 
-            <div className="col-span-1 flex align-top font-size-12" >Сообщение</div>    
-            <div className="col-span-1 flex items-center font-size-12" >Время </div>    
-            <div className="col-span-1 flex items-center font-size-12" >Канал </div>    
-        </div>
+            
     </div>
      );
 }

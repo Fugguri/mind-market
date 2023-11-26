@@ -1,26 +1,23 @@
-import { currentProfile } from "@/lib/current-profile";
-import { redirectToSignIn } from "@clerk/nextjs";
+import { currentProfile } from '@/lib/current-profile'
+import { redirectToSignIn } from '@clerk/nextjs'
+import { db } from '@/lib/db'
 
 interface ChatIdPageProps {
-    params:{
-        chatType: string,
-        chatId: string
-    }
+	params: {
+		chatType: string
+		chatId: string
+	}
 }
 
+const ChatIdPage = async ({ params }: ChatIdPageProps) => {
+	const profile = await currentProfile()
 
-const ChatIdPage = async ({params}: ChatIdPageProps ) => {
-    
-    // const profile = currentProfile()
-
-    // if(!profile){
-    //     redirectToSignIn()
-    // }
-
-    
-    return ( 
-        <div>Chat item id: {`${params.chatId}`} </div>
-     );
+	return (
+		<div>
+			{profile?.email}
+			Chat item id: {`${params.chatId}`}
+		</div>
+	)
 }
- 
-export default ChatIdPage;
+
+export default ChatIdPage

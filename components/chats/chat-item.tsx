@@ -30,10 +30,8 @@ const ChatItem = (props:ChatItemProps,) => {
         className="bg-transparent h-[72px]  hover:bg-slate-700 w-full">
         <div className="grid grid-cols-4 h-15 "> 
         <div className="col-span-1 flex " >
-                <div className="flex items-center">
-                    <User
-                    className="w-[48ps] h-[48px] m-5"/>
-                </div>
+            <User className="w-[48ps] h-[48px] ml-5 mr-5"/>
+                
             <div>
                 <h1 className="font-bold font-size-16">
                 {props.chat.title}
