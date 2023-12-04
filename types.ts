@@ -1,12 +1,7 @@
-import {
-	Profile,
-	TelegramBot,
-	TelegramUserBot,
-	WhatsAppBot,
-} from '@prisma/client'
+import { User, TelegramBot, TelegramUserBot, WhatsAppBot } from '@prisma/client'
 
-export type ProfileType = Profile[]
+export type ProfileType = User[]
 
-export type ProfileWithIntegrations = Profile & {
+export type ProfileWithIntegrations = User & {
 	integrations: TelegramBot & TelegramUserBot & WhatsAppBot
 }
