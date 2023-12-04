@@ -65,6 +65,8 @@ model User {
   expires   DateTime   @default(dbgenerated("ADDDATE(now(), 3)"))
   clients   Client[]
   operators Operator[]
+
+  administratedCompany Company[] @relation("Administrator")
 }
 
 model VerificationRequest {
@@ -76,6 +78,26 @@ model VerificationRequest {
   updatedAt  DateTime @updatedAt
 
   @@unique([identifier, token])
+}
+
+model Company {
+  id   String @id @default(cuid())
+  name String
+
+  aministrators User[]     @relation("Administrator")
+  operators     Operator[] @relation("companyOperator")
+
+  assistants       Assistant[]
+  telegramBots     TelegramBot[]
+  telegramUserBots TelegramUserBot[]
+  whatsAppBots     WhatsAppBot[]
+  jivoBots         JivoBot[]
+
+  clients Client[]
+  deals   Deal[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Assistant {
@@ -104,7 +126,9 @@ model Assistant {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  chats Chat[]
+  chats     Chat[]
+  Company   Company? @relation(fields: [companyId], references: [id])
+  companyId String?
 
   @@index([userId])
 }
@@ -125,6 +149,8 @@ model TelegramBot {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Company   Company? @relation(fields: [companyId], references: [id])
+  companyId String?
 
   @@index([userId])
   @@index([assistantId])
@@ -152,6 +178,8 @@ model TelegramUserBot {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Company   Company? @relation(fields: [companyId], references: [id])
+  companyId String?
 
   @@index([userId])
   @@index([assistantId])
@@ -177,6 +205,8 @@ model WhatsAppBot {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Company   Company? @relation(fields: [companyId], references: [id])
+  companyId String?
 
   @@index([userId])
   @@index([assistantId])
@@ -195,8 +225,12 @@ model JivoBot {
   assistantId String
   assistant   Assistant @relation(fields: [assistantId], references: [id])
 
+  provider_id String
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Company   Company? @relation(fields: [companyId], references: [id])
+  companyId String?
 
   @@index([userId])
   @@index([assistantId])
@@ -229,10 +263,45 @@ model Client {
   username    String?
   imageUrl    String?
   InChannelId String
+  phoneNumber String?
+  address     String?
 
   userId String
   user   User   @relation(fields: [userId], references: [id])
-  Chat   Chat[]
+
+  Chat Chat[]
+
+  companyId String?
+  Company   Company? @relation(fields: [companyId], references: [id])
+
+  deals Deal[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum DealStages {
+  negotiation
+  offer
+  paperwork
+}
+
+model Deal {
+  id     String @id @default(uuid())
+  name   String
+  type   String
+  amount Float?
+
+  dealStage DealStages @default(negotiation)
+
+  operatorId String
+  operator   Operator @relation("dealOpetator", fields: [operatorId], references: [id])
+
+  clientId String
+  client   Client @relation(fields: [clientId], references: [id])
+
+  companyId String
+  company   Company @relation(fields: [companyId], references: [id])
 }
 
 model Operator {
@@ -247,6 +316,11 @@ model Operator {
 
   Chats    Chat[]
   Messages Message[]
+
+  companyId String
+  company   Company @relation("companyOperator", fields: [companyId], references: [id])
+
+  Deal Deal[] @relation("dealOpetator")
 
   @@index([userId])
 }
