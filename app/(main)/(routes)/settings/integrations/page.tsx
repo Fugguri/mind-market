@@ -22,17 +22,17 @@ const ServicesPage = async () => {
 		include: {
 			whatsAppBot: {
 				where: {
-					profileId: user.id,
+					userId: user.id,
 				},
 			},
 			telegramBots: {
 				where: {
-					profileId: user.id,
+					userId: user.id,
 				},
 			},
 			telegramUserBots: {
 				where: {
-					profileId: user.id,
+					userId: user.id,
 				},
 			},
 		},
