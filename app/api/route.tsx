@@ -20,7 +20,6 @@ export async function POST(req: Request) {
 				imageUrl,
 				settings,
 				comment,
-				token: uuidv4(),
 			},
 		})
 
