@@ -67,10 +67,10 @@ export const EditProfileModal = () => {
 	})
 	useEffect(() => {
 		if (profile) {
-			form.setValue('imageUrl', profile.imageUrl)
+			form.setValue('imageUrl', profile.imageUrl ? profile.imageUrl : '')
 			form.setValue('name', profile.name ? profile.name : '')
 			form.setValue('email', profile.email ? profile.email : '')
-			form.setValue('password', profile.password)
+			form.setValue('password', profile.password ? profile.password : '')
 		}
 	}, [profile, form])
 
