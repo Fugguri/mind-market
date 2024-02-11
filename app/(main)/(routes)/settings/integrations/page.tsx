@@ -33,7 +33,7 @@ const ServicesPage = async () => {
 			</div> */}
 			<div className=' m-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 pb-10'>
 				<IntegrationItem
-					token={user.token}
+					token={user.id}
 					modal='addTgBot'
 					title='Телеграм бот'
 					description='Инструкция по регистрации-'
@@ -45,7 +45,7 @@ const ServicesPage = async () => {
 					description_link_title='Тут будет ссылка на инструкцию'
 				/>
 				<IntegrationItem
-					token={user.token}
+					token={user.id}
 					modal='addTgUserBot'
 					title='Telegram User-Бот'
 					description='Telegram user-bot '
@@ -57,7 +57,7 @@ const ServicesPage = async () => {
 					content_link_title='Telegram'
 				/>
 				<IntegrationItem
-					token={user.token}
+					token={user.id}
 					modal='addWaBot'
 					title='Whatsapp Бот'
 					description='Интеграция с системой '
@@ -69,7 +69,7 @@ const ServicesPage = async () => {
 					content_link_title='GreenApi'
 				/>
 				<IntegrationItem
-					token={user.token}
+					token={user.id}
 					modal='addInst'
 					title='Instagram Бот'
 					description=' Тут будет описание инстаграм бота '
