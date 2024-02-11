@@ -66,10 +66,19 @@ export const EditAssistantModal = () => {
 	})
 	useEffect(() => {
 		if (assistant) {
-			form.setValue('name', assistant.name)
-			form.setValue('settings', assistant.settings)
-			form.setValue('comment', assistant.comment)
-			form.setValue('imageUrl', assistant.imageUrl)
+			form.setValue('name', assistant.name ? assistant.name : 'Default')
+			form.setValue(
+				'settings',
+				assistant.settings ? assistant.settings : 'Default'
+			)
+			form.setValue(
+				'comment',
+				assistant.comment ? assistant.comment : 'Default'
+			)
+			form.setValue(
+				'imageUrl',
+				assistant.imageUrl ? assistant.imageUrl : 'Default'
+			)
 		}
 	}, [assistant, form])
 
