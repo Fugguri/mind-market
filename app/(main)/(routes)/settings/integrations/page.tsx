@@ -18,24 +18,6 @@ const ServicesPage = async () => {
 		where: {
 			id: user.id,
 		},
-
-		include: {
-			whatsAppBot: {
-				where: {
-					userId: user.id,
-				},
-			},
-			telegramBots: {
-				where: {
-					userId: user.id,
-				},
-			},
-			telegramUserBots: {
-				where: {
-					userId: user.id,
-				},
-			},
-		},
 	})
 
 	if (!integrations) {
