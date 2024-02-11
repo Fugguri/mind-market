@@ -57,8 +57,8 @@ export const authConfig: AuthOptions = {
 							password: hashedPassword,
 						},
 					})
-					console.log(newProfile)
 
+					console.log(newProfile)
 					const { password, ...profileWithoutPass } = newProfile
 
 					return profileWithoutPass as User
