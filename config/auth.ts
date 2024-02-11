@@ -9,6 +9,9 @@ import { randomUUID } from 'crypto'
 import { hash, compare } from 'bcrypt'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+
 export const authConfig: AuthOptions = {
 	// Configure one or more authentication providers
 
