@@ -63,7 +63,7 @@ export const authConfig: AuthOptions = {
 
 				const isPasswordValid = await compare(
 					credentials?.password,
-					user.password?
+					user.password ? user.password : 'fdsf'
 				)
 				if (isPasswordValid) {
 					const { password, ...profileWithoutPass } = user
