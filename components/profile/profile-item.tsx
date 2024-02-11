@@ -31,10 +31,6 @@ const ProfileItemPage = ({ profile }: ProfileItemPageProps) => {
 					<b>email:</b> {profile?.email}
 				</p>
 
-				<p>
-					<b>Окончание подписки:</b> {profile?.expires.toLocaleDateString()}
-				</p>
-				<p>{/* {profile?.password} */}</p>
 				<br />
 				<p>
 					<b>Дата регистрации:</b> {profile?.createdAt.toLocaleDateString()}
@@ -45,9 +41,9 @@ const ProfileItemPage = ({ profile }: ProfileItemPageProps) => {
 				<br />
 				<div className='flex justify-end '>
 					<button
-						onClick={() => {
-							onOpen('editProfile', profile), console.log('fdf')
-						}}
+					// onClick={() => {
+					// 	onOpen('editProfile', profile), console.log('fdf')
+					// }}
 					>
 						<Edit />
 					</button>
