@@ -37,7 +37,6 @@ export const authConfig: AuthOptions = {
 			},
 			async authorize(credentials) {
 				if (!credentials?.email || !credentials.password) return null
-				console.log('finding profile')
 
 				const user = await db.user.findUnique({
 					where: {
@@ -46,7 +45,6 @@ export const authConfig: AuthOptions = {
 				})
 
 				if (!user) {
-					console.log('creating profile')
 					const hashedPassword = await hash(credentials.password, 12)
 					const newProfile = await db.user.create({
 						data: {
@@ -57,8 +55,6 @@ export const authConfig: AuthOptions = {
 							password: hashedPassword,
 						},
 					})
-
-					console.log(newProfile)
 					const { password, ...profileWithoutPass } = newProfile
 
 					return profileWithoutPass as User
@@ -74,8 +70,6 @@ export const authConfig: AuthOptions = {
 					return profileWithoutPass as User
 				}
 				if (!isPasswordValid) {
-					console.log('passwordinvalid')
-
 					return null
 				}
 				return null

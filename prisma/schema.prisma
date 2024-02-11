@@ -51,7 +51,7 @@ model User {
   integrations  Integration[]
   chats         Chat[]
   clients       Client[]
-  expires_in    DateTime?     @default(now())
+  expires       DateTime?     @default(now())
 
   createdAt       DateTime          @default(now())
   updatedAt       DateTime          @updatedAt
