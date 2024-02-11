@@ -66,7 +66,6 @@ const AssistantIdStatisticPage = async ({
 
 					<h1 className='flex justify-between items-center'>
 						<p>Токен:</p>
-						<p>{assistant?.token}</p>
 					</h1>
 					<br />
 					<h1 className='flex justify-between items-center'>
