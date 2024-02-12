@@ -5,6 +5,7 @@ import ProfileItemPage from '@/components/profile/profile-item'
 
 const ProfilePage = async () => {
 	const profile = await currentProfile()
+
 	if (!profile) {
 		redirect('/')
 	}

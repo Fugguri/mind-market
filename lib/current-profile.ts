@@ -1,3 +1,4 @@
+import { Manager } from './../node_modules/.prisma/client/index.d'
 import { redirect } from 'next/navigation'
 import { auth } from '@clerk/nextjs'
 import { db } from './db'
@@ -14,6 +15,14 @@ export const currentProfile = async () => {
 		where: {
 			email: session?.user?.email?.toString(),
 		},
+		// include: {
+		// 	assistants: true,
+		// 	integrations: true,
+		// 	chats: true,
+		// 	Quiz: true,
+		// 	clients: true,
+		// },
 	})
+
 	return profile
 }

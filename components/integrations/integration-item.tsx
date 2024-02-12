@@ -10,72 +10,56 @@ import {
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ModalType, useModal } from '@/hooks/use-modal-store'
+import Image from 'next/image'
 
-interface IntegrationItemProps {
-	token: string
-	modal: ModalType
+interface IntegrationItemProps {integration:{
+
+	id:string
 	title: string
-	description: string | null
-	description_link: string | null
-	description_link_title: string | null
-	content: string | null
-	content_link: string | null
-	content_link_title: string | null
-	button: string | null
+	modal: ModalType
+	imageUrl:string
+},
 }
+
 
 const IntegrationItem = (props: IntegrationItemProps) => {
 	const { onOpen } = useModal()
-
-	const token = props.token
-
+	
 	return (
-		<Card className='mb-5 bg-slate-700/50 '>
-			<CardHeader>
-				<CardTitle>{props.title}</CardTitle>
-				<CardDescription>
-					{' '}
-					{props.description}
-					{props.description_link ? (
-						<a
-							href={props.description_link}
-							className='hover:text-green-700 underline'
-						>
-							{' '}
-							{props.description_link_title}{' '}
-						</a>
-					) : (
-						<></>
-					)}
-				</CardDescription>
+
+		<Card className='bg-primary/10 rounded-xl cursor-pointer hover:opacity-75 
+		transition border-0 w-50 h-50'>
+			
+			<CardHeader className='flex items-center justify-center text-center 
+			text-muted-foreground'>
+				<div className='relative w-32 h-32'>
+					<Image src={props.integration.imageUrl}  
+					alt={props.integration.title}
+					className='rounded-full object-cover'
+					fill
+					
+					/>
+
+				</div>
+				 <div className='font-bold'>
+
+				 <p>{props.integration.title}</p>
+				 </div>
 			</CardHeader>
-			<CardContent>
-				<p>
-					{props.content_link ? (
-						<a
-							href={props.content_link}
-							className='hover:text-green-700 underline'
-						>
-							{props.content_link_title}
-						</a>
-					) : (
-						<></>
-					)}
-				</p>
-			</CardContent>
-			<CardFooter className='items-center'>
-				{props.button ? (
+			<CardFooter className='flex items-center justify-center'>
+				{props.integration.title ? (
 					<Button
-						onClick={() => onOpen(props.modal, { token })}
+					onClick={() => onOpen(props.integration.modal)}
 						variant='primary'
-					>
-						{props.button}
+						>
+						Добавить
 					</Button>
 				) : (
 					<></>
-				)}
+					)}
 			</CardFooter>
 		</Card>
+
 	)
 }
 

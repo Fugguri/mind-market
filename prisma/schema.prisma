@@ -37,21 +37,27 @@ model Session {
 }
 
 model User {
-  id            String        @id @default(cuid())
-  name          String?
-  email         String?       @unique
-  emailVerified DateTime?
-  image         String?
-  userId        String        @unique
-  imageUrl      String?
-  login         String?
-  password      String?
-  token         String?       @default(uuid())
-  assistants    Assistant[]
-  integrations  Integration[]
-  chats         Chat[]
-  clients       Client[]
-  expires       DateTime?     @default(now())
+  id               String        @id @default(cuid())
+  name             String?
+  email            String?       @unique
+  emailVerified    DateTime?
+  image            String?
+  userId           String        @unique
+  imageUrl         String?
+  login            String?
+  password         String?
+  token            String        @default(uuid())
+  apiKey           String?       @default(uuid())
+  job_title        String?
+  companyName      String?
+  phone_number     String?
+  telegram         String?
+  subscription_end DateTime      @default(now())
+  assistants       Assistant[]
+  integrations     Integration[]
+  chats            Chat[]
+  clients          Client[]
+  expires          DateTime?     @default(now())
 
   createdAt       DateTime          @default(now())
   updatedAt       DateTime          @updatedAt

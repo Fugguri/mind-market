@@ -44,7 +44,7 @@ export const authConfig: AuthOptions = {
 						email: credentials?.email?.toString(),
 					},
 				})
-
+				console.log(user)
 				if (!user) {
 					const hashedPassword = await hash(credentials.password, 12)
 					const newProfile = await db.user.create({

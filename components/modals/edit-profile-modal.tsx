@@ -33,52 +33,68 @@ import { useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 
 const formSchema = z.object({
-	imageUrl: z.string().min(1, {
-		message: 'Введите имя ассистента',
-	}),
 	name: z.string().min(1, {
-		message: 'Введите промт для настройки ассистента',
+		message: 'name',
 	}),
 	email: z.string().min(1, {
-		message: 'Комментарий к этому ассистенку.',
+		message: 'Email',
 	}),
-	password: z.string().min(1, {
-		message: 'Изображение',
+	phone: z.string().min(1, {
+		message: 'Номер телефона',
+	}),
+	telegram: z.string().min(1, {
+		message: 'Телеграм',
+	}),
+	company_name: z.string().min(1, {
+		message: 'Компания',
+	}),
+	job_title: z.string().min(1, {
+		message: 'Роль в компании',
 	}),
 })
 
 export const EditProfileModal = () => {
 	const { isOpen, onClose, type, data } = useModal()
-
+	console.log("edit")
 	const router = useRouter()
 
 	const isModalOpen = isOpen && type === 'editProfile'
 
 	const { profile } = data
-	console.log(profile)
+
 	const form = useForm({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			imageUrl: '',
 			name: '',
+			phone: '',
+			imageUrl: '',
+			telegram:'',
 			email: '',
-			password: '',
+			company_name: '',
+			job_title: '',
+
+
 		},
 	})
+	console.log("fdf")
 	useEffect(() => {
 		if (profile) {
-			form.setValue('imageUrl', profile.imageUrl ? profile.imageUrl : '')
-			form.setValue('name', profile.name ? profile.name : '')
-			form.setValue('email', profile.email ? profile.email : '')
-			form.setValue('password', profile.password ? profile.password : '')
+			form.setValue('name', profile.name?? '')
+			form.setValue('phone', profile.phone_number?? '')
+			form.setValue('imageUrl', profile.imageUrl?? '')
+			form.setValue('telegram', profile.telegram?? '')
+			form.setValue('email', profile.email?? '')
+			form.setValue('company_name', profile.companyName?? '')
+			form.setValue('job_title', profile.job_title?? '')
 		}
 	}, [profile, form])
 
 	const isLoading = form.formState.isSubmitting
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
+		console.log(values)
 		// try {
-		// 	await axios.patch(`/api/assistants/${profile?.id}`, values)
+		// 	await axios.patch(`/api/profile/${profile?.id}`, values)
 		// 	form.reset()
 		// 	router.refresh()
 		// 	onClose()
@@ -134,7 +150,7 @@ export const EditProfileModal = () => {
 											className='uppercase text-xs font-bold text-zinc-500
                                     dark:text-secondary/70'
 										>
-											Имя ассистента
+											Ваше ФИО
 										</FormLabel>
 										<FormControl>
 											<Input
@@ -142,7 +158,7 @@ export const EditProfileModal = () => {
 												className='bg-zinc-300/50 border-0 
                                         focus-visible:ring-0 text-black
                                         focus-visible:ring-offset-0'
-												placeholder='Дайте имя вашему ассистенку'
+												placeholder='Введите ваше ФИО'
 												{...field}
 											/>
 										</FormControl>
@@ -151,6 +167,106 @@ export const EditProfileModal = () => {
 								)}
 							/>
 							<FormField
+								control={form.control}
+								name='phone'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel
+											className='uppercase text-xs font-bold text-zinc-500
+                                    dark:text-secondary/70'
+										>
+											Номер телефона
+										</FormLabel>
+										<FormControl>
+											<Input
+												disabled={isLoading}
+												className='bg-zinc-300/50 border-0 
+                                        focus-visible:ring-0 text-black
+                                        focus-visible:ring-offset-0'
+												placeholder='Контактный номер телефона'
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name='telegram'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel
+											className='uppercase text-xs font-bold text-zinc-500
+                                    dark:text-secondary/70'
+										>
+											Ваш телеграм
+										</FormLabel>
+										<FormControl>
+											<Input
+												disabled={isLoading}
+												className='bg-zinc-300/50 border-0 
+                                        focus-visible:ring-0 text-black
+                                        focus-visible:ring-offset-0'
+												placeholder='Телеграм для связи'
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name='job_title'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel
+											className='uppercase text-xs font-bold text-zinc-500
+                                    dark:text-secondary/70'
+										>
+											Роль в компании
+										</FormLabel>
+										<FormControl>
+											<Input
+												disabled={isLoading}
+												className='bg-zinc-300/50 border-0 
+                                        focus-visible:ring-0 text-black
+                                        focus-visible:ring-offset-0'
+												placeholder='Ваша роль в компании'
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						<FormField
+								control={form.control}
+								name='company_name'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel
+											className='uppercase text-xs font-bold text-zinc-500
+                                    dark:text-secondary/70'
+										>
+											Название компании
+										</FormLabel>
+										<FormControl>
+											<Input
+												disabled={isLoading}
+												className='bg-zinc-300/50 border-0 
+                                        focus-visible:ring-0 text-black
+                                        focus-visible:ring-offset-0'
+												placeholder='Название вашей компании'
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						<FormField
 								control={form.control}
 								name='email'
 								render={({ field }) => (
@@ -159,7 +275,7 @@ export const EditProfileModal = () => {
 											className='uppercase text-xs font-bold text-zinc-500
                                     dark:text-secondary/70'
 										>
-											Имя ассистента
+											Email
 										</FormLabel>
 										<FormControl>
 											<Input
@@ -167,32 +283,7 @@ export const EditProfileModal = () => {
 												className='bg-zinc-300/50 border-0 
                                         focus-visible:ring-0 text-black
                                         focus-visible:ring-offset-0'
-												placeholder='Дайте имя вашему ассистенку'
-												{...field}
-											/>
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-							<FormField
-								control={form.control}
-								name='password'
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel
-											className='uppercase text-xs font-bold text-zinc-500
-                                    dark:text-secondary/70'
-										>
-											Имя ассистента
-										</FormLabel>
-										<FormControl>
-											<Input
-												disabled={isLoading}
-												className='bg-zinc-300/50 border-0 
-                                        focus-visible:ring-0 text-black
-                                        focus-visible:ring-offset-0'
-												placeholder='Дайте имя вашему ассистенку'
+												placeholder='Ваш email'
 												{...field}
 											/>
 										</FormControl>

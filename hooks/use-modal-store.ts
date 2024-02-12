@@ -6,6 +6,8 @@ export type ModalType =
 	| 'addTgUserBot'
 	| 'addWaBot'
 	| 'addInst'
+	| 'addVK'
+	| 'addAvito'
 	| 'editAssistant'
 	| 'deleteAssistant'
 	| 'editProfile'
@@ -24,7 +26,7 @@ interface ModalStore {
 	onClose: () => void
 }
 
-export const useModal = create<ModalStore>(set => ({
+export const useModal = create<ModalStore>(set => (	{
 	type: null,
 	data: {},
 	isOpen: false,
