@@ -11,6 +11,8 @@ import {
 import { Button } from '@/components/ui/button'
 import { ModalType, useModal } from '@/hooks/use-modal-store'
 import Image from 'next/image'
+import { currentProfile } from '@/lib/current-profile'
+import { db } from '@/lib/db'
 
 interface IntegrationItemProps {integration:{
 
@@ -22,9 +24,10 @@ interface IntegrationItemProps {integration:{
 }
 
 
-const IntegrationItem = (props: IntegrationItemProps) => {
+const IntegrationItem = async (props: IntegrationItemProps) => {
 	const { onOpen } = useModal()
-	
+    const profile = await currentProfile()
+	const assistants= await db.assistant.findMany({where:{userId:profile?.id}})
 	return (
 
 		<Card className='bg-primary/10 rounded-xl cursor-pointer hover:opacity-75 
@@ -49,7 +52,7 @@ const IntegrationItem = (props: IntegrationItemProps) => {
 			<CardFooter className='flex items-center justify-center'>
 				{props.integration.title ? (
 					<Button
-					onClick={() => onOpen(props.integration.modal)}
+					onClick={() => onOpen(props.integration.modal,{profile:profile?, assistants:assistants})}
 						variant='primary'
 						>
 						Добавить

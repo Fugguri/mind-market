@@ -28,8 +28,6 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 
 import { useModal } from '@/hooks/use-modal-store'
-import { currentProfile } from '@/lib/current-profile'
-import { db } from '@/lib/db'
 import {
 	Select,
 	SelectContent,
@@ -42,7 +40,7 @@ const formSchema = z.object({
 	token: z.string().min(1, {
 		message: 'Введите токен',
 	}),
-	assistant: z.array(
+	assistants: z.array(
 		z.object({
 			name: z.string(),
 			id: z.string(),
@@ -55,28 +53,31 @@ export const AddTgBotModal = () => {
 
 	const router = useRouter()
 	const isModalOpen = isOpen && type === 'addTgBot'
+	const profile = data.profile
+	const assistants = data.assistants
 
 	const form = useForm({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			token: '',
-			assistant: [
+			assistants: [
 				{
-					name: 'fdsf',
-					id: 'fdsf',
+					name: '',
+					id: '',
 				},
 			],
 		},
 	})
-
+	
 	const isLoading = form.formState.isSubmitting
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		console.log(values)
 		const token = values.token
+		const assist = values.assistants
 		try {
 			await axios.post(
-				`https://web-mindmarket.ru/api_v2/integrations/tgbot/${data.token}`,
+				`https://web-mindmarket.ru/api_v2/integrations/${profile?.id}`,
 				{ token: values.token }
 			)
 			form.reset()
@@ -91,7 +92,14 @@ export const AddTgBotModal = () => {
 		onClose()
 		form.reset()
 	}
+	useEffect(() => {
+		if (assistants) {
+			form.setValue('assistants', assistants)
+		}
+	}, [assistants, form])
 
+
+	
 	return (
 		<Dialog open={isModalOpen} onOpenChange={handleClose}>
 			<DialogContent className='bg-white text-black p-0 overflow-hidden'>
@@ -133,7 +141,7 @@ export const AddTgBotModal = () => {
 							/>
 							<FormField
 								control={form.control}
-								name='assistant'
+								name='assistants'
 								render={({ field }) => (
 									<FormItem className='bg-transparent'>
 										<FormLabel>Ассистент</FormLabel>
@@ -143,7 +151,7 @@ export const AddTgBotModal = () => {
 													<SelectValue placeholder='ассистент' />
 												</SelectTrigger>
 												<SelectContent>
-													<SelectItem value='dark'></SelectItem>
+													<SelectItem value='light'>{field.name}</SelectItem>
 
 													<SelectItem value='light'></SelectItem>
 
@@ -166,3 +174,7 @@ export const AddTgBotModal = () => {
 		</Dialog>
 	)
 }
+function useEffect(arg0: () => void, arg1: any[]) {
+	throw new Error('Function not implemented.')
+}
+

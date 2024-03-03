@@ -7,7 +7,7 @@ import { redirect } from 'next/navigation'
 
 const SetupPage = async () => {
 	const profile = await initialProfile()
-	return redirect(`chats/inbox`)
+	return redirect(`projects`)
 	// return (
 	// 	<FullScreenHomePage />
 	// 	// <MobileHomePage />

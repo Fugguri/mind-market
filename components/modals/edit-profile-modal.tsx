@@ -76,7 +76,6 @@ export const EditProfileModal = () => {
 
 		},
 	})
-	console.log("fdf")
 	useEffect(() => {
 		if (profile) {
 			form.setValue('name', profile.name?? '')

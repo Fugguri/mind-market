@@ -13,7 +13,7 @@ export type ModalType =
 	| 'editProfile'
 
 interface ModalData {
-	assistant?: Assistant
+	assistants?: [Assistant]
 	token?: string
 	profile?: User
 }

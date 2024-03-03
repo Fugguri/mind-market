@@ -19,6 +19,7 @@ export const authConfig: AuthOptions = {
 		strategy: 'jwt',
 	},
 	adapter: PrismaAdapter(prisma),
+
 	providers: [
 		CredentialsProvider({
 			name: 'email',
@@ -86,6 +87,7 @@ export const authConfig: AuthOptions = {
 		// }),
 		// ...add more providers here
 	],
+
 	theme: {
 		colorScheme: 'auto', // "auto" | "dark" | "light"
 		brandColor: '#7CFC00', // Hex color code

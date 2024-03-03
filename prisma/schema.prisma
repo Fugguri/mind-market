@@ -123,7 +123,7 @@ model Deal {
 model Assistant {
   id              String            @id @default(uuid())
   userId          String
-  name            String?
+  name            String
   comment         String?
   settings        String?
   imageUrl        String?
