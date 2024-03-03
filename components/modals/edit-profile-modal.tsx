@@ -31,6 +31,7 @@ import { FileUpload } from '@/components/file-upload'
 import { useModal } from '@/hooks/use-modal-store'
 import { useEffect } from 'react'
 import { useSession } from 'next-auth/react'
+import { db } from '@/lib/db'
 
 const formSchema = z.object({
 	name: z.string().min(1, {
@@ -39,13 +40,14 @@ const formSchema = z.object({
 	email: z.string().min(1, {
 		message: 'Email',
 	}),
-	phone: z.string().min(1, {
+
+	phone_number: z.string().min(1, {
 		message: 'Номер телефона',
 	}),
 	telegram: z.string().min(1, {
 		message: 'Телеграм',
 	}),
-	company_name: z.string().min(1, {
+	companyName: z.string().min(1, {
 		message: 'Компания',
 	}),
 	job_title: z.string().min(1, {
@@ -66,22 +68,22 @@ export const EditProfileModal = () => {
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			name: '',
-			phone: '',
-			imageUrl: '',
+			phone_number: '',
+			imageUrl: ' ',
 			telegram: '',
 			email: '',
-			company_name: '',
+			companyName: '',
 			job_title: '',
 		},
 	})
 	useEffect(() => {
 		if (profile) {
 			form.setValue('name', profile.name ?? '')
-			form.setValue('phone', profile.phone_number ?? '')
+			form.setValue('phone_number', profile.phone_number ?? '')
 			form.setValue('imageUrl', profile.imageUrl ?? '')
 			form.setValue('telegram', profile.telegram ?? '')
 			form.setValue('email', profile.email ?? '')
-			form.setValue('company_name', profile.companyName ?? '')
+			form.setValue('companyName', profile.companyName ?? '')
 			form.setValue('job_title', profile.job_title ?? '')
 		}
 	}, [profile, form])
@@ -91,8 +93,25 @@ export const EditProfileModal = () => {
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		console.log(values)
 		try {
+			console.log(`api/profile/${profile?.id}`)
+
+			// const user = await db.user.update({
+			// 	where: {
+			// 		id: profile?.id,
+			// 	},
+			// 	data: {
+			// 		name: values.name,
+			// 		phone_number: values.phone_number,
+			// 		// imageUrl: values.imageUrl,
+			// 		telegram: values.telegram,
+			// 		email: values.email,
+			// 		companyName: values.companyName,
+			// 		job_title: values.job_title,
+			// 	},
+			// })
+
 			await axios.patch(
-				`https://web-mindmaket.ru/api_v2/profile/${profile?.id}`,
+				`https://web-mindmarket.ru/api_v2/profile/${profile?.id}`,
 				values
 			)
 			form.reset()
@@ -168,7 +187,7 @@ export const EditProfileModal = () => {
 							/>
 							<FormField
 								control={form.control}
-								name='phone'
+								name='phone_number'
 								render={({ field }) => (
 									<FormItem>
 										<FormLabel
@@ -243,7 +262,7 @@ export const EditProfileModal = () => {
 							/>
 							<FormField
 								control={form.control}
-								name='company_name'
+								name='companyName'
 								render={({ field }) => (
 									<FormItem>
 										<FormLabel
