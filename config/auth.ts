@@ -39,6 +39,7 @@ export const authConfig: AuthOptions = {
 			},
 			async authorize(credentials) {
 				if (!credentials?.email || !credentials.password) return null
+				console.log(credentials)
 
 				const user = await db.user.findUnique({
 					where: {

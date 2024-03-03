@@ -1,39 +1,51 @@
 import { currentProfile } from '@/lib/current-profile'
 import { redirectToSignIn } from '@clerk/nextjs'
-import { redirect } from 'next/navigation'
-import ChatItem from '@/components/chats/chat-item'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Separator } from '@/components/ui/separator'
+import EmptyPage from '@/components/mics/empty'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { useModal } from '@/hooks/use-modal-store'
+import { CreateProjectButton } from '@/components/navigation/project-search-bar'
+import ProjectItem from '@/components/projects/project-item'
+
 const ProjectsPage = async () => {
 	const profile = await currentProfile()
-
-	// if(!profile) {
-	//     redirectToSignIn()
-	// }
-	const chats = [
-		{
-			id: '54523',
-			text: 'some ',
-			title: 'some d',
-			time: 'some da',
-			channel: 'some da',
-		},
-		{
-			id: '5452rew3',
-			text: 'some ',
-			title: 'some d',
-			time: 'some da',
-			channel: 'some da',
-		},
-	]
+	if (!profile) {
+		redirectToSignIn()
+	}
+	const projects = profile?.Project
 
 	return (
 		<div>
-			<Separator orientation='horizontal' />
-			<div className='grid grid-cols-3 m-5 h-3 align-top '>
-				<div className='col-span-1 flex align-top font-size-12'>Сообщение</div>
-				<div className='col-span-1 flex items-center font-size-12'>Время </div>
-				<div className='col-span-1 flex items-center font-size-12'>Канал </div>
+			<div className=' flex items-center align-middle mr-10 ml-10 rounded-[30px]'>
+				<Input placeholder='Поиск проекта' />
+				<div className='ml-3 mr-3 mb-1.5 h-10'>
+					<CreateProjectButton />
+				</div>
+			</div>
+			<div className=' items-center align-middle font-roboto ml-15'>
+				<div className='m-10 p-10 bg-gray-600 rounded-[30px]'>
+					{projects?.length != 0 ? (
+						<p>Тут список интеграций</p>
+					) : (
+						<div>
+							<EmptyPage title='проектов' />
+						</div>
+					)}
+				</div>
+				<div className='flex m-10 p-10 align-middle items-center '>
+					<br></br>
+					<div
+						className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
+        lg:grid-cols-5 xl:grid-cols-6 gap-6 pb-10'
+					>
+						{projects?.map(project => (
+							<div key={project.name}>
+								{project.name}
+								{/* <ProjectItem project={project}} /> */}
+							</div>
+						))}
+					</div>
+				</div>
 			</div>
 		</div>
 	)

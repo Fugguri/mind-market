@@ -35,6 +35,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select'
+import { useEffect } from 'react'
 
 const formSchema = z.object({
 	token: z.string().min(1, {
@@ -68,7 +69,7 @@ export const AddTgBotModal = () => {
 			],
 		},
 	})
-	
+
 	const isLoading = form.formState.isSubmitting
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
@@ -98,8 +99,6 @@ export const AddTgBotModal = () => {
 		}
 	}, [assistants, form])
 
-
-	
 	return (
 		<Dialog open={isModalOpen} onOpenChange={handleClose}>
 			<DialogContent className='bg-white text-black p-0 overflow-hidden'>
@@ -174,7 +173,3 @@ export const AddTgBotModal = () => {
 		</Dialog>
 	)
 }
-function useEffect(arg0: () => void, arg1: any[]) {
-	throw new Error('Function not implemented.')
-}
-

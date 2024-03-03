@@ -11,6 +11,7 @@ export type ModalType =
 	| 'editAssistant'
 	| 'deleteAssistant'
 	| 'editProfile'
+	| 'createProject'
 
 interface ModalData {
 	assistants?: [Assistant]
@@ -26,7 +27,7 @@ interface ModalStore {
 	onClose: () => void
 }
 
-export const useModal = create<ModalStore>(set => (	{
+export const useModal = create<ModalStore>(set => ({
 	type: null,
 	data: {},
 	isOpen: false,

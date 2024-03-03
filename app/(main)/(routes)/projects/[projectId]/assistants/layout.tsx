@@ -16,26 +16,21 @@ const AssistantPageLayuot = async ({
 	if (!profile) {
 		return signIn
 	}
-	const assistant = await db.assistant.findMany({
-		where: {
-			userId: profile.id,
-		},
-	})
 
 	return (
 		<main className='h-full'>
-			{assistant ? (
+			<div className=' md:pl-60'>{children}</div>
+			{/* {assistant ? (
 				<div className='h-full'>
 					<div>
 						<div className='hidden md:flex h-full w-60 z-20 flex-col fixed inset-y-0'>
 							<AssistantSidebar />
 						</div>
-						<div className=' md:pl-60'>{children}</div>
 					</div>
 				</div>
 			) : (
 				''
-			)}
+			)} */}
 		</main>
 	)
 }

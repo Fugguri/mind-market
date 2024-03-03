@@ -8,6 +8,8 @@ import { AddWaBotModal } from '@/components/modals/integrations/wa-bot-modal'
 import { DeleteAssistantModal } from '@/components/modals/delete-assistant-modal'
 import { EditAssistantModal } from '@/components/modals/edit-assistant-modal'
 import { AddInstModal } from '../modals/integrations/instagram-modal'
+import { CreateProjectModal } from '../modals/create-project-modal'
+import { EditProfileModal } from '../modals/edit-profile-modal'
 // import { CreateIntegrationModal } from "@/components/modals/create-integration-modal";
 
 export const ModalProvider = () => {
@@ -30,6 +32,8 @@ export const ModalProvider = () => {
 			<CreateAssistantModal />
 			<DeleteAssistantModal />
 			<EditAssistantModal />
+			<CreateProjectModal />
+			<EditProfileModal />
 		</>
 	)
 }

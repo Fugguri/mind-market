@@ -55,7 +55,7 @@ const formSchema = z.object({
 
 export const EditProfileModal = () => {
 	const { isOpen, onClose, type, data } = useModal()
-	console.log("edit")
+	console.log('edit')
 	const router = useRouter()
 
 	const isModalOpen = isOpen && type === 'editProfile'
@@ -68,23 +68,21 @@ export const EditProfileModal = () => {
 			name: '',
 			phone: '',
 			imageUrl: '',
-			telegram:'',
+			telegram: '',
 			email: '',
 			company_name: '',
 			job_title: '',
-
-
 		},
 	})
 	useEffect(() => {
 		if (profile) {
-			form.setValue('name', profile.name?? '')
-			form.setValue('phone', profile.phone_number?? '')
-			form.setValue('imageUrl', profile.imageUrl?? '')
-			form.setValue('telegram', profile.telegram?? '')
-			form.setValue('email', profile.email?? '')
-			form.setValue('company_name', profile.companyName?? '')
-			form.setValue('job_title', profile.job_title?? '')
+			form.setValue('name', profile.name ?? '')
+			form.setValue('phone', profile.phone_number ?? '')
+			form.setValue('imageUrl', profile.imageUrl ?? '')
+			form.setValue('telegram', profile.telegram ?? '')
+			form.setValue('email', profile.email ?? '')
+			form.setValue('company_name', profile.companyName ?? '')
+			form.setValue('job_title', profile.job_title ?? '')
 		}
 	}, [profile, form])
 
@@ -92,14 +90,17 @@ export const EditProfileModal = () => {
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		console.log(values)
-		// try {
-		// 	await axios.patch(`/api/profile/${profile?.id}`, values)
-		// 	form.reset()
-		// 	router.refresh()
-		// 	onClose()
-		// } catch (error) {
-		// 	console.log(error)
-		// }
+		try {
+			await axios.patch(
+				`https://web-mindmaket.ru/api_v2/profile/${profile?.id}`,
+				values
+			)
+			form.reset()
+			router.refresh()
+			onClose()
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	const handleClose = () => {
@@ -240,7 +241,7 @@ export const EditProfileModal = () => {
 									</FormItem>
 								)}
 							/>
-						<FormField
+							<FormField
 								control={form.control}
 								name='company_name'
 								render={({ field }) => (
@@ -265,7 +266,7 @@ export const EditProfileModal = () => {
 									</FormItem>
 								)}
 							/>
-						<FormField
+							<FormField
 								control={form.control}
 								name='email'
 								render={({ field }) => (

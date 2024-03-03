@@ -7,6 +7,7 @@ import { authConfig } from '@/config/auth'
 
 export const currentProfile = async () => {
 	const session = await getServerSession(authConfig)
+	console.log(session)
 	if (!session) {
 		return null
 	}
@@ -15,13 +16,9 @@ export const currentProfile = async () => {
 		where: {
 			email: session?.user?.email?.toString(),
 		},
-		// include: {
-		// 	assistants: true,
-		// 	integrations: true,
-		// 	chats: true,
-		// 	Quiz: true,
-		// 	clients: true,
-		// },
+		include: {
+			Project: true,
+		},
 	})
 
 	return profile

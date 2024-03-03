@@ -1,5 +1,7 @@
 import ChatsHeader from '@/components/chats/chats-header'
 import ChatTypeMenu from '@/components/chats/chats-menu'
+import { NavBar } from '@/components/navigation/navbar'
+import NavigationSidebar from '@/components/navigation/navigation-sidebar'
 import PageTitleItem from '@/components/ui/page_title'
 import { usePathname } from 'next/navigation'
 

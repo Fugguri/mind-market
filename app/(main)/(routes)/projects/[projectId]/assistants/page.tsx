@@ -1,4 +1,3 @@
-
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 import { redirectToSignIn } from '@clerk/nextjs'
@@ -10,30 +9,34 @@ import { ActionTooltip } from '@/components/action-tooltip'
 import { Button } from '@/components/ui/button'
 import { AddAssistantButton } from '@/components/assistant/add-assistant'
 
-const AssistantsPage = async () => {
+interface ProjectIdPageProps {
+	params: {
+		projectId: string
+	}
+}
+
+const AssistantsPage = async ({ params }: ProjectIdPageProps) => {
 	const profile = await currentProfile()
 
 	if (!profile) {
 		redirectToSignIn()
 	}
 
-
 	const assistant = await db.assistant.findFirst({
 		where: {
-			userId: profile?.id,
+			projectId: params.projectId,
 		},
 	})
 	if (!assistant) {
 		return (
 			<div className=' justify-center mr-20 '>
-				<div >
-					<EmptyPage title='ассистентов'/>
+				<div>
+					<EmptyPage title='ассистентов' />
 				</div>
 				<div className='flex items-center justify-center  m-10'>
-					<AddAssistantButton/>
+					<AddAssistantButton />
 				</div>
 			</div>
-
 		)
 	}
 

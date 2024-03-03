@@ -15,15 +15,13 @@ import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 
 interface IntegrationItemProps {
-	integration: {
+	project: {
 		id: string
 		title: string
-		modal: ModalType
-		imageUrl: string
 	}
 }
 
-const IntegrationItem = async (props: IntegrationItemProps) => {
+const ProjectItem = async (props: IntegrationItemProps) => {
 	const { onOpen } = useModal()
 	// const profile = await currentProfile()
 
@@ -40,19 +38,11 @@ const IntegrationItem = async (props: IntegrationItemProps) => {
 					className='flex items-center justify-center text-center 
 			text-muted-foreground'
 				>
-					<div className='relative w-32 h-32'>
-						<Image
-							src={props.integration.imageUrl}
-							alt={props.integration.title}
-							className='rounded-full object-cover'
-							fill
-						/>
-					</div>
 					<div className='font-bold'>
 						<p>{props.integration.title}</p>
 					</div>
 				</CardHeader>
-				<CardFooter className='flex items-center justify-center'>
+				{/* <CardFooter className='flex items-center justify-center'>
 					{props.integration.title ? (
 						<Button
 							onClick={() =>
@@ -68,10 +58,10 @@ const IntegrationItem = async (props: IntegrationItemProps) => {
 					) : (
 						<div></div>
 					)}
-				</CardFooter>
+				</CardFooter> */}
 			</Card>
 		</div>
 	)
 }
 
-export default IntegrationItem
+export default ProjectItem
