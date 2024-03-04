@@ -39,14 +39,12 @@ export const authConfig: AuthOptions = {
 			},
 			async authorize(credentials) {
 				if (!credentials?.email || !credentials.password) return null
-				console.log(credentials)
 
 				const user = await db.user.findUnique({
 					where: {
 						email: credentials?.email?.toString(),
 					},
 				})
-				console.log(user)
 				if (!user) {
 					const hashedPassword = await hash(credentials.password, 12)
 					const newProfile = await db.user.create({

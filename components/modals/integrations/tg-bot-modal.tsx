@@ -3,7 +3,7 @@
 import axios from 'axios'
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import {
@@ -56,7 +56,7 @@ export const AddTgBotModal = () => {
 	const isModalOpen = isOpen && type === 'addTgBot'
 	const profile = data.profile
 	const assistants = data.assistants
-
+	const params = useParams()
 	const form = useForm({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -76,11 +76,13 @@ export const AddTgBotModal = () => {
 		console.log(values)
 		const token = values.token
 		const assist = values.assistants
+		console.log(params?.projectId, token, assist)
 		try {
-			await axios.post(
-				`https://web-mindmarket.ru/api_v2/integrations/${profile?.id}`,
-				{ token: values.token }
-			)
+			await axios.post(`https://web-mindmarket.ru/api_v2/integrations/tg_bot`, {
+				projectId: params?.projectId,
+				token: token,
+				assistantId: assist,
+			})
 			form.reset()
 			router.refresh()
 			onClose()

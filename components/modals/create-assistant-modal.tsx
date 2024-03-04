@@ -3,7 +3,7 @@
 import axios from 'axios'
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import {
@@ -46,12 +46,12 @@ const formSchema = z.object({
 })
 
 export const CreateAssistantModal = () => {
-	const { isOpen, onClose, type } = useModal()
-
 	const router = useRouter()
+	const params = useParams()
 
+	const { isOpen, onClose, type, data } = useModal()
 	const isModalOpen = isOpen && type === 'createServer'
-
+	const projectId = data.projectId
 	const form = useForm({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -66,7 +66,14 @@ export const CreateAssistantModal = () => {
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		try {
-			await axios.post('/api', values)
+			const { name, imageUrl, settings, comment } = values
+			await axios.post('/api/assistants', {
+				projectId,
+				name,
+				settings,
+				comment,
+				imageUrl,
+			})
 			form.reset()
 			router.refresh()
 			onClose()

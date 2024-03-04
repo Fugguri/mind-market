@@ -14,9 +14,10 @@ export type ModalType =
 	| 'createProject'
 
 interface ModalData {
-	assistants?: [Assistant]
+	assistants?: Assistant[]
 	token?: string
 	profile?: User
+	projectId?: string
 }
 
 interface ModalStore {

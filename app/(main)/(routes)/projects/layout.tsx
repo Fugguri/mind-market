@@ -15,12 +15,7 @@ const ChatLayout = async ({
 	return (
 		<main className='h-full'>
 			<div className='h-full'>
-				<div>
-					<PageTitleItem title='Проекты' />
-					<div className='hidden mt-5 md:flex w-full  flex-col ml-l-5   inset-y-0'></div>
-
-					{children}
-				</div>
+				<div>{children}</div>
 			</div>
 		</main>
 	)

@@ -15,7 +15,7 @@ const ChatPage = async (props: ProjectIdPageProps) => {
 		redirectToSignIn()
 	}
 
-	return redirect(`projects/${props.params.projectId}chats/inbox`)
+	return redirect(`projects/${props.params.projectId}/chats`)
 }
 
 export default ChatPage

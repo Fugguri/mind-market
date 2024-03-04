@@ -6,32 +6,14 @@ import axios from 'axios'
 
 export async function POST(req: Request) {
 	try {
-		const { token } = await req.json()
+		const data = await req.json()
 		const profile = await currentProfile()
 		if (!profile) {
 			return new NextResponse('Unauthorize', { status: 401 })
 		}
-		// const  integration = await db.telegramBot.create({
-		//     data: {
-		//         token: token,
-		//         profileId:profile.id,
+		console.log('create integration')
 
-		//     }
-		// })
-		try {
-			await axios.post(
-				`https://web-mindmarket.ru/api_v2/integrations/tgbot/${profile.token}}`,
-				{
-					headers: { 'Content-Type': 'application/json' },
-					data: {
-						token: token,
-					},
-				}
-			)
-		} catch (error) {
-			console.log(error)
-		}
-		// return NextResponse.json(integration)
+		return NextResponse.json('dsa')
 	} catch (error) {
 		console.log('[SERVERS_POST]', error)
 		return new NextResponse('Enternal error', { status: 500 })

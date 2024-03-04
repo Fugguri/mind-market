@@ -13,8 +13,11 @@ import { ModalType, useModal } from '@/hooks/use-modal-store'
 import Image from 'next/image'
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
+import { useParams } from 'next/navigation'
+import { parseArgs } from 'util'
 
 interface IntegrationItemProps {
+	projectId: string
 	integration: {
 		id: string
 		title: string
@@ -23,13 +26,9 @@ interface IntegrationItemProps {
 	}
 }
 
-const IntegrationItem = async (props: IntegrationItemProps) => {
+const IntegrationItem = (props: IntegrationItemProps) => {
 	const { onOpen } = useModal()
-	// const profile = await currentProfile()
 
-	// const assistants = await db.assistant.findMany({
-	// 	where: { projectId:  },
-	// })
 	return (
 		<div>
 			<Card
@@ -53,11 +52,11 @@ const IntegrationItem = async (props: IntegrationItemProps) => {
 					</div>
 				</CardHeader>
 				<CardFooter className='flex items-center justify-center'>
-					{props.integration.title ? (
+					{props.integration.title && (
 						<Button
 							onClick={() =>
 								onOpen(props.integration.modal, {
-									// profile: profile,
+									projectId: props.projectId,
 									// assistants: assistants,
 								})
 							}
@@ -65,8 +64,6 @@ const IntegrationItem = async (props: IntegrationItemProps) => {
 						>
 							Добавить
 						</Button>
-					) : (
-						<div></div>
 					)}
 				</CardFooter>
 			</Card>

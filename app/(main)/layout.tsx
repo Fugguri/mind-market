@@ -5,13 +5,7 @@ import ProjectsNavigationSidebar from '@/components/navigation/project-navigatio
 const MainLayout = async ({ children }: { children: React.ReactNode }) => {
 	return (
 		<div className='h-full'>
-			<div className='md:hidden sm:h-[20px] fixed bg inset-y-0 '>
-				<NavBar />
-			</div>
-			<div className=' hidden md:flex h-full w-[72px] z-30 flex-col fixed inset-y-0'>
-				<ProjectsNavigationSidebar />
-			</div>
-			<main className='pl-[72px] h-full'>{children}</main>
+			<main> {children}</main>
 		</div>
 	)
 }

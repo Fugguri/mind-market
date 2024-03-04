@@ -1,5 +1,4 @@
 'use client'
-
 import {
 	Card,
 	CardContent,
@@ -13,53 +12,49 @@ import { ModalType, useModal } from '@/hooks/use-modal-store'
 import Image from 'next/image'
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
+import { Manager } from '@prisma/client'
+import { useRouter } from 'next/navigation'
 
 interface IntegrationItemProps {
 	project: {
 		id: string
-		title: string
+		name: string
+		managers?: Manager
+		ownerId: string
 	}
 }
 
-const ProjectItem = async (props: IntegrationItemProps) => {
-	const { onOpen } = useModal()
-	// const profile = await currentProfile()
+const ProjectItem = (props: IntegrationItemProps) => {
+	const router = useRouter()
 
-	// const assistants = await db.assistant.findMany({
-	// 	where: { projectId:  },
-	// })
 	return (
 		<div>
-			<Card
-				className='bg-primary/10 rounded-xl cursor-pointer hover:opacity-75 
-		transition border-0 w-50 h-50'
+			<Button
+				onClick={() => router.push(`projects/${props.project?.id}/chats`)}
 			>
-				<CardHeader
-					className='flex items-center justify-center text-center 
-			text-muted-foreground'
+				<Card
+					className='bg-primary/10 rounded-xl cursor-pointer hover:opacity-75 
+				transition border-0 w-50 h-50'
 				>
-					<div className='font-bold'>
-						<p>{props.integration.title}</p>
-					</div>
-				</CardHeader>
-				{/* <CardFooter className='flex items-center justify-center'>
-					{props.integration.title ? (
-						<Button
-							onClick={() =>
-								onOpen(props.integration.modal, {
-									// profile: profile,
-									// assistants: assistants,
-								})
-							}
-							variant='primary'
-						>
-							Добавить
-						</Button>
-					) : (
-						<div></div>
-					)}
-				</CardFooter> */}
-			</Card>
+					<CardHeader
+						className='flex items-center justify-center text-center 
+					text-muted-foreground'
+					>
+						<div className='font-bold'>
+							<p>{props.project?.name}</p>
+							<p>{props.project?.id}</p>
+						</div>
+					</CardHeader>
+					<CardContent>Роль в проекте</CardContent>
+					<CardFooter className='flex items-center justify-center'>
+						{props.project?.name ? (
+							<Button variant='primary'>Добавить</Button>
+						) : (
+							<div></div>
+						)}
+					</CardFooter>
+				</Card>
+			</Button>
 		</div>
 	)
 }

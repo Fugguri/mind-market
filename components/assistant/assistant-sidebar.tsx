@@ -2,19 +2,19 @@ import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 import { redirect } from 'next/navigation'
 import AssistantHeader from './assistant-header'
+import { Assistant } from '@prisma/client'
 
-const AssistantSidebar = async () => {
+interface SidebarProps {
+	assistants?: Assistant[]
+}
+
+const AssistantSidebar = async (props: SidebarProps) => {
 	const profile = await currentProfile()
 
 	if (!profile) {
 		return redirect('/')
 	}
-
-	const assistants = await db.assistant.findMany({
-		where: {
-			userId: profile.id,
-		},
-	})
+	const assistants = props?.assistants
 	if (!assistants) {
 		return redirect('/')
 	}
