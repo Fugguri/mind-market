@@ -8,7 +8,7 @@ export async function POST(req: Request) {
 		const { name } = await req.json()
 
 		const profile = await currentProfile()
-
+		console.log(profile)
 		if (!profile) {
 			return new NextResponse('Unauthorize', { status: 401 })
 		}

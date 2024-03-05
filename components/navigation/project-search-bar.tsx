@@ -10,16 +10,12 @@ export const CreateProjectButton = () => {
 	const { onOpen } = useModal()
 
 	const onClick = () => {
-		console.log('createProject')
 		onOpen('createProject')
-		console.log('Project')
 	}
 
 	return (
-		<div>
-			<Button onClick={() => onClick()} variant={'chat'}>
-				Создать проект
-			</Button>
-		</div>
+		<Button onClick={() => onClick()} variant={'chat'}>
+			Создать проект
+		</Button>
 	)
 }

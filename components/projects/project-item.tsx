@@ -30,6 +30,7 @@ const ProjectItem = (props: IntegrationItemProps) => {
 	return (
 		<div>
 			<Button
+				variant='ghost'
 				onClick={() => router.push(`projects/${props.project?.id}/chats`)}
 			>
 				<Card
@@ -42,16 +43,12 @@ const ProjectItem = (props: IntegrationItemProps) => {
 					>
 						<div className='font-bold'>
 							<p>{props.project?.name}</p>
-							<p>{props.project?.id}</p>
+							{/* <p>{props.project?.id}</p> */}
 						</div>
 					</CardHeader>
 					<CardContent>Роль в проекте</CardContent>
 					<CardFooter className='flex items-center justify-center'>
-						{props.project?.name ? (
-							<Button variant='primary'>Добавить</Button>
-						) : (
-							<div></div>
-						)}
+						{props.project?.name}
 					</CardFooter>
 				</Card>
 			</Button>
