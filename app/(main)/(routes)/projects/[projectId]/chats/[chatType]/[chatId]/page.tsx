@@ -1,25 +1,17 @@
-'use client'
+// 'use client'
 import { currentProfile } from '@/lib/current-profile'
 import {
 	ResizableHandle,
 	ResizablePanel,
 	ResizablePanelGroup,
 } from '@/components/ui/resizable'
-
-import { db } from '@/lib/db'
-import { ChatInput } from '@/components/chat/chat-input'
 import { redirect } from 'next/navigation'
-import ClientChatItem from '@/components/client/client-chat-item'
-import { Chat } from '@prisma/client'
 
 interface ChatIdPageProps {
-	props: {
-		chatType: string
-		chatId: string
-	}
+	params: { projectId: string; chatType: string; chatId: string }
 }
 
-const ChatIdPage = async ({ props }: ChatIdPageProps) => {
+const ChatIdPage = async (params: ChatIdPageProps) => {
 	const profile = await currentProfile()
 	if (!profile) {
 		return redirect('/')

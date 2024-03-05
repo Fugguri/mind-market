@@ -6,9 +6,9 @@ import { db } from '@/lib/db'
 import { ModalType, useModal } from '@/hooks/use-modal-store'
 
 const IntegrationsPage = async ({
-	props,
+	params,
 }: {
-	props: { projectId: string }
+	params: { projectId: string }
 }) => {
 	const profile = await currentProfile()
 
@@ -17,7 +17,7 @@ const IntegrationsPage = async ({
 	}
 	const project = await db.project.findFirst({
 		where: {
-			id: props?.projectId,
+			id: params?.projectId,
 		},
 		include: {
 			TelegramBot: true,
@@ -27,7 +27,7 @@ const IntegrationsPage = async ({
 	})
 	const assistants = await db.assistant.findMany({
 		where: {
-			projectId: props?.projectId,
+			projectId: params?.projectId,
 		},
 	})
 	const integrationsList = [
@@ -94,7 +94,7 @@ const IntegrationsPage = async ({
 					{integrationsList.map(integration => (
 						<div key={integration.title}>
 							<IntegrationItem
-								projectId={props?.projectId}
+								projectId={params?.projectId}
 								integration={integration}
 								assistants={assistants}
 							/>

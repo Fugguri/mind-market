@@ -11,7 +11,7 @@ interface ProfileItemPageProps {
 
 const ProfileItemPage = ({ profile }: ProfileItemPageProps) => {
 	const { onOpen } = useModal()
-	
+
 	return (
 		<div className='rounded-[30px] m-10 p-10 items-center h-[80%] w-[80%] bg-gray-400 dark:text-black'>
 			<div className='bg-gray'>
@@ -35,22 +35,22 @@ const ProfileItemPage = ({ profile }: ProfileItemPageProps) => {
 					<b>Email:</b> {profile?.email}
 				</p>
 				<p>
-					<b>Телефон:</b> {profile?.phone_number??"-"}
+					<b>Телефон:</b> {profile?.phone_number ?? '-'}
 				</p>
 				<p>
-					<b>telegram:</b> {profile?.telegram??"-"}
+					<b>telegram:</b> {profile?.telegram ?? '-'}
 				</p>
 				<p>
-					<b>Окончание подписки:</b> {profile?.subscription_end.toUTCString()}
+					<b>Окончание подписки:</b> {profile?.subscription_end?.toUTCString()}
 				</p>
 				<p>
 					<b>email подтвержден:</b> {profile?.emailVerified ? '✅' : '❌'}
 				</p>
 				<p>
-					<b>Компания:</b> {profile?.companyName??"-"}
+					<b>Компания:</b> {profile?.companyName ?? '-'}
 				</p>
 				<p>
-					<b>Роль в компании:</b> {profile?.job_title??"-"}
+					<b>Роль в компании:</b> {profile?.job_title ?? '-'}
 				</p>
 				<br />
 
@@ -61,9 +61,9 @@ const ProfileItemPage = ({ profile }: ProfileItemPageProps) => {
 				<div className='flex justify-end '>
 					<Button
 						onClick={() => {
-							console.log("editProfile")
-							onOpen('editProfile', { profile:profile })}
-						}
+							console.log('editProfile')
+							onOpen('editProfile', { profile: profile })
+						}}
 					>
 						<Edit />
 					</Button>

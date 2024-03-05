@@ -18,7 +18,7 @@ const AssistantsPage = async ({ params }: ProjectIdPageProps) => {
 	const profile = await currentProfile()
 
 	if (!profile) {
-		redirectToSignIn()
+		return redirect('/api/auth/signin')
 	}
 
 	const assistant = await db.assistant.findFirst({

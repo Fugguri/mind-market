@@ -4,7 +4,7 @@ import ChatTypeMenu from '@/components/chats/chats-menu'
 import PageTitleItem from '@/components/ui/page_title'
 import { usePathname } from 'next/navigation'
 
-const ChatLayout = async ({
+const ChatLayout = ({
 	children,
 	params,
 }: {

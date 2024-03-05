@@ -148,7 +148,10 @@ export const AddTgBotModal = () => {
 													<SelectItem value='none'>Нет ассистента</SelectItem>
 													{assistants?.map((assistant, i) => {
 														return (
-															<SelectItem value={assistant.id}>
+															<SelectItem
+																key={assistant.name}
+																value={assistant.id}
+															>
 																{assistant.name}
 															</SelectItem>
 														)

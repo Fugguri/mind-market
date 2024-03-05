@@ -1,18 +1,18 @@
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 import { redirectToSignIn } from '@clerk/nextjs'
-import { redirect } from 'next/navigation'
+import { redirect, useParams } from 'next/navigation'
 
-const StatisticPage = async () => {
+const StatisticPage = async ({ params }: { params: { projectId: string } }) => {
 	const profile = await currentProfile()
 
 	if (!profile) {
-		redirectToSignIn()
+		return redirect('/api/auth/signin')
 	}
 
 	const assistant = await db.assistant.findFirst({
 		where: {
-			userId: profile?.id,
+			projectId: params?.projectId,
 		},
 	})
 
