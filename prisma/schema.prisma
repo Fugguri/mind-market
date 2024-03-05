@@ -219,13 +219,21 @@ model JivoBot {
 
 // TelegramBot model
 model TelegramBot {
-  id           String   @id @default(uuid())
-  projectId    String
-  Project      Project  @relation(fields: [projectId], references: [id])
-  assistant_id String
-  provider_id  String
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id                          String   @id @default(uuid())
+  projectId                   String
+  Project                     Project  @relation(fields: [projectId], references: [id])
+  assistantId                 String
+  botToken                    String
+  telegram_id                 BigInt
+  is_bot                      Boolean  @default(true)
+  first_name                  String
+  username                    String
+  can_join_groups             Boolean  @default(true)
+  can_read_all_group_messages Boolean  @default(false)
+  supports_inline_queries     Boolean  @default(false)
+  startMessage                String   @db.Text
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
 }
 
 // TelegramUserBot model

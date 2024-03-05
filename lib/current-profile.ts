@@ -7,7 +7,6 @@ import { authConfig } from '@/config/auth'
 
 export const currentProfile = async () => {
 	const session = await getServerSession(authConfig)
-	console.log(session)
 	if (!session) {
 		return null
 	}

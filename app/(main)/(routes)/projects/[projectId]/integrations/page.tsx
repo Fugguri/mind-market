@@ -15,12 +15,21 @@ const IntegrationsPage = async ({
 	if (!profile) {
 		return '/'
 	}
-	const user_integrations = await db.integration.findMany({
+	const project = await db.project.findFirst({
 		where: {
-			ProjectId: props?.projectId,
+			id: props?.projectId,
+		},
+		include: {
+			TelegramBot: true,
+			TelegramUserBot: true,
+			WhatsAppBot: true,
 		},
 	})
-
+	const assistants = await db.assistant.findMany({
+		where: {
+			projectId: props?.projectId,
+		},
+	})
 	const integrationsList = [
 		{
 			id: '1',
@@ -57,7 +66,7 @@ const IntegrationsPage = async ({
 			modal: 'addVK' as ModalType,
 		},
 		{
-			id: '5',
+			id: '6',
 			imageUrl: '/avito_img.jpg',
 			title: 'Авито',
 			modal: 'addAvito' as ModalType,
@@ -67,17 +76,17 @@ const IntegrationsPage = async ({
 	return (
 		<div className=' items-center align-middle font-roboto ml-15'>
 			<div className='m-10 p-10 bg-gray-600 rounded-[30px]'>
-				{user_integrations.length ? (
-					user_integrations.map(integration => (
+				<div>
+					<EmptyPage title='интеграций' />
+				</div>
+				{/* {integrations.length ? (
+					integrations.map(integration => (
 						<div key={integration.id}>
 							<p>{integration.id}</p>
 						</div>
 					))
 				) : (
-					<p>
-						<EmptyPage title='интеграций' />
-					</p>
-				)}
+				)} */}
 			</div>
 			<div className='flex m-10 p-10 align-middle items-center '>
 				<br></br>
@@ -87,6 +96,7 @@ const IntegrationsPage = async ({
 							<IntegrationItem
 								projectId={props?.projectId}
 								integration={integration}
+								assistants={assistants}
 							/>
 						</div>
 					))}

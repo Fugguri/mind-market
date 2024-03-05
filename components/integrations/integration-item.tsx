@@ -15,6 +15,7 @@ import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 import { useParams } from 'next/navigation'
 import { parseArgs } from 'util'
+import { Assistant } from '@prisma/client'
 
 interface IntegrationItemProps {
 	projectId: string
@@ -24,6 +25,7 @@ interface IntegrationItemProps {
 		modal: ModalType
 		imageUrl: string
 	}
+	assistants?: Assistant[]
 }
 
 const IntegrationItem = (props: IntegrationItemProps) => {
@@ -57,7 +59,7 @@ const IntegrationItem = (props: IntegrationItemProps) => {
 							onClick={() =>
 								onOpen(props.integration.modal, {
 									projectId: props.projectId,
-									// assistants: assistants,
+									assistants: props.assistants,
 								})
 							}
 							variant='primary'
