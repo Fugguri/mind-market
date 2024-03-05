@@ -105,7 +105,7 @@ model Assistant {
   name         String
   comment      String
   settings     String
-  imageUrl     String
+  imageUrl     String?
   use_count    Int           @default(0)
   access_token String        @default(uuid())
   createdAt    DateTime      @default(now())
