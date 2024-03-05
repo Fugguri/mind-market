@@ -11,9 +11,9 @@ import { LogOutButton } from '@/components/auth'
 const SetupPage = async () => {
 	const profile = await currentProfile()
 	if (!profile) {
-		return <LogOutButton />
-		signIn()
-		// return redirect('/api/auth/singing')
+		// return <LogOutButton />
+		// signIn()
+		return redirect('/api/auth/signin')
 	}
 
 	return redirect(`projects`)
