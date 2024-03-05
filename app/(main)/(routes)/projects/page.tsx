@@ -1,5 +1,5 @@
 import { currentProfile } from '@/lib/current-profile'
-import { redirectToSignIn } from '@clerk/nextjs'
+
 import EmptyPage from '@/components/mics/empty'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -12,7 +12,6 @@ import PageTitleItem from '@/components/ui/page_title'
 const ProjectsPage = async () => {
 	const profile = await currentProfile()
 	if (!profile) {
-		redirectToSignIn()
 	}
 	const projects = await db.project.findMany({
 		where: {
