@@ -10,8 +10,8 @@ import { signIn } from 'next-auth/react'
 const SetupPage = async () => {
 	const profile = await currentProfile()
 	if (!profile) {
-		// signIn()
-		return redirect('/api/auth/singing')
+		signIn()
+		// return redirect('/api/auth/singing')
 	}
 
 	return redirect(`projects`)

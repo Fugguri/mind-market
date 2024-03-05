@@ -63,7 +63,7 @@ export const authConfig: AuthOptions = {
 
 				const isPasswordValid = await compare(
 					credentials?.password,
-					user.password ? user.password : 'fdsf'
+					user.password && user.password
 				)
 				if (isPasswordValid) {
 					const { password, ...profileWithoutPass } = user
@@ -76,10 +76,10 @@ export const authConfig: AuthOptions = {
 				return null
 			},
 		}),
-		// GoogleProvider({
-		// 	clientId: process.env.GOOGLE_ID!,
-		// 	clientSecret: process.env.GOOGLE_SECRET!,
-		// }),
+		GoogleProvider({
+			clientId: process.env.GOOGLE_ID!,
+			clientSecret: process.env.GOOGLE_SECRET!,
+		}),
 		// GithubProvider({
 		// 	clientId: process.env.GITHUB_ID!,
 		// 	clientSecret: process.env.GITHUB_SECRET!,
@@ -89,8 +89,8 @@ export const authConfig: AuthOptions = {
 
 	theme: {
 		colorScheme: 'auto', // "auto" | "dark" | "light"
-		brandColor: '#7CFC00', // Hex color code
+		// brandColor: '#7CFC00', // Hex color code
 		logo: '/logo.png', // Absolute URL to Image
-		buttonText: '#7CFC00', // Hex color code
+		// buttonText: '#7CFC00', // Hex color code
 	},
 }
