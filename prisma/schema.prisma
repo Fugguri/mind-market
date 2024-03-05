@@ -133,7 +133,7 @@ model Chat {
   id                   String      @id @default(uuid())
   ProjectId            String
   Project              Project     @relation(fields: [ProjectId], references: [id])
-  managerId            String
+  managerId            String?
   client_id            String
   assistant_id         String
   integrationId        String
@@ -142,7 +142,7 @@ model Chat {
   createdAt            DateTime    @default(now())
   updatedAt            DateTime    @updatedAt
   Manager              Manager?    @relation(fields: [managerId], references: [id])
-  clients              Client?     @relation(fields: [client_id], references: [id])
+  Client               Client      @relation(fields: [client_id], references: [id])
   Assistant            Assistant?  @relation(fields: [assistant_id], references: [id])
   Integration          Integration @relation(fields: [integrationId], references: [id])
   Messages             Message[] // Reverse relation
@@ -153,19 +153,19 @@ model Client {
   id            String   @id @default(uuid())
   ProjectId     String
   Project       Project  @relation(fields: [ProjectId], references: [id])
-  name          String
-  username      String
-  image_url     String
-  category      String
-  email         String
-  phone         String
-  about         String
-  companyName   String
-  tags          String
+  name          String?
+  username      String?
+  image_url     String?
+  category      String?
+  email         String?
+  phone         String?
+  about         String?
+  companyName   String?
+  tags          String?
   in_service_id String
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-  managerId     String
+  managerId     String?
   Manager       Manager? @relation(fields: [managerId], references: [id])
   Chats         Chat[]
 }
