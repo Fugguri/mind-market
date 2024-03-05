@@ -7,7 +7,7 @@ const AssistantsPage = async () => {
 	const profile = await currentProfile()
 
 	if (!profile) {
-		redirectToSignIn()
+		return redirect('/api/auth/singing')
 	}
 
 	return redirect(`settings/profile`)

@@ -16,7 +16,7 @@ const AssistantsPage = async () => {
 
 	const assistants = await db.assistant.findMany({
 		where: {
-			userId: profile?.id,
+			projectId: profile?.id,
 		},
 	})
 

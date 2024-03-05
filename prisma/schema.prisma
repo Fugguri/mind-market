@@ -72,6 +72,7 @@ model User {
   Project          Project[] // Reverse relation
   Account          Account[] // Reverse relation
   Session          Session[] // Reverse relation
+  Manager          Manager[]
 }
 
 // Project model
@@ -175,6 +176,9 @@ model Manager {
   id             String    @id @default(uuid())
   ProjectId      String
   Project        Project   @relation(fields: [ProjectId], references: [id])
+  role           String    @default("manager")
+  userId         String
+  User           User      @relation(fields: [userId], references: [id])
   integration_id String
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
