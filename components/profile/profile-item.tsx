@@ -61,7 +61,6 @@ const ProfileItemPage = ({ profile }: ProfileItemPageProps) => {
 				<div className='flex justify-end '>
 					<Button
 						onClick={() => {
-							console.log('editProfile')
 							onOpen('editProfile', { profile: profile })
 						}}
 					>
