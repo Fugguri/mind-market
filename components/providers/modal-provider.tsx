@@ -10,6 +10,7 @@ import { EditAssistantModal } from '@/components/modals/edit-assistant-modal'
 import { AddInstModal } from '../modals/integrations/instagram-modal'
 import { CreateProjectModal } from '../modals/create-project-modal'
 import { EditProfileModal } from '../modals/edit-profile-modal'
+import { AddJivoModal } from '../modals/integrations/jivo-modal'
 // import { CreateIntegrationModal } from "@/components/modals/create-integration-modal";
 
 export const ModalProvider = () => {
@@ -25,6 +26,7 @@ export const ModalProvider = () => {
 
 	return (
 		<>
+			<AddJivoModal/>
 			<AddTgBotModal />
 			<AddTgUserBotModal />
 			<AddInstModal />

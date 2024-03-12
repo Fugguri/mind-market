@@ -14,6 +14,7 @@ import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 import { Manager } from '@prisma/client'
 import { useRouter } from 'next/navigation'
+import { Trash2 } from 'lucide-react'
 
 interface IntegrationItemProps {
 	project: {
@@ -26,33 +27,27 @@ interface IntegrationItemProps {
 
 const ProjectItem = (props: IntegrationItemProps) => {
 	const router = useRouter()
-
+	
+	function handleClick() {
+		router.push(`projects/${props.project?.id}/chats`)
+	}
+	
 	return (
-		<div>
-			<Button
-				variant='ghost'
-				onClick={() => router.push(`projects/${props.project?.id}/chats`)}
-			>
-				<Card
-					className='bg-primary/10 rounded-xl cursor-pointer hover:opacity-75 
-				transition border-0 w-50 h-50'
-				>
-					<CardHeader
-						className='flex items-center justify-center text-center 
-					text-muted-foreground'
-					>
-						<div className='font-bold'>
-							<p>{props.project?.name}</p>
-							{/* <p>{props.project?.id}</p> */}
-						</div>
-					</CardHeader>
-					<CardContent>Роль в проекте</CardContent>
-					<CardFooter className='flex items-center justify-center'>
-						{props.project?.name}
-					</CardFooter>
-				</Card>
-			</Button>
-		</div>
+<Card className="w-full h-full p-4 bg-gray-500 shadow-md rounded-lg text-gray-800 flex flex-col justify-between border-gray-700">
+  <CardHeader className=''>
+    <button onClick={handleClick} className="text-sm font-semibold ">
+		<p className="text-gray-100 mb-4 text-left">{props.project?.name}</p>
+	</button>
+  </CardHeader>
+		<CardContent>
+    <p className="text-gray-300 mb-4 text-sm">Роль в проекте</p>
+		</CardContent>
+  <div className="flex justify-end">
+    <Button className=" font-bold py-2 px-2 rounded ">
+      <Trash2  className='stroke-red-500 hover:stroke-black transition ease-in-out delay-150 duration-300 w-5 h-5'/>
+    </Button>
+  </div>
+</Card>
 	)
 }
 

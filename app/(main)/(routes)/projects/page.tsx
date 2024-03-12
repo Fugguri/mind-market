@@ -8,6 +8,7 @@ import { CreateProjectButton } from '@/components/navigation/project-search-bar'
 import ProjectItem from '@/components/projects/project-item'
 import { db } from '@/lib/db'
 import PageTitleItem from '@/components/ui/page_title'
+import Link from 'next/link'
 
 const ProjectsPage = async () => {
 	const profile = await currentProfile()
@@ -41,13 +42,10 @@ const ProjectsPage = async () => {
 						<div className=' items-center align-middle font-roboto ml-15'>
 							<div className='m-10 p-10 bg-gray-600 rounded-[30px]'>
 								{projects?.length != 0 ? (
-									<div
-										className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
-        lg:grid-cols-5 xl:grid-cols-6 gap-6 pb-10'
-									>
+									<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+									{/*<div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-6 gap-6 pb-10'>*/}
 										{projects?.map(project => (
 											<div key={project.name}>
-												{project.name}
 												<ProjectItem project={project} />
 											</div>
 										))}

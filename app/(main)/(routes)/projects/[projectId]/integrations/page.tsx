@@ -71,6 +71,12 @@ const IntegrationsPage = async ({
 			title: 'Авито',
 			modal: 'addAvito' as ModalType,
 		},
+		{
+			id: '7',
+			imageUrl: '/jivo_img.png',
+			title: 'Jivo',
+			modal: 'addJivo' as ModalType,
+		},
 	]
 
 	return (

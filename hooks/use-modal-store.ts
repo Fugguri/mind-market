@@ -6,6 +6,7 @@ export type ModalType =
 	| 'addTgUserBot'
 	| 'addWaBot'
 	| 'addInst'
+	| 'addJivo'
 	| 'addVK'
 	| 'addAvito'
 	| 'editAssistant'
