@@ -67,7 +67,7 @@ export const AddJivoModal = () => {
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		try {
 			await axios.post(
-				`https://web-mindmarket.ru/api_v2/integrations/jivo/create`,
+				`https://web-mindmarket.ru/api_v2/integration/jivo/create`,
 				{
 					projectId: params.projectId,
 					assistantId: values.assistant,

@@ -1,3 +1,5 @@
+'use client'
+
 import * as z from 'zod'
 import axios from 'axios'
 import qs from 'query-string'
@@ -13,7 +15,7 @@ import { EmojiPicker } from '@/components/emoji-picker'
 
 interface ChatInputProps {
 	apiUrl: string
-	query: Record<string, any>
+	// query: Record<string, any>
 	name?: string
 	IntegrationType?: any
 }
@@ -24,7 +26,7 @@ const formSchema = z.object({
 
 export const ChatInput = ({
 	apiUrl,
-	query,
+	// query,
 	name,
 	IntegrationType,
 }: ChatInputProps) => {
@@ -44,7 +46,7 @@ export const ChatInput = ({
 		try {
 			const url = qs.stringifyUrl({
 				url: apiUrl,
-				query,
+				// query,
 			})
 
 			await axios.post(url, values)

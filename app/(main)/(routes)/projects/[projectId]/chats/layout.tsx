@@ -14,22 +14,20 @@ const ChatLayout = ({
 	const pathname = usePathname()
 	const isEnable = params.chatId
 	return (
-		<main className='h-full'>
-			<div className='h-full'>
-				<div>
-					{isEnable && (
-						<div>
-							<PageTitleItem title='Чаты' />
-							<div className='hidden mt-5 md:flex w-full  flex-col ml-l-5   inset-y-0'>
-								<ChatsHeader />
-								<ChatTypeMenu params={params} />
-							</div>
+		<div className=''>
+			<div>
+				{isEnable && (
+					<div>
+						<PageTitleItem title='Чаты' />
+						<div className='hidden mt-5 md:flex w-full  flex-col ml-l-5   inset-y-0'>
+							<ChatsHeader />
+							<ChatTypeMenu params={params} />
 						</div>
-					)}
-					{children}
-				</div>
+					</div>
+				)}
 			</div>
-		</main>
+			<div className='h-full'>{children}</div>
+		</div>
 	)
 }
 

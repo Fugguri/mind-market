@@ -130,21 +130,21 @@ model Integration {
 
 // Chat model
 model Chat {
-  id                   String      @id @default(uuid())
+  id                   String       @id @default(uuid())
   ProjectId            String
-  Project              Project     @relation(fields: [ProjectId], references: [id])
+  Project              Project      @relation(fields: [ProjectId], references: [id])
   managerId            String?
   client_id            String
   assistant_id         String
-  integrationId        String
-  is_blocked           Boolean     @default(false)
-  is_assistant_in_chat Boolean     @default(true)
-  createdAt            DateTime    @default(now())
-  updatedAt            DateTime    @updatedAt
-  Manager              Manager?    @relation(fields: [managerId], references: [id])
-  Client               Client      @relation(fields: [client_id], references: [id])
-  Assistant            Assistant?  @relation(fields: [assistant_id], references: [id])
-  Integration          Integration @relation(fields: [integrationId], references: [id])
+  integrationId        String?
+  is_blocked           Boolean      @default(false)
+  is_assistant_in_chat Boolean      @default(true)
+  createdAt            DateTime     @default(now())
+  updatedAt            DateTime     @updatedAt
+  Manager              Manager?     @relation(fields: [managerId], references: [id])
+  Client               Client       @relation(fields: [client_id], references: [id])
+  Assistant            Assistant?   @relation(fields: [assistant_id], references: [id])
+  Integration          Integration? @relation(fields: [integrationId], references: [id])
   Messages             Message[] // Reverse relation
 }
 
@@ -192,14 +192,14 @@ model Manager {
 model Message {
   id             String   @id @default(uuid())
   chat_id        String
-  text           String
-  files_url      String
-  images_url     String
+  text           String?
+  files_url      String?
+  images_url     String?
   incoming       Boolean  @default(true)
   from_assistant Boolean  @default(false)
   from_user      Boolean  @default(false)
   from_manager   Boolean  @default(false)
-  managerId      String
+  managerId      String?
   assistant_id   String?
   is_read        Boolean  @default(false)
   timestamp      DateTime @default(now())
