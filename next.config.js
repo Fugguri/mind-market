@@ -4,7 +4,7 @@ const nextConfig = {
 		serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
 		serverActions: {
 			allowedForwardedHosts: ['localhost', 'web-mainmarket'],
-			allowedOrigins: ['http://localhost', 'https://web-mindmarket.ru'],
+			allowedOrigins: ['http://localhost:3001', 'https://web-mindmarket.ru'],
 		},
 	},
 	images: {
