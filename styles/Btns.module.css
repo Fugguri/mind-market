@@ -1,0 +1,73 @@
+#btn:focus-visible {
+    box-shadow: 0px 0px 0px 2px lavender;
+}
+
+#btn {
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border: none;
+    gap: .5em;
+    padding: .5em .8em;
+    font-size: 1.12em;
+    transition: 200ms ease-in-out;
+    transition-property: box-shadow, background-color, border-radius;
+    -webkit-transition: 200ms ease-in-out;
+    -moz-transition: 200ms ease-in-out;
+    -ms-transition: 200ms ease-in-out;
+    -o-transition: 200ms ease-in-out;
+    width: 100%;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+
+.btn_icon_text {
+    background-color: transparent;
+    color: var(--white);
+}
+
+.btn_icon_text:hover {
+    box-shadow: 0px 0px 0px 2px var(--white);
+}
+
+.btn_icon_outline {
+    background-color: transparent;
+    color: var(--white);
+    outline: 1px var(--white) solid;
+    outline-offset: -1px;
+}
+
+.btn_icon_outline:hover,
+.btn_icon_outline:focus-visible {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.btn_icon_filled {
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.btn_icon_filled:hover,
+.btn_icon_filled:focus-visible {
+    background-color: color-mix(in srgb, var(--white), var(--black) 15%)
+}
+
+.btn_icon_submit {
+    background-color: transparent;
+    color: var(--white);
+    border-bottom: 2px solid var(--white) !important;
+}
+
+.btn_icon_submit:hover,
+.btn_icon_submit:focus-visible {
+    background-color: var(--white);
+    color: var(--black);
+    border-bottom: none;
+}

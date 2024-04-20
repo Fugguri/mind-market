@@ -1,0 +1,18 @@
+.heading {
+    display: block;
+    width: 100%;
+}
+
+.ltr, .rtl {
+    /* font-family: 'Vida Pro 43', sans-serif !important; */
+    display: flex;
+    font-size: 6.5em;
+    font-weight: 400;
+}
+.rtl {
+    display: flex;
+    flex-direction: row-reverse;
+}
+#H2 {
+    margin-top: -.35em;
+}

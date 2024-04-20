@@ -1,0 +1,66 @@
+
+
+/* todo settings tabs */
+.tab {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	flex-direction: column;
+	height: 3em;
+}
+
+.tab>.tab_indicator {
+	display: block;
+	height: 0em;
+	width: 90%;
+	background-color: var(--light-gray);
+	transition: 200ms ease-in-out;
+	transition-property: height margin;
+	-webkit-transition: 200ms ease-in-out;
+	-moz-transition: 200ms ease-in-out;
+	-ms-transition: 200ms ease-in-out;
+	-o-transition: 200ms ease-in-out;
+}
+
+.tab>label {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	font-weight: 600;
+	transition: color 200ms ease-in-out;
+	-webkit-transition: color 200ms ease-in-out;
+	-moz-transition: color 200ms ease-in-out;
+	-ms-transition: color 200ms ease-in-out;
+	-o-transition: color 200ms ease-in-out;
+}
+
+.tab>label>a {
+	color: var(--white);
+	display: flex;
+	padding: .3em .6em;
+	align-items: center;
+	gap: .5em;
+	border-radius: .25em;
+	-webkit-border-radius: .25em;
+	-moz-border-radius: .25em;
+	-ms-border-radius: .25em;
+	-o-border-radius: .25em;
+}
+
+.tab>label>a:hover,
+.tab>label>a:focus-visible {
+	background-color: color-mix(in srgb, var(--white), transparent 85%);
+	border: none !important;
+	box-shadow: none !important;
+	outline: none !important;
+}
+
+.tab[active-tab="true"]>label>a {
+	cursor: default;
+}
+
+.tab[active-tab="true"]>.tab_indicator {
+	width: 100%;
+	height: .15em;
+	margin-top: -.15em;
+}

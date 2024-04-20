@@ -1,0 +1,65 @@
+.textContactsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.textContact {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    gap: .75em;
+    font-weight: 600;
+    font-size: 1.6em;
+}
+
+.tCont {
+    display: flex;
+    flex-direction: row;
+    gap: .5em;
+}
+
+#textContIcon {
+    font-size: 1.25em;
+}
+
+.middleContainer {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3em
+}
+
+.contactsCardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: .5em;
+    font-size: 1.2em;
+    width: 100%;
+}
+
+.contactsCardContainer label {
+    font-weight: 500;
+}
+
+.contactsCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content:center;
+    width: calc(100% - 4em);
+    gap: 2.5em;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding: .8em 1.5em;
+    border: 1px solid var(--gray);
+}
+
+.contactsCard a {
+    color: var(--white);
+}
