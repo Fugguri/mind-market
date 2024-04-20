@@ -3,8 +3,8 @@ const nextConfig = {
 	experimental: {
 		serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
 		serverActions: {
-			allowedForwardedHosts: ['localhost'],
-			allowedOrigins: ['http://localhost'],
+			allowedForwardedHosts: ['localhost', 'web-mainmarket'],
+			allowedOrigins: ['http://localhost', 'https://web-mindmarket.ru'],
 		},
 	},
 	images: {
