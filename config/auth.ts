@@ -1,6 +1,5 @@
-import { signIn } from 'next-auth/react'
 import { AuthOptions, User } from 'next-auth'
-
+import { signIn } from 'next-auth/react'
 import GithubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
@@ -13,8 +12,6 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export const authConfig: AuthOptions = {
-	// Configure one or more authentication providers
-
 	session: {
 		strategy: 'jwt',
 	},
@@ -76,15 +73,16 @@ export const authConfig: AuthOptions = {
 				return null
 			},
 		}),
+
 		// GoogleProvider({
 		// 	clientId: process.env.GOOGLE_ID!,
 		// 	clientSecret: process.env.GOOGLE_SECRET!,
 		// }),
+
 		// GithubProvider({
 		// 	clientId: process.env.GITHUB_ID!,
 		// 	clientSecret: process.env.GITHUB_SECRET!,
 		// }),
-		// ...add more providers here
 	],
 
 	theme: {

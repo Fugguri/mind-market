@@ -26,7 +26,7 @@ const formSchema = z.object({
 
 export const ChatInput = ({
 	apiUrl,
-	// query,
+	// query,+
 	name,
 	IntegrationType,
 }: ChatInputProps) => {
