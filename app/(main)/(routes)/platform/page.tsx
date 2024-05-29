@@ -1,16 +1,14 @@
 import { currentProfile } from "@/lib/current-profile";
 import { redirect } from "next/navigation";
 
-const PlatformPage = () => {
-  const profile = currentProfile()
-  
+const PlatformPage = async () => {
+	const profile = await currentProfile()
 
 	if (!profile) {
-		redirect('/api/auth/signin')
+		return redirect('/api/auth/signin')
 	}
-  
 
-   redirect('/platform/chat')
+		return redirect('/platform/crm')
 
 }
  
