@@ -2,7 +2,7 @@
 
 import { Pane, PanesContainer } from '@/components/crm/panes'
 import { PaneTitle } from '@/components/crm/pane-content'
-import * as p from '@/components'
+import  * as p from '@/components/hooks/userInfo'
 import { Avatar } from '@nextui-org/react'
 import { BtnOutlineIcon } from '@/components/buttons'
 
