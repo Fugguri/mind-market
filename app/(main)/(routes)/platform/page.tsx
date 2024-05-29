@@ -6,11 +6,11 @@ const PlatformPage = () => {
   
 
 	if (!profile) {
-		return redirect('/api/auth/signin')
+		redirect('/api/auth/signin')
 	}
   
 
-  return redirect('/platform/chat')
+   redirect('/platform/chat')
 
 }
  
