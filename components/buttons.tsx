@@ -91,7 +91,7 @@ export function ProfileButton(prop: { logged_in: boolean }) {
     return <div>Your profile</div>;
   }
   return (
-    <a tabIndex={-1} href="/login">
+    <a tabIndex={-1} href="/platform">
       <BtnTextIcon text="Войти" icon="arrow_outward" type="button" fw="400" />
     </a>
   );
