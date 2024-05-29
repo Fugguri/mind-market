@@ -5,6 +5,10 @@ update:
 
 push:
 	git push
+dev:
+	git pull
+	npm run dev
+
 
 
 build:
