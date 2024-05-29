@@ -9,6 +9,11 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@react-input/mask": "^1.2.1",
+		"eslint-config-next": "^14.2.3",
+		"navigation": "^6.2.0",
+		"react-apexcharts": "^1.4.1",
+		"react-input-mask": "^2.0.4",
 		"@clerk/nextjs": "^4.24.2",
 		"@emoji-mart/data": "^1.1.2",
 		"@emoji-mart/react": "^1.1.1",
