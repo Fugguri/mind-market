@@ -1,0 +1,101 @@
+@keyframes animateBefore {
+  0% {
+    opacity: 0.4;
+  }
+
+  25% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: translateY(256px) scale(0.5) translateX(512px) rotate(-32deg);
+    -webkit-transform: translateY(256px) scale(0.5) translateX(512px)
+      rotate(-32deg);
+    -moz-transform: translateY(256px) scale(0.5) translateX(512px)
+      rotate(-32deg);
+    -ms-transform: translateY(256px) scale(0.5) translateX(512px) rotate(-32deg);
+    -o-transform: translateY(256px) scale(0.5) translateX(512px) rotate(-32deg);
+  }
+
+  75% {
+    opacity: 0.2;
+    transform: translateX(0) rotate(0deg);
+    -webkit-transform: translateX(0) rotate(0deg);
+    -moz-transform: translateX(0) rotate(0deg);
+    -ms-transform: translateX(0) rotate(0deg);
+    -o-transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0.4;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
+
+@keyframes animateAfter {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-256px) scale(1.4);
+    -webkit-transform: translateX(-256px) scale(1.4);
+    -moz-transform: translateX(-256px) scale(1.4);
+    -ms-transform: translateX(-256px) scale(1.4);
+    -o-transform: translateX(-256px) scale(1.4);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.glow::before,
+.glow::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  opacity: 0.4;
+  transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -ms-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+}
+
+.glow::before {
+  background: var(--glow-1);
+  border-radius: 50%;
+  width: 50vw;
+  height: 50vw;
+  margin-left: -200px;
+  filter: blur(256px);
+  top: calc(50vh - 50vw / 2);
+  left: calc(50vw);
+  animation: animateBefore 32s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+  -webkit-filter: blur(256px);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  -webkit-animation: animateBefore 32s cubic-bezier(0.47, 0, 0.745, 0.715)
+    infinite;
+}
+
+.glow::after {
+  background: var(--glow-0);
+  border-radius: 50%;
+  width: 500px;
+  height: 700px;
+  filter: blur(196px);
+  top: calc(50vh - 50vw / 2);
+  left: calc(50vw - 50vw / 2);
+  animation: animateAfter 32s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+  -webkit-filter: blur(196px);
+  -webkit-animation: animateAfter 32s cubic-bezier(0.47, 0, 0.745, 0.715)
+    infinite;
+}

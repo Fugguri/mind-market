@@ -1,0 +1,83 @@
+.textContactsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.textContact {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  gap: 0.75em;
+  font-weight: 600;
+  font-size: 1.6em;
+}
+
+.tCont {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+.tCont a {
+  color: var(--white);
+}
+
+#textContIcon {
+  font-size: 1.25em;
+}
+
+.middleContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3em;
+}
+
+.contactsCardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5em;
+  font-size: 1.2em;
+  width: calc(50% - 1.25em);
+}
+
+@media (max-width: 1300px) {
+  .contactsCardContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1600px) {
+  .contactsCardContainer a {
+    font-size: medium;
+  }
+}
+
+.contactsCardContainer label {
+  font-weight: 500;
+}
+
+.contactsCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2.5em;
+  font-size: 1.5em;
+  font-weight: 600;
+  padding: 0.8em 1.5em;
+  border: 2px solid var(--gray);
+  background-color: color-mix(in srgb, var(--black), transparent 50%);
+}
+
+.contactsCard a {
+  color: var(--white);
+}

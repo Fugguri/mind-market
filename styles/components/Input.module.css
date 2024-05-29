@@ -1,0 +1,30 @@
+/* TODO TEMP */
+#input {
+    padding: .5em 1em;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid var(--white);
+    background-color: transparent;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: white;
+    font-size: 24px;
+    border-radius: .5em .5em 0 0;
+    -webkit-border-radius: .5em .5em 0 0;
+    -moz-border-radius: .5em .5em 0 0;
+    -ms-border-radius: .5em .5em 0 0;
+    -o-border-radius: .5em .5em 0 0;
+}
+
+#input::placeholder {
+    border: none;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: white;
+}
+
+#input:focus-visible {
+    background-color: color-mix(in srgb, var(--black), transparent 50%) !important;
+    border-bottom: 1px solid var(--white);
+}

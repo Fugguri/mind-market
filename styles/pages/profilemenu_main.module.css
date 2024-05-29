@@ -1,0 +1,136 @@
+#h2 {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #6A6A6A;
+}
+#h4 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.52px;
+    letter-spacing: -0.01em;
+    text-align: left;
+
+}
+.main_page {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    color: white;
+}
+.main_page_flex {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 85%;
+}
+.profile_info_1 {
+    width: 40%;
+    background-color: #1C1C1C;
+    height: 100%;
+}
+.profile_info_1_dop {
+    width: 90%;
+    margin: 0 auto;
+
+}
+.avatar-img {
+    margin: 0 auto;
+    text-align: center;
+}
+.profile_info_1_dop img {
+    border-radius: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 5px solid white;
+}
+.profile_info_1_dop p {
+    width: 100%;
+    border-bottom: 1px solid #2B2B2B;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: white;
+    padding-bottom: 10px;
+}
+.profile_info_1_dop span {
+    float: right;
+    font-size: 12px;
+    letter-spacing: -1%;
+}
+.info_column {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.tarif_info_column {
+    width: 100%;
+    background-color: #1C1C1C;
+}
+.trarif_info_column_page {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.tarif_info_column_page_1 {
+    width: 40%;
+}
+.tarif_info_column_page_1 h3 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+}
+.tarif_info_column_page_1 span {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #44FF4B;
+}
+.tarif_info_column_page_1 p {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: white;
+}
+.skidka {
+    float: right;
+    background-color: white;
+    color: black;
+    padding: 2px 5px 2px 5px;
+    font-size: 12px;
+}
+.tariff_full{
+    margin-top: 40px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+
+}
+.tariff_full span {
+    float: right;
+    text-decoration: line-through;
+}
+.kolvo {
+    float: right;
+    font-size: 14px;
+    font-weight: 500;
+
+}
+.tarif_info_column_page_1 input {
+    border: none;
+    border-bottom: 2px solid white;
+    margin-bottom: 3px;
+    background-color: #1C1C1C;
+}
+.tarif_info_column_page_1 label {
+    font-size: 8px;
+}
+.change-photo {
+    margin: 0 auto;
+    text-align: center;
+}

@@ -4,7 +4,7 @@ import ProjectsNavigationSidebar from '@/components/navigation/project-navigatio
 
 const MainLayout = async ({ children }: { children: React.ReactNode }) => {
 	return (
-		<div className='h-full'>
+		<div className='h-full bg-transparent'>
 			<main> {children}</main>
 		</div>
 	)

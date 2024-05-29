@@ -1,101 +1,143 @@
 "use client";
 
 import { useState } from "react";
-import { BtnFilledIcon, BtnOutnlineIcon } from "./buttons";
-import styles from "../styles/Cards.module.css";
+import styles from "../styles/components/Cards.module.css";
+import pstyles from "../styles/components/ProductCard.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-export function Card(prop: { label: string; text: string }) {
-  return (
-    <div className={styles.card}>
-      <label id={styles.cardLabel}>{prop.label}</label>
-      <div className={styles.card_description}>{prop.text}</div>
-    </div>
-  );
-}
-
-export function CardOutline(prop: { label: string; text: string }) {
-  return (
-    <div className={styles.card_outline}>
-      <label id={styles.cardLabel}>{prop.label}</label>
-      <div className={styles.card_description}>{prop.text}</div>
-    </div>
-  );
-}
-
-export function CardModule(prop: { label: string; text: string }) {
-  return (
-    <>
-      <label id={styles.cardLabel}>{prop.label}</label>
-      <div className={styles.card_description}>{prop.text}</div>
-    </>
-  );
-}
-
-export function CardModuleLabel(prop: { label: string }) {
-  return (
-    <>
-      <label id={styles.cardLabel}>{prop.label}</label>
-    </>
-  );
-}
-
-export function CardModuleLink(prop: {
-  text: string;
-  link: string;
-  label: string;
+export function CardShell(prop: {
+  children: React.ReactNode;
+  maxWidth: string;
 }) {
   return (
-    <Link href={prop.link} className={styles.card_link}>
-      <>
-        <label id={styles.cardLabel}>{prop.label}</label>
-        <div className={styles.card_description}>{prop.text}</div>
-      </>
-      <div className="material-symbols-outlined">arrow_outward</div>
-    </Link>
+    <div
+      className={styles.card}
+      id={styles.cardsh}
+      style={{
+        maxWidth: prop.maxWidth,
+      }}
+    >
+      <>{prop.children}</>
+    </div>
   );
 }
 
-export function CardModuleLinkDesk(prop: { text: string; link: string }) {
+export function CardShellOutline(prop: {
+  children: React.ReactNode;
+  maxWidth: string;
+}) {
   return (
-    <Link href={prop.link} className={styles.card_link}>
-      <div className={styles.card_description}>{prop.text}</div>
-      <div className="material-symbols-outlined">arrow_outward</div>
+    <div
+      className={styles.card_outline}
+      id={styles.cardsh}
+      style={{
+        maxWidth: prop.maxWidth,
+      }}
+    >
+      <>{prop.children}</>
+    </div>
+  );
+}
+
+export function CardShellUnderline(prop: {
+  children: React.ReactNode;
+  maxWidth: string;
+}) {
+  return (
+    <div
+      className={styles.card_underline}
+      id={styles.cardsh}
+      style={{
+        maxWidth: prop.maxWidth,
+      }}
+    >
+      <>{prop.children}</>
+    </div>
+  );
+}
+
+export function CardShellLink(prop: {
+  children: React.ReactNode;
+  link: string;
+  maxWidth: string;
+}) {
+  return (
+    <Link
+      href={prop.link}
+      style={{
+        maxWidth: prop.maxWidth,
+      }}
+    >
+      <div className={styles.card_link} id={styles.cardsh}>
+        <>{prop.children}</>
+        <div className="material-symbols-outlined">arrow_outward</div>
+      </div>
     </Link>
   );
 }
 
-export function CardModuleDesc({ children }: { children: React.ReactNode }) {
+export function CardShellDefaultLink(prop: {
+  children: React.ReactNode;
+  link: string;
+  maxWidth: string;
+}) {
+  return (
+    <a
+      href={prop.link}
+      style={{
+        maxWidth: prop.maxWidth,
+      }}
+    >
+      <div className={styles.card_link} id={styles.cardsh}>
+        <>{prop.children}</>
+        <div className="material-symbols-outlined">arrow_outward</div>
+      </div>
+    </a>
+  );
+}
+
+export function CardShellBigIcon(prop: {
+  children: React.ReactNode;
+  icon: string;
+  maxWidth: string;
+}) {
+  return (
+    <div
+      className={styles.card_big_icon}
+      style={{
+        maxWidth: prop.maxWidth,
+      }}
+    >
+      <div className="material-symbols-outlined" id={styles.bigIcon}>
+        {prop.icon}
+      </div>
+      <>{prop.children}</>
+    </div>
+  );
+}
+
+export function CardModuleLabel({ children }: { children: React.ReactNode }) {
+  return <label id={styles.cardLabel}>{children}</label>;
+}
+
+export function CardModuleDescription({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <div className={styles.card_description}>{children}</div>;
 }
 
-export function CardExtend({ children }: { children: React.ReactNode }) {
-  return <div className={styles.card}>{children}</div>;
-}
-
-export function CardExtendOutline({ children }: { children: React.ReactNode }) {
-  return <div className={styles.card_outline}>{children}</div>;
-}
-
-export function CardQuote(prop: { text: string }) {
-  return <div className={styles.card_quote}>{prop.text}</div>;
-}
-
-export function CardQuoteLabel(prop: { text: string; label: string }) {
-  return (
-    <div className={styles.card_quote_label}>
-      <label id={styles.cardLabel}>{prop.label}</label>
-      <div className={styles.card_description}>{prop.text}</div>
-    </div>
-  );
-}
+// Staff
 
 export function FilledCardRect(prop: { text: string; icon: string }) {
   return (
     <div className={styles.card_filled_rect}>
       <div className={styles.iconContainer}>
-        <div className="material-symbols-outlined" id={styles.filledCardIMG}>{prop.icon}</div>
+        <div className="material-symbols-outlined" id={styles.filledCardIMG}>
+          {prop.icon}
+        </div>
       </div>
       <div className={styles.card_description}>{prop.text}</div>
     </div>
@@ -106,7 +148,9 @@ export function FilledCardRectR(prop: { text: string; icon: string }) {
   return (
     <div className={styles.card_filled_rectR}>
       <div className={styles.iconContainer}>
-        <div className="material-symbols-outlined" id={styles.filledCardIMG}>{prop.icon}</div>
+        <div className="material-symbols-outlined" id={styles.filledCardIMG}>
+          {prop.icon}
+        </div>
       </div>
       <div className={styles.card_description}>{prop.text}</div>
     </div>
@@ -116,7 +160,9 @@ export function FilledCardRectR(prop: { text: string; icon: string }) {
 export function FilledCardCircle(prop: { icon: string }) {
   return (
     <div className={styles.card_filled_circle}>
-      <div className="material-symbols-outlined" id={styles.filledCardIMG}>{prop.icon}</div>
+      <div className="material-symbols-outlined" id={styles.filledCardIMG}>
+        {prop.icon}
+      </div>
     </div>
   );
 }
@@ -126,6 +172,8 @@ export function CardImage(prop: {
   alt: string;
   text: string;
   subtext: string;
+  width: string;
+  height: string;
 }) {
   return (
     <div className={styles.card_image}>
@@ -133,8 +181,8 @@ export function CardImage(prop: {
         className={styles.imgContainer}
         style={{
           position: "relative",
-          width: "12em",
-          height: "12em",
+          width: prop.width,
+          height: prop.height,
         }}
       >
         <Image
@@ -143,7 +191,7 @@ export function CardImage(prop: {
           src={prop.src}
           style={{
             objectFit: "cover",
-            borderRadius: ".5em",
+            // borderRadius: ".5em",
           }}
         />
       </div>
@@ -157,9 +205,9 @@ export function CardImage(prop: {
 }
 
 export function QuestionCard(prop: {
+  children: React.ReactNode;
   num: string;
   label: string;
-  ans: string;
 }) {
   const [opened, setOpened] = useState(0);
 
@@ -190,18 +238,7 @@ export function QuestionCard(prop: {
           add
         </button>
       </div>
-      <div className={styles.quest_ans}>{prop.ans}</div>
-    </div>
-  );
-}
-
-export function CardBigIcon(prop: { icon: string; text: string }) {
-  return (
-    <div className={styles.card_big_icon}>
-      <div className="material-symbols-outlined" id={styles.bigIcon}>
-        {prop.icon}
-      </div>
-      <div className={styles.card_description}>{prop.text}</div>
+      <div className={styles.quest_ans}>{prop.children}</div>
     </div>
   );
 }
@@ -249,9 +286,42 @@ export function ImagePlaceholder(prop: {
         src={prop.src}
         style={{
           objectFit: "cover",
-          borderRadius: ".5em",
+          // borderRadius: ".5em",
         }}
       />
+    </div>
+  );
+}
+
+export function CardProduct(prop: {
+  color: string;
+  background: string;
+  name: string;
+  deadline: string;
+  price: string;
+  comment: string;
+}) {
+  return (
+    <div
+      className={pstyles.ProuctCard}
+      style={{ color: prop.color, backgroundColor: prop.background }}
+    >
+      <div>
+        <div className={pstyles.Title} style={{ borderColor: prop.color }}>
+          {prop.name}
+        </div>
+        <div className={pstyles.topContainer}>
+          <div id={pstyles.Text}>Сроки</div>
+          <div id={pstyles.deadLine}>от {prop.deadline}</div>
+        </div>
+      </div>
+      <div>
+        <div className={pstyles.priceContainer}>
+          <div id={pstyles.priceTitle}>Стоимость</div>
+          <div id={pstyles.price}>{prop.price} ₽</div>
+        </div>
+        <div id={pstyles.Text}>{prop.comment}</div>
+      </div>
     </div>
   );
 }

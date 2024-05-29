@@ -88,7 +88,7 @@ export const authConfig: AuthOptions = {
 	theme: {
 		colorScheme: 'auto', // "auto" | "dark" | "light"
 		// brandColor: '#7CFC00', // Hex color code
-		logo: '/logo.png', // Absolute URL to Image
+		// logo: '/logo.png', // Absolute URL to Image
 		// buttonText: '#7CFC00', // Hex color code
 	},
 }

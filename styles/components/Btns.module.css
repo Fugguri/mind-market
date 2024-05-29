@@ -1,0 +1,111 @@
+#btn:focus-visible {
+  box-shadow: 0px 0px 0px 2px lavender;
+}
+
+#btn {
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border: none;
+  gap: 1em;
+  padding: 0.5em 0.8em;
+  font-size: 1.12em;
+  transition: 200ms ease-in-out;
+  transition-property: box-shadow, background-color, border-radius;
+  -webkit-transition: 200ms ease-in-out;
+  -moz-transition: 200ms ease-in-out;
+  -ms-transition: 200ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+  width: 100%;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+#btn[pos-t="left"] {
+  flex-direction: row-reverse;
+}
+
+#btn[justify-t="between"] {
+  justify-content: space-between;
+}
+
+#btn[justify-t="start"] {
+  justify-content: start;
+}
+
+#btn[justify-t="around"] {
+  justify-content: space-around;
+}
+
+#btn[font-w="400"] {
+  font-weight: 400 !important;
+}
+
+.iconBtn {
+  font-size: 14px !important;
+  width: unset !important;
+  padding: 0.8em !important;
+  border-radius: 100% !important;
+  -webkit-border-radius: 100% !important;
+  -moz-border-radius: 100% !important;
+  -ms-border-radius: 100% !important;
+  -o-border-radius: 100% !important;
+}
+.iconBtn,
+.btn_icon_text {
+  background-color: transparent;
+  color: var(--white);
+}
+
+.iconBtn:hover,
+.btn_icon_text:hover {
+  box-shadow: 0px 0px 0px 2px var(--white);
+}
+
+.btn_icon_outline,
+.btn_switch[enabled-btn="true"] {
+  background-color: transparent;
+  color: var(--white);
+  outline: 1px var(--white) solid;
+  outline-offset: -1px;
+}
+
+.btn_icon_outline:hover,
+.btn_icon_outline:focus-visible,
+.btn_switch[enabled-btn="true"]:hover,
+.btn_switch[enabled-btn="true"]:focus-visible {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.btn_icon_filled,
+.btn_switch[enabled-btn="false"] {
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.btn_icon_filled:hover,
+.btn_icon_filled:focus-visible,
+.btn_switch[enabled-btn="false"]:hover,
+.btn_switch[enabled-btn="false"]:focus-visible {
+  background-color: color-mix(in srgb, var(--white), var(--black) 15%);
+}
+
+.btn_icon_underline {
+  background-color: transparent;
+  color: var(--white);
+  border-bottom: 2px solid var(--white) !important;
+}
+
+.btn_icon_underline:hover,
+.btn_icon_underline:focus-visible {
+  background-color: var(--white);
+  color: var(--black);
+  border-bottom: none;
+}

@@ -30,7 +30,7 @@ export default async function RootLayout({
 					content='ritc22cbm7fyzpk62vx0mnfvvmw6xk'
 				/>
 			</head>
-			<body className={cn(font.className, 'bg-[#DCDCDC] dark:bg-[#313338]')}>
+			<body className={cn(font.className, )}>
 				<SessionProvider>
 					<ThemeProvider
 						attribute='class'

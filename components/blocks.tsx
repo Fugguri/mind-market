@@ -1,4 +1,4 @@
-import styles from "../styles/Blocks.module.css";
+import styles from "@/styles/components/Blocks.module.css";
 
 export function BlockLTR({ children }: { children: React.ReactNode }) {
     return <div className={styles.LTR}>{children}</div>;
@@ -26,3 +26,9 @@ export function BlockLTRCenter({ children }: { children: React.ReactNode }) {
 export function BlockRTLCenter({ children }: { children: React.ReactNode }) {
 return <div className={styles.RTLCenter}>{children}</div>;
 }
+
+export function BlockLTRTopSB({ children }: { children: React.ReactNode }) {
+  return <div className={styles.LTRTopSB}>{children}</div>;
+}
+
+// TODO Variants

@@ -1,0 +1,62 @@
+.header {
+  z-index: 999;
+  width: 100%;
+  max-width: 1920px;
+  height: 3.6rem;
+  display: flex;
+  flex-direction: row;
+  padding: 0 5rem;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  position: fixed;
+  background-color: color-mix(in srgb, var(--black), transparent 25%);
+  backdrop-filter: blur(20px);
+  transition-property: backdrop-filter, background-color;
+  transition: 150ms ease-in-out;
+  -webkit-transition: 150ms ease-in-out;
+  -moz-transition: 150ms ease-in-out;
+  -ms-transition: 150ms ease-in-out;
+  -o-transition: 150ms ease-in-out;
+}
+
+.header[transparent-header="true"] {
+  background-color: transparent;
+  backdrop-filter: none;
+}
+
+.logo {
+  display: block;
+  height: 1rem;
+  width: 10rem;
+  background-size: 10rem;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: var(--textLogo);
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    height: 2rem;
+    width: 2rem;
+    background-size: 2rem;
+    background-image: var(--logo);
+  }
+}
+
+@media (max-width: 920px) {
+  .logo {
+    display: none;
+  }
+}
+
+.tabs {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2em;
+  /* overflow-x: scroll; */
+}

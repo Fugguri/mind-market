@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import styles from "../styles/Tab.module.css";
+import styles from "../styles/components/Tab.module.css";
 import { usePathname } from "next/navigation";
 
 export default function Tab(prop: {
@@ -17,7 +17,6 @@ export default function Tab(prop: {
     >
       <label>
         <Link href={prop.tablink}>
-          {/* <div className="material-symbols-outlined">{prop.icon}</div> */}
           {prop.name}
         </Link>
       </label>

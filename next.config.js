@@ -22,6 +22,14 @@ const nextConfig = {
 			'avatars.githubusercontent.com',
 			'web-mindmarket.ru',
 		],
+		formats: ['image/avif', 'image/webp'],
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: '**',
+				port: '',
+			},
+		],
 	},
 }
 

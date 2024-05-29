@@ -1,0 +1,111 @@
+#card1,
+#card2,
+#card3,
+#card4,
+#card5,
+#card6,
+#card7 {
+  background-color: var(--gray);
+}
+
+.cards {
+  max-height: 45vw;
+  height: calc(352em * 352 / 1920);
+}
+
+#card1 {
+  background: radial-gradient(
+    circle farthest-corner at 0px 0px,
+    #43b99bf8,
+    #66a9c19f 60%,
+    #b488f5c5 95%
+  ) !important;
+  padding: 3rem;
+  /* justify-content: space-between; */
+  filter: saturate(2);
+  -webkit-filter: saturate(2);
+}
+
+#card1 * {
+  font-weight: 700;
+  margin: -0.5rem 0;
+}
+
+@media (max-width: 1601px) {
+  #card1 {
+    font-size: .9em;
+  }
+}
+
+@media (max-width: 1500px) {
+  #card1 {
+    font-size: .65rem !important;
+  }
+}
+
+@media (max-width: 1300px) {
+  #card1 {
+    font-size: .62em !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  #card1 {
+    font-size: .55em !important;
+  }
+}
+
+#card1 #fst_label {
+  font-size: 3.8em;
+}
+
+#card1 #snd_label {
+  font-size: 4.2em;
+}
+
+#card1 #trd_label {
+  font-size: 4em;
+  align-self: self-end;
+  margin-top: auto;
+}
+
+#card3,
+#card4 {
+  background-color: var(--light-gray);
+}
+
+#card6 {
+  background-image: url("/images/5.jpg");
+  background-size: 135%;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#card7 {
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#card7 #img,
+#card7 #blur {
+  background-image: url("/images/resident.png");
+  background-size: 70%;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+#card7 #img {
+  z-index: 22;
+}
+
+#card7 #blur {
+  filter: saturate(50) blur(20dvw);
+  -webkit-filter: saturate(50) blur(150px);
+  z-index: 20;
+  opacity: 0.5;
+  -webkit-opacity: 0.7;
+}

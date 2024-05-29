@@ -1,38 +1,87 @@
+"use client";
+
 import Link from "next/link";
-import styles from "../styles/Btns.module.css";
+import styles from "../styles/components/Btns.module.css";
+import React, { ButtonHTMLAttributes, MouseEventHandler } from "react";
 
-export function BtnFilledIcon(prop: {
-  icon: string;
-  name: string;
-}) {
+type BtnProps = {
+  icon?: string;
+  text?: string;
+  type?: React.ComponentPropsWithoutRef<"button">;
+  onClick?: (event: any) => void;
+  fontWeight?: string;
+  justify?: string;
+  [x: string]: any;
+  position?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+
+interface IProps_Square {
+  prop: BtnProps;
+  message: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+export function BtnTextIcon({ text, icon, type, onClick, justify, position, fontWeight }: BtnProps) {
   return (
-    <button className={styles.btn_icon_filled} id={styles.btn}>
-      {prop.name}
-      <div className="material-symbols-outlined">{prop.icon}</div>
+    <button
+      type={type}
+      className={styles.btn_icon_text}
+      id={styles.btn}
+      font-w={fontWeight}
+      onClick={onClick}
+      justify-t={justify}
+      pos-t={position}
+    >
+      <div>{text}</div>
+      <div className="material-symbols-outlined">{icon}</div>
     </button>
   );
 }
 
-export function BtnOutnlineIcon(prop: {
-  icon: string;
-  name: string;
-}) {
+export function BtnFilledIcon({ text, icon, type, onClick, justify, position }: BtnProps) {
   return (
-    <button className={styles.btn_icon_outline} id={styles.btn}>
-      {prop.name}
-      <div className="material-symbols-outlined">{prop.icon}</div>
+    <button
+      type={type}
+      className={styles.btn_icon_filled}
+      id={styles.btn}
+      onClick={onClick}
+      justify-t={justify}
+      pos-t={position}
+    >
+      <div>{text}</div>
+      <div className="material-symbols-outlined">{icon}</div>
     </button>
   );
 }
 
-export function BtnTextIcon(prop: {
-  icon: string;
-  name: string;
-}) {
+export function BtnOutlineIcon({ text, icon, type, onClick, justify, position }: BtnProps) {
   return (
-    <button className={styles.btn_icon_text} id={styles.btn}>
-      {prop.name}
-      <div className="material-symbols-outlined">{prop.icon}</div>
+    <button
+      type={type}
+      className={styles.btn_icon_outline}
+      id={styles.btn}
+      onClick={onClick}
+      justify-t={justify}
+      pos-t={position}
+    >
+      <div>{text}</div>
+      <div className="material-symbols-outlined">{icon}</div>
+    </button>
+  );
+}
+
+export function BtnUnderlineIcon({ text, icon, type, onClick, justify, position }: BtnProps) {
+  return (
+    <button
+      type={type}
+      className={styles.btn_icon_underline}
+      id={styles.btn}
+      onClick={onClick}
+      justify-t={justify}
+      pos-t={position}
+    >
+      <div>{text}</div>
+      <div className="material-symbols-outlined">{icon}</div>
     </button>
   );
 }
@@ -42,20 +91,40 @@ export function ProfileButton(prop: { logged_in: boolean }) {
     return <div>Your profile</div>;
   }
   return (
-    <Link tabIndex={-1} href="/login">
-      <BtnTextIcon
-        name="Войти"
-        icon="arrow_outward"
-      ></BtnTextIcon>
-    </Link>
+    <a tabIndex={-1} href="/login">
+      <BtnTextIcon text="Войти" icon="arrow_outward" type="button" fw="400" />
+    </a>
   );
 }
 
-export function SubmitBtn(prop: {name: string, icon:string}) {
+export function BtnSwitch(state: {
+  enabled: string;
+  text: string;
+  [x: string]: any;
+  onClick?: (event: any) => void;
+}) {
   return (
-    <button type="submit" className={styles.btn_icon_submit} id={styles.btn}>
-      {prop.name}
-      <div className="material-symbols-outlined">{prop.icon}</div>
+    <button
+      type="submit"
+      id={styles.btn}
+      enabled-btn={state.enabled}
+      className={styles.btn_switch}
+      onClick={state.onClick}
+    >
+      {state.text}
+    </button>
+  );
+}
+
+export function BtnIconOnly({ icon, type, onClick }: BtnProps) {
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      className={styles.iconBtn}
+      id={styles.btn}
+    >
+      <div className="material-symbols-outlined">{icon}</div>
     </button>
   );
 }

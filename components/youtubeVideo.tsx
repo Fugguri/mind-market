@@ -1,4 +1,4 @@
-export default async function YouTubeVideo(prop: {
+export default function YouTubeVideo(prop: {
   src: string;
   width: string;
   height: string;

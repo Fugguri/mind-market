@@ -1,0 +1,58 @@
+.ProuctCard {
+    background-color: #07287E;
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5em;
+    width: 20%;
+}
+
+
+@media (max-width: 1300px) {
+    .ProuctCard {
+        font-size: .7rem !important;
+    }
+}
+
+@media (max-width: 1800px) {
+    .ProuctCard {
+        font-size: .9rem;
+    }
+}
+
+.ProuctCard>div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    font-size: inherit;
+}
+
+.Title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background: transparent;
+    border: 2px solid var(--white);
+    padding: .5em;
+}
+
+.priceContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: inherit;
+}
+
+#priceTitle {
+    font-size: 1.4em;
+}
+#price {
+    font-size: 2em
+}
+
+#Text {
+    font-size: .8em;
+}

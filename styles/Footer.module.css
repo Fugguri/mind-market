@@ -1,0 +1,126 @@
+.footer {
+  padding: 0 5rem;
+  width: 100%;
+  max-width: 1920px;
+  height: auto;
+  font-weight: 500;
+}
+
+.logo {
+  display: block;
+  height: 5rem;
+  width: 100%;
+  background-size: 25rem;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: var(--fullLogo);
+  align-self: center;
+}
+.foot_1 {
+  display: flex;
+  justify-content: start;
+  gap: 4.25rem;
+}
+.foot_menu {
+  display: flex;
+  gap: 21px;
+  flex-direction: column;
+  text-align: left;
+}
+#list {
+  display: flex;
+  gap: 17px;
+  flex-direction: column;
+}
+
+.foot_main {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5rem;
+}
+.foot_menu #list {
+  list-style-type: none;
+  margin: -1.75px 0;
+  font-size: 1rem;
+}
+
+.footer #list a {
+  color: var(--white);
+  font-size: 1rem;
+  margin: -0.2em 0;
+  /* padding: 0; */
+  width: fit-content;
+}
+
+.subcribe {
+  height: auto;
+  width: 20rem;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.foot_menu h3 {
+  font-size: 1.6rem;
+  margin: -0.2em 0;
+}
+.razdat {
+  height: 1px;
+  content: " ";
+  background-color: var(--white);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+  margin-bottom: 1.25rem;
+}
+.last_footer_flexelements {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6rem;
+  font-weight: 400;
+}
+.new_syl {
+  display: flex;
+  gap: 30px;
+}
+
+.last_footer_flexelements h5 {
+  font-size: 0.75rem;
+}
+
+.last_footer_flexelements h4 {
+  font-size: 1rem;
+}
+
+.new_syl a {
+  color: var(--white);
+}
+
+#innovations_container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  /* padding: .5rem; */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.innovation_icon {
+  background-image: url("/images/resident.png");
+  width: 1.8rem;
+  height: 1.8rem;
+  background-size: 1.8rem;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.innovation_label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+}

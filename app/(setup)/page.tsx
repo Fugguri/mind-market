@@ -10,7 +10,7 @@ import { LogOutButton } from '@/components/auth'
 const SetupPage = async () => {
 	const profile = await currentProfile()
 	if (!profile) {
-		return redirect('/platform/api/auth/signin')
+		return redirect('welcome')
 	}
 
 	return redirect(`projects`)

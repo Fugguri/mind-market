@@ -1,0 +1,54 @@
+.heading {
+  display: block;
+  width: 100%;
+}
+
+.ltr,
+.rtl {
+  /* font-family: 'Vida Pro 43', sans-serif !important; */
+  display: flex;
+  flex-direction: column;
+  font-size: 6em;
+  font-weight: 500;
+}
+
+@media (max-width: 1600px) {
+  .ltr,
+  .rtl {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .ltr,
+  .rtl {
+    font-size: 4rem !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .ltr,
+  .rtl {
+    font-size: 3rem !important;
+  }
+}
+
+@media (max-width: 1000px) {
+    .ltr,
+    .rtl {
+      font-size: 2rem !important;
+    }
+  }
+
+.rtl {
+  display: flex;
+  flex-direction: row-reverse;
+}
+#H2 {
+  margin-top: -0.35em;
+}
+
+#singleCenter {
+  width: fit-content !important;
+  margin: 0 auto;
+}
