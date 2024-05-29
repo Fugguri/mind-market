@@ -10,7 +10,8 @@ const PlatformPage = () => {
 	}
   
 
-  return (  );
+  return redirect('/platform/chat')
+
 }
  
 export default PlatformPage;
