@@ -1,13 +1,13 @@
-import { LargeHeading } from "../../../components/headings";
+import { LargeHeading } from "@/components/headings";
 import {
   CardShellUnderline,
   CardModuleLabel,
   CardModuleDescription,
-} from "../../../components/cards";
-import styles from "../../../styles/pages/HelpPage.module.css";
+} from "@/components/cards";
+import styles from "@/styles/pages/HelpPage.module.css";
 import { Input, Textarea } from "@nextui-org/input";
 import Link from "next/link";
-import { BtnFilledIcon } from "../../../components/buttons";
+import { BtnFilledIcon } from "@/components/buttons";
 
 export default function HelpPage() {
   return (

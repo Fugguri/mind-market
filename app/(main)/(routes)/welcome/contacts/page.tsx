@@ -1,11 +1,11 @@
-import { BlockLTRCenter } from "../../../components/blocks";
-import { LargeHeading } from "../../../components/headings";
+import { BlockLTRCenter } from "@/components/blocks";
+import { LargeHeading } from "@/components/headings";
 import {
   CardModuleDescription,
   CardShell,
   CardShellLink,
-} from "../../../components/cards";
-import styles from "../../../styles/pages/ContactsPage.module.css";
+} from "@/components/cards";
+import styles from "@/styles/pages/ContactsPage.module.css";
 
 export default function ContactsPage() {
   return (
