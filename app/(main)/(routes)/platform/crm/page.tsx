@@ -47,7 +47,7 @@ function VFlex(prop: { children: React.ReactNode; width: string }) {
   return (
     <div
       className="flex flex-col gap-[1rem] items-center"
-      style={{ width: prop.width }}
+      // style={{ width: prop.width }}
     >
       {prop.children}
     </div>

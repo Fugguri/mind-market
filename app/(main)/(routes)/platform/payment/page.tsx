@@ -29,9 +29,9 @@ export default function Page() {
           <PaneTitle>Оплата и конфиденциальность</PaneTitle>
           <div>
             <div
-              style={{
-                color: "color-mix(in srgb, var(--white), transparent 35%)",
-              }}
+              // style={{
+              //   color: "color-mix(in srgb, var(--white), transparent 35%)",
+              // }}
             >
               <PaneTitle>Персональные данные</PaneTitle>
               <div>

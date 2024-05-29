@@ -63,7 +63,7 @@ export default function Page() {
               возможность интегрировать передовые технологии ИИ в свои операции.
             </h4>
             <div
-              style={{ margin: "-1rem -1.5rem", width: "calc(100% + 3rem)" }}
+              // style={{ margin: "-1rem -1.5rem", width: "calc(100% + 3rem)" }}
             >
               <Graph />
             </div>
