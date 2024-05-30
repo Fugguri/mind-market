@@ -50,7 +50,7 @@ export function ProjectCard(prop: {
 
 export function AssistantCard(prop: {
   name: string;
-  platform: Platforms;
+  // platform: Platforms;
   id?: string;
 }) {
   return (
