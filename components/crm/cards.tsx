@@ -1,3 +1,4 @@
+'use client'
 import { BtnUnderlineIcon, BtnOutlineIcon, BtnFilledIcon } from "../buttons";
 import styles from "../../styles/components/CardsCRM.module.css";
 import { Platforms, ProjectTypes } from "../hooks/enums";
