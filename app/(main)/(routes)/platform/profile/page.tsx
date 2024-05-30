@@ -6,9 +6,14 @@ import  * as p from '@/components/hooks/userInfo'
 import { Avatar } from '@nextui-org/react'
 import { BtnOutlineIcon } from '@/components/buttons'
 import { useModal } from '@/hooks/use-modal-store'
+import { redirect } from 'next/navigation'
+import { currentProfile } from '@/lib/current-profile'
 
-export default function Page() {
-
+export default async function Page() {
+	const profile = await currentProfile()
+	if (!profile) {
+		return redirect('/api/auth/signin')
+	}
 	const {onOpen} = useModal()
 
 	return (
@@ -18,7 +23,7 @@ export default function Page() {
 				<div className='flex flex-col gap-[2rem] items-center justify-between h-[100%]'>
 					<div className='flex justify-center'>
 						<Avatar
-							src={p.UserPicture}
+							src={profile.imageUrl}
 							className='w-[12rem] h-[12rem] border-white border-[6px]'
 						/>
 					</div>
@@ -34,7 +39,7 @@ export default function Page() {
 								borderColor: 'color-mix(in srgb, white, transparent 60%)',
 							}}
 						>
-							ФИО <span>{p.UserName}</span>
+							ФИО <span>{profile.name}</span>
 						</p>
 						<p
 							className='flex flex-row justify-between border-b-2 py-[.8rem]'
@@ -42,7 +47,7 @@ export default function Page() {
 								borderColor: 'color-mix(in srgb, white, transparent 60%)',
 							}}
 						>
-							Телефон <span>{p.UserPhone}</span>
+							Телефон <span>{profile.phone_number}</span>
 						</p>
 						<p
 							className='flex flex-row justify-between border-b-2 py-[.8rem]'
@@ -50,7 +55,7 @@ export default function Page() {
 								borderColor: 'color-mix(in srgb, white, transparent 60%)',
 							}}
 						>
-							Почта <span>{p.UserEmail}</span>
+							Почта <span>{profile.email}</span>
 						</p>
 						<p
 							className='flex flex-row justify-between border-b-2 py-[.8rem]'
@@ -58,7 +63,7 @@ export default function Page() {
 								borderColor: 'color-mix(in srgb, white, transparent 60%)',
 							}}
 						>
-							Адрес <span>{p.UserAdress}</span>
+							Адрес <span>Адрес</span>
 						</p>
 						<p
 							className='flex flex-row justify-between border-b-2 py-[.8rem]'
@@ -66,7 +71,7 @@ export default function Page() {
 								borderColor: 'color-mix(in srgb, white, transparent 60%)',
 							}}
 						>
-							Статус <span>{p.UserStatus}</span>
+							Статус <span>{profile.job_title}</span>
 						</p>
 						<p
 							className='flex flex-row justify-between border-b-2 py-[.8rem]'
@@ -74,12 +79,12 @@ export default function Page() {
 								borderColor: 'color-mix(in srgb, white, transparent 60%)',
 							}}
 						>
-							Название компании <span>{p.UserCompany}</span>
+							Название компании <span>{profile.companyName}</span>
 						</p>
 					</div>
-					<div className='w-[20rem]'>
+					{/* <div className='w-[20rem]'>
 						<BtnOutlineIcon text='Удалить профиль' type='button' />
-					</div>
+					</div> */}
 				</div>
 			</Pane>
 

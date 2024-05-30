@@ -13,11 +13,8 @@ const SetupPage = async () => {
 		return redirect('welcome')
 	}
 
-	return redirect(`projects`)
-	// return (
-	// 	<FullScreenHomePage />
-	// 	// <MobileHomePage />
-	// )
+	return redirect(`platform`)
+
 }
 
 export default SetupPage

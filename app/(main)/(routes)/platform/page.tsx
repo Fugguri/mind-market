@@ -8,7 +8,7 @@ const PlatformPage = async () => {
 		return redirect('/api/auth/signin')
 	}
 
-		return redirect('/platform/crm')
+		return redirect('/platform/profile')
 
 }
  
