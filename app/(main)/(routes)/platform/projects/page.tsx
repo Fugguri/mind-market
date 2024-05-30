@@ -13,6 +13,8 @@ import Link from 'next/link'
 const ProjectsPage = async () => {
 	const profile = await currentProfile()
 	if (!profile) {
+		return redirect('/api/auth/signin')
+
 	}
 	const projects = await db.project.findMany({
 		where: {
