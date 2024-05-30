@@ -11,11 +11,11 @@ export default function SideBtn(prop: {
 }) {
   const pathname = usePathname();
   return (
+    <Link href={prop.link} className={styles.btnLabel}>
     <div
       active-btn={`${pathname === prop.link ? "true" : ""}`}
       className={styles.btn}
     >
-      <Link href={prop.link} className={styles.btnLabel}>
         <label>
           <div className="material-symbols-outlined" id={styles.icon}>
             {prop.icon}
@@ -25,7 +25,7 @@ export default function SideBtn(prop: {
         <div className="material-symbols-outlined" id={styles.indicator}>
           chevron_right
         </div>
-      </Link>
     </div>
+      </Link>
   );
 }
