@@ -32,7 +32,11 @@ const AssistantsPage = async () => {
   // get assistants logic
   const assistants = await db.assistant.findMany({where:{
     projectId:project?.id
-  }})
+  },
+  include:{
+    Integration: true
+  }
+})
 
   return (
     <>
@@ -42,8 +46,8 @@ const AssistantsPage = async () => {
                    
           { assistants.map(assistant=> (
 
-            <AssistantCard key={assistant.id} name={assistant.name} 
-            // platform={assistant.use_count}
+            <AssistantCard key={assistant.id} id={assistant.id} name={assistant.name} 
+            platform={assistant.Integration.map(integration=> (integration.service_type))}
             />
           )
           )
