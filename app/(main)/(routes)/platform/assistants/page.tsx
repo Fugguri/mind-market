@@ -38,13 +38,19 @@ const AssistantsPage = async () => {
         <PaneTitle>Список ассистентов</PaneTitle>
         <ScrollShadow size={15} className="flex flex-row flex-wrap overflow-y-scroll h-[100%] gap-[2rem]">
                    
-          { assistants.map((assistant)=> {
+          { assistants? assistants.map((assistant)=> {
             <AssistantCard name={assistant.name} 
             // platform={assistant.use_count}
             />
           })
+          :		<div className='rounded-[30px] m-10 p-10 items-center h-[80%] w-[80%] bg-gray-400 dark:text-black'>
+          <div className='bg-gray'>
+            <p>У вас еще нет добавленных ассистентов</p>
+          </div>
+        </div>
           
-          }
+          
+        }
           
         </ScrollShadow>
         <div className="flex flex-row content-end h-[3rem] w-1/2 gap-[1rem]">
