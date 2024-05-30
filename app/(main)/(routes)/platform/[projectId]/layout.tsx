@@ -1,4 +1,5 @@
 // import * as React from "react";
+"use client"
 import { SideNav } from "@/components/crm/sidenav/sidenav";
 import SideBtn from "@/components/crm/sidenav/sidenav-btn";
 import "./globals.css";
