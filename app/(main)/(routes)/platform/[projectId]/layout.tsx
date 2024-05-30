@@ -10,6 +10,7 @@ import {
   CardModuleDescription,
 } from "@/components/cards";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export const metadata = {
   title: "CRM",
