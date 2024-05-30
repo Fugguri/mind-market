@@ -56,7 +56,7 @@ export function AssistantCard(prop: {
   id?: string;
 }) {
 
-  const 
+  
   
   const { onOpen } = useModal()
   
