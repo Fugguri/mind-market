@@ -40,7 +40,7 @@ const formSchema = z.object({
 	comment: z.string().min(0, {
 		message: 'Комментарий к этому ассистенту.',
 	}),
-	// imageUrl: z.string(),
+	imageUrl: z.string(),
 })
 
 export const CreateAssistantModal = () => {
