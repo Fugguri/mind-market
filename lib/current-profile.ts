@@ -1,7 +1,3 @@
-"use server"
-import { Manager } from './../node_modules/.prisma/client/index.d'
-import { redirect } from 'next/navigation'
-import { auth } from '@clerk/nextjs'
 import { db } from './db'
 import { getServerSession } from 'next-auth/next'
 import { authConfig } from '@/config/auth'
