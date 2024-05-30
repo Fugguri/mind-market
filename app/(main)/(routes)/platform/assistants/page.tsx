@@ -12,6 +12,7 @@ import { currentProfile } from "@/lib/current-profile";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import noAssistantPage from "@/components/assistant/no-assistant";
+import { AddAssistantButton } from "@/components/assistant/add-assistant";
 
 const AssistantsPage = async () => {
   // const { onOpen } = useModal()
@@ -38,7 +39,7 @@ const AssistantsPage = async () => {
         <PaneTitle>Список ассистентов</PaneTitle>
         <ScrollShadow size={15} className="flex flex-row flex-wrap overflow-y-scroll h-[100%] gap-[2rem]">
                    
-          { assistants? assistants.map((assistant)=> {
+          { assistants? assistants.map(assistant=> {
             <AssistantCard name={assistant.name} 
             // platform={assistant.use_count}
             />
@@ -53,11 +54,7 @@ const AssistantsPage = async () => {
         }
           
         </ScrollShadow>
-        <div className="flex flex-row content-end h-[3rem] w-1/2 gap-[1rem]">
-          {/* API */}
-          {/* <BtnFilledIcon onClick={() => onOpen('createServer')} text="Добавить ассистента"/> */}
-          <BtnOutlineIcon  text="Экспорт данных"/>
-        </div>
+        <AddAssistantButton/>
       </Pane>
     </>
   );
