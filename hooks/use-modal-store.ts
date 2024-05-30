@@ -11,8 +11,8 @@ export type ModalType =
 	| 'addJivo'
 	| 'addVK'
 	| 'addAvito'
-	
-	|'addAssistansSelection'
+
+	|'addAssistansSelection'|'addWebPageAssistant'
 	| 'addAssistant'
 	| 'editAssistant'
 	| 'deleteAssistant'

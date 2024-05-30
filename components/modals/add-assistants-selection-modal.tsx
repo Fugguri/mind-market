@@ -7,7 +7,7 @@ const AddASsistantsSelectionModal = () => {
     const router = useRouter()
 	const params = useParams()
 
-	const { isOpen, onClose, type, data } = useModal()
+	const { isOpen, onClose, type, data ,onOpen} = useModal()
 	const isModalOpen = isOpen && type === 'addAssistansSelection'
 
     
@@ -25,6 +25,7 @@ const AddASsistantsSelectionModal = () => {
 								<br></br>
 								<div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 pb-10'>
                                 тут 4 типа ассистентов
+                                <button onClick={()=> onOpen("addWebPageAssistant")}>WebPageAssistant</button>
 								</div>
 							</div>
 							</div>

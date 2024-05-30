@@ -56,7 +56,7 @@ export const CreateAssistantModal = () => {
 			name: '',
 			settings: '',
 			comment: '',
-			// imageUrl: '',
+			imageUrl: '',
 		},
 	})
 
