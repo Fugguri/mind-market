@@ -22,7 +22,7 @@ export default async function Page() {
 				<div className='flex flex-col gap-[2rem] items-center justify-between h-[100%]'>
 					<div className='flex justify-center'>
 						<Avatar
-							src={profile.imageUrl}
+							src={p.UserPicture}
 							className='w-[12rem] h-[12rem] border-white border-[6px]'
 						/>
 					</div>
