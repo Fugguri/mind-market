@@ -1,4 +1,4 @@
-
+'use server'
 
 import { Pane } from "@/components/crm/panes";
 import { PaneTitle } from "@/components/crm/pane-content";
