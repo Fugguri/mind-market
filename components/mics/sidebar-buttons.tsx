@@ -37,18 +37,18 @@ const SidebarButtons = () => {
             </CardModuleDescription>
           </CardShellDefaultLink>
         <div className="divider transparent" id="smallest" />
-        <SideBtn icon="account_circle" text="Профиль" link={`/platform/${params.projectId}profile`} />
-        <SideBtn icon="mail" text="Сообщения" link={`/platform/${params.projectId}chat`} />
+        <SideBtn icon="account_circle" text="Профиль" link={`/platform/${params.projectId}/profile`} />
+        <SideBtn icon="mail" text="Сообщения" link={`/platform/${params.projectId}/chat`} />
         <SideBtn
           icon="leaderboard"
           text="Статистика" 
           link={`/platform/${params.projectId}dashboard`}
         />
-        <SideBtn icon="group" text="Ассистенты" link={`/platform/${params.projectId}assistants`} />
-        <SideBtn icon="credit_card" text="Оплата" link={`/platform/${params.projectId}billing`} />
-        <SideBtn icon="call" text="Звонки" link={`/platform/${params.projectId}call`} />
-        <SideBtn icon="stacks" text="Интеграции" link={`/platform/${params.projectId}integrations`} />
-        <SideBtn icon="description" text="CRM" link={`/platform/${params.projectId}crm`} />
+        <SideBtn icon="group" text="Ассистенты" link={`/platform/${params.projectId}/assistants`} />
+        <SideBtn icon="credit_card" text="Оплата" link={`/platform/${params.projectId}/billing`} />
+        <SideBtn icon="call" text="Звонки" link={`/platform/${params.projectId}/call`} />
+        <SideBtn icon="stacks" text="Интеграции" link={`/platform/${params.projectId}/integrations`} />
+        <SideBtn icon="description" text="CRM" link={`/platform/${params.projectId}/crm`} />
       </div>
      );
 }
