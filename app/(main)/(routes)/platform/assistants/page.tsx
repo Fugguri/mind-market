@@ -40,12 +40,14 @@ const AssistantsPage = async () => {
         <PaneTitle>Список ассистентов</PaneTitle>
         <ScrollShadow size={15} className="flex flex-row flex-wrap overflow-y-scroll h-[100%] gap-[2rem]">
                    
-          { assistants? assistants.map(assistant=> {
+          { assistants.map(assistant=> (
+
             <AssistantCard key={assistant.id} name={assistant.name} 
             // platform={assistant.use_count}
             />
-          })
-          :		<EmptyPage title='ассистентов' />
+          )
+          )
+          // :		<EmptyPage title='ассистентов' />
           
           
         }

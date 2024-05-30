@@ -52,7 +52,10 @@ export function AssistantCard(prop: {
   name: string;
   // platform: Platforms;
   id?: string;
-}) {
+}) 
+
+
+{
   return (
     <div
       className="flex flex-col p-[2rem] gap-[3rem] min-h-[13rem] h-min max-h-[16rem] max-w-[22%] w-[100%]"
