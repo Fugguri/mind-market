@@ -63,7 +63,7 @@ export function AssistantCard(prop: {
           <label>{prop.name}</label>
           <div className="material-symbols-outlined">close</div>
         </h3>
-        <h4>Внедрён: {prop.platform}</h4>
+        {/* <h4>Внедрён: {prop.platform}</h4> */}
       </div>
       <div
         className="flex flex-row flex-wrap gap-[.5rem]"
