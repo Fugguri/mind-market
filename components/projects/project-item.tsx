@@ -29,7 +29,7 @@ const ProjectItem = (props: IntegrationItemProps) => {
 	const router = useRouter()
 	
 	function handleClick() {
-		router.push(`projects/${props.project?.id}/chats`)
+		router.push(`platform/${props.project?.id}/profile`)
 	}
 	
 	return (
