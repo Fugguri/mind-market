@@ -1,6 +1,7 @@
 import { BtnUnderlineIcon, BtnOutlineIcon, BtnFilledIcon } from "../buttons";
 import styles from "../../styles/components/CardsCRM.module.css";
 import { Platforms, ProjectTypes } from "../hooks/enums";
+import { useModal } from "@/hooks/use-modal-store";
 
 export function DealCard(prop: {
   title: string;
@@ -52,10 +53,12 @@ export function AssistantCard(prop: {
   name: string;
   platform: string | string[];
   id?: string;
-}) 
+}) {
 
+  
+  const { onOpen } = useModal()
+  
 
-{
   return (
     <div
       className="flex flex-col p-[2rem] gap-[3rem] min-h-[13rem] h-min max-h-[16rem] max-w-[22%] w-[100%]"
@@ -73,12 +76,14 @@ export function AssistantCard(prop: {
         style={{ filter: "invert(1)" }}
       >
         <div className="w-[100%]">
-          <BtnFilledIcon text="Подробнее" />
+          <BtnFilledIcon onClick={()=>onOpen('editAssistant',{assistant_id:prop.id})} text="Подробнее" />
         </div>
         <div className="w-[100%]">
-          <BtnOutlineIcon text="Редактировать" />
+          <BtnOutlineIcon onClick={()=>onOpen('editAssistant',{assistant_id:prop.id})} text="Редактировать" />
         </div>
       </div>
     </div>
   );
+  
+  
 }

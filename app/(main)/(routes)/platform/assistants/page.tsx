@@ -16,7 +16,6 @@ import { AddAssistantButton } from "@/components/assistant/add-assistant";
 import EmptyPage from "@/components/mics/empty";
 
 const AssistantsPage = async () => {
-  // const { onOpen } = useModal()
 	const profile = await currentProfile()
 	if (!profile) {
 		return redirect('/api/auth/signin')
@@ -44,14 +43,14 @@ const AssistantsPage = async () => {
         <PaneTitle>Список ассистентов</PaneTitle>
         <ScrollShadow size={15} className="flex flex-row flex-wrap overflow-y-scroll h-[100%] gap-[2rem]">
                    
-          { assistants.map(assistant=> (
+          {assistants? assistants.map(assistant=> (
 
             <AssistantCard key={assistant.id} id={assistant.id} name={assistant.name} 
             platform={assistant.Integration.map(integration=> (integration.service_type))}
             />
           )
           )
-          // :		<EmptyPage title='ассистентов' />
+          :		<EmptyPage title='ассистентов' />
           
           
         }

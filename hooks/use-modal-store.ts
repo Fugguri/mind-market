@@ -23,6 +23,7 @@ export type ModalType =
 interface ModalData {
 	assistants?: Assistant[]
 	assistant?: Assistant
+	assistant_id?:string
 	token?: string
 	profile?: User
 	projectId?: string
