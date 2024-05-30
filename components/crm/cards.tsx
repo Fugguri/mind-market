@@ -61,15 +61,15 @@ export function AssistantCard(prop: {
   
 
   return (
-    <button
-      onClick={()=>onOpen('deleteAssistant',{assistant_id:prop.id})}
+    <div
+    
       className="flex flex-col p-[2rem] gap-[3rem] min-h-[13rem] h-min max-h-[16rem] max-w-[22%] w-[100%]"
       style={{ color: "var(--black)", background: "var(--white)" }}
     >
       <div>
         <h3 className="mt-[-.5rem] flex flex-row justify-between items-center">
           <label>{prop.name}</label>
-          <div className="material-symbols-outlined">close</div>
+          <button   onClick={()=>onOpen('deleteAssistant',{assistant_id:prop.id})}className="material-symbols-outlined">close</button>
         </h3>
         <h4>Внедрён: {prop.platform}</h4>
       </div>
@@ -84,7 +84,7 @@ export function AssistantCard(prop: {
           <BtnOutlineIcon onClick={()=>onOpen('editAssistant',{assistant_id:prop.id})} text="Редактировать" />
         </div>
       </div>
-    </button>
+    </div>
   );
   
   
