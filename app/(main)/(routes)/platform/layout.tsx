@@ -51,7 +51,7 @@ export default function CRMLayout({ children }: { children: React.ReactNode }) {
               text="Статистика" 
               link="/platform/dashboard"
             />
-            <SideBtn icon="group" text="Ассистенты" link="/platform/assistant" />
+            <SideBtn icon="group" text="Ассистенты" link="/platform/assistants" />
             <SideBtn icon="credit_card" text="Оплата" link="/platform/billing" />
             <SideBtn icon="call" text="Звонки" link="/platform/call" />
             <SideBtn icon="stacks" text="Интеграции" link="/platform/integrations" />
