@@ -60,7 +60,8 @@ export function AssistantCard(prop: {
   
 
   return (
-    <div
+    <button
+      onClick={()=>onOpen('deleteAssistant',{assistant_id:prop.id})}
       className="flex flex-col p-[2rem] gap-[3rem] min-h-[13rem] h-min max-h-[16rem] max-w-[22%] w-[100%]"
       style={{ color: "var(--black)", background: "var(--white)" }}
     >
@@ -82,7 +83,7 @@ export function AssistantCard(prop: {
           <BtnOutlineIcon onClick={()=>onOpen('editAssistant',{assistant_id:prop.id})} text="Редактировать" />
         </div>
       </div>
-    </div>
+    </button>
   );
   
   
