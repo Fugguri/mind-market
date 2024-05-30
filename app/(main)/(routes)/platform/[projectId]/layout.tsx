@@ -16,6 +16,8 @@ export const metadata = {
 };
 
 export default function CRMLayout({ children }: { children: React.ReactNode }) {
+	const params = useParams()
+
   return (
     <>
       <div className="screenWrapper">
@@ -44,18 +46,18 @@ export default function CRMLayout({ children }: { children: React.ReactNode }) {
               </CardModuleDescription>
             </CardShellDefaultLink>
             <div className="divider transparent" id="smallest" />
-            <SideBtn icon="account_circle" text="Профиль" link="/platform/profile" />
-            <SideBtn icon="mail" text="Сообщения" link="/platform/chat" />
+            <SideBtn icon="account_circle" text="Профиль" link={`/platform/${params.projectId}profile`} />
+            <SideBtn icon="mail" text="Сообщения" link={`/platform/${params.projectId}chat`} />
             <SideBtn
               icon="leaderboard"
               text="Статистика" 
-              link="/platform/dashboard"
+              link={`/platform/${params.projectId}dashboard`}
             />
-            <SideBtn icon="group" text="Ассистенты" link="/platform/assistants" />
-            <SideBtn icon="credit_card" text="Оплата" link="/platform/billing" />
-            <SideBtn icon="call" text="Звонки" link="/platform/call" />
-            <SideBtn icon="stacks" text="Интеграции" link="/platform/integrations" />
-            <SideBtn icon="description" text="CRM" link="/platform/crm" />
+            <SideBtn icon="group" text="Ассистенты" link={`/platform/${params.projectId}assistants`} />
+            <SideBtn icon="credit_card" text="Оплата" link={`/platform/${params.projectId}billing`} />
+            <SideBtn icon="call" text="Звонки" link={`/platform/${params.projectId}call`} />
+            <SideBtn icon="stacks" text="Интеграции" link={`/platform/${params.projectId}integrations`} />
+            <SideBtn icon="description" text="CRM" link={`/platform/${params.projectId}crm`} />
           </div>
           <div className="opacity-50 mb-[2rem]">
             <CardShellDefaultLink link="/platform" maxWidth="10rem">

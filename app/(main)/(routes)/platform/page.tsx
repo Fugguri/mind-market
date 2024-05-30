@@ -9,6 +9,7 @@ import ProjectItem from '@/components/projects/project-item'
 import { db } from '@/lib/db'
 import PageTitleItem from '@/components/ui/page_title'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 
 const ProjectsPage = async () => {
 	const profile = await currentProfile()

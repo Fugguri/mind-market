@@ -1,14 +1,14 @@
 import { currentProfile } from "@/lib/current-profile";
-import { redirect } from "next/navigation";
+import { redirect, useParams } from "next/navigation";
 
 const PlatformPage = async () => {
 	const profile = await currentProfile()
-
+	const params = useParams()
 	if (!profile) {
 		return redirect('/api/auth/signin')
 	}
 
-		return redirect('/platform/profile')
+		return redirect(`/platform${params.projectId}/profile`)
 
 }
  
