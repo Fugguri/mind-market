@@ -1,3 +1,4 @@
+'use client'
 import { currentProfile } from "@/lib/current-profile";
 import { redirect, useParams } from "next/navigation";
 
