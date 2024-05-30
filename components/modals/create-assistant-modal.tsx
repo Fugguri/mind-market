@@ -40,7 +40,7 @@ const formSchema = z.object({
 	comment: z.string().min(0, {
 		message: 'Комментарий к этому ассистенту.',
 	}),
-	imageUrl: z.string(),
+	// imageUrl: z.string(),
 })
 
 export const CreateAssistantModal = () => {
@@ -56,7 +56,7 @@ export const CreateAssistantModal = () => {
 			name: '',
 			settings: '',
 			comment: '',
-			imageUrl: 'None',
+			// imageUrl: '',
 		},
 	})
 
@@ -70,7 +70,7 @@ export const CreateAssistantModal = () => {
 				name,
 				settings,
 				comment,
-				imageUrl,
+				imageUrl:'',
 			})
 			form.reset()
 			router.refresh()
@@ -101,7 +101,7 @@ export const CreateAssistantModal = () => {
 					<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
 						<div className='space-y-8 px-6'>
 							<div className='flex items-center justify-center text-center'>
-								<FormField
+								{/* <FormField
 									control={form.control}
 									name='imageUrl'
 									render={({ field }) => {
@@ -117,7 +117,7 @@ export const CreateAssistantModal = () => {
 											</FormItem>
 										)
 									}}
-								/>
+								/> */}
 							</div>
 							<FormField
 								control={form.control}

@@ -4,9 +4,9 @@ import { redirect } from "next/navigation";
 const PlatformPage = async () => {
 	const profile = await currentProfile()
 
-	// if (!profile) {
-	// 	return redirect('/api/auth/signin')
-	// }
+	if (!profile) {
+		return redirect('/api/auth/signin')
+	}
 
 		return redirect('/platform/crm')
 

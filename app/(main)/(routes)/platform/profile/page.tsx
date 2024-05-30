@@ -5,8 +5,12 @@ import { PaneTitle } from '@/components/crm/pane-content'
 import  * as p from '@/components/hooks/userInfo'
 import { Avatar } from '@nextui-org/react'
 import { BtnOutlineIcon } from '@/components/buttons'
+import { useModal } from '@/hooks/use-modal-store'
 
 export default function Page() {
+
+	const {onOpen} = useModal()
+
 	return (
 		<>
 			<Pane width='45%' height='unset' direction='column' justify='unset'>
@@ -20,7 +24,7 @@ export default function Page() {
 					</div>
 
 					<div className='w-[20rem]'>
-						<BtnOutlineIcon text='Изменить фото' type='button' />
+						<BtnOutlineIcon onClick={()=> onOpen("editProfile")} text='Редактировать профиль' type='button' />
 					</div>
 					{/* TODO FIX THIS LOL */}
 					<div className='w-[100%] text-xl'>

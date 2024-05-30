@@ -2,6 +2,8 @@ import { create } from 'zustand'
 import { Assistant, User } from '@prisma/client'
 export type ModalType =
 	| 'createServer'
+	
+	| 'addIntegration'
 	| 'addTgBot'
 	| 'addTgUserBot'
 	| 'addWaBot'
@@ -9,11 +11,15 @@ export type ModalType =
 	| 'addJivo'
 	| 'addVK'
 	| 'addAvito'
+	
+	| 'addAssistant'
 	| 'editAssistant'
 	| 'deleteAssistant'
-	| 'editProfile'
-	| 'createProject'
 
+	| 'editProfile'
+	| 'deleteProfile'
+	
+	| 'createProject'
 interface ModalData {
 	assistants?: Assistant[]
 	assistant?: Assistant

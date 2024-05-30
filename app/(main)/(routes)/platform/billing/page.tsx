@@ -251,7 +251,7 @@ export default function Page() {
             />
           </div>
         </div>
-        <h1 className="text-red-500">я устал, продолжу с утра</h1>
+        {/* <h1 className="text-red-500">я устал, продолжу с утра</h1> */}
       </Pane>
     </>
   );

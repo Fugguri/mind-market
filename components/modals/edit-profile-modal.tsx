@@ -57,7 +57,6 @@ const formSchema = z.object({
 
 export const EditProfileModal = () => {
 	const { isOpen, onClose, type, data } = useModal()
-	console.log('edit')
 	const router = useRouter()
 
 	const isModalOpen = isOpen && type === 'editProfile'
@@ -69,7 +68,7 @@ export const EditProfileModal = () => {
 		defaultValues: {
 			name: '',
 			phone_number: '',
-			imageUrl: ' ',
+			// imageUrl: ' ',
 			telegram: '',
 			email: '',
 			companyName: '',
@@ -80,7 +79,7 @@ export const EditProfileModal = () => {
 		if (profile) {
 			form.setValue('name', profile.name ?? '')
 			form.setValue('phone_number', profile.phone_number ?? '')
-			form.setValue('imageUrl', profile.imageUrl ?? '')
+			// form.setValue('imageUrl', profile.imageUrl ?? '')
 			form.setValue('telegram', profile.telegram ?? '')
 			form.setValue('email', profile.email ?? '')
 			form.setValue('companyName', profile.companyName ?? '')
@@ -142,7 +141,7 @@ export const EditProfileModal = () => {
 					<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
 						<div className='space-y-8 px-6'>
 							<div className='flex items-center justify-center text-center'>
-								<FormField
+								{/* <FormField
 									control={form.control}
 									name='imageUrl'
 									render={({ field }) => {
@@ -158,7 +157,7 @@ export const EditProfileModal = () => {
 											</FormItem>
 										)
 									}}
-								/>
+								/> */}
 							</div>
 							<FormField
 								control={form.control}

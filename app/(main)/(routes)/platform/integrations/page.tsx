@@ -12,8 +12,18 @@ import { Pane } from "@/components/crm/panes";
 import { PaneTitle } from "@/components/crm/pane-content";
 import { BtnSwitch, BtnFilledIcon } from "@/components/buttons";
 import { Platforms } from "@/components/hooks/enums";
+import { useModal } from "@/hooks/use-modal-store";
 
 export default function Page() {
+
+  const { onOpen } = useModal()
+
+
+  const stopIntegration = () => {
+    // api fetch to stop integration 
+    console.log("stopping integration")
+  }
+
   return (
     <>
       <Pane width="100%" height="unset" direction="column" justify="unset">
@@ -47,7 +57,7 @@ export default function Page() {
                   <div className="flex flex-row gap-[1rem] max-w-[30rem]">
                     {/* API */}
                     <BtnSwitch enabled="false" text="Отменить" />
-                    <BtnSwitch enabled="true" text="Приостановить" />
+                    <BtnSwitch onClick={()=>stopIntegration()} enabled="true" text="Приостановить" />
                   </div>
                 </TableCell>
               </TableRow>
@@ -56,7 +66,7 @@ export default function Page() {
         </div>
         <div className="flex flex-row align-bottom w-[30rem] h-[5%]">
           {/* API */}
-          <BtnFilledIcon text="Добавить интеграцию" />
+          <BtnFilledIcon onClick={()=>onOpen("addIntegration")} text="Добавить интеграцию" />
         </div>
       </Pane>
     </>

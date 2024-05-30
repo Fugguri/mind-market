@@ -48,8 +48,8 @@ export default function CRMLayout({ children }: { children: React.ReactNode }) {
             <SideBtn icon="mail" text="Сообщения" link="/platform/chat" />
             <SideBtn
               icon="leaderboard"
-              text="Статистика"
-              link="/crm/dashboard"
+              text="Статистика" 
+              link="/platform/dashboard"
             />
             <SideBtn icon="group" text="Ассистенты" link="/platform/assistant" />
             <SideBtn icon="credit_card" text="Оплата" link="/platform/billing" />
