@@ -42,7 +42,7 @@ export function DropdownAvatar(prop: { src: string }) {
 
   return (
     <div>
-      <Avatar src={prop.src} aria-describedby={id} onClick={handleClick} />
+      {/* <Avatar src={prop.src} aria-describedby={id} onClick={handleClick} /> */}
       <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom-end">
         <div className="flex flex-col p-[1rem] bg-white text-black mt-[1rem]">
           The content of the Dropdown.
