@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import { Pane, PanesContainer } from '@/components/crm/panes'
 import { PaneTitle } from '@/components/crm/pane-content'
 import  * as p from '@/components/hooks/userInfo'
@@ -13,7 +13,7 @@ export default async function Page() {
 	if (!profile) {
 		return redirect('/api/auth/signin')
 	}
-	const {onOpen} = useModal()
+	// const {onOpen} = useModal()
 
 	return (
 		<>
@@ -27,9 +27,9 @@ export default async function Page() {
 						/>
 					</div>
 
-					<div className='w-[20rem]'>
+					{/* <div className='w-[20rem]'>
 						<BtnOutlineIcon onClick={()=> onOpen("editProfile")} text='Редактировать профиль' type='button' />
-					</div>
+					</div> */}
 					{/* TODO FIX THIS LOL */}
 					<div className='w-[100%] text-xl'>
 						<p
