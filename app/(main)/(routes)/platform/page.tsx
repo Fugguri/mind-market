@@ -1,3 +1,4 @@
+'use server'
 import { currentProfile } from '@/lib/current-profile'
 
 import EmptyPage from '@/components/mics/empty'
