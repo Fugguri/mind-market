@@ -12,7 +12,7 @@ export type ModalType =
 	| 'addVK'
 	| 'addAvito'
 
-	|'addAssistansSelection'|'addWebPageAssistant'
+	|'addAssistansSelection'|'addWebPageAssistant'|'addSmartAssistant'|'addDocumentsAssistant'
 	| 'addAssistant'
 	| 'editAssistant'
 	| 'deleteAssistant'

@@ -12,7 +12,7 @@ export const AddAssistantButton = () => {
 		<div>
         <div className="flex flex-row content-end h-[3rem] w-1/2 gap-[1rem]">
           {/* API */}
-          <BtnFilledIcon onClick={() => onOpen('createServer')} text="Добавить ассистента"/>
+          <BtnFilledIcon onClick={() => onOpen('addAssistansSelection')} text="Добавить ассистента"/>
           <BtnOutlineIcon  text="Экспорт данных"/>
         </div>
 		</div>

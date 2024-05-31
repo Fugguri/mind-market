@@ -20,7 +20,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         primary: "bg-green-500 text-white hover:bg-green-600/90",
         chat: "bg-[#313338] underline text-white hover:bg-neutral-900",
-        edit: "bg-[#006363] hover:opacity-75 h-5 w-50 rounded-full underline text-white hover:bg-green-600/90",
+        edit: "bg-[#006363] m-3 hover:opacity-75 h-5 w-50 rounded-full underline text-white hover:bg-green-600/90",
 
         
       },

@@ -31,7 +31,7 @@ const SidebarButtons = () => {
           }}
           />
           </Link>
-          <CardShellDefaultLink link="" maxWidth="10rem">
+          <CardShellDefaultLink link="/platform" maxWidth="10rem">
             <CardModuleDescription>
               Динамическое планирование
             </CardModuleDescription>

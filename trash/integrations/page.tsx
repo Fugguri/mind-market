@@ -1,4 +1,4 @@
-import IntegrationItem from '@/components/integrations/integration-item'
+import IntegrationItem from '@/trash/components/integrations/integration-item'
 import EmptyPage from '@/components/mics/empty'
 import { ModalProvider } from '@/components/providers/modal-provider'
 import { currentProfile } from '@/lib/current-profile'
