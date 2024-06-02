@@ -75,7 +75,7 @@ const AddWebPageAssistantItem = () => {
                 name,
                 settings,
                 comment,
-                urls,v
+                urls,
             })
             form.reset()
             router.refresh()
