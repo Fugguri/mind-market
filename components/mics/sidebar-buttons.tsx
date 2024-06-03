@@ -42,7 +42,7 @@ const SidebarButtons = () => {
         <SideBtn
           icon="leaderboard"
           text="Статистика" 
-          link={`/platform/${params.projectId}dashboard`}
+          link={`/platform/${params.projectId}/dashboard`}
         />
         <SideBtn icon="group" text="Ассистенты" link={`/platform/${params.projectId}/assistants`} />
         <SideBtn icon="credit_card" text="Оплата" link={`/platform/${params.projectId}/billing`} />
