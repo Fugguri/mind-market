@@ -1,5 +1,6 @@
 'use client';
-import React, { useState, useEffect, createContext, useContext, MouseEvent } from 'react';
+
+import React, { useState, useEffect, createContext, useContext, MouseEvent, ReactNode } from 'react';
 import { NextPage } from 'next';
 import Select from 'react-select';
 import {
@@ -22,6 +23,7 @@ import {
 import 'reactflow/dist/style.css';
 import { BtnOutlineIcon } from '@/components/buttons';
 
+// Определение типов для параметров и данных узлов
 interface CustomNodeData {
   label: string;
   params: {
@@ -35,11 +37,15 @@ interface CustomNodeData {
       time: string;
     };
     saveToCRM?: boolean;
-    additionalFunctions?: Record<string, any>[];
+    additionalFunctions?: {
+      functionName: string;
+      params: Record<string, any>;
+    }[];
   };
   isInitialNode?: boolean;
 }
 
+// Исходные узлы
 const initialNodes: Node<CustomNodeData>[] = [
   {
     id: '1',
@@ -53,8 +59,10 @@ const initialNodes: Node<CustomNodeData>[] = [
   },
 ];
 
+// Исходные грани
 const initialEdges: Edge[] = [];
 
+// Интерфейсы контекста и провайдера
 interface DecisionTreeContextProps {
   setNodes: React.Dispatch<React.SetStateAction<Node<CustomNodeData>[]>>;
   setSelectedNodeId: React.Dispatch<React.SetStateAction<string | null>>;
@@ -70,7 +78,13 @@ const useDecisionTreeContext = () => {
   return context;
 };
 
-const DecisionTreeProvider: React.FC<DecisionTreeContextProps> = ({ children, setNodes, setSelectedNodeId }) => {
+interface DecisionTreeProviderProps {
+  children: ReactNode;
+  setNodes: React.Dispatch<React.SetStateAction<Node<CustomNodeData>[]>>;
+  setSelectedNodeId: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
+const DecisionTreeProvider: React.FC<DecisionTreeProviderProps> = ({ children, setNodes, setSelectedNodeId }) => {
   return (
     <DecisionTreeContext.Provider value={{ setNodes, setSelectedNodeId }}>
       {children}
@@ -78,13 +92,14 @@ const DecisionTreeProvider: React.FC<DecisionTreeContextProps> = ({ children, se
   );
 };
 
+// Опции для функций
 const functionOptions = [
   { value: 'sendReminder', label: 'Отправить напоминалку' },
   { value: 'sendAudio', label: 'Отправить аудиосообщение' },
   { value: 'sendVideo', label: 'Отправить видеосообщение' },
 ];
 
-const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
+const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
   const { setNodes, setSelectedNodeId } = useDecisionTreeContext();
   const [companyName, setCompanyName] = useState(data.params.companyName || '');
   const [companyDescription, setCompanyDescription] = useState(data.params.companyDescription || '');
@@ -94,9 +109,9 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
   const [reminderText, setReminderText] = useState(data.params.reminder?.text || '');
   const [reminderTime, setReminderTime] = useState(data.params.reminder?.time || '');
   const [saveToCRM, setSaveToCRM] = useState(data.params.saveToCRM || false);
-  const [additionalFunctions, setAdditionalFunctions] = useState(data.params.additionalFunctions || [{'functionName': '', 'params':{}}]);
+  const [additionalFunctions, setAdditionalFunctions] = useState(data.params.additionalFunctions || [{ functionName: '', params: {} }]);
 
-  const handleNodeClick = (e: React.MouseEvent) => {
+  const handleNodeClick = (e: MouseEvent) => {
     e.stopPropagation();
     setSelectedNodeId(id);
   };
@@ -118,7 +133,7 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
     handleChange('additionalFunctions', updatedFunctions);
   };
 
-  const handleFunctionParamsChange = (index: number, params: any) => {
+  const handleFunctionParamsChange = (index: number, params: Record<string, any>) => {
     const updatedFunctions = additionalFunctions.map((func, i) =>
       i === index ? { ...func, params } : func
     );
@@ -127,7 +142,7 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
     handleChange('additionalFunctions', updatedFunctions);
   };
 
-  const renderFunctionParamsFields = (func: { functionName: string; params: any }, index: number) => {
+  const renderFunctionParamsFields = (func: { functionName: string; params: Record<string, any> }, index: number) => {
     switch (func.functionName) {
       case 'sendReminder':
         return (
@@ -137,9 +152,7 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
               <input
                 type="text"
                 value={func.params.text || ''}
-                onChange={(e) =>
-                  handleFunctionParamsChange(index, { ...func.params, text: e.target.value })
-                }
+                onChange={(e) => handleFunctionParamsChange(index, { ...func.params, text: e.target.value })}
               />
             </label>
             <label>
@@ -147,9 +160,7 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
               <input
                 type="text"
                 value={func.params.time || ''}
-                onChange={(e) =>
-                  handleFunctionParamsChange(index, { ...func.params, time: e.target.value })
-                }
+                onChange={(e) => handleFunctionParamsChange(index, { ...func.params, time: e.target.value })}
               />
             </label>
           </>
@@ -161,9 +172,7 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
             <input
               type="text"
               value={func.params.fileName || ''}
-              onChange={(e) =>
-                handleFunctionParamsChange(index, { ...func.params, fileName: e.target.value })
-              }
+              onChange={(e) => handleFunctionParamsChange(index, { ...func.params, fileName: e.target.value })}
             />
           </label>
         );
@@ -174,9 +183,7 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
             <input
               type="text"
               value={func.params.fileName || ''}
-              onChange={(e) =>
-                handleFunctionParamsChange(index, { ...func.params, fileName: e.target.value })
-              }
+              onChange={(e) => handleFunctionParamsChange(index, { ...func.params, fileName: e.target.value })}
             />
           </label>
         );
@@ -219,11 +226,7 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
             <br />
             <label>
               Название компании:
-              <input
-                type="text"
-                value={companyName}
-                onChange={(e) => handleChange('companyName', e.target.value)}
-              />
+              <input type="text" value={companyName} onChange={(e) => handleChange('companyName', e.target.value)} />
             </label>
           </div>
           <div>
@@ -239,11 +242,7 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
           <div>
             <label>
               Цель ассистента (промт):
-              <input
-                type="text"
-                value={assistantGoal}
-                onChange={(e) => handleChange('assistantGoal', e.target.value)}
-              />
+              <input type="text" value={assistantGoal} onChange={(e) => handleChange('assistantGoal', e.target.value)} />
             </label>
           </div>
         </>
@@ -264,11 +263,7 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
           <div>
             <label>
               Что должен делать ассистент (вопрос):
-              <input
-                type="text"
-                value={assistantAction}
-                onChange={(e) => handleChange('assistantAction', e.target.value)}
-              />
+              <input type="text" value={assistantAction} onChange={(e) => handleChange('assistantAction', e.target.value)} />
             </label>
           </div>
           <div>
@@ -277,7 +272,14 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
               <input
                 type="text"
                 value={reminderText}
-                onChange={(e) => handleChange('reminder', { ...data.params.reminder, text: e.target.value })}
+                onChange={(e) => {
+                  const reminder = { 
+                    ...data.params.reminder, 
+                    text: e.target.value, 
+                    time: data.params.reminder?.time ?? '' // or any default value like '12:00'
+                  };
+                  handleChange('reminder', reminder);
+                }}
               />
             </label>
           </div>
@@ -287,18 +289,21 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
               <input
                 type="text"
                 value={reminderTime}
-                onChange={(e) => handleChange('reminder', { ...data.params.reminder, time: e.target.value })}
+                onChange={(e) => {
+                  const reminder = { 
+                    ...data.params.reminder, 
+                    text: data.params.reminder?.text ?? '', 
+                    time: e.target.value,// or any default value like '12:00'
+                  };
+                  handleChange('reminder', reminder);
+                }}
               />
             </label>
           </div>
           <div>
             <label>
               Сохранить в CRM:
-              <input
-                type="checkbox"
-                checked={saveToCRM}
-                onChange={(e) => handleChange('saveToCRM', e.target.checked)}
-              />
+              <input type="checkbox" checked={saveToCRM} onChange={(e) => handleChange('saveToCRM', e.target.checked)} />
             </label>
           </div>
           {additionalFunctions.map((func, index) => (
@@ -312,20 +317,6 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
                 />
               </label>
               {func.functionName && renderFunctionParamsFields(func, index)}
-              {index > 0 && (
-                <Select
-                  options={nodes
-                    .filter(n => n.id !== id)
-                    .map(n => ({ value: n.id, label: `Шаг ${n.id}` }))}
-                  onChange={(option) => {
-                    const prevNodeId = option?.value || '';
-                    handleChange('additionalFunctions', additionalFunctions.map((f, i) => (
-                      i === index ? { ...f, linkedNodeId: prevNodeId } : f
-                    )));
-                  }}
-                  placeholder="Связать с предыдущим шагом"
-                />
-              )}
             </div>
           ))}
         </>
@@ -343,10 +334,8 @@ const DecisionTree: NextPage = () => {
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
 
-  const onNodesChange = (changes: NodeChange[]) =>
-    setNodes((nds) => applyNodeChanges(changes, nds));
-  const onEdgesChange = (changes: EdgeChange[]) =>
-    setEdges((eds) => applyEdgeChanges(changes, eds));
+  const onNodesChange = (changes: NodeChange[]) => setNodes((nds) => applyNodeChanges(changes, nds));
+  const onEdgesChange = (changes: EdgeChange[]) => setEdges((eds) => applyEdgeChanges(changes, eds));
   const onConnect = (params: Edge | Connection) => setEdges((eds) => addEdge(params, eds));
 
   const addNode = (e: MouseEvent) => {
@@ -384,6 +373,7 @@ const DecisionTree: NextPage = () => {
       edges,
       prompt: generatePrompt(nodes),
     };
+    console.log(generatePrompt(nodes));
     try {
       console.log(payload);
       // const response = await fetch('/api/decision-tree', {
@@ -418,10 +408,10 @@ const DecisionTree: NextPage = () => {
       const { stepDescription, assistantAction, reminder, additionalFunctions } = step.data.params;
       prompt += `\nШаг ${index + 1}:\nОписание шага: ${stepDescription}\nДействие ассистента: ${assistantAction}\n`;
       if (reminder) {
-        prompt += `Напоминание: ${reminder.text}, через ${reminder.time} минут\n`;
+        prompt += `отправь напоминание: через ${reminder.time} минут\n с текстом - ${reminder.text} `;
       }
-      additionalFunctions.forEach((func: { functionName: string; params: any }, idx: number) => {
-        prompt += `Функция ${idx + 1}: ${func.functionName}, параметры: ${JSON.stringify(func.params)}\n`;
+      additionalFunctions?.forEach((func, idx) => {
+        prompt += `вызови функцию ${idx + 1}: ${func.functionName}, параметры: ${JSON.stringify(func.params)}\n`;
       });
     });
 

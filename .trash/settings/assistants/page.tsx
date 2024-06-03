@@ -1,7 +1,7 @@
 import AsistantItem from '@/components/assistant/assistant-item'
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
-import { redirectToSignIn } from '@clerk/nextjs'
+
 import { redirect } from 'next/navigation'
 
 import { useModal } from '@/hooks/use-modal-store'
@@ -11,7 +11,8 @@ const AssistantsPage = async () => {
 	const profile = await currentProfile()
 
 	if (!profile) {
-		redirectToSignIn()
+		return redirect('/api/auth/signin')
+
 	}
 
 	const assistants = await db.assistant.findMany({

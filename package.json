@@ -81,6 +81,7 @@
 		"eslint-config-next": "latest",
 		"gojs": "^3.0.3",
 		"gojs-react": "^1.1.2",
+		"html-loader": "^5.0.0",
 		"http-proxy-middleware": "^2.0.6",
 		"postcss": "latest",
 		"prisma": "^5.9.1",

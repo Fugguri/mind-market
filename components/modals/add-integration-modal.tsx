@@ -30,7 +30,7 @@ import { Button } from '@/components/ui/button'
 import { FileUpload } from '@/components/file-upload'
 import { ModalType, useModal } from '@/hooks/use-modal-store'
 import EmptyPage from '../mics/empty'
-import IntegrationItem from '../../trash/components/integrations/integration-item'
+import IntegrationItem from '../integration-item'
 
 
 export const AddIntegrationModal = () => {

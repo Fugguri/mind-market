@@ -14,7 +14,7 @@ import { AddJivoModal } from '../modals/integrations/jivo-modal'
 import { AddIntegrationModal } from '../modals/add-integration-modal'
 import AddASsistantsSelectionModal from '../modals/add-assistants-selection-modal'
 import AddWebPageAssistantItem from '../modals/add-web-page-assistant'
-import AddSmartAssistantItem from '../modals/add-smart-assistant'
+// import AddSmartAssistantItem from '@/modals/add-smart-assistant'
 // import { CreateIntegrationModal } from "@/components/modals/create-integration-modal";
 
 export const ModalProvider = () => {
@@ -44,7 +44,7 @@ export const ModalProvider = () => {
 			<AddIntegrationModal/>
 			<AddASsistantsSelectionModal/>
 			<AddWebPageAssistantItem/>
-			<AddSmartAssistantItem/>
+			{/* <AddSmartAssistantItem/> */}
 		</>
 	)
 }

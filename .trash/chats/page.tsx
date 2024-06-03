@@ -1,5 +1,5 @@
 import { currentProfile } from "@/lib/current-profile";
-import { redirectToSignIn } from "@clerk/nextjs";
+
 import { redirect } from "next/navigation";
 
 const ChatPage = async () => {
