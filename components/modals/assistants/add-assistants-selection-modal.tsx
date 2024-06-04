@@ -1,6 +1,6 @@
 import { useModal } from "@/hooks/use-modal-store"
 import { useParams } from "next/navigation"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription} from "../../ui/dialog"
 import { Button } from "../../ui/button"
 import { BtnFilledIcon } from "../../buttons"
