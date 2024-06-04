@@ -114,6 +114,7 @@ model Assistant {
   settings     String
   type         AssistantType @default(BASE)
   webSitesUrls String[]
+  files        String[]
   imageUrl     String?
   use_count    Int           @default(0)
   access_token String        @default(uuid())

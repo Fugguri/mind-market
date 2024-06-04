@@ -63,8 +63,10 @@ const AddDocumentAssistantItem = () => {
   const onSubmit = async (values: FormData) => {
     console.log("Submitting form with values: ", values);
     try {
+      
       const formData = new FormData();
-      // formData.append('projectId', projectId);
+      // @ts-ignore
+      formData.append('projectId', projectId);
       formData.append('name', values.name);
       formData.append('settings', values.settings);
       formData.append('comment', values.comment || '');
@@ -73,11 +75,7 @@ const AddDocumentAssistantItem = () => {
         formData.append(`files[${index}]`, file);
       });
 
-      await axios.post('/api/assistants/files', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
+      await axios.post('/api/assistants/documents',formData )
       console.log("Form submitted successfully");
       form.reset();
       onClose();
