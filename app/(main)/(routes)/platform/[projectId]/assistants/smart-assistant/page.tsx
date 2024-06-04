@@ -22,6 +22,7 @@ import {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { BtnOutlineIcon } from '@/components/buttons';
+import { Input } from '@/components/ui/input';
 
 // Определение типов для параметров и данных узлов
 interface CustomNodeData {
