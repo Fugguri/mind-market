@@ -263,7 +263,7 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
       ) : (
         <>
           <div>
-            <p> Шаг - {id-1}</p>
+            <p> Шаг - {Number(id)-1}</p>
             <br />
             <label>
               Описание шага:
