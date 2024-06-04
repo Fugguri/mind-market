@@ -30,7 +30,7 @@ export async function POST(req: Request) {
         type:AssistantType.DOCUMENTS,
         settings,
         comment,
-        Files:files
+        files:files
       },
     });
 
