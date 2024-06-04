@@ -12,7 +12,14 @@ const AddASsistantsSelectionModal = () => {
 	const isModalOpen = isOpen && type === 'addAssistansSelection'
 
 	const projectId = data.projectId
-	
+
+	const redirectToSmartAssistant = () => {
+										
+			onClose()
+			router.push(`/platform/${params.projectId}/assistants/smart-assistant/`);
+		
+	}
+
     return ( 
 		<div>
 
@@ -29,10 +36,8 @@ const AddASsistantsSelectionModal = () => {
 						<div  className=' items-center align-middle font-roboto ml-15'>
 							<div className=' m-10 p-10 align-middle items-center '>
 								<BtnFilledIcon variant='edit'  
-								onClick={()=> router.push(`/platform/${params.projectId}/assistants/smart-assistant/`)
+								onClick={()=> redirectToSmartAssistant()} 
 									// onOpen("addSmartAssistant",{projectId:projectId})
-									
-								} 
 								text='Умный ассистент'/>
                                 <BtnFilledIcon variant='edit' onClick={()=> onOpen("addWebPageAssistant",{projectId:projectId})} text='Асситент для работы со страницами сайта'/>
 								<BtnFilledIcon variant='edit' onClick={()=> onOpen('addAssistant',{projectId:projectId})} text='Базовый ассистент'/>
