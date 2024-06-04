@@ -31,7 +31,7 @@ const AddASsistantsSelectionModal = () => {
 								<BtnFilledIcon variant='edit' onClick={()=> onOpen("addSmartAssistant",{projectId:projectId})} text='Умный ассистент'/>
                                 <BtnFilledIcon variant='edit' onClick={()=> onOpen("addWebPageAssistant",{projectId:projectId})} text='Асситент для работы со страницами сайта'/>
 								<BtnFilledIcon variant='edit' onClick={()=> onOpen('addAssistant',{projectId:projectId})} text='Базовый ассистент'/>
-                                <BtnFilledIcon variant='edit' onClick={()=> onOpen("addWebPageAssistant",{projectId:projectId})} text='Ассистент для работы с документами'/>
+                                <BtnFilledIcon variant='edit' onClick={()=> onOpen('addDocumentsAssistant',{projectId:projectId})} text='Ассистент для работы с документами'/>
 							</div>
 							</div>
 						</DialogDescription>
