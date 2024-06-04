@@ -188,7 +188,7 @@ const AddWebPageAssistantItem = () => {
                                     </Button>
                                 </div>
                             ))}
-                            <Button type='button' disabled={isLoading} onClick={() => append('')}>
+                            <Button type='button' disabled={isLoading} onClick={() => append()}>
                                 Добавить ссылку
                             </Button>
                         </div>
