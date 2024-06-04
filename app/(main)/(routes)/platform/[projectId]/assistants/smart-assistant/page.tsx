@@ -149,7 +149,7 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
           <>
             <label>
               Текст:
-              <input
+              <Input
                 type="text"
                 value={func.params.text || ''}
                 onChange={(e) => handleFunctionParamsChange(index, { ...func.params, text: e.target.value })}
@@ -157,7 +157,7 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
             </label>
             <label>
               Таймаут:
-              <input
+              <Input
                 type="text"
                 value={func.params.time || ''}
                 onChange={(e) => handleFunctionParamsChange(index, { ...func.params, time: e.target.value })}
@@ -169,7 +169,7 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
         return (
           <label>
             Имя файла:
-            <input
+            <Input
               type="text"
               value={func.params.fileName || ''}
               onChange={(e) => handleFunctionParamsChange(index, { ...func.params, fileName: e.target.value })}
@@ -180,7 +180,7 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
         return (
           <label>
             Имя файла:
-            <input
+            <Input
               type="text"
               value={func.params.fileName || ''}
               onChange={(e) => handleFunctionParamsChange(index, { ...func.params, fileName: e.target.value })}
@@ -226,13 +226,13 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
             <br />
             <label>
               Название компании:
-              <input type="text" value={companyName} onChange={(e) => handleChange('companyName', e.target.value)} />
+              <Input type="text" value={companyName} onChange={(e) => handleChange('companyName', e.target.value)} />
             </label>
           </div>
           <div>
             <label>
               Описание компании:
-              <input
+              <Input
                 type="text"
                 value={companyDescription}
                 onChange={(e) => handleChange('companyDescription', e.target.value)}
@@ -242,7 +242,7 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
           <div>
             <label>
               Цель ассистента (промт):
-              <input type="text" value={assistantGoal} onChange={(e) => handleChange('assistantGoal', e.target.value)} />
+              <Input type="text" value={assistantGoal} onChange={(e) => handleChange('assistantGoal', e.target.value)} />
             </label>
           </div>
         </>
@@ -253,7 +253,7 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
             <br />
             <label>
               Описание шага:
-              <input
+              <Input
                 type="text"
                 value={stepDescription}
                 onChange={(e) => handleChange('stepDescription', e.target.value)}
@@ -263,13 +263,13 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
           <div>
             <label>
               Что должен делать ассистент (вопрос):
-              <input type="text" value={assistantAction} onChange={(e) => handleChange('assistantAction', e.target.value)} />
+              <Input type="text" value={assistantAction} onChange={(e) => handleChange('assistantAction', e.target.value)} />
             </label>
           </div>
           {/* <div>
             <label>
               Напоминание текст:
-              <input
+              <Input
                 type="text"
                 value={reminderText}
                 onChange={(e) => {
@@ -286,7 +286,7 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
           <div>
             <label>
               Напоминание минуты:
-              <input
+              <Input
                 type="text"
                 value={reminderTime}
                 onChange={(e) => {
@@ -303,7 +303,7 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
           <div>
             <label>
               Сохранить в CRM:
-              <input type="checkbox" checked={saveToCRM} onChange={(e) => handleChange('saveToCRM', e.target.checked)} />
+              <Input type="checkbox" checked={saveToCRM} onChange={(e) => handleChange('saveToCRM', e.target.checked)} />
             </label>
           </div>
           {additionalFunctions.map((func, index) => (

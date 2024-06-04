@@ -36,7 +36,7 @@ type FormData = z.infer<typeof formSchema>;
 
 const AddWebPageAssistantItem = () => {
   const router = useRouter();
-  const params = useParams();
+
     
   const { isOpen, onClose, type, data } = useModal();
   const isModalOpen = isOpen && type === 'addWebPageAssistant';

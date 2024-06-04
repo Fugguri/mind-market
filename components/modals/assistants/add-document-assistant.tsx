@@ -56,8 +56,9 @@ const AddDocumentAssistantItem = () => {
 
   const onDrop = (acceptedFiles: File[]) => {
     acceptedFiles.forEach((file) => {
-      append(file);
-      console.log(file)
+      // @ts-ignore
+      append(file.path);
+      
     });
   };
 
@@ -73,7 +74,7 @@ const AddDocumentAssistantItem = () => {
       formData.append('comment', values.comment || '');
 
       values.files.forEach((file, index) => {
-        formData.append(`files[${index}]`, file.path);
+        formData.append(`files[${index}]`, file);
       });
       console.log(values.files)
       await axios.post('/api/assistants/documents',formData )
@@ -176,9 +177,9 @@ const AddDocumentAssistantItem = () => {
                     <FormControl>
                       
                         
-                      <Input 
+                      <input 
                         disabled
-                        className='bg-white-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0'
+                        className='bg-transparent-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0'
                         value={field.path}
                       />
                     </FormControl>
