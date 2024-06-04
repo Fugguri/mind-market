@@ -61,6 +61,7 @@ const AddWebPageAssistantItem = () => {
     });
 
     const { fields, append, remove } = useFieldArray({
+        // @ts-ignore
         name: "urls",
         control: form.control,
     });
