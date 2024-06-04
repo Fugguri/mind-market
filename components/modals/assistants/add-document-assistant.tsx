@@ -74,7 +74,7 @@ const AddDocumentAssistantItem = () => {
       values.files.forEach((file, index) => {
         formData.append(`files[${index}]`, file);
       });
-
+      console.log(values.files)
       await axios.post('/api/assistants/documents',formData )
       console.log("Form submitted successfully");
       form.reset();
