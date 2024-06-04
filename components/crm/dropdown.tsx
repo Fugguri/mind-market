@@ -1,7 +1,8 @@
 import { BtnIconOnly } from "../buttons";
 import * as React from "react";
 import { Popper } from "@mui/base/Popper";
-import { Avatar } from "@nextui-org/react";
+import { Avatar } from '@/components/ui/avatar';
+import { LogOutButton } from "@/components/auth";
 
 export function DropdownIcon(prop: { icon: string }) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -23,7 +24,7 @@ export function DropdownIcon(prop: { icon: string }) {
       />
       <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom-end">
         <div className="flex flex-col p-[1rem] bg-white text-black mt-[1rem]">
-          The content of the Dropdown.
+          <LogOutButton/>
         </div>
       </Popper>
     </div>
@@ -42,7 +43,7 @@ export function DropdownAvatar(prop: { src: string }) {
 
   return (
     <div>
-      {/* <Avatar src={prop.src} aria-describedby={id} onClick={handleClick} /> */}
+      {/* <Avatar res={prop.src}  onClick={handleClick} /> */}
       <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom-end">
         <div className="flex flex-col p-[1rem] bg-white text-black mt-[1rem]">
           The content of the Dropdown.

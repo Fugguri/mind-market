@@ -23,6 +23,7 @@ import {
 import 'reactflow/dist/style.css';
 import { BtnOutlineIcon } from '@/components/buttons';
 import { Input } from '@/components/ui/input';
+import Dropzone from 'react-dropzone';
 
 // Определение типов для параметров и данных узлов
 interface CustomNodeData {
@@ -143,6 +144,14 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
     handleChange('additionalFunctions', updatedFunctions);
   };
 
+  const onDrop = (acceptedFiles: File[]) => {
+    acceptedFiles.forEach((file) => {
+      // @ts-ignore
+      append(file.path);
+      
+    });
+  };
+
   const renderFunctionParamsFields = (func: { functionName: string; params: Record<string, any> }, index: number) => {
     switch (func.functionName) {
       case 'sendReminder':
@@ -170,11 +179,14 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
         return (
           <label>
             Имя файла:
-            <Input
-              type="text"
-              value={func.params.fileName || ''}
-              onChange={(e) => handleFunctionParamsChange(index, { ...func.params, fileName: e.target.value })}
-            />
+            <Dropzone onDrop={onDrop} accept={{ "audio/*": [".mp4", ".waw", ".mp3"] }} multiple={true} maxSize={5000000}>
+                    {({ getRootProps, getInputProps }) => (
+                      <div {...getRootProps({ className: 'p-3 mb-4 flex flex-col items-center justify-center w-full rounded-md cursor-pointer border border-[#e2e8f0]' })}>
+                        <input {...getInputProps()} />
+                        <p>Добавьте файлы</p>
+                      </div>
+                    )}
+              </Dropzone>
           </label>
         );
       case 'sendVideo':
