@@ -1,12 +1,15 @@
 import { currentProfile } from '@/lib/current-profile';
 import { db } from '@/lib/db';
+import { AssistantType } from '@prisma/client';
+
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
+  console.log('handle webpage assistant creation')
   try {
-    const { projectId, name, imageUrl, settings, comment } = await req.json();
+    const { projectId, name, urls, settings, comment } = await req.json();
 
-    console.log('Received data:', { projectId, name, imageUrl, settings, comment });
+    console.log('Received data:', { projectId, name, urls, settings, comment });
 
     const profile = await currentProfile();
     if (!profile) {
@@ -24,9 +27,10 @@ export async function POST(req: Request) {
       data: {
         projectId:project.id,
         name,
+        type:AssistantType.WEBPAGE,
         settings,
         comment,
-        imageUrl,
+        webSitesUrls:urls
       },
     });
 

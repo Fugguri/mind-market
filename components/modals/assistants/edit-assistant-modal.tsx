@@ -3,7 +3,7 @@
 import axios from 'axios'
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
-import { useParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import {
@@ -13,7 +13,7 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '../ui/form'
+} from '../../ui/form'
 
 import {
 	Dialog,
@@ -29,6 +29,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { FileUpload } from '@/components/file-upload'
 import { useModal } from '@/hooks/use-modal-store'
+import { useEffect } from 'react'
 
 const formSchema = z.object({
 	name: z.string().min(1, {
@@ -37,19 +38,23 @@ const formSchema = z.object({
 	settings: z.string().min(1, {
 		message: 'Введите промт для настройки ассистента',
 	}),
-	comment: z.string().min(0, {
-		message: 'Комментарий к этому ассистенту.',
+	comment: z.string().min(1, {
+		message: 'Комментарий к этому ассистенку.',
 	}),
-	imageUrl: z.string(),
+	imageUrl: z.string().min(1, {
+		message: 'Изображение',
+	}),
 })
 
-export const CreateAssistantModal = () => {
-	const router = useRouter()
-	const params = useParams()
-
+export const EditAssistantModal = () => {
 	const { isOpen, onClose, type, data } = useModal()
-	const isModalOpen = isOpen && type === 'createServer'
-	const projectId = data.projectId
+
+	const router = useRouter()
+
+	const isModalOpen = isOpen && type === 'editAssistant'
+
+	const { assistant } = data
+
 	const form = useForm({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -59,19 +64,30 @@ export const CreateAssistantModal = () => {
 			imageUrl: '',
 		},
 	})
+	useEffect(() => {
+		if (assistant) {
+			form.setValue('name', assistant.name ? assistant.name : 'Default')
+			form.setValue(
+				'settings',
+				assistant.settings ? assistant.settings : 'Default'
+			)
+			form.setValue(
+				'comment',
+				assistant.comment ? assistant.comment : 'Default'
+			)
+			form.setValue(
+				'imageUrl',
+				assistant.imageUrl ? assistant.imageUrl : 'Default'
+			)
+		}
+	}, [assistant, form])
 
 	const isLoading = form.formState.isSubmitting
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		try {
-			const { name, imageUrl, settings, comment } = values
-			await axios.post('/api/assistants', {
-				projectId,
-				name,
-				settings,
-				comment,
-				imageUrl:'',
-			})
+			await axios.patch(`/api/assistants/${assistant?.id}`, values)
+
 			form.reset()
 			router.refresh()
 			onClose()
@@ -101,7 +117,7 @@ export const CreateAssistantModal = () => {
 					<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
 						<div className='space-y-8 px-6'>
 							<div className='flex items-center justify-center text-center'>
-								{/* <FormField
+								<FormField
 									control={form.control}
 									name='imageUrl'
 									render={({ field }) => {
@@ -117,7 +133,7 @@ export const CreateAssistantModal = () => {
 											</FormItem>
 										)
 									}}
-								/> */}
+								/>
 							</div>
 							<FormField
 								control={form.control}
@@ -197,7 +213,7 @@ export const CreateAssistantModal = () => {
 						</div>
 						<DialogFooter className='bg-gray-100 px-6 py-4'>
 							<Button variant='primary' disabled={isLoading}>
-								Добавить
+								Обновить
 							</Button>
 						</DialogFooter>
 					</form>

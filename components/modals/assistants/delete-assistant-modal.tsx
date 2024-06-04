@@ -20,9 +20,10 @@ export const DeleteAssistantModal = () => {
   const router = useRouter();
 
   const isModalOpen = isOpen && type === "deleteAssistant";
-  const { assistant } = data;
+  const { assistant, projectId } = data;
 
   const [isLoading, setIsLoading] = useState(false);
+
 
   const onClick = async () => {
     try {
@@ -32,7 +33,6 @@ export const DeleteAssistantModal = () => {
 
       onClose();
       router.refresh();
-      router.push("/");
     } catch (error) {
       console.log(error);
     } finally {

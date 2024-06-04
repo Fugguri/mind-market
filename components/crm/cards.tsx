@@ -3,6 +3,7 @@ import { BtnUnderlineIcon, BtnOutlineIcon, BtnFilledIcon } from "../buttons";
 import styles from "@/styles/components/CardsCRM.module.css";
 import { Platforms, ProjectTypes } from "../hooks/enums";
 import { useModal } from "@/hooks/use-modal-store";
+import { Assistant } from "@prisma/client";
 
 export function DealCard(prop: {
   title: string;
@@ -54,6 +55,8 @@ export function AssistantCard(prop: {
   name: string;
   platform: string | string[];
   id?: string;
+  assistant?: Assistant,
+  projectId?:string
 }) {
 
   
@@ -70,19 +73,20 @@ export function AssistantCard(prop: {
       <div>
         <h3 className="mt-[-.5rem] flex flex-row justify-between items-center">
           <label>{prop.name}</label>
-          <button   onClick={()=>onOpen('deleteAssistant',{assistant_id:prop.id})}className="material-symbols-outlined">close</button>
+          <button   onClick={()=>onOpen('deleteAssistant',{assistant:prop.assistant})}className="material-symbols-outlined">close</button>
         </h3>
-        <h4>Внедрён: {prop.platform}</h4>
+       <h4>Внедрён: {prop.platform??'нет'}</h4>
+       <h4>Тип: {prop.assistant?.type}</h4>
       </div>
       <div
         className="flex flex-row flex-wrap gap-[.5rem]"
         style={{ filter: "invert(1)" }}
       >
         <div className="w-[100%]">
-          <BtnFilledIcon onClick={()=>onOpen('editAssistant',{assistant_id:prop.id})} text="Подробнее" />
+          <BtnFilledIcon onClick={()=>onOpen('deleteAssistant',{assistant_id:prop.id,projectId:prop.projectId})} text="Подробнее" />
         </div>
         <div className="w-[100%]">
-          <BtnOutlineIcon onClick={()=>onOpen('editAssistant',{assistant_id:prop.id})} text="Редактировать" />
+          <BtnOutlineIcon onClick={()=>onOpen('editAssistant',{assistant_id:prop.id,projectId:prop.projectId})} text="Редактировать" />
         </div>
       </div>
     </div>

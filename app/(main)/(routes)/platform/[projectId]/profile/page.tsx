@@ -2,7 +2,9 @@
 import { Pane, PanesContainer } from '@/components/crm/panes'
 import { PaneTitle } from '@/components/crm/pane-content'
 import  * as p from '@/components/hooks/userInfo'
-import { Avatar } from '@nextui-org/react'
+// import { Avatar } from '@nextui-org/react'
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
 import { BtnOutlineIcon } from '@/components/buttons'
 import { useModal } from '@/hooks/use-modal-store'
 import { redirect } from 'next/navigation'
@@ -19,12 +21,13 @@ export default async function Page() {
 		<>
 			<Pane width='45%' height='unset' direction='column' justify='unset'>
 				<PaneTitle>Основная информация</PaneTitle>
-				<div className='flex flex-col gap-[2rem] items-center justify-between h-[100%]'>
+				<div className='flex flex-col gap-[2rem] items-center  h-[100%]'>
 					<div className='flex justify-center'>
-						<Avatar
-							src={p.UserPicture}
-							className='w-[12rem] h-[12rem] border-white border-[6px]'
-						/>
+					<Avatar className='w-[12rem] h-[12rem] border-white border-[6px]'>
+						<AvatarImage  src={p.UserPicture} />
+						<AvatarFallback>Image</AvatarFallback>
+					</Avatar>
+
 					</div>
 
 					{/* <div className='w-[20rem]'>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as z from 'zod';
-import { useForm } from 'react-hook-form';
+import { useForm, useFieldArray } from 'react-hook-form';
 import { useParams, useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
@@ -12,7 +12,7 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from '../ui/form';
+} from '../../ui/form';
 import {
     Dialog,
     DialogTitle,
@@ -56,53 +56,40 @@ const AddWebPageAssistantItem = () => {
             name: '',
             settings: '',
             comment: '',
-            urls: [''], // Инициализируем массив строк
+            urls: [''],
         },
     });
 
-    const [urls, setUrls] = useState(['']);
+    const { fields, append, remove } = useFieldArray({
+        name: "urls",
+        control: form.control,
+    });
 
     const isLoading = form.formState.isSubmitting;
 
     const onSubmit = async (values: FormData) => {
+        console.log("Submitting form with values: ", values);
         try {
-            const { name, settings, comment } = values;
-            await axios.post('/api/assistants/wep-page-assistant', {
+            const { name, settings, comment, urls } = values;
+            await axios.post('/api/assistants/webpage', {
                 projectId,
                 name,
                 settings,
                 comment,
                 urls,
             });
+            console.log("Form submitted successfully");
             form.reset();
-            router.refresh();
             onClose();
+            router.refresh();
         } catch (error) {
-            console.log(error);
+            console.error("Error submitting form: ", error);
         }
     };
 
     const handleClose = () => {
         onClose();
         form.reset();
-    };
-
-    const handleAddUrl = () => {
-        setUrls([...urls, '']);
-    };
-
-    const handleUrlChange = (index: number, value: string) => {
-        const newUrls = urls.slice();
-        newUrls[index] = value;
-        setUrls(newUrls);
-    };
-
-    const handleRemoveUrl = (index: number) => {
-        const newUrls = urls.slice();
-        if (newUrls.length > 1) {
-            newUrls.splice(index, 1);
-            setUrls(newUrls);
-        }
     };
 
     return (
@@ -179,8 +166,8 @@ const AddWebPageAssistantItem = () => {
                                     </FormItem>
                                 )}
                             />
-                            {urls.map((url, index) => (
-                                <div key={index} className='flex space-x-2'>
+                            {fields.map((field, index) => (
+                                <div key={field.id} className='flex space-x-2'>
                                     <FormItem className='flex-1'>
                                         <FormLabel className='uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70'>
                                             Ссылка на страницу сайта
@@ -189,19 +176,18 @@ const AddWebPageAssistantItem = () => {
                                             <Input
                                                 disabled={isLoading}
                                                 className='bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0'
-                                                placeholder='Добавьте ссылку'
-                                                value={url}
-                                                onChange={(e) => handleUrlChange(index, e.target.value)}
+                                                placeholder='Добавьте ссылку на страницу'
+                                                {...form.register(`urls.${index}` as const)}
                                             />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage>{form.formState.errors.urls?.[index]?.message}</FormMessage>
                                     </FormItem>
-                                    <Button type='button' disabled={isLoading} onClick={() => handleRemoveUrl(index)} className='self-end'>
+                                    <Button type='button' disabled={isLoading} onClick={() => remove(index)} className='self-end'>
                                         Удалить
                                     </Button>
                                 </div>
                             ))}
-                            <Button type='button' disabled={isLoading} onClick={handleAddUrl}>
+                            <Button type='button' disabled={isLoading} onClick={() => append('')}>
                                 Добавить ссылку
                             </Button>
                         </div>
@@ -214,7 +200,7 @@ const AddWebPageAssistantItem = () => {
                 </Form>
             </DialogContent>
         </Dialog>
-    )
+    );
 };
 
 export default AddWebPageAssistantItem;
