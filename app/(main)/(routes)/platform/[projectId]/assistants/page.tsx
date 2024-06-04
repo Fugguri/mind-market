@@ -54,7 +54,6 @@ const AssistantsPage = async ({params}:AssistantsPageProps) => {
     }
   }
 
-  console.log("assistants is ",params,assistants)
   return (
     <>
       <Pane height="100%" width="100%" direction="column" justify="unset">
