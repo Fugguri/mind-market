@@ -453,8 +453,9 @@ const DecisionTree: NextPage = () => {
   }, [nodes, selectedNodeId]);
 
   return (
-    
-    <Dialog style={{ width: '80vw', height: 'calc(90vh - 50px)' }} open={isModalOpen} onOpenChange={()=> onClose()}>
+    <div style={{ width: '80vw', height: 'calc(90vh - 50px)' }}>
+
+    <Dialog  open={isModalOpen} onOpenChange={()=> onClose()}>
     <DialogContent >
 
     
@@ -489,6 +490,7 @@ const DecisionTree: NextPage = () => {
     </ReactFlowProvider>
 </DialogContent>
 </Dialog>
+</div>
 
   );
 };
