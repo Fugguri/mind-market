@@ -16,7 +16,7 @@ import AddASsistantsSelectionModal from '../modals/assistants/add-assistants-sel
 import AddWebPageAssistantItem from '../modals/assistants/add-web-page-assistant'
 import DecisionTree from '../modals/assistants/add-smart-assistant'
 import AddDocumentAssistantItem from '../modals/assistants/add-document-assistant'
-// import AddSmartAssistantItem from '@/modals/add-smart-assistant'
+// import AddSmartAssistantItem from '@/modals/assistants/add-smart-assistant'
 // import { CreateIntegrationModal } from "@/components/modals/create-integration-modal";
 
 export const ModalProvider = () => {
