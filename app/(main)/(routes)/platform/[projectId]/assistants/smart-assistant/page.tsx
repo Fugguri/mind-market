@@ -266,7 +266,7 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
               <input type="text" value={assistantAction} onChange={(e) => handleChange('assistantAction', e.target.value)} />
             </label>
           </div>
-          <div>
+          {/* <div>
             <label>
               Напоминание текст:
               <input
@@ -299,7 +299,7 @@ const CustomNode: React.FC<NodeProps<CustomNodeData>> = ({ id, data }) => {
                 }}
               />
             </label>
-          </div>
+          </div> */}
           <div>
             <label>
               Сохранить в CRM:
