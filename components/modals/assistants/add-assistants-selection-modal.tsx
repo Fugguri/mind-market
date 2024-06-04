@@ -29,7 +29,7 @@ const AddASsistantsSelectionModal = () => {
 						<div  className=' items-center align-middle font-roboto ml-15'>
 							<div className=' m-10 p-10 align-middle items-center '>
 								<BtnFilledIcon variant='edit'  
-								onClick={()=> router.push(`/platform/${params.projectId}/assistant/smart-assistant/`)
+								onClick={()=> router.push(`/platform/${params.projectId}/assistants/smart-assistant/`)
 									// onOpen("addSmartAssistant",{projectId:projectId})
 									
 								} 
