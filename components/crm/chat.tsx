@@ -4,13 +4,29 @@ import { Avatar } from "@nextui-org/react";
 import { BtnIconOnly } from "../../components/buttons";
 import Link from "next/link";
 
-export function ChatListItem(prop: {
+interface ChatListItemProps {
+
+  prop: {
   name: string;
   messenger: string;
   img: string;
   id: string;
+}
+}
+interface ChatListItemParams {
+
+params: {
+  projectId: string,
+  chatId: string
+},}
+export function ChatListItem(  prop: {
+  name: string;
+  messenger: string;
+  projectId:string;
+  img: string;
+  id: string;
 }) {
-  const Href = `/crm/chat/${prop.id}`;
+  const Href = `/platform/${prop.projectId}/chat/${prop.id}`;
   return (
     <Link
       className="flex flex-row w-[100%] items-center justify-between"

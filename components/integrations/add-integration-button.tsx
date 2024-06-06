@@ -71,7 +71,6 @@ const IntegrationPage = (props: IntegrationsPageProps ) => {
                 <TableCell>Телеграм бот</TableCell>
                 <TableCell>{telegramBot.telegram_id.toString()}</TableCell>
                 <TableCell>Активно</TableCell>
-                <TableCell>Активно</TableCell>
 
                 <TableCell>
                   <div className="flex flex-row gap-[1rem] max-w-[30rem]">
