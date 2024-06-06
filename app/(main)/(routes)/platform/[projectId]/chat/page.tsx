@@ -31,7 +31,11 @@ export default async function ChatPage({params}: ChatPageProps) {
 
   return (
     <>
-      
+      <Pane height="100%" width="30%" direction="column" justify="unset">
+        <PaneTitle>Чаты</PaneTitle>
+        <div className="flex flex-col gap-[1rem] overflow-y-scroll h-[100%]">
+        </div>
+      </Pane>
       
     </>
   );

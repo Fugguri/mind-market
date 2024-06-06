@@ -44,8 +44,11 @@ export default async function DashboardLayout({	children,
         <PaneTitle>Чаты</PaneTitle>
         <div className="flex flex-col gap-[1rem] overflow-y-scroll h-[100%]">
           {chats.map(chat => (
+            <div key={chat.id}>
+
             <ChatListItem id={chat.id}  img="" name={chat.Client.name??""} messenger="Telegram" projectId={projectId}/>
             
+            </div>
           ))}
 
 
