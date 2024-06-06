@@ -105,23 +105,77 @@ enum AssistantType {
   SMART
 }
 
+enum DelayType {
+  SECONDS
+  MINUTES
+  HOURS
+  DAYS
+}
+
+model Reminder {
+  id        String    @id @default(uuid())
+  Step      Step?     @relation(fields: [stepId], references: [id])
+  stepId    String?
+  text      String
+  delay     Int
+  delayType DelayType
+}
+
+model audioMessage {
+  id       String @id @default(uuid())
+  stepId   String
+  step     Step   @relation(fields: [stepId], references: [id])
+  filename String
+}
+
+model videoMessage {
+  id       String @id @default(uuid())
+  stepId   String
+  step     Step   @relation(fields: [stepId], references: [id])
+  filename String
+}
+
+model fileMessage {
+  id       String @id @default(uuid())
+  stepId   String
+  step     Step   @relation(fields: [stepId], references: [id])
+  filename String
+}
+
+model Step {
+  id          String         @id @default(uuid())
+  assistantId String
+  assistant   Assistant      @relation(fields: [assistantId], references: [id])
+  description String
+  goal        String
+  saveLead    Boolean
+  reminder    Reminder[]
+  audio       audioMessage[]
+  video       videoMessage[]
+  file        fileMessage[]
+}
+
 model Assistant {
-  id           String        @id @default(uuid())
-  projectId    String
-  Project      Project       @relation(fields: [projectId], references: [id])
-  name         String
-  comment      String
-  settings     String
-  type         AssistantType @default(BASE)
-  webSitesUrls String[]
-  files        String[]
-  imageUrl     String?
-  use_count    Int           @default(0)
-  access_token String        @default(uuid())
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
-  Integration  Integration[] // Reverse relation
-  Chat         Chat[] // Reverse relation
+  id                 String        @id @default(uuid())
+  projectId          String
+  Project            Project       @relation(fields: [projectId], references: [id])
+  name               String
+  comment            String
+  settings           String
+  type               AssistantType @default(BASE)
+  webSitesUrls       String[]
+  files              String[]
+  companyName        String?
+  companyDescription String?
+  assistantGoal      String?
+  steps              Step[]
+  imageUrl           String?
+  use_count          Int           @default(0)
+  access_token       String        @default(uuid())
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+  Integration        Integration[] // Reverse relation
+  Chat               Chat[] // Reverse relation
 }
 
 // Integration model

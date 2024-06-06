@@ -32,7 +32,8 @@ const ChatMessagesPage = async ({params}: ChatMessagesPageProps) => {
 })
     const messages = await db.message.findMany({where:{
         chat_id:chatId
-    }})
+    }
+  })
 
     return ( 
         <>
@@ -54,7 +55,7 @@ const ChatMessagesPage = async ({params}: ChatMessagesPageProps) => {
               <Message 
                 key={message.id}
                 text={message.text?? ""}
-                time={message.timestamp.toLocaleDateString()}
+                time={message.timestamp.toLocaleTimeString()}
                 type={message.incoming? Type.in:Type.out}
               />
               ))}
