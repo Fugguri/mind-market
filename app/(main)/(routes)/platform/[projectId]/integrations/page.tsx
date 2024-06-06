@@ -19,7 +19,7 @@ export default  async function Page(params:{projectId:string}) {
 
   return (
     <>
-    <IntegrationPage assistants={assistants} telegramBots={telegramBots}/>
+    <IntegrationPage assistants={assistants} telegramBots={telegramBots} integrations={[]} telegramUserBots={[]}/>
     </>
   );
 }
