@@ -151,6 +151,7 @@ export const AddTgBotModal = () => {
 															<SelectItem
 																key={assistant.name}
 																value={assistant.id}
+																className='bg-black'
 															>
 																{assistant.name}
 															</SelectItem>

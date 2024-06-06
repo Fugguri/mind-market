@@ -25,7 +25,7 @@ interface IntegrationItemProps {
 		modal: ModalType
 		imageUrl: string
 	}
-	// assistants?: Assistant[]
+	assistants?: Assistant[]
 }
 
 const IntegrationItem = (props: IntegrationItemProps) => {
@@ -59,7 +59,7 @@ const IntegrationItem = (props: IntegrationItemProps) => {
 							onClick={() =>
 								onOpen(props.integration.modal, {
 									projectId: props.projectId,
-									// assistants: props.assistants,
+									assistants: props.assistants,
 								})
 							}
 							variant='primary'
