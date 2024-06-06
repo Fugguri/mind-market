@@ -51,7 +51,8 @@ const ChatMessagesPage = async ({params}: ChatMessagesPageProps) => {
             </div>
             <div className="flex flex-col space-y-4 overflow-y-scroll h-[100%] border-b-2 border-[#fefefe52] border-solid">
               {messages.map(message => (
-              <Message
+              <Message 
+                key={message.id}
                 text={message.text?? ""}
                 time={message.timestamp.toISOString()}
                 type={message.incoming? Type.in:Type.out}
