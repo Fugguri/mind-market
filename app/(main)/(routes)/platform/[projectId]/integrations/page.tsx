@@ -5,8 +5,9 @@ import IntegrationPage from "@/components/integrations/add-integration-button";
 
 
 export default  async function Page(params:{projectId:string}) {
-  console.log(params)
+
   const projectId = params.projectId
+  
   const assistants = await db.assistant.findMany({where: {
     projectId
   }})
