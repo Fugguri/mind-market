@@ -54,7 +54,7 @@ const ChatMessagesPage = async ({params}: ChatMessagesPageProps) => {
               <Message 
                 key={message.id}
                 text={message.text?? ""}
-                time={message.timestamp.toISOString()}
+                time={message.timestamp.toLocaleDateString()}
                 type={message.incoming? Type.in:Type.out}
               />
               ))}
