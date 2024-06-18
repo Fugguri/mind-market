@@ -93,9 +93,7 @@ export const AddIntegrationModal = () => {
 	
 	return (
         
-        <Dialog  open={isModalOpen} onOpenChange={()=> onClose()}
-		className='bg-white text-black left-1/2 top-1/2 fixed transform -translate-x-1/2 -translate-y-1/2 w-80vw h-80vh grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 p-10 shadow-lg duration-200 animate-fade-in-0 fade-in-0 zoom-in-95 slide-in-from-left-1/2 slide-in-from-top-[48%] sm:rounded-lg'>
-
+        <Dialog  open={isModalOpen} onOpenChange={()=> onClose()}>
 		<DialogContent className='bg-white text-black left-[50%] top-[50%] overflow-hidden w-80vw h-80vh'>
 					<DialogHeader className=''>
 						<DialogTitle className='text-2xl text-center font-bold'>
