@@ -23,10 +23,10 @@ export default async function Page() {
 				<PaneTitle>Основная информация</PaneTitle>
 				<div className='flex flex-col gap-[2rem] items-center  h-[100%]'>
 					<div className='flex justify-center'>
-					<Avatar className='w-[12rem] h-[12rem] border-white border-[6px]'>
+					{/* <Avatar className='w-[12rem] h-[12rem] border-white border-[6px]'>
 						<AvatarImage  src={p.UserPicture} />
 						<AvatarFallback>Image</AvatarFallback>
-					</Avatar>
+					</Avatar> */}
 
 					</div>
 
