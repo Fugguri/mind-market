@@ -90,7 +90,7 @@ export default async function Page() {
 				</div>
 			</Pane>
 
-			<PanesContainer
+			{/* <PanesContainer
 				width='55%'
 				height='unset'
 				direction='column'
@@ -178,7 +178,7 @@ export default async function Page() {
 						</div>
 					</div>
 				</Pane>
-			</PanesContainer>
+			</PanesContainer> */}
 		</>
 	)
 }

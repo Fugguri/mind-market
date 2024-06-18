@@ -41,13 +41,13 @@ const IntegrationItem = (props: IntegrationItemProps) => {
 					className='flex items-center justify-center text-center 
 			text-muted-foreground'
 				>
-					<div className='relative w-32 h-32'>
-						<Image
+					<div className='relative w-25 h-25'>
+						{/* <Image
 							src={props.integration.imageUrl}
 							alt={props.integration.title}
 							className='rounded-full object-cover'
 							fill
-						/>
+						/> */}
 					</div>
 					<div className='font-bold'>
 						<p>{props.integration.title}</p>

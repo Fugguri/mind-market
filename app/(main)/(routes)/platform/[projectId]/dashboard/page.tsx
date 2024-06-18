@@ -40,7 +40,7 @@ export default function Page() {
         >
           <Pane width="50%" height="unset" direction="row" justify="start">
             <Budget
-              text="Траты CRM"
+              text="CRM"
               month={b.CRM.month}
               budget={b.CRM.budget}
               year={b.CRM.year}
@@ -58,10 +58,10 @@ export default function Page() {
         <Pane width="unset" height="60%" direction="column" justify="start">
           <div className="flex flex-col gap-[.4rem]">
             <PaneTitle>Статистика работы ИИ</PaneTitle>
-            <h4>
+            {/* <h4>
               Новый сервис Mindmarket предоставляет компаниям уникальную
               возможность интегрировать передовые технологии ИИ в свои операции.
-            </h4>
+            </h4> */}
             <div
               // style={{ margin: "-1rem -1.5rem", width: "calc(100% + 3rem)" }}
             >
@@ -89,7 +89,7 @@ export default function Page() {
         >
           <Pane width="100%" height="unset" direction="row" justify="start">
             <Budget
-              text="Интеграции"
+              text="Расход"
               month={b.Integrations.month}
               budget={b.Integrations.budget}
               year={b.Integrations.year}

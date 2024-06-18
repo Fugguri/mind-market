@@ -93,9 +93,10 @@ export const AddIntegrationModal = () => {
 	
 	return (
         
-        <Dialog  open={isModalOpen} onOpenChange={()=> onClose()}>
+        <Dialog  open={isModalOpen} onOpenChange={()=> onClose()}
+		className='bg-white text-black left-1/2 top-1/2 fixed transform -translate-x-1/2 -translate-y-1/2 w-80vw h-80vh grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 p-10 shadow-lg duration-200 animate-fade-in-0 fade-in-0 zoom-in-95 slide-in-from-left-1/2 slide-in-from-top-[48%] sm:rounded-lg'>
 
-		<DialogContent className='bg-white text-black  overflow-hidden'>
+		<DialogContent className='bg-white text-black left-[50%] top-[50%] overflow-hidden w-80vw h-80vh'>
 					<DialogHeader className=''>
 						<DialogTitle className='text-2xl text-center font-bold'>
 							<h1>Выберите ресурс который хотите подключить</h1>
@@ -104,7 +105,7 @@ export const AddIntegrationModal = () => {
 						<div  className=' items-center align-middle font-roboto ml-15'>
 							<div className='flex m-10 p-10 align-middle items-center '>
 								<br></br>
-								<div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 pb-10'>
+								<div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 pb-10'>
 									{integrationsList.map(integration => (
 										<div  key={integration.title}>
 											<IntegrationItem
